@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Management</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <div id="topbarMount"></div>
+
+      <section class="workspace single">
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">System Users</h2>
+              <div class="panel-subtitle">Create and review login accounts</div>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Username</th>
+                  <th>Role</th>
+                  <th>Access</th>
+                  <th>Expiry</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="userTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <aside class="panel">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">Create User</h2>
+              <div class="panel-subtitle">Add a new login account</div>
+            </div>
+          </div>
+          <div class="details">
+            <form id="userForm" class="form-stack">
+              <input class="field" name="name" placeholder="Full name" required />
+              <input class="field" name="username" placeholder="Username" required />
+              <input class="field" name="password" type="password" placeholder="Password" required />
+              <input class="field" name="role" placeholder="Role" value="Operator" />
+              <input class="field" name="expiry" type="date" />
+              <a class="btn btn-muted" href="/access-level.html">Open Access Level Page</a>
+              <button class="btn btn-primary" type="submit">Create User</button>
+              <div class="message" id="userMessage"></div>
+            </form>
+          </div>
+        </aside>
+      </section>
+    </div>
+
+    <script src="/common.js"></script>
+    <script src="/users.js"></script>
+  </body>
+</html>

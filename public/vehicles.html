@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vehicle Management</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <div id="topbarMount"></div>
+
+      <section class="workspace single vehicles-workspace">
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">Vehicle Registry</h2>
+              <div class="panel-subtitle">Add, review, and open tyre or battery management without overlap.</div>
+            </div>
+          </div>
+          <div class="table-wrap vehicle-registry-wrap">
+            <table class="vehicle-registry-table">
+              <thead>
+                <tr>
+                  <th>Vehicle No</th>
+                  <th class="imei-col">GPS IMEI</th>
+                  <th>Label</th>
+                  <th>Driver</th>
+                  <th>Type</th>
+                  <th>Status</th>
+                  <th>Fuel</th>
+                  <th>AdBlue</th>
+                  <th class="battery-serial-col">Battery Serial</th>
+                  <th class="battery-col">Battery</th>
+                  <th class="tyre-col">Tyres</th>
+                  <th class="action-col">Action</th>
+                </tr>
+              </thead>
+              <tbody id="vehicleTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <aside class="panel vehicle-form-panel">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">Add Vehicle</h2>
+              <div class="panel-subtitle">Create a new vehicle record with battery asset details from day one.</div>
+            </div>
+          </div>
+          <div class="details">
+            <form id="vehicleForm" class="form-stack">
+              <input type="hidden" name="vehicleId" />
+              <div class="form-grid vehicle-form-grid">
+                <input class="field" name="vehicle_no" placeholder="Vehicle number" required />
+                <input class="field" name="label" placeholder="Label" required />
+                <input class="field" name="driver" placeholder="Driver name" required />
+                <input class="field" name="driverPhone" placeholder="Driver phone" />
+                <input class="field" name="type" placeholder="Vehicle type" required />
+                <input class="field" id="imeiInput" name="imei" placeholder="AIS 140 GPS IMEI" />
+                <button class="btn btn-secondary" id="fetchGpsBtn" type="button">Fetch GPS Data</button>
+                <input class="field" name="lat" type="number" step="0.0001" placeholder="Latitude" />
+                <input class="field" name="lng" type="number" step="0.0001" placeholder="Longitude" />
+                <input class="field" name="speed" type="number" placeholder="Speed" />
+                <input class="field" name="heading" type="number" placeholder="Heading" />
+                <input class="field" name="fuel" type="number" placeholder="Fuel %" />
+                <input class="field" name="adblue" type="number" placeholder="AdBlue %" />
+                <input class="field" name="externalVoltage" type="number" step="0.1" placeholder="External voltage" />
+                <input class="field" name="batterySerialNumber" placeholder="Battery serial number" />
+                <select class="select" name="batteryAssetStatus">
+                  <option value="healthy">Battery Status: Healthy</option>
+                  <option value="watch">Battery Status: Watch</option>
+                  <option value="critical">Battery Status: Critical</option>
+                  <option value="replacement-due">Battery Status: Replacement Due</option>
+                </select>
+                <select class="select" name="axleConfiguration">
+                  <option value="4x2">4 Tyres | Bolero / Scorpio</option>
+                  <option value="6x4" selected>10 Tyres | 6x4</option>
+                  <option value="12-tyre">12 Tyres</option>
+                  <option value="14-tyre">14 Tyres</option>
+                  <option value="16-tyre">16 Tyres</option>
+                  <option value="18-tyre">18 Tyres</option>
+                  <option value="22-tyre">22 Tyres</option>
+                </select>
+                <select class="select" name="status">
+                  <option value="">Auto Status</option>
+                  <option value="moving">Moving</option>
+                  <option value="idle">Idle</option>
+                  <option value="parked">Parked</option>
+                  <option value="stopped">Stopped</option>
+                  <option value="breakdown">Breakdown</option>
+                  <option value="offline">Offline</option>
+                  <option value="no-gps">No GPS</option>
+                  <option value="disconnected">Disconnected</option>
+                </select>
+                <select class="select" name="ignition">
+                  <option value="false">Ignition Off</option>
+                  <option value="true">Ignition On</option>
+                </select>
+              </div>
+              <div class="device-preview" id="gpsDevicePreview">Enter GPS IMEI to auto-fetch AIS 140 device data.</div>
+              <div class="toolbar">
+                <button class="btn btn-primary" id="vehicleSubmitBtn" type="submit">Add Vehicle</button>
+                <button class="btn btn-secondary hidden" id="cancelVehicleEditBtn" type="button">Cancel Edit</button>
+              </div>
+              <div class="message" id="vehicleMessage"></div>
+            </form>
+          </div>
+        </aside>
+      </section>
+    </div>
+
+    <script src="/common.js"></script>
+    <script src="/vehicles.js"></script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "bdph-tracking",
+  "version": "1.0.0",
+  "description": "Simple BDPH vehicle tracking demo with Express and Socket.IO",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "socket.io": "^4.8.1"
+  }
+}

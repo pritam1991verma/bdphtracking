@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BDPH Battery Protection</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="shell shell-wide">
+      <div id="topbarMount"></div>
+
+      <section class="page-hero battery-hero panel">
+        <div>
+          <span class="hero-kicker">Battery Command</span>
+          <h2>Protect vehicle batteries with live disconnect, low-voltage, and offline watch.</h2>
+          <p class="small">
+            Watch power integrity for every AIS 140 device on the same BDPH system, resolve alerts, and jump directly to the affected location.
+          </p>
+        </div>
+        <div class="battery-hero-glass">
+          <span class="label">Live Battery Pulse</span>
+          <strong id="batteryHeroPulse">Monitoring...</strong>
+          <p class="small" id="batteryHeroMeta">Waiting for battery overview.</p>
+        </div>
+      </section>
+
+      <section class="summary-grid battery-summary-grid" id="batterySummaryGrid"></section>
+
+      <section class="battery-toolbar panel">
+        <input class="search battery-search" id="batteryVehicleSearch" type="search" placeholder="Search vehicle, driver, or phone" />
+        <select class="select battery-filter-select" id="batteryAlertFilter">
+          <option value="all">All Alerts</option>
+          <option value="BATTERY_DISCONNECTED">Battery Disconnected</option>
+          <option value="LOW_VOLTAGE">Low Voltage</option>
+          <option value="DEVICE_OFFLINE">Device Offline</option>
+          <option value="open">Open Only</option>
+          <option value="resolved">Resolved Only</option>
+        </select>
+      </section>
+
+      <section class="battery-grid">
+        <article class="panel battery-alert-panel">
+          <div class="panel-header">
+            <div>
+              <h3 class="panel-title">Live Battery Alerts</h3>
+              <p class="panel-subtitle">Resolve events and open the exact vehicle on the map.</p>
+            </div>
+          </div>
+          <div class="battery-alert-list" id="batteryAlertList"></div>
+        </article>
+
+        <article class="panel battery-map-panel">
+          <div class="panel-header">
+            <div>
+              <h3 class="panel-title">Battery Map</h3>
+              <p class="panel-subtitle">Location-aware power monitoring on the same fleet map.</p>
+            </div>
+          </div>
+          <div id="batteryMap" class="battery-map"></div>
+        </article>
+
+        <article class="panel battery-vehicle-panel">
+          <div class="panel-header">
+            <div>
+              <h3 class="panel-title">Vehicle Battery Status</h3>
+              <p class="panel-subtitle">Normal vs alert state with driver and last signal visibility.</p>
+            </div>
+          </div>
+          <div class="battery-vehicle-list" id="batteryVehicleList"></div>
+        </article>
+      </section>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="/common.js"></script>
+    <script src="/battery.js"></script>
+  </body>
+</html>

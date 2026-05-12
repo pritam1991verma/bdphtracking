@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BDPH Login</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="auth-page">
+      <section class="auth-card">
+        <div class="auth-brand">BDPH Tracking Fleet Access</div>
+        <h1>Sign in to BDPH Tracking World</h1>
+        <p>Use your username and password .</p>
+        <form id="loginForm" class="form-stack">
+          <input id="username" class="field" type="text" placeholder="Username" required />
+          <input id="password" class="field" type="password" placeholder="Password" required />
+          <button class="btn btn-primary" type="submit">Login</button>
+          <div class="message" id="loginMessage"></div>
+          <p>Powered by @BDPH Group .</p>
+        </form>
+      </section>
+    </main>
+    <script src="/common.js"></script>
+    <script src="/login.js"></script>
+  </body>
+</html>

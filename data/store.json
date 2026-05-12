@@ -1,0 +1,6747 @@
+{
+  "vehicles": [
+    {
+      "id": 1,
+      "vehicle_no": "JH05AB1234",
+      "label": "BDPH-01",
+      "driver": "Rakesh Kumar",
+      "type": "School Bus",
+      "imei": "352094081234561",
+      "lat": 22.694099,
+      "lng": 86.152554,
+      "speed": 0,
+      "heading": 197,
+      "fuel": 74,
+      "ignition": true,
+      "status": "stopped",
+      "adblue": 68,
+      "gps": true,
+      "network": true,
+      "lastFuelFillLiters": 38,
+      "lastFuelFillAt": "2026-04-15T08:20:00.000Z",
+      "lastAdblueFillLiters": 11,
+      "lastAdblueFillAt": "2026-04-14T09:40:00.000Z",
+      "device_type": "AIS 140",
+      "odometer": 20431,
+      "last_seen": "2026-05-12T19:31:04.091Z",
+      "history": [
+        {
+          "lat": 22.698078,
+          "lng": 86.154325,
+          "timestamp": "2026-05-12T19:29:45.741Z"
+        },
+        {
+          "lat": 22.69779,
+          "lng": 86.154108,
+          "timestamp": "2026-05-12T19:29:47.750Z"
+        },
+        {
+          "lat": 22.697702,
+          "lng": 86.154026,
+          "timestamp": "2026-05-12T19:29:49.762Z"
+        },
+        {
+          "lat": 22.697702,
+          "lng": 86.154026,
+          "timestamp": "2026-05-12T19:29:51.771Z"
+        },
+        {
+          "lat": 22.697414,
+          "lng": 86.153809,
+          "timestamp": "2026-05-12T19:29:53.788Z"
+        },
+        {
+          "lat": 22.697414,
+          "lng": 86.153809,
+          "timestamp": "2026-05-12T19:29:55.799Z"
+        },
+        {
+          "lat": 22.697414,
+          "lng": 86.153809,
+          "timestamp": "2026-05-12T19:29:57.802Z"
+        },
+        {
+          "lat": 22.697395,
+          "lng": 86.153802,
+          "timestamp": "2026-05-12T19:29:59.814Z"
+        },
+        {
+          "lat": 22.697317,
+          "lng": 86.153785,
+          "timestamp": "2026-05-12T19:30:01.816Z"
+        },
+        {
+          "lat": 22.697317,
+          "lng": 86.153785,
+          "timestamp": "2026-05-12T19:30:03.817Z"
+        },
+        {
+          "lat": 22.697317,
+          "lng": 86.153785,
+          "timestamp": "2026-05-12T19:30:05.828Z"
+        },
+        {
+          "lat": 22.697317,
+          "lng": 86.153785,
+          "timestamp": "2026-05-12T19:30:07.839Z"
+        },
+        {
+          "lat": 22.696996,
+          "lng": 86.153622,
+          "timestamp": "2026-05-12T19:30:09.845Z"
+        },
+        {
+          "lat": 22.696922,
+          "lng": 86.153592,
+          "timestamp": "2026-05-12T19:30:11.845Z"
+        },
+        {
+          "lat": 22.696567,
+          "lng": 86.153529,
+          "timestamp": "2026-05-12T19:30:13.855Z"
+        },
+        {
+          "lat": 22.69649,
+          "lng": 86.153508,
+          "timestamp": "2026-05-12T19:30:15.872Z"
+        },
+        {
+          "lat": 22.69613,
+          "lng": 86.153495,
+          "timestamp": "2026-05-12T19:30:17.885Z"
+        },
+        {
+          "lat": 22.69613,
+          "lng": 86.153495,
+          "timestamp": "2026-05-12T19:30:19.898Z"
+        },
+        {
+          "lat": 22.695809,
+          "lng": 86.153332,
+          "timestamp": "2026-05-12T19:30:21.901Z"
+        },
+        {
+          "lat": 22.695809,
+          "lng": 86.153332,
+          "timestamp": "2026-05-12T19:30:23.915Z"
+        },
+        {
+          "lat": 22.695809,
+          "lng": 86.153332,
+          "timestamp": "2026-05-12T19:30:25.914Z"
+        },
+        {
+          "lat": 22.695809,
+          "lng": 86.153332,
+          "timestamp": "2026-05-12T19:30:27.917Z"
+        },
+        {
+          "lat": 22.695809,
+          "lng": 86.153332,
+          "timestamp": "2026-05-12T19:30:29.932Z"
+        },
+        {
+          "lat": 22.695809,
+          "lng": 86.153332,
+          "timestamp": "2026-05-12T19:30:31.940Z"
+        },
+        {
+          "lat": 22.695771,
+          "lng": 86.153321,
+          "timestamp": "2026-05-12T19:30:33.950Z"
+        },
+        {
+          "lat": 22.695771,
+          "lng": 86.153321,
+          "timestamp": "2026-05-12T19:30:35.960Z"
+        },
+        {
+          "lat": 22.695453,
+          "lng": 86.153152,
+          "timestamp": "2026-05-12T19:30:37.962Z"
+        },
+        {
+          "lat": 22.695453,
+          "lng": 86.153152,
+          "timestamp": "2026-05-12T19:30:39.976Z"
+        },
+        {
+          "lat": 22.695453,
+          "lng": 86.153152,
+          "timestamp": "2026-05-12T19:30:41.987Z"
+        },
+        {
+          "lat": 22.695122,
+          "lng": 86.153011,
+          "timestamp": "2026-05-12T19:30:43.997Z"
+        },
+        {
+          "lat": 22.694834,
+          "lng": 86.152794,
+          "timestamp": "2026-05-12T19:30:46.012Z"
+        },
+        {
+          "lat": 22.694834,
+          "lng": 86.152794,
+          "timestamp": "2026-05-12T19:30:48.013Z"
+        },
+        {
+          "lat": 22.69478,
+          "lng": 86.152769,
+          "timestamp": "2026-05-12T19:30:50.032Z"
+        },
+        {
+          "lat": 22.694454,
+          "lng": 86.152617,
+          "timestamp": "2026-05-12T19:30:52.042Z"
+        },
+        {
+          "lat": 22.694454,
+          "lng": 86.152617,
+          "timestamp": "2026-05-12T19:30:54.053Z"
+        },
+        {
+          "lat": 22.694454,
+          "lng": 86.152617,
+          "timestamp": "2026-05-12T19:30:56.067Z"
+        },
+        {
+          "lat": 22.694454,
+          "lng": 86.152617,
+          "timestamp": "2026-05-12T19:30:58.079Z"
+        },
+        {
+          "lat": 22.694454,
+          "lng": 86.152617,
+          "timestamp": "2026-05-12T19:31:00.085Z"
+        },
+        {
+          "lat": 22.694099,
+          "lng": 86.152554,
+          "timestamp": "2026-05-12T19:31:02.089Z"
+        },
+        {
+          "lat": 22.694099,
+          "lng": 86.152554,
+          "timestamp": "2026-05-12T19:31:04.091Z"
+        }
+      ],
+      "fuelReading": 74,
+      "adblueReading": 68,
+      "geofences": [],
+      "assignedRoutes": [],
+      "breakdownActive": false,
+      "breakdownReason": "",
+      "breakdownAt": null,
+      "fixedAt": null,
+      "fixedReason": "",
+      "axleConfiguration": "4x2",
+      "tyreRecords": [
+        {
+          "id": 1777187058834,
+          "tyreType": "Apollo EnduRace",
+          "tyreCondition": "new",
+          "tyreMeter": 12,
+          "axle": "Front Axle",
+          "position": "Right Front (RF)",
+          "slot": "front-right",
+          "treadDepth": 22,
+          "pressure": 122,
+          "installedAt": "2026-04-26T07:04:18.830Z",
+          "installedOdometer": 20431
+        }
+      ],
+      "tyreActivity": [
+        {
+          "id": 1778610107996,
+          "action": "axle-config-updated",
+          "slot": "",
+          "position": "4x2",
+          "tyreType": "",
+          "installedAt": "2026-05-12T18:21:47.996Z",
+          "note": "Axle configuration changed to 4 Tyres | Bolero / Scorpio / Pickup"
+        },
+        {
+          "id": 1778610096579,
+          "action": "axle-config-updated",
+          "slot": "",
+          "position": "18-tyre",
+          "tyreType": "",
+          "installedAt": "2026-05-12T18:21:36.579Z",
+          "note": "Axle configuration changed to 18 Tyres | Heavy Duty"
+        },
+        {
+          "id": 1778609984520,
+          "action": "axle-config-updated",
+          "slot": "",
+          "position": "16-tyre",
+          "tyreType": "",
+          "installedAt": "2026-05-12T18:19:44.520Z",
+          "note": "Axle configuration changed to 16 Tyres | Long Haul"
+        },
+        {
+          "id": 1778609775706,
+          "action": "axle-config-updated",
+          "slot": "",
+          "position": "16-tyre",
+          "tyreType": "",
+          "installedAt": "2026-05-12T18:16:15.706Z",
+          "note": "Axle configuration changed to 16 Tyres | Long Haul"
+        },
+        {
+          "id": 1778609734455,
+          "action": "axle-config-updated",
+          "slot": "",
+          "position": "18-tyre",
+          "tyreType": "",
+          "installedAt": "2026-05-12T18:15:34.455Z",
+          "note": "Axle configuration changed to 18 Tyres | Heavy Duty"
+        },
+        {
+          "id": 1778609232155,
+          "action": "axle-config-updated",
+          "slot": "",
+          "position": "16-tyre",
+          "tyreType": "",
+          "installedAt": "2026-05-12T18:07:12.155Z",
+          "note": "Axle configuration changed to 16 Tyres | Long Haul"
+        },
+        {
+          "id": 1778609200870,
+          "action": "axle-config-updated",
+          "slot": "",
+          "position": "18-tyre",
+          "tyreType": "",
+          "installedAt": "2026-05-12T18:06:40.870Z",
+          "note": "Axle configuration changed to 18 Tyres | Heavy Duty"
+        },
+        {
+          "id": 1778609193136,
+          "action": "axle-config-updated",
+          "slot": "",
+          "position": "16-tyre",
+          "tyreType": "",
+          "installedAt": "2026-05-12T18:06:33.136Z",
+          "note": "Axle configuration changed to 16 Tyres | Long Haul"
+        },
+        {
+          "id": 1778609172924,
+          "action": "axle-config-updated",
+          "slot": "",
+          "position": "12-tyre",
+          "tyreType": "",
+          "installedAt": "2026-05-12T18:06:12.924Z",
+          "note": "Axle configuration changed to 12 Tyres | Multi Axle"
+        },
+        {
+          "id": 1778608923290,
+          "action": "axle-config-updated",
+          "slot": "",
+          "position": "16-tyre",
+          "tyreType": "",
+          "installedAt": "2026-05-12T18:02:03.290Z",
+          "note": "Axle configuration changed to 16 Tyres | Long Haul"
+        },
+        {
+          "id": 1778608153987,
+          "action": "axle-config-updated",
+          "slot": "",
+          "position": "18-tyre",
+          "tyreType": "",
+          "installedAt": "2026-05-12T17:49:13.987Z",
+          "note": "Axle configuration changed to 18 Tyres | Heavy Duty"
+        },
+        {
+          "id": 1778608070156,
+          "action": "axle-config-updated",
+          "slot": "",
+          "position": "4x2",
+          "tyreType": "",
+          "installedAt": "2026-05-12T17:47:50.156Z",
+          "note": "Axle configuration changed to 4 Tyres | Bolero / Scorpio / Pickup"
+        },
+        {
+          "id": 1778607953918,
+          "action": "axle-config-updated",
+          "slot": "",
+          "position": "16-tyre",
+          "tyreType": "",
+          "installedAt": "2026-05-12T17:45:53.918Z",
+          "note": "Axle configuration changed to 16 Tyres | Long Haul"
+        },
+        {
+          "id": 1778607895819,
+          "action": "axle-config-updated",
+          "slot": "",
+          "position": "18-tyre",
+          "tyreType": "",
+          "installedAt": "2026-05-12T17:44:55.819Z",
+          "note": "Axle configuration changed to 18 Tyres | Heavy Duty"
+        },
+        {
+          "id": 1778605306118,
+          "action": "axle-config-updated",
+          "slot": "",
+          "position": "16-tyre",
+          "tyreType": "",
+          "installedAt": "2026-05-12T17:01:46.118Z",
+          "note": "Axle configuration changed to 16 Tyres | Long Haul"
+        },
+        {
+          "id": 1777187058835,
+          "action": "installed",
+          "slot": "front-right",
+          "position": "Right Front (RF)",
+          "tyreType": "Apollo EnduRace",
+          "installedAt": "2026-04-26T07:04:18.830Z",
+          "note": "New tyre installed at Right Front (RF)"
+        },
+        {
+          "id": 1777186677731,
+          "action": "installed",
+          "slot": "axle4-left-outer",
+          "position": "Left Outer 4",
+          "tyreType": "Apollo EnduRace",
+          "installedAt": "2026-04-26T06:57:00.000Z",
+          "note": "New tyre installed at Left Outer 4"
+        },
+        {
+          "id": 1777185767932,
+          "action": "axle-config-updated",
+          "slot": "",
+          "position": "16-tyre",
+          "tyreType": "",
+          "installedAt": "2026-04-26T06:42:47.932Z",
+          "note": "Axle configuration changed to 16 Tyres | Long Haul"
+        },
+        {
+          "id": 1777185574254,
+          "action": "axle-config-updated",
+          "slot": "",
+          "position": "18-tyre",
+          "tyreType": "",
+          "installedAt": "2026-04-26T06:39:34.254Z",
+          "note": "Axle configuration changed to 18 Tyres | Heavy Duty"
+        }
+      ],
+      "driverPhone": "8700013791",
+      "batterySerialNumber": "BAT-AB1234-001",
+      "batteryAssetStatus": "healthy",
+      "externalVoltage": 11.4,
+      "batterySignalAt": "2026-05-12T19:31:04.091Z",
+      "tyreInventory": [],
+      "punctureRequests": [],
+      "inventoryRecords": [
+        {
+          "id": 1,
+          "itemName": "LOAD CELL",
+          "addStock": 1,
+          "usedStock": 1,
+          "balance": 0,
+          "allottedVehicleNo": "JH05AB1234",
+          "allottedPerson": "amit",
+          "recordedAt": "2026-05-12T19:09:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "vehicle_no": "JH05CD5678",
+      "label": "BDPH-02",
+      "driver": "Anita Singh",
+      "type": "Mini Bus",
+      "imei": "352094081234578",
+      "lat": 23.109676,
+      "lng": 86.323163,
+      "speed": 0,
+      "heading": 339,
+      "fuel": 49,
+      "ignition": true,
+      "status": "stopped",
+      "adblue": 54,
+      "gps": true,
+      "network": true,
+      "lastFuelFillLiters": 26,
+      "lastFuelFillAt": "2026-04-15T05:10:00.000Z",
+      "lastAdblueFillLiters": 8,
+      "lastAdblueFillAt": "2026-04-13T11:15:00.000Z",
+      "device_type": "AIS 140",
+      "odometer": 22862,
+      "last_seen": "2026-05-12T19:31:04.091Z",
+      "history": [
+        {
+          "lat": 23.10561,
+          "lng": 86.324776,
+          "timestamp": "2026-05-12T19:29:45.741Z"
+        },
+        {
+          "lat": 23.10561,
+          "lng": 86.324776,
+          "timestamp": "2026-05-12T19:29:47.750Z"
+        },
+        {
+          "lat": 23.105681,
+          "lng": 86.324705,
+          "timestamp": "2026-05-12T19:29:49.762Z"
+        },
+        {
+          "lat": 23.105681,
+          "lng": 86.324705,
+          "timestamp": "2026-05-12T19:29:51.771Z"
+        },
+        {
+          "lat": 23.105681,
+          "lng": 86.324705,
+          "timestamp": "2026-05-12T19:29:53.788Z"
+        },
+        {
+          "lat": 23.105681,
+          "lng": 86.324705,
+          "timestamp": "2026-05-12T19:29:55.799Z"
+        },
+        {
+          "lat": 23.105681,
+          "lng": 86.324705,
+          "timestamp": "2026-05-12T19:29:57.802Z"
+        },
+        {
+          "lat": 23.106012,
+          "lng": 86.324564,
+          "timestamp": "2026-05-12T19:29:59.814Z"
+        },
+        {
+          "lat": 23.106012,
+          "lng": 86.324564,
+          "timestamp": "2026-05-12T19:30:01.816Z"
+        },
+        {
+          "lat": 23.10607,
+          "lng": 86.324547,
+          "timestamp": "2026-05-12T19:30:03.817Z"
+        },
+        {
+          "lat": 23.106394,
+          "lng": 86.324389,
+          "timestamp": "2026-05-12T19:30:05.828Z"
+        },
+        {
+          "lat": 23.106822,
+          "lng": 86.324171,
+          "timestamp": "2026-05-12T19:30:07.839Z"
+        },
+        {
+          "lat": 23.106838,
+          "lng": 86.32416,
+          "timestamp": "2026-05-12T19:30:09.845Z"
+        },
+        {
+          "lat": 23.106838,
+          "lng": 86.32416,
+          "timestamp": "2026-05-12T19:30:11.845Z"
+        },
+        {
+          "lat": 23.106838,
+          "lng": 86.32416,
+          "timestamp": "2026-05-12T19:30:13.855Z"
+        },
+        {
+          "lat": 23.106838,
+          "lng": 86.32416,
+          "timestamp": "2026-05-12T19:30:15.872Z"
+        },
+        {
+          "lat": 23.106838,
+          "lng": 86.32416,
+          "timestamp": "2026-05-12T19:30:17.885Z"
+        },
+        {
+          "lat": 23.106914,
+          "lng": 86.324067,
+          "timestamp": "2026-05-12T19:30:19.898Z"
+        },
+        {
+          "lat": 23.10719,
+          "lng": 86.323836,
+          "timestamp": "2026-05-12T19:30:21.901Z"
+        },
+        {
+          "lat": 23.10719,
+          "lng": 86.323836,
+          "timestamp": "2026-05-12T19:30:23.915Z"
+        },
+        {
+          "lat": 23.10719,
+          "lng": 86.323836,
+          "timestamp": "2026-05-12T19:30:25.914Z"
+        },
+        {
+          "lat": 23.10719,
+          "lng": 86.323836,
+          "timestamp": "2026-05-12T19:30:27.917Z"
+        },
+        {
+          "lat": 23.10719,
+          "lng": 86.323836,
+          "timestamp": "2026-05-12T19:30:29.932Z"
+        },
+        {
+          "lat": 23.107492,
+          "lng": 86.32364,
+          "timestamp": "2026-05-12T19:30:31.940Z"
+        },
+        {
+          "lat": 23.107492,
+          "lng": 86.32364,
+          "timestamp": "2026-05-12T19:30:33.950Z"
+        },
+        {
+          "lat": 23.107551,
+          "lng": 86.323631,
+          "timestamp": "2026-05-12T19:30:35.960Z"
+        },
+        {
+          "lat": 23.107551,
+          "lng": 86.323631,
+          "timestamp": "2026-05-12T19:30:37.962Z"
+        },
+        {
+          "lat": 23.1079,
+          "lng": 86.323544,
+          "timestamp": "2026-05-12T19:30:39.976Z"
+        },
+        {
+          "lat": 23.107979,
+          "lng": 86.323531,
+          "timestamp": "2026-05-12T19:30:41.987Z"
+        },
+        {
+          "lat": 23.108019,
+          "lng": 86.323532,
+          "timestamp": "2026-05-12T19:30:43.997Z"
+        },
+        {
+          "lat": 23.108019,
+          "lng": 86.323532,
+          "timestamp": "2026-05-12T19:30:46.012Z"
+        },
+        {
+          "lat": 23.108019,
+          "lng": 86.323532,
+          "timestamp": "2026-05-12T19:30:48.013Z"
+        },
+        {
+          "lat": 23.108116,
+          "lng": 86.32351,
+          "timestamp": "2026-05-12T19:30:50.032Z"
+        },
+        {
+          "lat": 23.108472,
+          "lng": 86.32346,
+          "timestamp": "2026-05-12T19:30:52.042Z"
+        },
+        {
+          "lat": 23.108858,
+          "lng": 86.323356,
+          "timestamp": "2026-05-12T19:30:54.053Z"
+        },
+        {
+          "lat": 23.108858,
+          "lng": 86.323356,
+          "timestamp": "2026-05-12T19:30:56.067Z"
+        },
+        {
+          "lat": 23.108858,
+          "lng": 86.323356,
+          "timestamp": "2026-05-12T19:30:58.079Z"
+        },
+        {
+          "lat": 23.109206,
+          "lng": 86.323263,
+          "timestamp": "2026-05-12T19:31:00.085Z"
+        },
+        {
+          "lat": 23.109676,
+          "lng": 86.323163,
+          "timestamp": "2026-05-12T19:31:02.089Z"
+        },
+        {
+          "lat": 23.109676,
+          "lng": 86.323163,
+          "timestamp": "2026-05-12T19:31:04.091Z"
+        }
+      ],
+      "fuelReading": 49,
+      "adblueReading": 54,
+      "geofences": [],
+      "assignedRoutes": [],
+      "breakdownActive": false,
+      "breakdownReason": "",
+      "breakdownAt": null,
+      "fixedAt": null,
+      "fixedReason": "",
+      "axleConfiguration": "18-tyre",
+      "tyreRecords": [
+        {
+          "id": 1777188025729,
+          "tyreType": "JK Jetsteel",
+          "tyreCondition": "new",
+          "tyreMeter": 12,
+          "axle": "Front Axle",
+          "position": "Left Front (LF)",
+          "slot": "front-left",
+          "treadDepth": 22,
+          "pressure": 130,
+          "installedAt": "2026-01-02T17:03:00.000Z",
+          "installedOdometer": 22862
+        }
+      ],
+      "tyreActivity": [
+        {
+          "id": 1777825599510,
+          "action": "axle-config-updated",
+          "slot": "",
+          "position": "18-tyre",
+          "tyreType": "",
+          "installedAt": "2026-05-03T16:26:39.510Z",
+          "note": "Axle configuration changed to 18 Tyres | Heavy Duty"
+        },
+        {
+          "id": 1777188025730,
+          "action": "installed",
+          "slot": "front-left",
+          "position": "Left Front (LF)",
+          "tyreType": "JK Jetsteel",
+          "installedAt": "2026-01-02T17:03:00.000Z",
+          "note": "New tyre installed at Left Front (LF)"
+        }
+      ],
+      "driverPhone": "8700027582",
+      "batterySerialNumber": "BAT-CD5678-002",
+      "batteryAssetStatus": "healthy",
+      "externalVoltage": 12.2,
+      "batterySignalAt": "2026-05-12T19:31:04.091Z",
+      "tyreInventory": [],
+      "punctureRequests": [],
+      "inventoryRecords": []
+    },
+    {
+      "id": 3,
+      "vehicle_no": "JH05EF9012",
+      "label": "BDPH-03",
+      "driver": "Sanjay Prasad",
+      "type": "Van",
+      "imei": "352094081234589",
+      "lat": 22.8275,
+      "lng": 86.2288,
+      "speed": 0,
+      "heading": 315,
+      "fuel": 62,
+      "ignition": false,
+      "status": "breakdown",
+      "adblue": 47,
+      "gps": true,
+      "network": true,
+      "lastFuelFillLiters": 33,
+      "lastFuelFillAt": "2026-04-14T13:30:00.000Z",
+      "lastAdblueFillLiters": 10,
+      "lastAdblueFillAt": "2026-04-12T14:05:00.000Z",
+      "device_type": "AIS 140",
+      "odometer": 25293,
+      "last_seen": "2026-05-12T19:31:04.091Z",
+      "history": [
+        {
+          "lat": 22.8194,
+          "lng": 86.22304,
+          "timestamp": "2026-04-26T05:08:33.596Z"
+        },
+        {
+          "lat": 22.81985,
+          "lng": 86.22336,
+          "timestamp": "2026-04-26T05:13:33.596Z"
+        },
+        {
+          "lat": 22.8203,
+          "lng": 86.22368,
+          "timestamp": "2026-04-26T05:18:33.596Z"
+        },
+        {
+          "lat": 22.82075,
+          "lng": 86.224,
+          "timestamp": "2026-04-26T05:23:33.596Z"
+        },
+        {
+          "lat": 22.8212,
+          "lng": 86.22432,
+          "timestamp": "2026-04-26T05:28:33.596Z"
+        },
+        {
+          "lat": 22.82165,
+          "lng": 86.22464,
+          "timestamp": "2026-04-26T05:33:33.596Z"
+        },
+        {
+          "lat": 22.8221,
+          "lng": 86.22496,
+          "timestamp": "2026-04-26T05:38:33.596Z"
+        },
+        {
+          "lat": 22.82255,
+          "lng": 86.22528,
+          "timestamp": "2026-04-26T05:43:33.596Z"
+        },
+        {
+          "lat": 22.823,
+          "lng": 86.2256,
+          "timestamp": "2026-04-26T05:48:33.596Z"
+        },
+        {
+          "lat": 22.82345,
+          "lng": 86.22592,
+          "timestamp": "2026-04-26T05:53:33.596Z"
+        },
+        {
+          "lat": 22.8239,
+          "lng": 86.22624,
+          "timestamp": "2026-04-26T05:58:33.596Z"
+        },
+        {
+          "lat": 22.82435,
+          "lng": 86.22656,
+          "timestamp": "2026-04-26T06:03:33.596Z"
+        },
+        {
+          "lat": 22.8248,
+          "lng": 86.22688,
+          "timestamp": "2026-04-26T06:08:33.596Z"
+        },
+        {
+          "lat": 22.82525,
+          "lng": 86.2272,
+          "timestamp": "2026-04-26T06:13:33.596Z"
+        },
+        {
+          "lat": 22.8257,
+          "lng": 86.22752,
+          "timestamp": "2026-04-26T06:18:33.596Z"
+        },
+        {
+          "lat": 22.82615,
+          "lng": 86.22784,
+          "timestamp": "2026-04-26T06:23:33.596Z"
+        },
+        {
+          "lat": 22.8266,
+          "lng": 86.22816,
+          "timestamp": "2026-04-26T06:28:33.596Z"
+        },
+        {
+          "lat": 22.82705,
+          "lng": 86.22848,
+          "timestamp": "2026-04-26T06:33:33.596Z"
+        }
+      ],
+      "fuelReading": 62,
+      "adblueReading": 47,
+      "geofences": [],
+      "assignedRoutes": [],
+      "breakdownActive": true,
+      "breakdownReason": "",
+      "breakdownAt": "2026-04-26T06:38:33.596Z",
+      "fixedAt": null,
+      "fixedReason": "",
+      "axleConfiguration": "14-tyre",
+      "tyreRecords": [
+        {
+          "id": 1777199603719,
+          "tyreType": "JK Jetsteel",
+          "tyreCondition": "new",
+          "tyreMeter": 12,
+          "axle": "Axle 2",
+          "position": "Right Outer 2",
+          "slot": "axle2-right-outer",
+          "treadDepth": 13,
+          "pressure": 130,
+          "installedAt": "2026-04-26T10:33:00.000Z",
+          "installedOdometer": 25293
+        },
+        {
+          "id": 1777205409158,
+          "tyreType": "CEAT Winmile",
+          "tyreCondition": "new",
+          "tyreMeter": 12,
+          "axle": "Front Axle",
+          "position": "Right Front (RF)",
+          "slot": "front-right",
+          "treadDepth": 123,
+          "pressure": 130,
+          "installedAt": "2026-01-02T17:03:00.000Z",
+          "installedOdometer": 25293
+        },
+        {
+          "id": 1778602748458,
+          "tyreType": "Apollo EnduRace",
+          "tyreCondition": "new",
+          "tyreMeter": 120,
+          "tyreSerialNumber": "234567",
+          "axle": "Front Axle",
+          "position": "Left Front (LF)",
+          "slot": "front-left",
+          "treadDepth": 120,
+          "pressure": 130,
+          "installedAt": "1991-01-02T16:52:00.000Z",
+          "installedOdometer": 25293
+        }
+      ],
+      "tyreActivity": [
+        {
+          "id": 1778602748459,
+          "action": "installed",
+          "slot": "front-left",
+          "axle": "Front Axle",
+          "position": "Left Front (LF)",
+          "tyreType": "Apollo EnduRace",
+          "tyreSerialNumber": "234567",
+          "installedAt": "1991-01-02T16:52:00.000Z",
+          "note": "New tyre installed at Left Front (LF) | Serial 234567"
+        },
+        {
+          "id": 1778602707426,
+          "action": "axle-config-updated",
+          "slot": "",
+          "position": "14-tyre",
+          "tyreType": "",
+          "installedAt": "2026-05-12T16:18:27.426Z",
+          "note": "Axle configuration changed to 14 Tyres | Trailer"
+        },
+        {
+          "id": 1777205409159,
+          "action": "installed",
+          "slot": "front-right",
+          "position": "Right Front (RF)",
+          "tyreType": "CEAT Winmile",
+          "installedAt": "2026-01-02T17:03:00.000Z",
+          "note": "New tyre installed at Right Front (RF)"
+        },
+        {
+          "id": 1777205348894,
+          "action": "axle-config-updated",
+          "slot": "",
+          "position": "22-tyre",
+          "tyreType": "",
+          "installedAt": "2026-04-26T12:09:08.894Z",
+          "note": "Axle configuration changed to 22 Tyres | Oversize Carrier"
+        },
+        {
+          "id": 1777199603720,
+          "action": "installed",
+          "slot": "axle2-right-outer",
+          "position": "Right Outer 2",
+          "tyreType": "JK Jetsteel",
+          "installedAt": "2026-04-26T10:33:00.000Z",
+          "note": "New tyre installed at Right Outer 2"
+        },
+        {
+          "id": 1777199538225,
+          "action": "axle-config-updated",
+          "slot": "",
+          "position": "18-tyre",
+          "tyreType": "",
+          "installedAt": "2026-04-26T10:32:18.225Z",
+          "note": "Axle configuration changed to 18 Tyres | Heavy Duty"
+        }
+      ],
+      "driverPhone": "8700041373",
+      "batterySerialNumber": "BAT-EF9012-003",
+      "batteryAssetStatus": "healthy",
+      "externalVoltage": 11.2,
+      "batterySignalAt": "2026-05-12T19:31:04.091Z",
+      "tyreInventory": [],
+      "punctureRequests": [],
+      "inventoryRecords": []
+    },
+    {
+      "id": 4,
+      "vehicle_no": "JH05GH3456",
+      "label": "BDPH-04",
+      "driver": "Puja Das",
+      "type": "Staff Bus",
+      "imei": "352094081234590",
+      "lat": 22.796995,
+      "lng": 86.248935,
+      "speed": 18,
+      "heading": 230,
+      "fuel": 31,
+      "ignition": true,
+      "status": "moving",
+      "adblue": 22,
+      "gps": true,
+      "network": true,
+      "lastFuelFillLiters": 24,
+      "lastFuelFillAt": "2026-04-13T10:55:00.000Z",
+      "lastAdblueFillLiters": 6,
+      "lastAdblueFillAt": "2026-04-11T16:30:00.000Z",
+      "device_type": "AIS 140",
+      "odometer": 27724,
+      "last_seen": "2026-05-12T19:31:04.091Z",
+      "history": [
+        {
+          "lat": 22.798575,
+          "lng": 86.250832,
+          "timestamp": "2026-05-12T19:29:45.741Z"
+        },
+        {
+          "lat": 22.798575,
+          "lng": 86.250832,
+          "timestamp": "2026-05-12T19:29:47.750Z"
+        },
+        {
+          "lat": 22.798575,
+          "lng": 86.250832,
+          "timestamp": "2026-05-12T19:29:49.762Z"
+        },
+        {
+          "lat": 22.798575,
+          "lng": 86.250832,
+          "timestamp": "2026-05-12T19:29:51.771Z"
+        },
+        {
+          "lat": 22.798575,
+          "lng": 86.250832,
+          "timestamp": "2026-05-12T19:29:53.788Z"
+        },
+        {
+          "lat": 22.798575,
+          "lng": 86.250832,
+          "timestamp": "2026-05-12T19:29:55.799Z"
+        },
+        {
+          "lat": 22.798575,
+          "lng": 86.250832,
+          "timestamp": "2026-05-12T19:29:57.802Z"
+        },
+        {
+          "lat": 22.798575,
+          "lng": 86.250832,
+          "timestamp": "2026-05-12T19:29:59.814Z"
+        },
+        {
+          "lat": 22.798575,
+          "lng": 86.250832,
+          "timestamp": "2026-05-12T19:30:01.816Z"
+        },
+        {
+          "lat": 22.798575,
+          "lng": 86.250832,
+          "timestamp": "2026-05-12T19:30:03.817Z"
+        },
+        {
+          "lat": 22.798524,
+          "lng": 86.250771,
+          "timestamp": "2026-05-12T19:30:05.828Z"
+        },
+        {
+          "lat": 22.798524,
+          "lng": 86.250771,
+          "timestamp": "2026-05-12T19:30:07.839Z"
+        },
+        {
+          "lat": 22.798283,
+          "lng": 86.250503,
+          "timestamp": "2026-05-12T19:30:09.845Z"
+        },
+        {
+          "lat": 22.798283,
+          "lng": 86.250503,
+          "timestamp": "2026-05-12T19:30:11.845Z"
+        },
+        {
+          "lat": 22.79826,
+          "lng": 86.25047,
+          "timestamp": "2026-05-12T19:30:13.855Z"
+        },
+        {
+          "lat": 22.798048,
+          "lng": 86.250179,
+          "timestamp": "2026-05-12T19:30:15.872Z"
+        },
+        {
+          "lat": 22.798048,
+          "lng": 86.250179,
+          "timestamp": "2026-05-12T19:30:17.885Z"
+        },
+        {
+          "lat": 22.798048,
+          "lng": 86.250179,
+          "timestamp": "2026-05-12T19:30:19.898Z"
+        },
+        {
+          "lat": 22.798048,
+          "lng": 86.250179,
+          "timestamp": "2026-05-12T19:30:21.901Z"
+        },
+        {
+          "lat": 22.798048,
+          "lng": 86.250179,
+          "timestamp": "2026-05-12T19:30:23.915Z"
+        },
+        {
+          "lat": 22.798048,
+          "lng": 86.250179,
+          "timestamp": "2026-05-12T19:30:25.914Z"
+        },
+        {
+          "lat": 22.798048,
+          "lng": 86.250179,
+          "timestamp": "2026-05-12T19:30:27.917Z"
+        },
+        {
+          "lat": 22.797857,
+          "lng": 86.249874,
+          "timestamp": "2026-05-12T19:30:29.932Z"
+        },
+        {
+          "lat": 22.797857,
+          "lng": 86.249874,
+          "timestamp": "2026-05-12T19:30:31.940Z"
+        },
+        {
+          "lat": 22.797798,
+          "lng": 86.249793,
+          "timestamp": "2026-05-12T19:30:33.950Z"
+        },
+        {
+          "lat": 22.797562,
+          "lng": 86.249521,
+          "timestamp": "2026-05-12T19:30:35.960Z"
+        },
+        {
+          "lat": 22.797562,
+          "lng": 86.249521,
+          "timestamp": "2026-05-12T19:30:37.962Z"
+        },
+        {
+          "lat": 22.797562,
+          "lng": 86.249521,
+          "timestamp": "2026-05-12T19:30:39.976Z"
+        },
+        {
+          "lat": 22.797562,
+          "lng": 86.249521,
+          "timestamp": "2026-05-12T19:30:41.988Z"
+        },
+        {
+          "lat": 22.797562,
+          "lng": 86.249521,
+          "timestamp": "2026-05-12T19:30:43.997Z"
+        },
+        {
+          "lat": 22.797506,
+          "lng": 86.249438,
+          "timestamp": "2026-05-12T19:30:46.012Z"
+        },
+        {
+          "lat": 22.797506,
+          "lng": 86.249438,
+          "timestamp": "2026-05-12T19:30:48.013Z"
+        },
+        {
+          "lat": 22.797226,
+          "lng": 86.249211,
+          "timestamp": "2026-05-12T19:30:50.032Z"
+        },
+        {
+          "lat": 22.797226,
+          "lng": 86.249211,
+          "timestamp": "2026-05-12T19:30:52.042Z"
+        },
+        {
+          "lat": 22.797226,
+          "lng": 86.249211,
+          "timestamp": "2026-05-12T19:30:54.053Z"
+        },
+        {
+          "lat": 22.797226,
+          "lng": 86.249211,
+          "timestamp": "2026-05-12T19:30:56.067Z"
+        },
+        {
+          "lat": 22.797226,
+          "lng": 86.249211,
+          "timestamp": "2026-05-12T19:30:58.079Z"
+        },
+        {
+          "lat": 22.797226,
+          "lng": 86.249211,
+          "timestamp": "2026-05-12T19:31:00.086Z"
+        },
+        {
+          "lat": 22.797226,
+          "lng": 86.249211,
+          "timestamp": "2026-05-12T19:31:02.089Z"
+        },
+        {
+          "lat": 22.796995,
+          "lng": 86.248935,
+          "timestamp": "2026-05-12T19:31:04.091Z"
+        }
+      ],
+      "fuelReading": 31,
+      "adblueReading": 22,
+      "geofences": [],
+      "assignedRoutes": [],
+      "breakdownActive": false,
+      "breakdownReason": "",
+      "breakdownAt": null,
+      "fixedAt": null,
+      "fixedReason": "",
+      "axleConfiguration": "18-tyre",
+      "tyreRecords": [
+        {
+          "id": 1777837870185,
+          "tyreType": "JK Jetsteel",
+          "tyreCondition": "new",
+          "tyreMeter": 29,
+          "axle": "Axle 5",
+          "position": "Right Outer 5",
+          "slot": "axle5-right-outer",
+          "treadDepth": 12,
+          "pressure": 130,
+          "installedAt": "2026-05-03T19:50:00.000Z",
+          "installedOdometer": 27724
+        }
+      ],
+      "tyreActivity": [
+        {
+          "id": 1777837870186,
+          "action": "installed",
+          "slot": "axle5-right-outer",
+          "position": "Right Outer 5",
+          "tyreType": "JK Jetsteel",
+          "installedAt": "2026-05-03T19:50:00.000Z",
+          "note": "New tyre installed at Right Outer 5"
+        },
+        {
+          "id": 1777837743365,
+          "action": "axle-config-updated",
+          "slot": "",
+          "position": "18-tyre",
+          "tyreType": "",
+          "installedAt": "2026-05-03T19:49:03.365Z",
+          "note": "Axle configuration changed to 18 Tyres | Heavy Duty"
+        }
+      ],
+      "driverPhone": "8700055164",
+      "batterySerialNumber": "BAT-GH3456-004",
+      "batteryAssetStatus": "healthy",
+      "externalVoltage": 11.4,
+      "batterySignalAt": "2026-05-12T19:31:04.091Z",
+      "tyreInventory": [],
+      "punctureRequests": [],
+      "inventoryRecords": []
+    },
+    {
+      "id": 5,
+      "vehicle_no": "JH05AB1236",
+      "label": "BDPH-01",
+      "driver": "Rakesh Kumar",
+      "type": "School Bus",
+      "imei": "352094081234561",
+      "lat": 22.974712,
+      "lng": 86.274076,
+      "speed": 0,
+      "heading": 192,
+      "fuel": 43,
+      "adblue": 37,
+      "ignition": true,
+      "status": "stopped",
+      "gps": true,
+      "network": true,
+      "axleConfiguration": "6x4",
+      "device_type": "AIS 140",
+      "odometer": 30155,
+      "last_seen": "2026-05-12T19:31:04.091Z",
+      "history": [
+        {
+          "lat": 22.975758,
+          "lng": 86.271349,
+          "timestamp": "2026-05-12T19:29:45.741Z"
+        },
+        {
+          "lat": 22.975758,
+          "lng": 86.271349,
+          "timestamp": "2026-05-12T19:29:47.750Z"
+        },
+        {
+          "lat": 22.975869,
+          "lng": 86.271691,
+          "timestamp": "2026-05-12T19:29:49.762Z"
+        },
+        {
+          "lat": 22.975869,
+          "lng": 86.271691,
+          "timestamp": "2026-05-12T19:29:51.771Z"
+        },
+        {
+          "lat": 22.975869,
+          "lng": 86.271691,
+          "timestamp": "2026-05-12T19:29:53.788Z"
+        },
+        {
+          "lat": 22.975869,
+          "lng": 86.271691,
+          "timestamp": "2026-05-12T19:29:55.799Z"
+        },
+        {
+          "lat": 22.975838,
+          "lng": 86.27205,
+          "timestamp": "2026-05-12T19:29:57.802Z"
+        },
+        {
+          "lat": 22.975751,
+          "lng": 86.272399,
+          "timestamp": "2026-05-12T19:29:59.814Z"
+        },
+        {
+          "lat": 22.975751,
+          "lng": 86.272399,
+          "timestamp": "2026-05-12T19:30:01.816Z"
+        },
+        {
+          "lat": 22.975751,
+          "lng": 86.272399,
+          "timestamp": "2026-05-12T19:30:03.817Z"
+        },
+        {
+          "lat": 22.975751,
+          "lng": 86.272399,
+          "timestamp": "2026-05-12T19:30:05.828Z"
+        },
+        {
+          "lat": 22.975599,
+          "lng": 86.272725,
+          "timestamp": "2026-05-12T19:30:07.839Z"
+        },
+        {
+          "lat": 22.975599,
+          "lng": 86.272725,
+          "timestamp": "2026-05-12T19:30:09.845Z"
+        },
+        {
+          "lat": 22.975377,
+          "lng": 86.273009,
+          "timestamp": "2026-05-12T19:30:11.845Z"
+        },
+        {
+          "lat": 22.975347,
+          "lng": 86.273061,
+          "timestamp": "2026-05-12T19:30:13.855Z"
+        },
+        {
+          "lat": 22.975347,
+          "lng": 86.273061,
+          "timestamp": "2026-05-12T19:30:15.872Z"
+        },
+        {
+          "lat": 22.975313,
+          "lng": 86.273134,
+          "timestamp": "2026-05-12T19:30:17.885Z"
+        },
+        {
+          "lat": 22.975313,
+          "lng": 86.273134,
+          "timestamp": "2026-05-12T19:30:19.898Z"
+        },
+        {
+          "lat": 22.975155,
+          "lng": 86.273458,
+          "timestamp": "2026-05-12T19:30:21.901Z"
+        },
+        {
+          "lat": 22.975009,
+          "lng": 86.273787,
+          "timestamp": "2026-05-12T19:30:23.915Z"
+        },
+        {
+          "lat": 22.975009,
+          "lng": 86.273787,
+          "timestamp": "2026-05-12T19:30:25.914Z"
+        },
+        {
+          "lat": 22.975009,
+          "lng": 86.273787,
+          "timestamp": "2026-05-12T19:30:27.917Z"
+        },
+        {
+          "lat": 22.975009,
+          "lng": 86.273787,
+          "timestamp": "2026-05-12T19:30:29.932Z"
+        },
+        {
+          "lat": 22.975009,
+          "lng": 86.273787,
+          "timestamp": "2026-05-12T19:30:31.940Z"
+        },
+        {
+          "lat": 22.975009,
+          "lng": 86.273787,
+          "timestamp": "2026-05-12T19:30:33.950Z"
+        },
+        {
+          "lat": 22.975009,
+          "lng": 86.273787,
+          "timestamp": "2026-05-12T19:30:35.960Z"
+        },
+        {
+          "lat": 22.975009,
+          "lng": 86.273787,
+          "timestamp": "2026-05-12T19:30:37.962Z"
+        },
+        {
+          "lat": 22.975009,
+          "lng": 86.273787,
+          "timestamp": "2026-05-12T19:30:39.976Z"
+        },
+        {
+          "lat": 22.975009,
+          "lng": 86.273787,
+          "timestamp": "2026-05-12T19:30:41.988Z"
+        },
+        {
+          "lat": 22.974768,
+          "lng": 86.274055,
+          "timestamp": "2026-05-12T19:30:43.997Z"
+        },
+        {
+          "lat": 22.974768,
+          "lng": 86.274055,
+          "timestamp": "2026-05-12T19:30:46.012Z"
+        },
+        {
+          "lat": 22.974768,
+          "lng": 86.274055,
+          "timestamp": "2026-05-12T19:30:48.013Z"
+        },
+        {
+          "lat": 22.974768,
+          "lng": 86.274055,
+          "timestamp": "2026-05-12T19:30:50.032Z"
+        },
+        {
+          "lat": 22.974712,
+          "lng": 86.274076,
+          "timestamp": "2026-05-12T19:30:52.042Z"
+        },
+        {
+          "lat": 22.974712,
+          "lng": 86.274076,
+          "timestamp": "2026-05-12T19:30:54.053Z"
+        },
+        {
+          "lat": 22.974712,
+          "lng": 86.274076,
+          "timestamp": "2026-05-12T19:30:56.067Z"
+        },
+        {
+          "lat": 22.974712,
+          "lng": 86.274076,
+          "timestamp": "2026-05-12T19:30:58.079Z"
+        },
+        {
+          "lat": 22.974712,
+          "lng": 86.274076,
+          "timestamp": "2026-05-12T19:31:00.086Z"
+        },
+        {
+          "lat": 22.974712,
+          "lng": 86.274076,
+          "timestamp": "2026-05-12T19:31:02.089Z"
+        },
+        {
+          "lat": 22.974712,
+          "lng": 86.274076,
+          "timestamp": "2026-05-12T19:31:04.091Z"
+        }
+      ],
+      "fuelReading": 43,
+      "adblueReading": 37,
+      "lastFuelFillLiters": 22,
+      "lastFuelFillAt": "2026-05-02T17:55:31.787Z",
+      "lastAdblueFillLiters": 7,
+      "lastAdblueFillAt": "2026-05-01T17:55:31.787Z",
+      "geofences": [],
+      "assignedRoutes": [],
+      "breakdownActive": false,
+      "breakdownReason": "",
+      "breakdownAt": "2026-05-12T16:16:10.068Z",
+      "fixedAt": null,
+      "fixedReason": "",
+      "tyreRecords": [],
+      "tyreActivity": [],
+      "driverPhone": "8700068955",
+      "batterySerialNumber": "BAT-AB1236-005",
+      "batteryAssetStatus": "healthy",
+      "externalVoltage": 11.8,
+      "batterySignalAt": "2026-05-12T19:31:04.091Z",
+      "tyreInventory": [],
+      "punctureRequests": [],
+      "inventoryRecords": []
+    }
+  ],
+  "breakdownReports": [
+    {
+      "id": 1,
+      "vehicleId": 3,
+      "vehicle_no": "JH05EF9012",
+      "driver": "Sanjay Prasad",
+      "type": "Van",
+      "imei": "352094081234589",
+      "reason": "Active breakdown detected",
+      "startedAt": "2026-04-26T06:38:33.596Z",
+      "fixedAt": null,
+      "fixedReason": "",
+      "durationMinutes": null,
+      "status": "active"
+    }
+  ],
+  "vehicleIcons": {
+    "school bus": null,
+    "mini bus": null,
+    "staff bus": null,
+    "van": null,
+    "bus": null,
+    "car": null
+  },
+  "batteryAlerts": [
+    {
+      "id": 9,
+      "vehicleId": 4,
+      "vehicle_no": "JH05GH3456",
+      "label": "BDPH-04",
+      "vehicleType": "Staff Bus",
+      "driver": "Puja Das",
+      "driverPhone": "8700055164",
+      "batterySerialNumber": "BAT-GH3456-004",
+      "batteryAssetStatus": "healthy",
+      "type": "DEVICE_OFFLINE",
+      "status": "open",
+      "createdAt": "2026-05-12T17:05:43.806Z",
+      "resolvedAt": null,
+      "externalVoltage": 0,
+      "ignition": false,
+      "location": {
+        "lat": 22.810106,
+        "lng": 86.214949,
+        "timestamp": "2026-05-12T17:05:43.806Z"
+      },
+      "message": "Device has not reported power telemetry for more than 5 minutes."
+    },
+    {
+      "id": 8,
+      "vehicleId": 5,
+      "vehicle_no": "JH05AB1236",
+      "label": "BDPH-01",
+      "vehicleType": "School Bus",
+      "driver": "Rakesh Kumar",
+      "driverPhone": "8700068955",
+      "batterySerialNumber": "BAT-AB1236-005",
+      "batteryAssetStatus": "healthy",
+      "type": "LOW_VOLTAGE",
+      "status": "open",
+      "createdAt": "2026-05-12T16:17:14.608Z",
+      "resolvedAt": null,
+      "externalVoltage": 0,
+      "ignition": false,
+      "location": {
+        "lat": 22.910416,
+        "lng": 86.240628,
+        "timestamp": "2026-05-12T16:17:14.608Z"
+      },
+      "message": "Battery voltage is below 11V and needs immediate attention."
+    },
+    {
+      "id": 7,
+      "vehicleId": 5,
+      "vehicle_no": "JH05AB1236",
+      "label": "BDPH-01",
+      "vehicleType": "School Bus",
+      "driver": "Rakesh Kumar",
+      "driverPhone": "8700068955",
+      "batterySerialNumber": "BAT-AB1236-005",
+      "batteryAssetStatus": "healthy",
+      "type": "BATTERY_DISCONNECTED",
+      "status": "open",
+      "createdAt": "2026-05-12T16:17:14.608Z",
+      "resolvedAt": null,
+      "externalVoltage": 0,
+      "ignition": false,
+      "location": {
+        "lat": 22.910416,
+        "lng": 86.240628,
+        "timestamp": "2026-05-12T16:17:14.608Z"
+      },
+      "message": "External voltage dropped to 0V while ignition is OFF. Check battery disconnect or theft risk."
+    },
+    {
+      "id": 6,
+      "vehicleId": 2,
+      "vehicle_no": "JH05CD5678",
+      "label": "BDPH-02",
+      "vehicleType": "Mini Bus",
+      "driver": "Anita Singh",
+      "driverPhone": "8700027582",
+      "batterySerialNumber": "BAT-CD5678-002",
+      "batteryAssetStatus": "healthy",
+      "type": "LOW_VOLTAGE",
+      "status": "open",
+      "createdAt": "2026-05-12T16:16:26.204Z",
+      "resolvedAt": null,
+      "externalVoltage": 0,
+      "ignition": false,
+      "location": {
+        "lat": 23.073488,
+        "lng": 86.382315,
+        "timestamp": "2026-05-12T16:16:26.204Z"
+      },
+      "message": "Battery voltage is below 11V and needs immediate attention."
+    },
+    {
+      "id": 5,
+      "vehicleId": 2,
+      "vehicle_no": "JH05CD5678",
+      "label": "BDPH-02",
+      "vehicleType": "Mini Bus",
+      "driver": "Anita Singh",
+      "driverPhone": "8700027582",
+      "batterySerialNumber": "BAT-CD5678-002",
+      "batteryAssetStatus": "healthy",
+      "type": "BATTERY_DISCONNECTED",
+      "status": "open",
+      "createdAt": "2026-05-12T16:16:26.204Z",
+      "resolvedAt": null,
+      "externalVoltage": 0,
+      "ignition": false,
+      "location": {
+        "lat": 23.073488,
+        "lng": 86.382315,
+        "timestamp": "2026-05-12T16:16:26.204Z"
+      },
+      "message": "External voltage dropped to 0V while ignition is OFF. Check battery disconnect or theft risk."
+    },
+    {
+      "id": 4,
+      "vehicleId": 1,
+      "vehicle_no": "JH05AB1234",
+      "label": "BDPH-01",
+      "vehicleType": "School Bus",
+      "driver": "Rakesh Kumar",
+      "driverPhone": "8700013791",
+      "batterySerialNumber": "BAT-AB1234-001",
+      "batteryAssetStatus": "healthy",
+      "type": "LOW_VOLTAGE",
+      "status": "open",
+      "createdAt": "2026-05-12T16:16:22.186Z",
+      "resolvedAt": null,
+      "externalVoltage": 0,
+      "ignition": false,
+      "location": {
+        "lat": 22.804531,
+        "lng": 86.229904,
+        "timestamp": "2026-05-12T16:16:22.186Z"
+      },
+      "message": "Battery voltage is below 11V and needs immediate attention."
+    },
+    {
+      "id": 3,
+      "vehicleId": 1,
+      "vehicle_no": "JH05AB1234",
+      "label": "BDPH-01",
+      "vehicleType": "School Bus",
+      "driver": "Rakesh Kumar",
+      "driverPhone": "8700013791",
+      "batterySerialNumber": "BAT-AB1234-001",
+      "batteryAssetStatus": "healthy",
+      "type": "BATTERY_DISCONNECTED",
+      "status": "open",
+      "createdAt": "2026-05-12T16:16:22.186Z",
+      "resolvedAt": null,
+      "externalVoltage": 0,
+      "ignition": false,
+      "location": {
+        "lat": 22.804531,
+        "lng": 86.229904,
+        "timestamp": "2026-05-12T16:16:22.186Z"
+      },
+      "message": "External voltage dropped to 0V while ignition is OFF. Check battery disconnect or theft risk."
+    },
+    {
+      "id": 2,
+      "vehicleId": 4,
+      "vehicle_no": "JH05GH3456",
+      "label": "BDPH-04",
+      "vehicleType": "Staff Bus",
+      "driver": "Puja Das",
+      "driverPhone": "8700055164",
+      "batterySerialNumber": "BAT-GH3456-004",
+      "batteryAssetStatus": "healthy",
+      "type": "LOW_VOLTAGE",
+      "status": "open",
+      "createdAt": "2026-05-12T16:16:18.158Z",
+      "resolvedAt": null,
+      "externalVoltage": 0,
+      "ignition": false,
+      "location": {
+        "lat": 22.802388,
+        "lng": 86.23601,
+        "timestamp": "2026-05-12T16:16:18.158Z"
+      },
+      "message": "Battery voltage is below 11V and needs immediate attention."
+    },
+    {
+      "id": 1,
+      "vehicleId": 4,
+      "vehicle_no": "JH05GH3456",
+      "label": "BDPH-04",
+      "vehicleType": "Staff Bus",
+      "driver": "Puja Das",
+      "driverPhone": "8700055164",
+      "batterySerialNumber": "BAT-GH3456-004",
+      "batteryAssetStatus": "healthy",
+      "type": "BATTERY_DISCONNECTED",
+      "status": "open",
+      "createdAt": "2026-05-12T16:16:18.158Z",
+      "resolvedAt": null,
+      "externalVoltage": 0,
+      "ignition": false,
+      "location": {
+        "lat": 22.802388,
+        "lng": 86.23601,
+        "timestamp": "2026-05-12T16:16:18.158Z"
+      },
+      "message": "External voltage dropped to 0V while ignition is OFF. Check battery disconnect or theft risk."
+    }
+  ],
+  "batteryLogs": [
+    {
+      "id": 1778614264366,
+      "vehicleId": 5,
+      "voltage": 11.8,
+      "timestamp": "2026-05-12T19:31:04.091Z",
+      "location": {
+        "lat": 22.974712,
+        "lng": 86.274076
+      }
+    },
+    {
+      "id": 1778614265039,
+      "vehicleId": 4,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:31:04.091Z",
+      "location": {
+        "lat": 22.796995,
+        "lng": 86.248935
+      }
+    },
+    {
+      "id": 1778614264936,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:31:04.091Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614264312,
+      "vehicleId": 2,
+      "voltage": 12.2,
+      "timestamp": "2026-05-12T19:31:04.091Z",
+      "location": {
+        "lat": 23.109676,
+        "lng": 86.323163
+      }
+    },
+    {
+      "id": 1778614265040,
+      "vehicleId": 1,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:31:04.091Z",
+      "location": {
+        "lat": 22.694099,
+        "lng": 86.152554
+      }
+    },
+    {
+      "id": 1778614262243,
+      "vehicleId": 5,
+      "voltage": 11.9,
+      "timestamp": "2026-05-12T19:31:02.089Z",
+      "location": {
+        "lat": 22.974712,
+        "lng": 86.274076
+      }
+    },
+    {
+      "id": 1778614262559,
+      "vehicleId": 4,
+      "voltage": 11.3,
+      "timestamp": "2026-05-12T19:31:02.089Z",
+      "location": {
+        "lat": 22.797226,
+        "lng": 86.249211
+      }
+    },
+    {
+      "id": 1778614262544,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:31:02.089Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614262794,
+      "vehicleId": 2,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:31:02.089Z",
+      "location": {
+        "lat": 23.109676,
+        "lng": 86.323163
+      }
+    },
+    {
+      "id": 1778614262710,
+      "vehicleId": 1,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:31:02.089Z",
+      "location": {
+        "lat": 22.694099,
+        "lng": 86.152554
+      }
+    },
+    {
+      "id": 1778614260284,
+      "vehicleId": 5,
+      "voltage": 11.9,
+      "timestamp": "2026-05-12T19:31:00.086Z",
+      "location": {
+        "lat": 22.974712,
+        "lng": 86.274076
+      }
+    },
+    {
+      "id": 1778614260295,
+      "vehicleId": 4,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:31:00.086Z",
+      "location": {
+        "lat": 22.797226,
+        "lng": 86.249211
+      }
+    },
+    {
+      "id": 1778614260871,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:31:00.086Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614261062,
+      "vehicleId": 2,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:31:00.085Z",
+      "location": {
+        "lat": 23.109206,
+        "lng": 86.323263
+      }
+    },
+    {
+      "id": 1778614261016,
+      "vehicleId": 1,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:31:00.085Z",
+      "location": {
+        "lat": 22.694454,
+        "lng": 86.152617
+      }
+    },
+    {
+      "id": 1778614258750,
+      "vehicleId": 5,
+      "voltage": 12,
+      "timestamp": "2026-05-12T19:30:58.079Z",
+      "location": {
+        "lat": 22.974712,
+        "lng": 86.274076
+      }
+    },
+    {
+      "id": 1778614258606,
+      "vehicleId": 4,
+      "voltage": 11.1,
+      "timestamp": "2026-05-12T19:30:58.079Z",
+      "location": {
+        "lat": 22.797226,
+        "lng": 86.249211
+      }
+    },
+    {
+      "id": 1778614258261,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:58.079Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614258742,
+      "vehicleId": 2,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:30:58.079Z",
+      "location": {
+        "lat": 23.108858,
+        "lng": 86.323356
+      }
+    },
+    {
+      "id": 1778614258646,
+      "vehicleId": 1,
+      "voltage": 12.2,
+      "timestamp": "2026-05-12T19:30:58.079Z",
+      "location": {
+        "lat": 22.694454,
+        "lng": 86.152617
+      }
+    },
+    {
+      "id": 1778614256259,
+      "vehicleId": 5,
+      "voltage": 12.1,
+      "timestamp": "2026-05-12T19:30:56.067Z",
+      "location": {
+        "lat": 22.974712,
+        "lng": 86.274076
+      }
+    },
+    {
+      "id": 1778614256487,
+      "vehicleId": 4,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:56.067Z",
+      "location": {
+        "lat": 22.797226,
+        "lng": 86.249211
+      }
+    },
+    {
+      "id": 1778614256667,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:56.067Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614256368,
+      "vehicleId": 2,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:30:56.067Z",
+      "location": {
+        "lat": 23.108858,
+        "lng": 86.323356
+      }
+    },
+    {
+      "id": 1778614256923,
+      "vehicleId": 1,
+      "voltage": 12.2,
+      "timestamp": "2026-05-12T19:30:56.067Z",
+      "location": {
+        "lat": 22.694454,
+        "lng": 86.152617
+      }
+    },
+    {
+      "id": 1778614254760,
+      "vehicleId": 5,
+      "voltage": 12.2,
+      "timestamp": "2026-05-12T19:30:54.053Z",
+      "location": {
+        "lat": 22.974712,
+        "lng": 86.274076
+      }
+    },
+    {
+      "id": 1778614254103,
+      "vehicleId": 4,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:30:54.053Z",
+      "location": {
+        "lat": 22.797226,
+        "lng": 86.249211
+      }
+    },
+    {
+      "id": 1778614254703,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:54.053Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614254410,
+      "vehicleId": 2,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:30:54.053Z",
+      "location": {
+        "lat": 23.108858,
+        "lng": 86.323356
+      }
+    },
+    {
+      "id": 1778614254133,
+      "vehicleId": 1,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:30:54.053Z",
+      "location": {
+        "lat": 22.694454,
+        "lng": 86.152617
+      }
+    },
+    {
+      "id": 1778614253032,
+      "vehicleId": 5,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:30:52.042Z",
+      "location": {
+        "lat": 22.974712,
+        "lng": 86.274076
+      }
+    },
+    {
+      "id": 1778614252713,
+      "vehicleId": 4,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:30:52.042Z",
+      "location": {
+        "lat": 22.797226,
+        "lng": 86.249211
+      }
+    },
+    {
+      "id": 1778614252275,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:52.042Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614252279,
+      "vehicleId": 2,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:30:52.042Z",
+      "location": {
+        "lat": 23.108472,
+        "lng": 86.32346
+      }
+    },
+    {
+      "id": 1778614252273,
+      "vehicleId": 1,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:30:52.042Z",
+      "location": {
+        "lat": 22.694454,
+        "lng": 86.152617
+      }
+    },
+    {
+      "id": 1778614250203,
+      "vehicleId": 5,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:30:50.032Z",
+      "location": {
+        "lat": 22.974768,
+        "lng": 86.274055
+      }
+    },
+    {
+      "id": 1778614250436,
+      "vehicleId": 4,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:30:50.032Z",
+      "location": {
+        "lat": 22.797226,
+        "lng": 86.249211
+      }
+    },
+    {
+      "id": 1778614250537,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:50.032Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614250429,
+      "vehicleId": 2,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:30:50.032Z",
+      "location": {
+        "lat": 23.108116,
+        "lng": 86.32351
+      }
+    },
+    {
+      "id": 1778614250440,
+      "vehicleId": 1,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:30:50.032Z",
+      "location": {
+        "lat": 22.69478,
+        "lng": 86.152769
+      }
+    },
+    {
+      "id": 1778614248339,
+      "vehicleId": 5,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:30:46.012Z",
+      "location": {
+        "lat": 22.974768,
+        "lng": 86.274055
+      }
+    },
+    {
+      "id": 1778614248695,
+      "vehicleId": 4,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:30:48.013Z",
+      "location": {
+        "lat": 22.797506,
+        "lng": 86.249438
+      }
+    },
+    {
+      "id": 1778614248709,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:48.013Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614248102,
+      "vehicleId": 2,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:30:46.012Z",
+      "location": {
+        "lat": 23.108019,
+        "lng": 86.323532
+      }
+    },
+    {
+      "id": 1778614248206,
+      "vehicleId": 1,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:30:46.012Z",
+      "location": {
+        "lat": 22.694834,
+        "lng": 86.152794
+      }
+    },
+    {
+      "id": 1778614246020,
+      "vehicleId": 5,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:30:46.012Z",
+      "location": {
+        "lat": 22.974768,
+        "lng": 86.274055
+      }
+    },
+    {
+      "id": 1778614246667,
+      "vehicleId": 4,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:30:46.012Z",
+      "location": {
+        "lat": 22.797506,
+        "lng": 86.249438
+      }
+    },
+    {
+      "id": 1778614246823,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:46.012Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614246432,
+      "vehicleId": 2,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:30:46.012Z",
+      "location": {
+        "lat": 23.108019,
+        "lng": 86.323532
+      }
+    },
+    {
+      "id": 1778614246411,
+      "vehicleId": 1,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:30:46.012Z",
+      "location": {
+        "lat": 22.694834,
+        "lng": 86.152794
+      }
+    },
+    {
+      "id": 1778614244777,
+      "vehicleId": 5,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:30:43.997Z",
+      "location": {
+        "lat": 22.974768,
+        "lng": 86.274055
+      }
+    },
+    {
+      "id": 1778614244659,
+      "vehicleId": 4,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:30:43.997Z",
+      "location": {
+        "lat": 22.797562,
+        "lng": 86.249521
+      }
+    },
+    {
+      "id": 1778614244139,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:43.997Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614244030,
+      "vehicleId": 2,
+      "voltage": 12.5,
+      "timestamp": "2026-05-12T19:30:43.997Z",
+      "location": {
+        "lat": 23.108019,
+        "lng": 86.323532
+      }
+    },
+    {
+      "id": 1778614244215,
+      "vehicleId": 1,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:30:43.997Z",
+      "location": {
+        "lat": 22.695122,
+        "lng": 86.153011
+      }
+    },
+    {
+      "id": 1778614242029,
+      "vehicleId": 5,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:30:39.976Z",
+      "location": {
+        "lat": 22.975009,
+        "lng": 86.273787
+      }
+    },
+    {
+      "id": 1778614242831,
+      "vehicleId": 4,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:30:41.988Z",
+      "location": {
+        "lat": 22.797562,
+        "lng": 86.249521
+      }
+    },
+    {
+      "id": 1778614242586,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:41.988Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614242082,
+      "vehicleId": 2,
+      "voltage": 12.5,
+      "timestamp": "2026-05-12T19:30:41.987Z",
+      "location": {
+        "lat": 23.107979,
+        "lng": 86.323531
+      }
+    },
+    {
+      "id": 1778614242210,
+      "vehicleId": 1,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:30:41.987Z",
+      "location": {
+        "lat": 22.695453,
+        "lng": 86.153152
+      }
+    },
+    {
+      "id": 1778614240454,
+      "vehicleId": 5,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:30:39.976Z",
+      "location": {
+        "lat": 22.975009,
+        "lng": 86.273787
+      }
+    },
+    {
+      "id": 1778614240353,
+      "vehicleId": 4,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:30:39.976Z",
+      "location": {
+        "lat": 22.797562,
+        "lng": 86.249521
+      }
+    },
+    {
+      "id": 1778614240567,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:39.976Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614240715,
+      "vehicleId": 2,
+      "voltage": 12.5,
+      "timestamp": "2026-05-12T19:30:39.976Z",
+      "location": {
+        "lat": 23.1079,
+        "lng": 86.323544
+      }
+    },
+    {
+      "id": 1778614240348,
+      "vehicleId": 1,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:30:39.976Z",
+      "location": {
+        "lat": 22.695453,
+        "lng": 86.153152
+      }
+    },
+    {
+      "id": 1778614238932,
+      "vehicleId": 5,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:30:33.950Z",
+      "location": {
+        "lat": 22.975009,
+        "lng": 86.273787
+      }
+    },
+    {
+      "id": 1778614238536,
+      "vehicleId": 4,
+      "voltage": 12.6,
+      "timestamp": "2026-05-12T19:30:37.962Z",
+      "location": {
+        "lat": 22.797562,
+        "lng": 86.249521
+      }
+    },
+    {
+      "id": 1778614238527,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:37.962Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614238898,
+      "vehicleId": 2,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:30:35.960Z",
+      "location": {
+        "lat": 23.107551,
+        "lng": 86.323631
+      }
+    },
+    {
+      "id": 1778614238360,
+      "vehicleId": 1,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:30:37.962Z",
+      "location": {
+        "lat": 22.695453,
+        "lng": 86.153152
+      }
+    },
+    {
+      "id": 1778614236096,
+      "vehicleId": 5,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:30:33.950Z",
+      "location": {
+        "lat": 22.975009,
+        "lng": 86.273787
+      }
+    },
+    {
+      "id": 1778614236711,
+      "vehicleId": 4,
+      "voltage": 12.5,
+      "timestamp": "2026-05-12T19:30:35.960Z",
+      "location": {
+        "lat": 22.797562,
+        "lng": 86.249521
+      }
+    },
+    {
+      "id": 1778614236856,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:35.960Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614236319,
+      "vehicleId": 2,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:30:35.960Z",
+      "location": {
+        "lat": 23.107551,
+        "lng": 86.323631
+      }
+    },
+    {
+      "id": 1778614236893,
+      "vehicleId": 1,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:35.960Z",
+      "location": {
+        "lat": 22.695771,
+        "lng": 86.153321
+      }
+    },
+    {
+      "id": 1778614233954,
+      "vehicleId": 5,
+      "voltage": 12,
+      "timestamp": "2026-05-12T19:30:33.950Z",
+      "location": {
+        "lat": 22.975009,
+        "lng": 86.273787
+      }
+    },
+    {
+      "id": 1778614234665,
+      "vehicleId": 4,
+      "voltage": 12.5,
+      "timestamp": "2026-05-12T19:30:33.950Z",
+      "location": {
+        "lat": 22.797798,
+        "lng": 86.249793
+      }
+    },
+    {
+      "id": 1778614234785,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:33.950Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614234405,
+      "vehicleId": 2,
+      "voltage": 11,
+      "timestamp": "2026-05-12T19:30:33.950Z",
+      "location": {
+        "lat": 23.107492,
+        "lng": 86.32364
+      }
+    },
+    {
+      "id": 1778614234799,
+      "vehicleId": 1,
+      "voltage": 12.2,
+      "timestamp": "2026-05-12T19:30:33.950Z",
+      "location": {
+        "lat": 22.695771,
+        "lng": 86.153321
+      }
+    },
+    {
+      "id": 1778614232178,
+      "vehicleId": 5,
+      "voltage": 12.1,
+      "timestamp": "2026-05-12T19:30:31.940Z",
+      "location": {
+        "lat": 22.975009,
+        "lng": 86.273787
+      }
+    },
+    {
+      "id": 1778614232162,
+      "vehicleId": 4,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:30:31.940Z",
+      "location": {
+        "lat": 22.797857,
+        "lng": 86.249874
+      }
+    },
+    {
+      "id": 1778614232105,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:31.940Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614232807,
+      "vehicleId": 2,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:30:31.940Z",
+      "location": {
+        "lat": 23.107492,
+        "lng": 86.32364
+      }
+    },
+    {
+      "id": 1778614232096,
+      "vehicleId": 1,
+      "voltage": 12.2,
+      "timestamp": "2026-05-12T19:30:31.940Z",
+      "location": {
+        "lat": 22.695809,
+        "lng": 86.153332
+      }
+    },
+    {
+      "id": 1778614230052,
+      "vehicleId": 5,
+      "voltage": 12.2,
+      "timestamp": "2026-05-12T19:30:29.932Z",
+      "location": {
+        "lat": 22.975009,
+        "lng": 86.273787
+      }
+    },
+    {
+      "id": 1778614230596,
+      "vehicleId": 4,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:30:29.932Z",
+      "location": {
+        "lat": 22.797857,
+        "lng": 86.249874
+      }
+    },
+    {
+      "id": 1778614230696,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:29.932Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614230257,
+      "vehicleId": 2,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:30:29.932Z",
+      "location": {
+        "lat": 23.10719,
+        "lng": 86.323836
+      }
+    },
+    {
+      "id": 1778614230017,
+      "vehicleId": 1,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:30:29.932Z",
+      "location": {
+        "lat": 22.695809,
+        "lng": 86.153332
+      }
+    },
+    {
+      "id": 1778614228746,
+      "vehicleId": 5,
+      "voltage": 12.2,
+      "timestamp": "2026-05-12T19:30:27.917Z",
+      "location": {
+        "lat": 22.975009,
+        "lng": 86.273787
+      }
+    },
+    {
+      "id": 1778614228240,
+      "vehicleId": 4,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:30:23.915Z",
+      "location": {
+        "lat": 22.798048,
+        "lng": 86.250179
+      }
+    },
+    {
+      "id": 1778614228150,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:27.917Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614228516,
+      "vehicleId": 2,
+      "voltage": 11,
+      "timestamp": "2026-05-12T19:30:27.917Z",
+      "location": {
+        "lat": 23.10719,
+        "lng": 86.323836
+      }
+    },
+    {
+      "id": 1778614228660,
+      "vehicleId": 1,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:30:27.917Z",
+      "location": {
+        "lat": 22.695809,
+        "lng": 86.153332
+      }
+    },
+    {
+      "id": 1778614226171,
+      "vehicleId": 5,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:30:25.914Z",
+      "location": {
+        "lat": 22.975009,
+        "lng": 86.273787
+      }
+    },
+    {
+      "id": 1778614226103,
+      "vehicleId": 4,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:30:23.915Z",
+      "location": {
+        "lat": 22.798048,
+        "lng": 86.250179
+      }
+    },
+    {
+      "id": 1778614226008,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:25.914Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614226473,
+      "vehicleId": 2,
+      "voltage": 11.1,
+      "timestamp": "2026-05-12T19:30:25.914Z",
+      "location": {
+        "lat": 23.10719,
+        "lng": 86.323836
+      }
+    },
+    {
+      "id": 1778614226457,
+      "vehicleId": 1,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:30:25.914Z",
+      "location": {
+        "lat": 22.695809,
+        "lng": 86.153332
+      }
+    },
+    {
+      "id": 1778614224157,
+      "vehicleId": 5,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:30:23.915Z",
+      "location": {
+        "lat": 22.975009,
+        "lng": 86.273787
+      }
+    },
+    {
+      "id": 1778614224076,
+      "vehicleId": 4,
+      "voltage": 11.3,
+      "timestamp": "2026-05-12T19:30:23.915Z",
+      "location": {
+        "lat": 22.798048,
+        "lng": 86.250179
+      }
+    },
+    {
+      "id": 1778614224253,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:23.915Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614224368,
+      "vehicleId": 2,
+      "voltage": 11.1,
+      "timestamp": "2026-05-12T19:30:23.915Z",
+      "location": {
+        "lat": 23.10719,
+        "lng": 86.323836
+      }
+    },
+    {
+      "id": 1778614224870,
+      "vehicleId": 1,
+      "voltage": 12.6,
+      "timestamp": "2026-05-12T19:30:23.915Z",
+      "location": {
+        "lat": 22.695809,
+        "lng": 86.153332
+      }
+    },
+    {
+      "id": 1778614222640,
+      "vehicleId": 5,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:30:21.901Z",
+      "location": {
+        "lat": 22.975155,
+        "lng": 86.273458
+      }
+    },
+    {
+      "id": 1778614222542,
+      "vehicleId": 4,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:30:21.901Z",
+      "location": {
+        "lat": 22.798048,
+        "lng": 86.250179
+      }
+    },
+    {
+      "id": 1778614222510,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:21.901Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614222754,
+      "vehicleId": 2,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:30:21.901Z",
+      "location": {
+        "lat": 23.10719,
+        "lng": 86.323836
+      }
+    },
+    {
+      "id": 1778614222739,
+      "vehicleId": 1,
+      "voltage": 12.5,
+      "timestamp": "2026-05-12T19:30:21.901Z",
+      "location": {
+        "lat": 22.695809,
+        "lng": 86.153332
+      }
+    },
+    {
+      "id": 1778614220523,
+      "vehicleId": 5,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:30:19.898Z",
+      "location": {
+        "lat": 22.975313,
+        "lng": 86.273134
+      }
+    },
+    {
+      "id": 1778614220389,
+      "vehicleId": 4,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:30:19.898Z",
+      "location": {
+        "lat": 22.798048,
+        "lng": 86.250179
+      }
+    },
+    {
+      "id": 1778614220156,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:19.898Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614220672,
+      "vehicleId": 2,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:30:19.898Z",
+      "location": {
+        "lat": 23.106914,
+        "lng": 86.324067
+      }
+    },
+    {
+      "id": 1778614220884,
+      "vehicleId": 1,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:30:19.898Z",
+      "location": {
+        "lat": 22.69613,
+        "lng": 86.153495
+      }
+    },
+    {
+      "id": 1778614218160,
+      "vehicleId": 5,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:30:17.885Z",
+      "location": {
+        "lat": 22.975313,
+        "lng": 86.273134
+      }
+    },
+    {
+      "id": 1778614218862,
+      "vehicleId": 4,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:30:17.885Z",
+      "location": {
+        "lat": 22.798048,
+        "lng": 86.250179
+      }
+    },
+    {
+      "id": 1778614218236,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:17.885Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614218446,
+      "vehicleId": 2,
+      "voltage": 11.1,
+      "timestamp": "2026-05-12T19:30:17.885Z",
+      "location": {
+        "lat": 23.106838,
+        "lng": 86.32416
+      }
+    },
+    {
+      "id": 1778614218835,
+      "vehicleId": 1,
+      "voltage": 12.5,
+      "timestamp": "2026-05-12T19:30:17.885Z",
+      "location": {
+        "lat": 22.69613,
+        "lng": 86.153495
+      }
+    },
+    {
+      "id": 1778614216411,
+      "vehicleId": 5,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:30:13.855Z",
+      "location": {
+        "lat": 22.975347,
+        "lng": 86.273061
+      }
+    },
+    {
+      "id": 1778614216507,
+      "vehicleId": 4,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:30:15.872Z",
+      "location": {
+        "lat": 22.798048,
+        "lng": 86.250179
+      }
+    },
+    {
+      "id": 1778614216407,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:15.872Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614215974,
+      "vehicleId": 2,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:15.872Z",
+      "location": {
+        "lat": 23.106838,
+        "lng": 86.32416
+      }
+    },
+    {
+      "id": 1778614216282,
+      "vehicleId": 1,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:30:15.872Z",
+      "location": {
+        "lat": 22.69649,
+        "lng": 86.153508
+      }
+    },
+    {
+      "id": 1778614213967,
+      "vehicleId": 5,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:30:13.855Z",
+      "location": {
+        "lat": 22.975347,
+        "lng": 86.273061
+      }
+    },
+    {
+      "id": 1778614214156,
+      "vehicleId": 4,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:30:13.855Z",
+      "location": {
+        "lat": 22.79826,
+        "lng": 86.25047
+      }
+    },
+    {
+      "id": 1778614214518,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:13.855Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614214176,
+      "vehicleId": 2,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:13.855Z",
+      "location": {
+        "lat": 23.106838,
+        "lng": 86.32416
+      }
+    },
+    {
+      "id": 1778614214278,
+      "vehicleId": 1,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:30:13.855Z",
+      "location": {
+        "lat": 22.696567,
+        "lng": 86.153529
+      }
+    },
+    {
+      "id": 1778614212605,
+      "vehicleId": 5,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:30:11.845Z",
+      "location": {
+        "lat": 22.975377,
+        "lng": 86.273009
+      }
+    },
+    {
+      "id": 1778614212336,
+      "vehicleId": 4,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:30:11.845Z",
+      "location": {
+        "lat": 22.798283,
+        "lng": 86.250503
+      }
+    },
+    {
+      "id": 1778614212494,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:11.845Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614212486,
+      "vehicleId": 2,
+      "voltage": 11.6,
+      "timestamp": "2026-05-12T19:30:11.845Z",
+      "location": {
+        "lat": 23.106838,
+        "lng": 86.32416
+      }
+    },
+    {
+      "id": 1778614212331,
+      "vehicleId": 1,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:30:11.845Z",
+      "location": {
+        "lat": 22.696922,
+        "lng": 86.153592
+      }
+    },
+    {
+      "id": 1778614209999,
+      "vehicleId": 5,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:30:09.845Z",
+      "location": {
+        "lat": 22.975599,
+        "lng": 86.272725
+      }
+    },
+    {
+      "id": 1778614210285,
+      "vehicleId": 4,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:30:09.845Z",
+      "location": {
+        "lat": 22.798283,
+        "lng": 86.250503
+      }
+    },
+    {
+      "id": 1778614210141,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:09.845Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614210194,
+      "vehicleId": 2,
+      "voltage": 11.6,
+      "timestamp": "2026-05-12T19:30:09.845Z",
+      "location": {
+        "lat": 23.106838,
+        "lng": 86.32416
+      }
+    },
+    {
+      "id": 1778614209923,
+      "vehicleId": 1,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:30:09.845Z",
+      "location": {
+        "lat": 22.696996,
+        "lng": 86.153622
+      }
+    },
+    {
+      "id": 1778614208258,
+      "vehicleId": 5,
+      "voltage": 12.5,
+      "timestamp": "2026-05-12T19:30:07.839Z",
+      "location": {
+        "lat": 22.975599,
+        "lng": 86.272725
+      }
+    },
+    {
+      "id": 1778614208757,
+      "vehicleId": 4,
+      "voltage": 11.3,
+      "timestamp": "2026-05-12T19:30:07.839Z",
+      "location": {
+        "lat": 22.798524,
+        "lng": 86.250771
+      }
+    },
+    {
+      "id": 1778614208408,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:07.839Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614208719,
+      "vehicleId": 2,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:30:07.839Z",
+      "location": {
+        "lat": 23.106822,
+        "lng": 86.324171
+      }
+    },
+    {
+      "id": 1778614208819,
+      "vehicleId": 1,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:30:07.839Z",
+      "location": {
+        "lat": 22.697317,
+        "lng": 86.153785
+      }
+    },
+    {
+      "id": 1778614205995,
+      "vehicleId": 5,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:30:03.817Z",
+      "location": {
+        "lat": 22.975751,
+        "lng": 86.272399
+      }
+    },
+    {
+      "id": 1778614206643,
+      "vehicleId": 4,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:30:05.828Z",
+      "location": {
+        "lat": 22.798524,
+        "lng": 86.250771
+      }
+    },
+    {
+      "id": 1778614206596,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:05.828Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614206679,
+      "vehicleId": 2,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:30:05.828Z",
+      "location": {
+        "lat": 23.106394,
+        "lng": 86.324389
+      }
+    },
+    {
+      "id": 1778614206195,
+      "vehicleId": 1,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:30:05.828Z",
+      "location": {
+        "lat": 22.697317,
+        "lng": 86.153785
+      }
+    },
+    {
+      "id": 1778614204778,
+      "vehicleId": 5,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:30:03.817Z",
+      "location": {
+        "lat": 22.975751,
+        "lng": 86.272399
+      }
+    },
+    {
+      "id": 1778614204744,
+      "vehicleId": 4,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:03.817Z",
+      "location": {
+        "lat": 22.798575,
+        "lng": 86.250832
+      }
+    },
+    {
+      "id": 1778614204368,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:03.817Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614203865,
+      "vehicleId": 2,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:30:03.817Z",
+      "location": {
+        "lat": 23.10607,
+        "lng": 86.324547
+      }
+    },
+    {
+      "id": 1778614204219,
+      "vehicleId": 1,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:30:01.816Z",
+      "location": {
+        "lat": 22.697317,
+        "lng": 86.153785
+      }
+    },
+    {
+      "id": 1778614201817,
+      "vehicleId": 5,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:30:01.816Z",
+      "location": {
+        "lat": 22.975751,
+        "lng": 86.272399
+      }
+    },
+    {
+      "id": 1778614202227,
+      "vehicleId": 4,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:30:01.816Z",
+      "location": {
+        "lat": 22.798575,
+        "lng": 86.250832
+      }
+    },
+    {
+      "id": 1778614202582,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:30:01.816Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614201985,
+      "vehicleId": 2,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:30:01.816Z",
+      "location": {
+        "lat": 23.106012,
+        "lng": 86.324564
+      }
+    },
+    {
+      "id": 1778614201861,
+      "vehicleId": 1,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:30:01.816Z",
+      "location": {
+        "lat": 22.697317,
+        "lng": 86.153785
+      }
+    },
+    {
+      "id": 1778614200363,
+      "vehicleId": 5,
+      "voltage": 12.5,
+      "timestamp": "2026-05-12T19:29:59.814Z",
+      "location": {
+        "lat": 22.975751,
+        "lng": 86.272399
+      }
+    },
+    {
+      "id": 1778614200612,
+      "vehicleId": 4,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:29:59.814Z",
+      "location": {
+        "lat": 22.798575,
+        "lng": 86.250832
+      }
+    },
+    {
+      "id": 1778614200097,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:59.814Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614200151,
+      "vehicleId": 2,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:29:59.814Z",
+      "location": {
+        "lat": 23.106012,
+        "lng": 86.324564
+      }
+    },
+    {
+      "id": 1778614200024,
+      "vehicleId": 1,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:29:59.814Z",
+      "location": {
+        "lat": 22.697395,
+        "lng": 86.153802
+      }
+    },
+    {
+      "id": 1778614198740,
+      "vehicleId": 5,
+      "voltage": 12.5,
+      "timestamp": "2026-05-12T19:29:57.802Z",
+      "location": {
+        "lat": 22.975838,
+        "lng": 86.27205
+      }
+    },
+    {
+      "id": 1778614198262,
+      "vehicleId": 4,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:29:57.802Z",
+      "location": {
+        "lat": 22.798575,
+        "lng": 86.250832
+      }
+    },
+    {
+      "id": 1778614198581,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:57.802Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614197955,
+      "vehicleId": 2,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:57.802Z",
+      "location": {
+        "lat": 23.105681,
+        "lng": 86.324705
+      }
+    },
+    {
+      "id": 1778614197929,
+      "vehicleId": 1,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:57.801Z",
+      "location": {
+        "lat": 22.697414,
+        "lng": 86.153809
+      }
+    },
+    {
+      "id": 1778614196547,
+      "vehicleId": 5,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:29:53.788Z",
+      "location": {
+        "lat": 22.975869,
+        "lng": 86.271691
+      }
+    },
+    {
+      "id": 1778614195956,
+      "vehicleId": 4,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:29:53.788Z",
+      "location": {
+        "lat": 22.798575,
+        "lng": 86.250832
+      }
+    },
+    {
+      "id": 1778614195808,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:55.799Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614196797,
+      "vehicleId": 2,
+      "voltage": 11.3,
+      "timestamp": "2026-05-12T19:29:55.799Z",
+      "location": {
+        "lat": 23.105681,
+        "lng": 86.324705
+      }
+    },
+    {
+      "id": 1778614196696,
+      "vehicleId": 1,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:55.799Z",
+      "location": {
+        "lat": 22.697414,
+        "lng": 86.153809
+      }
+    },
+    {
+      "id": 1778614194138,
+      "vehicleId": 5,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:53.788Z",
+      "location": {
+        "lat": 22.975869,
+        "lng": 86.271691
+      }
+    },
+    {
+      "id": 1778614194182,
+      "vehicleId": 4,
+      "voltage": 11.1,
+      "timestamp": "2026-05-12T19:29:53.788Z",
+      "location": {
+        "lat": 22.798575,
+        "lng": 86.250832
+      }
+    },
+    {
+      "id": 1778614194356,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:53.788Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614193865,
+      "vehicleId": 2,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:53.788Z",
+      "location": {
+        "lat": 23.105681,
+        "lng": 86.324705
+      }
+    },
+    {
+      "id": 1778614194580,
+      "vehicleId": 1,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:29:53.788Z",
+      "location": {
+        "lat": 22.697414,
+        "lng": 86.153809
+      }
+    },
+    {
+      "id": 1778614191898,
+      "vehicleId": 5,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:51.771Z",
+      "location": {
+        "lat": 22.975869,
+        "lng": 86.271691
+      }
+    },
+    {
+      "id": 1778614192433,
+      "vehicleId": 4,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:51.771Z",
+      "location": {
+        "lat": 22.798575,
+        "lng": 86.250832
+      }
+    },
+    {
+      "id": 1778614192033,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:51.771Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614192146,
+      "vehicleId": 2,
+      "voltage": 11,
+      "timestamp": "2026-05-12T19:29:51.771Z",
+      "location": {
+        "lat": 23.105681,
+        "lng": 86.324705
+      }
+    },
+    {
+      "id": 1778614192547,
+      "vehicleId": 1,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:29:51.771Z",
+      "location": {
+        "lat": 22.697702,
+        "lng": 86.154026
+      }
+    },
+    {
+      "id": 1778614189846,
+      "vehicleId": 5,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:49.762Z",
+      "location": {
+        "lat": 22.975869,
+        "lng": 86.271691
+      }
+    },
+    {
+      "id": 1778614190338,
+      "vehicleId": 4,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:29:49.762Z",
+      "location": {
+        "lat": 22.798575,
+        "lng": 86.250832
+      }
+    },
+    {
+      "id": 1778614189945,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:49.762Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614190153,
+      "vehicleId": 2,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:49.762Z",
+      "location": {
+        "lat": 23.105681,
+        "lng": 86.324705
+      }
+    },
+    {
+      "id": 1778614190145,
+      "vehicleId": 1,
+      "voltage": 11.6,
+      "timestamp": "2026-05-12T19:29:49.762Z",
+      "location": {
+        "lat": 22.697702,
+        "lng": 86.154026
+      }
+    },
+    {
+      "id": 1778614188202,
+      "vehicleId": 5,
+      "voltage": 11.3,
+      "timestamp": "2026-05-12T19:29:47.750Z",
+      "location": {
+        "lat": 22.975758,
+        "lng": 86.271349
+      }
+    },
+    {
+      "id": 1778614188565,
+      "vehicleId": 4,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:29:47.750Z",
+      "location": {
+        "lat": 22.798575,
+        "lng": 86.250832
+      }
+    },
+    {
+      "id": 1778614188688,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:47.750Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614187796,
+      "vehicleId": 2,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:47.750Z",
+      "location": {
+        "lat": 23.10561,
+        "lng": 86.324776
+      }
+    },
+    {
+      "id": 1778614188671,
+      "vehicleId": 1,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:29:47.750Z",
+      "location": {
+        "lat": 22.69779,
+        "lng": 86.154108
+      }
+    },
+    {
+      "id": 1778614186294,
+      "vehicleId": 5,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:45.741Z",
+      "location": {
+        "lat": 22.975758,
+        "lng": 86.271349
+      }
+    },
+    {
+      "id": 1778614186658,
+      "vehicleId": 4,
+      "voltage": 12.5,
+      "timestamp": "2026-05-12T19:29:45.741Z",
+      "location": {
+        "lat": 22.798575,
+        "lng": 86.250832
+      }
+    },
+    {
+      "id": 1778614186142,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:45.741Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614186583,
+      "vehicleId": 2,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:45.741Z",
+      "location": {
+        "lat": 23.10561,
+        "lng": 86.324776
+      }
+    },
+    {
+      "id": 1778614185753,
+      "vehicleId": 1,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:45.741Z",
+      "location": {
+        "lat": 22.698078,
+        "lng": 86.154325
+      }
+    },
+    {
+      "id": 1778614184163,
+      "vehicleId": 5,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:29:43.725Z",
+      "location": {
+        "lat": 22.975661,
+        "lng": 86.270961
+      }
+    },
+    {
+      "id": 1778614184104,
+      "vehicleId": 4,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:29:43.725Z",
+      "location": {
+        "lat": 22.798658,
+        "lng": 86.250888
+      }
+    },
+    {
+      "id": 1778614184404,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:43.725Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614184252,
+      "vehicleId": 2,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:43.725Z",
+      "location": {
+        "lat": 23.105487,
+        "lng": 86.325114
+      }
+    },
+    {
+      "id": 1778614184621,
+      "vehicleId": 1,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:29:43.725Z",
+      "location": {
+        "lat": 22.69812,
+        "lng": 86.154367
+      }
+    },
+    {
+      "id": 1778614182451,
+      "vehicleId": 5,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:41.724Z",
+      "location": {
+        "lat": 22.975617,
+        "lng": 86.270604
+      }
+    },
+    {
+      "id": 1778614182412,
+      "vehicleId": 4,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:29:41.724Z",
+      "location": {
+        "lat": 22.798674,
+        "lng": 86.2509
+      }
+    },
+    {
+      "id": 1778614182574,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:41.724Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614182606,
+      "vehicleId": 2,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:29:41.724Z",
+      "location": {
+        "lat": 23.105487,
+        "lng": 86.325114
+      }
+    },
+    {
+      "id": 1778614181892,
+      "vehicleId": 1,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:29:41.724Z",
+      "location": {
+        "lat": 22.69812,
+        "lng": 86.154367
+      }
+    },
+    {
+      "id": 1778614180665,
+      "vehicleId": 5,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:39.700Z",
+      "location": {
+        "lat": 22.975617,
+        "lng": 86.270604
+      }
+    },
+    {
+      "id": 1778614179959,
+      "vehicleId": 4,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:29:39.700Z",
+      "location": {
+        "lat": 22.798674,
+        "lng": 86.2509
+      }
+    },
+    {
+      "id": 1778614180313,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:39.700Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614180215,
+      "vehicleId": 2,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:39.700Z",
+      "location": {
+        "lat": 23.105346,
+        "lng": 86.325445
+      }
+    },
+    {
+      "id": 1778614180638,
+      "vehicleId": 1,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:39.700Z",
+      "location": {
+        "lat": 22.69812,
+        "lng": 86.154367
+      }
+    },
+    {
+      "id": 1778614177952,
+      "vehicleId": 5,
+      "voltage": 11.3,
+      "timestamp": "2026-05-12T19:29:37.687Z",
+      "location": {
+        "lat": 22.975589,
+        "lng": 86.270508
+      }
+    },
+    {
+      "id": 1778614178039,
+      "vehicleId": 4,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:29:35.665Z",
+      "location": {
+        "lat": 22.79869,
+        "lng": 86.250911
+      }
+    },
+    {
+      "id": 1778614177906,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:37.687Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614177775,
+      "vehicleId": 2,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:37.687Z",
+      "location": {
+        "lat": 23.105266,
+        "lng": 86.325857
+      }
+    },
+    {
+      "id": 1778614178061,
+      "vehicleId": 1,
+      "voltage": 11.1,
+      "timestamp": "2026-05-12T19:29:37.687Z",
+      "location": {
+        "lat": 22.69812,
+        "lng": 86.154367
+      }
+    },
+    {
+      "id": 1778614176278,
+      "vehicleId": 5,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:35.665Z",
+      "location": {
+        "lat": 22.975589,
+        "lng": 86.270508
+      }
+    },
+    {
+      "id": 1778614176300,
+      "vehicleId": 4,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:29:35.665Z",
+      "location": {
+        "lat": 22.79869,
+        "lng": 86.250911
+      }
+    },
+    {
+      "id": 1778614176548,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:35.665Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614176263,
+      "vehicleId": 2,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:35.665Z",
+      "location": {
+        "lat": 23.105285,
+        "lng": 86.326217
+      }
+    },
+    {
+      "id": 1778614175782,
+      "vehicleId": 1,
+      "voltage": 11.1,
+      "timestamp": "2026-05-12T19:29:35.665Z",
+      "location": {
+        "lat": 22.69812,
+        "lng": 86.154367
+      }
+    },
+    {
+      "id": 1778614173927,
+      "vehicleId": 5,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:33.649Z",
+      "location": {
+        "lat": 22.975589,
+        "lng": 86.270508
+      }
+    },
+    {
+      "id": 1778614173969,
+      "vehicleId": 4,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:29:31.646Z",
+      "location": {
+        "lat": 22.79869,
+        "lng": 86.250911
+      }
+    },
+    {
+      "id": 1778614174531,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:33.649Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614173914,
+      "vehicleId": 2,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:29:33.649Z",
+      "location": {
+        "lat": 23.105285,
+        "lng": 86.326217
+      }
+    },
+    {
+      "id": 1778614173998,
+      "vehicleId": 1,
+      "voltage": 11.1,
+      "timestamp": "2026-05-12T19:29:33.649Z",
+      "location": {
+        "lat": 22.69812,
+        "lng": 86.154367
+      }
+    },
+    {
+      "id": 1778614172398,
+      "vehicleId": 5,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:31.646Z",
+      "location": {
+        "lat": 22.975589,
+        "lng": 86.270508
+      }
+    },
+    {
+      "id": 1778614171808,
+      "vehicleId": 4,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:31.646Z",
+      "location": {
+        "lat": 22.79869,
+        "lng": 86.250911
+      }
+    },
+    {
+      "id": 1778614171849,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:31.646Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614172066,
+      "vehicleId": 2,
+      "voltage": 11.6,
+      "timestamp": "2026-05-12T19:29:31.646Z",
+      "location": {
+        "lat": 23.105285,
+        "lng": 86.326217
+      }
+    },
+    {
+      "id": 1778614172538,
+      "vehicleId": 1,
+      "voltage": 11,
+      "timestamp": "2026-05-12T19:29:31.646Z",
+      "location": {
+        "lat": 22.69812,
+        "lng": 86.154367
+      }
+    },
+    {
+      "id": 1778614169944,
+      "vehicleId": 5,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:29.641Z",
+      "location": {
+        "lat": 22.975589,
+        "lng": 86.270508
+      }
+    },
+    {
+      "id": 1778614169739,
+      "vehicleId": 4,
+      "voltage": 11.3,
+      "timestamp": "2026-05-12T19:29:29.641Z",
+      "location": {
+        "lat": 22.79881,
+        "lng": 86.250907
+      }
+    },
+    {
+      "id": 1778614169784,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:29.641Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614170437,
+      "vehicleId": 2,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:29:29.641Z",
+      "location": {
+        "lat": 23.105286,
+        "lng": 86.326237
+      }
+    },
+    {
+      "id": 1778614170551,
+      "vehicleId": 1,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:29.641Z",
+      "location": {
+        "lat": 22.69812,
+        "lng": 86.154367
+      }
+    },
+    {
+      "id": 1778614167928,
+      "vehicleId": 5,
+      "voltage": 11,
+      "timestamp": "2026-05-12T19:29:27.631Z",
+      "location": {
+        "lat": 22.975526,
+        "lng": 86.270153
+      }
+    },
+    {
+      "id": 1778614168343,
+      "vehicleId": 4,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:27.631Z",
+      "location": {
+        "lat": 22.79881,
+        "lng": 86.250907
+      }
+    },
+    {
+      "id": 1778614168445,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:27.631Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614168244,
+      "vehicleId": 2,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:29:27.631Z",
+      "location": {
+        "lat": 23.105315,
+        "lng": 86.326333
+      }
+    },
+    {
+      "id": 1778614167667,
+      "vehicleId": 1,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:27.631Z",
+      "location": {
+        "lat": 22.69848,
+        "lng": 86.154367
+      }
+    },
+    {
+      "id": 1778614165966,
+      "vehicleId": 5,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:25.624Z",
+      "location": {
+        "lat": 22.975526,
+        "lng": 86.270153
+      }
+    },
+    {
+      "id": 1778614165928,
+      "vehicleId": 4,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:25.624Z",
+      "location": {
+        "lat": 22.79881,
+        "lng": 86.250907
+      }
+    },
+    {
+      "id": 1778614165897,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:25.624Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614166586,
+      "vehicleId": 2,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:25.624Z",
+      "location": {
+        "lat": 23.105346,
+        "lng": 86.326449
+      }
+    },
+    {
+      "id": 1778614166438,
+      "vehicleId": 1,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:25.624Z",
+      "location": {
+        "lat": 22.69852,
+        "lng": 86.154361
+      }
+    },
+    {
+      "id": 1778614164343,
+      "vehicleId": 5,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:29:23.602Z",
+      "location": {
+        "lat": 22.975526,
+        "lng": 86.270153
+      }
+    },
+    {
+      "id": 1778614164224,
+      "vehicleId": 4,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:29:23.602Z",
+      "location": {
+        "lat": 22.79881,
+        "lng": 86.250907
+      }
+    },
+    {
+      "id": 1778614164545,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:23.602Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614163721,
+      "vehicleId": 2,
+      "voltage": 11.3,
+      "timestamp": "2026-05-12T19:29:23.602Z",
+      "location": {
+        "lat": 23.105346,
+        "lng": 86.326449
+      }
+    },
+    {
+      "id": 1778614164240,
+      "vehicleId": 1,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:29:23.602Z",
+      "location": {
+        "lat": 22.69852,
+        "lng": 86.154361
+      }
+    },
+    {
+      "id": 1778614162449,
+      "vehicleId": 5,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:29:19.557Z",
+      "location": {
+        "lat": 22.975526,
+        "lng": 86.270153
+      }
+    },
+    {
+      "id": 1778614161928,
+      "vehicleId": 4,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:29:21.589Z",
+      "location": {
+        "lat": 22.79881,
+        "lng": 86.250907
+      }
+    },
+    {
+      "id": 1778614161719,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:21.589Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614162094,
+      "vehicleId": 2,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:21.589Z",
+      "location": {
+        "lat": 23.105346,
+        "lng": 86.326449
+      }
+    },
+    {
+      "id": 1778614162155,
+      "vehicleId": 1,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:29:21.589Z",
+      "location": {
+        "lat": 22.69852,
+        "lng": 86.154361
+      }
+    },
+    {
+      "id": 1778614160314,
+      "vehicleId": 5,
+      "voltage": 12.1,
+      "timestamp": "2026-05-12T19:29:19.557Z",
+      "location": {
+        "lat": 22.975526,
+        "lng": 86.270153
+      }
+    },
+    {
+      "id": 1778614160012,
+      "vehicleId": 4,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:19.557Z",
+      "location": {
+        "lat": 22.79881,
+        "lng": 86.250907
+      }
+    },
+    {
+      "id": 1778614160412,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:19.557Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614159980,
+      "vehicleId": 2,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:29:19.557Z",
+      "location": {
+        "lat": 23.105346,
+        "lng": 86.326449
+      }
+    },
+    {
+      "id": 1778614160552,
+      "vehicleId": 1,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:29:17.544Z",
+      "location": {
+        "lat": 22.69852,
+        "lng": 86.154361
+      }
+    },
+    {
+      "id": 1778614157806,
+      "vehicleId": 5,
+      "voltage": 12.2,
+      "timestamp": "2026-05-12T19:29:17.544Z",
+      "location": {
+        "lat": 22.975526,
+        "lng": 86.270153
+      }
+    },
+    {
+      "id": 1778614157619,
+      "vehicleId": 4,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:29:17.544Z",
+      "location": {
+        "lat": 22.799168,
+        "lng": 86.250869
+      }
+    },
+    {
+      "id": 1778614158100,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:17.544Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614158384,
+      "vehicleId": 2,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:17.544Z",
+      "location": {
+        "lat": 23.105521,
+        "lng": 86.326764
+      }
+    },
+    {
+      "id": 1778614158057,
+      "vehicleId": 1,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:17.544Z",
+      "location": {
+        "lat": 22.69852,
+        "lng": 86.154361
+      }
+    },
+    {
+      "id": 1778614156243,
+      "vehicleId": 5,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:29:15.539Z",
+      "location": {
+        "lat": 22.975526,
+        "lng": 86.270153
+      }
+    },
+    {
+      "id": 1778614156285,
+      "vehicleId": 4,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:29:15.539Z",
+      "location": {
+        "lat": 22.799168,
+        "lng": 86.250869
+      }
+    },
+    {
+      "id": 1778614156421,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:15.539Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614156251,
+      "vehicleId": 2,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:15.539Z",
+      "location": {
+        "lat": 23.105576,
+        "lng": 86.326823
+      }
+    },
+    {
+      "id": 1778614156426,
+      "vehicleId": 1,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:29:15.539Z",
+      "location": {
+        "lat": 22.69852,
+        "lng": 86.154361
+      }
+    },
+    {
+      "id": 1778614154347,
+      "vehicleId": 5,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:29:13.520Z",
+      "location": {
+        "lat": 22.975526,
+        "lng": 86.270153
+      }
+    },
+    {
+      "id": 1778614154092,
+      "vehicleId": 4,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:29:13.520Z",
+      "location": {
+        "lat": 22.799168,
+        "lng": 86.250869
+      }
+    },
+    {
+      "id": 1778614153821,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:13.520Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614153980,
+      "vehicleId": 2,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:13.520Z",
+      "location": {
+        "lat": 23.105642,
+        "lng": 86.326869
+      }
+    },
+    {
+      "id": 1778614154037,
+      "vehicleId": 1,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:29:13.520Z",
+      "location": {
+        "lat": 22.698876,
+        "lng": 86.154305
+      }
+    },
+    {
+      "id": 1778614152040,
+      "vehicleId": 5,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:29:11.512Z",
+      "location": {
+        "lat": 22.975545,
+        "lng": 86.269793
+      }
+    },
+    {
+      "id": 1778614151740,
+      "vehicleId": 4,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:29:11.512Z",
+      "location": {
+        "lat": 22.799168,
+        "lng": 86.250869
+      }
+    },
+    {
+      "id": 1778614151898,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:11.512Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614151823,
+      "vehicleId": 2,
+      "voltage": 11.3,
+      "timestamp": "2026-05-12T19:29:11.512Z",
+      "location": {
+        "lat": 23.105642,
+        "lng": 86.326869
+      }
+    },
+    {
+      "id": 1778614152062,
+      "vehicleId": 1,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:11.512Z",
+      "location": {
+        "lat": 22.698876,
+        "lng": 86.154305
+      }
+    },
+    {
+      "id": 1778614149910,
+      "vehicleId": 5,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:29:07.498Z",
+      "location": {
+        "lat": 22.975551,
+        "lng": 86.269753
+      }
+    },
+    {
+      "id": 1778614150398,
+      "vehicleId": 4,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:29:09.506Z",
+      "location": {
+        "lat": 22.799168,
+        "lng": 86.250869
+      }
+    },
+    {
+      "id": 1778614150214,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:09.506Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614149780,
+      "vehicleId": 2,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:09.506Z",
+      "location": {
+        "lat": 23.105642,
+        "lng": 86.326869
+      }
+    },
+    {
+      "id": 1778614149850,
+      "vehicleId": 1,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:09.506Z",
+      "location": {
+        "lat": 22.698896,
+        "lng": 86.154302
+      }
+    },
+    {
+      "id": 1778614147985,
+      "vehicleId": 5,
+      "voltage": 12.1,
+      "timestamp": "2026-05-12T19:29:07.498Z",
+      "location": {
+        "lat": 22.975551,
+        "lng": 86.269753
+      }
+    },
+    {
+      "id": 1778614148098,
+      "vehicleId": 4,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:07.498Z",
+      "location": {
+        "lat": 22.799245,
+        "lng": 86.250847
+      }
+    },
+    {
+      "id": 1778614148020,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:07.498Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614148360,
+      "vehicleId": 2,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:07.498Z",
+      "location": {
+        "lat": 23.10593,
+        "lng": 86.327086
+      }
+    },
+    {
+      "id": 1778614148434,
+      "vehicleId": 1,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:07.498Z",
+      "location": {
+        "lat": 22.699255,
+        "lng": 86.154277
+      }
+    },
+    {
+      "id": 1778614145744,
+      "vehicleId": 5,
+      "voltage": 12.2,
+      "timestamp": "2026-05-12T19:29:05.485Z",
+      "location": {
+        "lat": 22.975551,
+        "lng": 86.269753
+      }
+    },
+    {
+      "id": 1778614145830,
+      "vehicleId": 4,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:29:05.485Z",
+      "location": {
+        "lat": 22.79972,
+        "lng": 86.25078
+      }
+    },
+    {
+      "id": 1778614146086,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:05.485Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614146014,
+      "vehicleId": 2,
+      "voltage": 11.7,
+      "timestamp": "2026-05-12T19:29:05.485Z",
+      "location": {
+        "lat": 23.10593,
+        "lng": 86.327086
+      }
+    },
+    {
+      "id": 1778614145625,
+      "vehicleId": 1,
+      "voltage": 11.1,
+      "timestamp": "2026-05-12T19:29:05.485Z",
+      "location": {
+        "lat": 22.699255,
+        "lng": 86.154277
+      }
+    },
+    {
+      "id": 1778614143636,
+      "vehicleId": 5,
+      "voltage": 12.2,
+      "timestamp": "2026-05-12T19:29:03.472Z",
+      "location": {
+        "lat": 22.975626,
+        "lng": 86.269401
+      }
+    },
+    {
+      "id": 1778614143881,
+      "vehicleId": 4,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:03.472Z",
+      "location": {
+        "lat": 22.800076,
+        "lng": 86.25073
+      }
+    },
+    {
+      "id": 1778614143477,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:03.472Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614144108,
+      "vehicleId": 2,
+      "voltage": 11.7,
+      "timestamp": "2026-05-12T19:29:03.472Z",
+      "location": {
+        "lat": 23.10593,
+        "lng": 86.327086
+      }
+    },
+    {
+      "id": 1778614144391,
+      "vehicleId": 1,
+      "voltage": 11.1,
+      "timestamp": "2026-05-12T19:29:03.472Z",
+      "location": {
+        "lat": 22.699255,
+        "lng": 86.154277
+      }
+    },
+    {
+      "id": 1778614142322,
+      "vehicleId": 5,
+      "voltage": 12.2,
+      "timestamp": "2026-05-12T19:29:01.458Z",
+      "location": {
+        "lat": 22.975626,
+        "lng": 86.269401
+      }
+    },
+    {
+      "id": 1778614141707,
+      "vehicleId": 4,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:01.458Z",
+      "location": {
+        "lat": 22.800076,
+        "lng": 86.25073
+      }
+    },
+    {
+      "id": 1778614142349,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:01.458Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614142151,
+      "vehicleId": 2,
+      "voltage": 11.6,
+      "timestamp": "2026-05-12T19:29:01.458Z",
+      "location": {
+        "lat": 23.105948,
+        "lng": 86.327094
+      }
+    },
+    {
+      "id": 1778614142376,
+      "vehicleId": 1,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:29:01.458Z",
+      "location": {
+        "lat": 22.699255,
+        "lng": 86.154277
+      }
+    },
+    {
+      "id": 1778614139752,
+      "vehicleId": 5,
+      "voltage": 12.2,
+      "timestamp": "2026-05-12T19:28:59.452Z",
+      "location": {
+        "lat": 22.975706,
+        "lng": 86.268989
+      }
+    },
+    {
+      "id": 1778614140132,
+      "vehicleId": 4,
+      "voltage": 12.6,
+      "timestamp": "2026-05-12T19:28:59.452Z",
+      "location": {
+        "lat": 22.800076,
+        "lng": 86.25073
+      }
+    },
+    {
+      "id": 1778614140012,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:59.452Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614139854,
+      "vehicleId": 2,
+      "voltage": 11.6,
+      "timestamp": "2026-05-12T19:28:59.452Z",
+      "location": {
+        "lat": 23.106001,
+        "lng": 86.327121
+      }
+    },
+    {
+      "id": 1778614139709,
+      "vehicleId": 1,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:28:59.452Z",
+      "location": {
+        "lat": 22.699255,
+        "lng": 86.154277
+      }
+    },
+    {
+      "id": 1778614137957,
+      "vehicleId": 5,
+      "voltage": 12.2,
+      "timestamp": "2026-05-12T19:28:57.443Z",
+      "location": {
+        "lat": 22.975775,
+        "lng": 86.268636
+      }
+    },
+    {
+      "id": 1778614137565,
+      "vehicleId": 4,
+      "voltage": 12.5,
+      "timestamp": "2026-05-12T19:28:57.443Z",
+      "location": {
+        "lat": 22.800195,
+        "lng": 86.250713
+      }
+    },
+    {
+      "id": 1778614137947,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:57.443Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614137648,
+      "vehicleId": 2,
+      "voltage": 11.6,
+      "timestamp": "2026-05-12T19:28:57.443Z",
+      "location": {
+        "lat": 23.106001,
+        "lng": 86.327121
+      }
+    },
+    {
+      "id": 1778614138241,
+      "vehicleId": 1,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:28:57.443Z",
+      "location": {
+        "lat": 22.699604,
+        "lng": 86.154364
+      }
+    },
+    {
+      "id": 1778614135478,
+      "vehicleId": 5,
+      "voltage": 12.2,
+      "timestamp": "2026-05-12T19:28:55.425Z",
+      "location": {
+        "lat": 22.975775,
+        "lng": 86.268636
+      }
+    },
+    {
+      "id": 1778614136037,
+      "vehicleId": 4,
+      "voltage": 12.5,
+      "timestamp": "2026-05-12T19:28:55.425Z",
+      "location": {
+        "lat": 22.800533,
+        "lng": 86.25059
+      }
+    },
+    {
+      "id": 1778614135565,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:55.425Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614135855,
+      "vehicleId": 2,
+      "voltage": 11.6,
+      "timestamp": "2026-05-12T19:28:55.425Z",
+      "location": {
+        "lat": 23.106332,
+        "lng": 86.327262
+      }
+    },
+    {
+      "id": 1778614135826,
+      "vehicleId": 1,
+      "voltage": 12.2,
+      "timestamp": "2026-05-12T19:28:55.425Z",
+      "location": {
+        "lat": 22.699717,
+        "lng": 86.154405
+      }
+    },
+    {
+      "id": 1778614134013,
+      "vehicleId": 5,
+      "voltage": 12.2,
+      "timestamp": "2026-05-12T19:28:53.410Z",
+      "location": {
+        "lat": 22.975775,
+        "lng": 86.268636
+      }
+    },
+    {
+      "id": 1778614133615,
+      "vehicleId": 4,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:28:53.410Z",
+      "location": {
+        "lat": 22.800533,
+        "lng": 86.25059
+      }
+    },
+    {
+      "id": 1778614133794,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:53.410Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614134277,
+      "vehicleId": 2,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:28:53.410Z",
+      "location": {
+        "lat": 23.106352,
+        "lng": 86.327265
+      }
+    },
+    {
+      "id": 1778614134300,
+      "vehicleId": 1,
+      "voltage": 12.2,
+      "timestamp": "2026-05-12T19:28:53.410Z",
+      "location": {
+        "lat": 22.699717,
+        "lng": 86.154405
+      }
+    },
+    {
+      "id": 1778614131488,
+      "vehicleId": 5,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:28:51.400Z",
+      "location": {
+        "lat": 22.975775,
+        "lng": 86.268636
+      }
+    },
+    {
+      "id": 1778614132109,
+      "vehicleId": 4,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:28:51.400Z",
+      "location": {
+        "lat": 22.800615,
+        "lng": 86.250533
+      }
+    },
+    {
+      "id": 1778614131694,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:51.400Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614131658,
+      "vehicleId": 2,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:28:51.400Z",
+      "location": {
+        "lat": 23.106708,
+        "lng": 86.327321
+      }
+    },
+    {
+      "id": 1778614131510,
+      "vehicleId": 1,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:28:51.400Z",
+      "location": {
+        "lat": 22.699717,
+        "lng": 86.154405
+      }
+    },
+    {
+      "id": 1778614130200,
+      "vehicleId": 5,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:28:49.390Z",
+      "location": {
+        "lat": 22.975775,
+        "lng": 86.268636
+      }
+    },
+    {
+      "id": 1778614130349,
+      "vehicleId": 4,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:28:49.390Z",
+      "location": {
+        "lat": 22.800946,
+        "lng": 86.250392
+      }
+    },
+    {
+      "id": 1778614129560,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:49.390Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614130240,
+      "vehicleId": 2,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:28:49.389Z",
+      "location": {
+        "lat": 23.106708,
+        "lng": 86.327321
+      }
+    },
+    {
+      "id": 1778614130214,
+      "vehicleId": 1,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:28:49.389Z",
+      "location": {
+        "lat": 22.699717,
+        "lng": 86.154405
+      }
+    },
+    {
+      "id": 1778614128180,
+      "vehicleId": 5,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:28:47.385Z",
+      "location": {
+        "lat": 22.975775,
+        "lng": 86.268636
+      }
+    },
+    {
+      "id": 1778614128033,
+      "vehicleId": 4,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:28:47.385Z",
+      "location": {
+        "lat": 22.800946,
+        "lng": 86.250392
+      }
+    },
+    {
+      "id": 1778614127474,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:47.385Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614128266,
+      "vehicleId": 2,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:28:47.385Z",
+      "location": {
+        "lat": 23.106708,
+        "lng": 86.327321
+      }
+    },
+    {
+      "id": 1778614127616,
+      "vehicleId": 1,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:28:45.377Z",
+      "location": {
+        "lat": 22.699717,
+        "lng": 86.154405
+      }
+    },
+    {
+      "id": 1778614126303,
+      "vehicleId": 5,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:28:45.377Z",
+      "location": {
+        "lat": 22.975775,
+        "lng": 86.268636
+      }
+    },
+    {
+      "id": 1778614125990,
+      "vehicleId": 4,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:28:45.377Z",
+      "location": {
+        "lat": 22.801004,
+        "lng": 86.250379
+      }
+    },
+    {
+      "id": 1778614125477,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:45.377Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614125443,
+      "vehicleId": 2,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:28:45.377Z",
+      "location": {
+        "lat": 23.107181,
+        "lng": 86.327484
+      }
+    },
+    {
+      "id": 1778614125821,
+      "vehicleId": 1,
+      "voltage": 12.5,
+      "timestamp": "2026-05-12T19:28:45.377Z",
+      "location": {
+        "lat": 22.699717,
+        "lng": 86.154405
+      }
+    },
+    {
+      "id": 1778614124015,
+      "vehicleId": 5,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:28:43.361Z",
+      "location": {
+        "lat": 22.975775,
+        "lng": 86.268636
+      }
+    },
+    {
+      "id": 1778614123879,
+      "vehicleId": 4,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:28:43.361Z",
+      "location": {
+        "lat": 22.801124,
+        "lng": 86.250379
+      }
+    },
+    {
+      "id": 1778614123602,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:43.361Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614123596,
+      "vehicleId": 2,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:28:43.361Z",
+      "location": {
+        "lat": 23.107493,
+        "lng": 86.327664
+      }
+    },
+    {
+      "id": 1778614123378,
+      "vehicleId": 1,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:28:41.349Z",
+      "location": {
+        "lat": 22.700038,
+        "lng": 86.154568
+      }
+    },
+    {
+      "id": 1778614121599,
+      "vehicleId": 5,
+      "voltage": 12.6,
+      "timestamp": "2026-05-12T19:28:41.349Z",
+      "location": {
+        "lat": 22.975775,
+        "lng": 86.268636
+      }
+    },
+    {
+      "id": 1778614121744,
+      "vehicleId": 4,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:28:39.338Z",
+      "location": {
+        "lat": 22.801124,
+        "lng": 86.250379
+      }
+    },
+    {
+      "id": 1778614122009,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:41.349Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614121854,
+      "vehicleId": 2,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:41.349Z",
+      "location": {
+        "lat": 23.107493,
+        "lng": 86.327664
+      }
+    },
+    {
+      "id": 1778614121410,
+      "vehicleId": 1,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:28:41.349Z",
+      "location": {
+        "lat": 22.700038,
+        "lng": 86.154568
+      }
+    },
+    {
+      "id": 1778614119447,
+      "vehicleId": 5,
+      "voltage": 12.5,
+      "timestamp": "2026-05-12T19:28:39.338Z",
+      "location": {
+        "lat": 22.975775,
+        "lng": 86.268636
+      }
+    },
+    {
+      "id": 1778614120048,
+      "vehicleId": 4,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:28:39.338Z",
+      "location": {
+        "lat": 22.801124,
+        "lng": 86.250379
+      }
+    },
+    {
+      "id": 1778614119477,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:39.338Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614120020,
+      "vehicleId": 2,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:28:39.338Z",
+      "location": {
+        "lat": 23.107493,
+        "lng": 86.327664
+      }
+    },
+    {
+      "id": 1778614119893,
+      "vehicleId": 1,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:28:39.338Z",
+      "location": {
+        "lat": 22.700038,
+        "lng": 86.154568
+      }
+    },
+    {
+      "id": 1778614117735,
+      "vehicleId": 5,
+      "voltage": 12.5,
+      "timestamp": "2026-05-12T19:28:37.333Z",
+      "location": {
+        "lat": 22.975904,
+        "lng": 86.2683
+      }
+    },
+    {
+      "id": 1778614117897,
+      "vehicleId": 4,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:28:35.320Z",
+      "location": {
+        "lat": 22.801124,
+        "lng": 86.250379
+      }
+    },
+    {
+      "id": 1778614117861,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:37.333Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614118119,
+      "vehicleId": 2,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:28:37.333Z",
+      "location": {
+        "lat": 23.107493,
+        "lng": 86.327664
+      }
+    },
+    {
+      "id": 1778614118112,
+      "vehicleId": 1,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:28:35.320Z",
+      "location": {
+        "lat": 22.700306,
+        "lng": 86.154809
+      }
+    },
+    {
+      "id": 1778614115817,
+      "vehicleId": 5,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:28:35.320Z",
+      "location": {
+        "lat": 22.975904,
+        "lng": 86.2683
+      }
+    },
+    {
+      "id": 1778614116144,
+      "vehicleId": 4,
+      "voltage": 12,
+      "timestamp": "2026-05-12T19:28:35.320Z",
+      "location": {
+        "lat": 22.801124,
+        "lng": 86.250379
+      }
+    },
+    {
+      "id": 1778614115796,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:35.320Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614115344,
+      "vehicleId": 2,
+      "voltage": 12.5,
+      "timestamp": "2026-05-12T19:28:35.320Z",
+      "location": {
+        "lat": 23.107493,
+        "lng": 86.327664
+      }
+    },
+    {
+      "id": 1778614115816,
+      "vehicleId": 1,
+      "voltage": 11,
+      "timestamp": "2026-05-12T19:28:35.320Z",
+      "location": {
+        "lat": 22.700306,
+        "lng": 86.154809
+      }
+    },
+    {
+      "id": 1778614113533,
+      "vehicleId": 5,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:28:33.310Z",
+      "location": {
+        "lat": 22.975915,
+        "lng": 86.268283
+      }
+    },
+    {
+      "id": 1778614113409,
+      "vehicleId": 4,
+      "voltage": 12.1,
+      "timestamp": "2026-05-12T19:28:33.310Z",
+      "location": {
+        "lat": 22.801484,
+        "lng": 86.25036
+      }
+    },
+    {
+      "id": 1778614113463,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:33.310Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614113338,
+      "vehicleId": 2,
+      "voltage": 12.5,
+      "timestamp": "2026-05-12T19:28:33.310Z",
+      "location": {
+        "lat": 23.107761,
+        "lng": 86.327905
+      }
+    },
+    {
+      "id": 1778614114236,
+      "vehicleId": 1,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:33.310Z",
+      "location": {
+        "lat": 22.700306,
+        "lng": 86.154809
+      }
+    },
+    {
+      "id": 1778614111333,
+      "vehicleId": 5,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:28:31.307Z",
+      "location": {
+        "lat": 22.97609,
+        "lng": 86.267968
+      }
+    },
+    {
+      "id": 1778614111316,
+      "vehicleId": 4,
+      "voltage": 12.2,
+      "timestamp": "2026-05-12T19:28:31.307Z",
+      "location": {
+        "lat": 22.801484,
+        "lng": 86.25036
+      }
+    },
+    {
+      "id": 1778614112302,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:31.307Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614111769,
+      "vehicleId": 2,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:28:29.303Z",
+      "location": {
+        "lat": 23.107786,
+        "lng": 86.327937
+      }
+    },
+    {
+      "id": 1778614112237,
+      "vehicleId": 1,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:31.307Z",
+      "location": {
+        "lat": 22.700306,
+        "lng": 86.154809
+      }
+    },
+    {
+      "id": 1778614109552,
+      "vehicleId": 5,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:28:27.301Z",
+      "location": {
+        "lat": 22.97609,
+        "lng": 86.267968
+      }
+    },
+    {
+      "id": 1778614109494,
+      "vehicleId": 4,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:28:29.303Z",
+      "location": {
+        "lat": 22.801484,
+        "lng": 86.25036
+      }
+    },
+    {
+      "id": 1778614109325,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:29.303Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614109548,
+      "vehicleId": 2,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:28:29.303Z",
+      "location": {
+        "lat": 23.107786,
+        "lng": 86.327937
+      }
+    },
+    {
+      "id": 1778614110291,
+      "vehicleId": 1,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:28:27.301Z",
+      "location": {
+        "lat": 22.700306,
+        "lng": 86.154809
+      }
+    },
+    {
+      "id": 1778614107465,
+      "vehicleId": 5,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:28:27.301Z",
+      "location": {
+        "lat": 22.97609,
+        "lng": 86.267968
+      }
+    },
+    {
+      "id": 1778614107546,
+      "vehicleId": 4,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:28:27.301Z",
+      "location": {
+        "lat": 22.801802,
+        "lng": 86.250529
+      }
+    },
+    {
+      "id": 1778614107758,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:27.301Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614107450,
+      "vehicleId": 2,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:28:27.301Z",
+      "location": {
+        "lat": 23.108017,
+        "lng": 86.328213
+      }
+    },
+    {
+      "id": 1778614107702,
+      "vehicleId": 1,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:28:27.301Z",
+      "location": {
+        "lat": 22.700306,
+        "lng": 86.154809
+      }
+    },
+    {
+      "id": 1778614105451,
+      "vehicleId": 5,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:28:23.291Z",
+      "location": {
+        "lat": 22.97609,
+        "lng": 86.267968
+      }
+    },
+    {
+      "id": 1778614105995,
+      "vehicleId": 4,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:28:23.291Z",
+      "location": {
+        "lat": 22.801802,
+        "lng": 86.250529
+      }
+    },
+    {
+      "id": 1778614105562,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:25.291Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614105683,
+      "vehicleId": 2,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:28:25.291Z",
+      "location": {
+        "lat": 23.10807,
+        "lng": 86.328298
+      }
+    },
+    {
+      "id": 1778614106252,
+      "vehicleId": 1,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:28:25.291Z",
+      "location": {
+        "lat": 22.700306,
+        "lng": 86.154809
+      }
+    },
+    {
+      "id": 1778614103381,
+      "vehicleId": 5,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:28:23.291Z",
+      "location": {
+        "lat": 22.97609,
+        "lng": 86.267968
+      }
+    },
+    {
+      "id": 1778614103301,
+      "vehicleId": 4,
+      "voltage": 12.5,
+      "timestamp": "2026-05-12T19:28:23.291Z",
+      "location": {
+        "lat": 22.801802,
+        "lng": 86.250529
+      }
+    },
+    {
+      "id": 1778614103328,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:23.291Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614103338,
+      "vehicleId": 2,
+      "voltage": 11.6,
+      "timestamp": "2026-05-12T19:28:23.291Z",
+      "location": {
+        "lat": 23.10807,
+        "lng": 86.328298
+      }
+    },
+    {
+      "id": 1778614103967,
+      "vehicleId": 1,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:28:23.291Z",
+      "location": {
+        "lat": 22.700306,
+        "lng": 86.154809
+      }
+    },
+    {
+      "id": 1778614101914,
+      "vehicleId": 5,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:28:21.287Z",
+      "location": {
+        "lat": 22.976105,
+        "lng": 86.26791
+      }
+    },
+    {
+      "id": 1778614101323,
+      "vehicleId": 4,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:28:21.287Z",
+      "location": {
+        "lat": 22.802024,
+        "lng": 86.250813
+      }
+    },
+    {
+      "id": 1778614101458,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:21.287Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614102152,
+      "vehicleId": 2,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:28:21.287Z",
+      "location": {
+        "lat": 23.10807,
+        "lng": 86.328298
+      }
+    },
+    {
+      "id": 1778614101423,
+      "vehicleId": 1,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:28:21.287Z",
+      "location": {
+        "lat": 22.700507,
+        "lng": 86.155107
+      }
+    },
+    {
+      "id": 1778614099962,
+      "vehicleId": 5,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:28:19.277Z",
+      "location": {
+        "lat": 22.976105,
+        "lng": 86.26791
+      }
+    },
+    {
+      "id": 1778614100146,
+      "vehicleId": 4,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:28:19.277Z",
+      "location": {
+        "lat": 22.802024,
+        "lng": 86.250813
+      }
+    },
+    {
+      "id": 1778614099909,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:19.277Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614099508,
+      "vehicleId": 2,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:28:19.277Z",
+      "location": {
+        "lat": 23.108151,
+        "lng": 86.328357
+      }
+    },
+    {
+      "id": 1778614099405,
+      "vehicleId": 1,
+      "voltage": 12.5,
+      "timestamp": "2026-05-12T19:28:19.277Z",
+      "location": {
+        "lat": 22.700507,
+        "lng": 86.155107
+      }
+    },
+    {
+      "id": 1778614097497,
+      "vehicleId": 5,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:28:15.257Z",
+      "location": {
+        "lat": 22.976105,
+        "lng": 86.26791
+      }
+    },
+    {
+      "id": 1778614097626,
+      "vehicleId": 4,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:28:15.257Z",
+      "location": {
+        "lat": 22.802255,
+        "lng": 86.251089
+      }
+    },
+    {
+      "id": 1778614097387,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:17.270Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614098126,
+      "vehicleId": 2,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:17.270Z",
+      "location": {
+        "lat": 23.108151,
+        "lng": 86.328357
+      }
+    },
+    {
+      "id": 1778614097645,
+      "vehicleId": 1,
+      "voltage": 12.5,
+      "timestamp": "2026-05-12T19:28:17.270Z",
+      "location": {
+        "lat": 22.700507,
+        "lng": 86.155107
+      }
+    },
+    {
+      "id": 1778614095906,
+      "vehicleId": 5,
+      "voltage": 12.6,
+      "timestamp": "2026-05-12T19:28:15.257Z",
+      "location": {
+        "lat": 22.976105,
+        "lng": 86.26791
+      }
+    },
+    {
+      "id": 1778614095834,
+      "vehicleId": 4,
+      "voltage": 11.8,
+      "timestamp": "2026-05-12T19:28:15.257Z",
+      "location": {
+        "lat": 22.802255,
+        "lng": 86.251089
+      }
+    },
+    {
+      "id": 1778614096014,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:15.257Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614095629,
+      "vehicleId": 2,
+      "voltage": 12.5,
+      "timestamp": "2026-05-12T19:28:15.257Z",
+      "location": {
+        "lat": 23.108151,
+        "lng": 86.328357
+      }
+    },
+    {
+      "id": 1778614095999,
+      "vehicleId": 1,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:28:15.257Z",
+      "location": {
+        "lat": 22.700507,
+        "lng": 86.155107
+      }
+    },
+    {
+      "id": 1778614093533,
+      "vehicleId": 5,
+      "voltage": 12.5,
+      "timestamp": "2026-05-12T19:28:13.254Z",
+      "location": {
+        "lat": 22.976105,
+        "lng": 86.26791
+      }
+    },
+    {
+      "id": 1778614093777,
+      "vehicleId": 4,
+      "voltage": 11.8,
+      "timestamp": "2026-05-12T19:28:13.254Z",
+      "location": {
+        "lat": 22.802255,
+        "lng": 86.251089
+      }
+    },
+    {
+      "id": 1778614093961,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:13.254Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614094041,
+      "vehicleId": 2,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:28:11.246Z",
+      "location": {
+        "lat": 23.108387,
+        "lng": 86.328629
+      }
+    },
+    {
+      "id": 1778614093929,
+      "vehicleId": 1,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:28:13.254Z",
+      "location": {
+        "lat": 22.700522,
+        "lng": 86.155165
+      }
+    },
+    {
+      "id": 1778614091476,
+      "vehicleId": 5,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:28:11.246Z",
+      "location": {
+        "lat": 22.976105,
+        "lng": 86.26791
+      }
+    },
+    {
+      "id": 1778614091977,
+      "vehicleId": 4,
+      "voltage": 11.8,
+      "timestamp": "2026-05-12T19:28:11.246Z",
+      "location": {
+        "lat": 22.802482,
+        "lng": 86.251369
+      }
+    },
+    {
+      "id": 1778614091813,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:11.246Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614091820,
+      "vehicleId": 2,
+      "voltage": 11.5,
+      "timestamp": "2026-05-12T19:28:11.246Z",
+      "location": {
+        "lat": 23.108387,
+        "lng": 86.328629
+      }
+    },
+    {
+      "id": 1778614091519,
+      "vehicleId": 1,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:28:11.246Z",
+      "location": {
+        "lat": 22.700526,
+        "lng": 86.155184
+      }
+    },
+    {
+      "id": 1778614089668,
+      "vehicleId": 5,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:28:07.232Z",
+      "location": {
+        "lat": 22.976105,
+        "lng": 86.26791
+      }
+    },
+    {
+      "id": 1778614089681,
+      "vehicleId": 4,
+      "voltage": 11.9,
+      "timestamp": "2026-05-12T19:28:09.246Z",
+      "location": {
+        "lat": 22.802482,
+        "lng": 86.251369
+      }
+    },
+    {
+      "id": 1778614089895,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:09.246Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614090071,
+      "vehicleId": 2,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:28:09.246Z",
+      "location": {
+        "lat": 23.108462,
+        "lng": 86.328695
+      }
+    },
+    {
+      "id": 1778614089452,
+      "vehicleId": 1,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:28:09.246Z",
+      "location": {
+        "lat": 22.700564,
+        "lng": 86.155723
+      }
+    },
+    {
+      "id": 1778614087269,
+      "vehicleId": 5,
+      "voltage": 12.2,
+      "timestamp": "2026-05-12T19:28:07.232Z",
+      "location": {
+        "lat": 22.976105,
+        "lng": 86.26791
+      }
+    },
+    {
+      "id": 1778614087513,
+      "vehicleId": 4,
+      "voltage": 11.9,
+      "timestamp": "2026-05-12T19:28:07.232Z",
+      "location": {
+        "lat": 22.802514,
+        "lng": 86.251393
+      }
+    },
+    {
+      "id": 1778614088148,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:07.232Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614087738,
+      "vehicleId": 2,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:28:07.232Z",
+      "location": {
+        "lat": 23.108462,
+        "lng": 86.328695
+      }
+    },
+    {
+      "id": 1778614087990,
+      "vehicleId": 1,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:28:07.232Z",
+      "location": {
+        "lat": 22.700586,
+        "lng": 86.156142
+      }
+    },
+    {
+      "id": 1778614085659,
+      "vehicleId": 5,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:28:05.230Z",
+      "location": {
+        "lat": 22.976105,
+        "lng": 86.26791
+      }
+    },
+    {
+      "id": 1778614085361,
+      "vehicleId": 4,
+      "voltage": 12,
+      "timestamp": "2026-05-12T19:28:05.230Z",
+      "location": {
+        "lat": 22.802554,
+        "lng": 86.251438
+      }
+    },
+    {
+      "id": 1778614085303,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:05.230Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614085694,
+      "vehicleId": 2,
+      "voltage": 11.1,
+      "timestamp": "2026-05-12T19:28:05.230Z",
+      "location": {
+        "lat": 23.108481,
+        "lng": 86.328701
+      }
+    },
+    {
+      "id": 1778614085684,
+      "vehicleId": 1,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:28:05.230Z",
+      "location": {
+        "lat": 22.700567,
+        "lng": 86.156502
+      }
+    },
+    {
+      "id": 1778614083957,
+      "vehicleId": 5,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:28:01.219Z",
+      "location": {
+        "lat": 22.976105,
+        "lng": 86.26791
+      }
+    },
+    {
+      "id": 1778614084075,
+      "vehicleId": 4,
+      "voltage": 12.1,
+      "timestamp": "2026-05-12T19:28:03.224Z",
+      "location": {
+        "lat": 22.802554,
+        "lng": 86.251438
+      }
+    },
+    {
+      "id": 1778614083827,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:03.224Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614083441,
+      "vehicleId": 2,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:03.224Z",
+      "location": {
+        "lat": 23.108481,
+        "lng": 86.328701
+      }
+    },
+    {
+      "id": 1778614083845,
+      "vehicleId": 1,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:28:03.224Z",
+      "location": {
+        "lat": 22.700567,
+        "lng": 86.156502
+      }
+    },
+    {
+      "id": 1778614082207,
+      "vehicleId": 5,
+      "voltage": 12.2,
+      "timestamp": "2026-05-12T19:28:01.219Z",
+      "location": {
+        "lat": 22.976105,
+        "lng": 86.26791
+      }
+    },
+    {
+      "id": 1778614082057,
+      "vehicleId": 4,
+      "voltage": 12.2,
+      "timestamp": "2026-05-12T19:28:01.219Z",
+      "location": {
+        "lat": 22.802554,
+        "lng": 86.251438
+      }
+    },
+    {
+      "id": 1778614081223,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:28:01.219Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614081792,
+      "vehicleId": 2,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:28:01.219Z",
+      "location": {
+        "lat": 23.108481,
+        "lng": 86.328701
+      }
+    },
+    {
+      "id": 1778614081475,
+      "vehicleId": 1,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:28:01.219Z",
+      "location": {
+        "lat": 22.700517,
+        "lng": 86.156858
+      }
+    },
+    {
+      "id": 1778614080177,
+      "vehicleId": 5,
+      "voltage": 12.2,
+      "timestamp": "2026-05-12T19:27:59.219Z",
+      "location": {
+        "lat": 22.976105,
+        "lng": 86.26791
+      }
+    },
+    {
+      "id": 1778614080167,
+      "vehicleId": 4,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:27:59.219Z",
+      "location": {
+        "lat": 22.802554,
+        "lng": 86.251438
+      }
+    },
+    {
+      "id": 1778614079631,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:27:59.219Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614079488,
+      "vehicleId": 2,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:27:59.219Z",
+      "location": {
+        "lat": 23.108481,
+        "lng": 86.328701
+      }
+    },
+    {
+      "id": 1778614079880,
+      "vehicleId": 1,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:27:59.219Z",
+      "location": {
+        "lat": 22.700517,
+        "lng": 86.156858
+      }
+    },
+    {
+      "id": 1778614078009,
+      "vehicleId": 5,
+      "voltage": 12.2,
+      "timestamp": "2026-05-12T19:27:57.204Z",
+      "location": {
+        "lat": 22.976105,
+        "lng": 86.26791
+      }
+    },
+    {
+      "id": 1778614077897,
+      "vehicleId": 4,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:27:57.204Z",
+      "location": {
+        "lat": 22.802822,
+        "lng": 86.251679
+      }
+    },
+    {
+      "id": 1778614078071,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:27:57.204Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614077370,
+      "vehicleId": 2,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:27:57.204Z",
+      "location": {
+        "lat": 23.108481,
+        "lng": 86.328701
+      }
+    },
+    {
+      "id": 1778614078159,
+      "vehicleId": 1,
+      "voltage": 12.6,
+      "timestamp": "2026-05-12T19:27:57.204Z",
+      "location": {
+        "lat": 22.700517,
+        "lng": 86.156858
+      }
+    },
+    {
+      "id": 1778614075860,
+      "vehicleId": 5,
+      "voltage": 12.2,
+      "timestamp": "2026-05-12T19:27:55.195Z",
+      "location": {
+        "lat": 22.976317,
+        "lng": 86.267619
+      }
+    },
+    {
+      "id": 1778614075419,
+      "vehicleId": 4,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:27:55.195Z",
+      "location": {
+        "lat": 22.802822,
+        "lng": 86.251679
+      }
+    },
+    {
+      "id": 1778614075627,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:27:55.195Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614075505,
+      "vehicleId": 2,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:27:53.182Z",
+      "location": {
+        "lat": 23.108501,
+        "lng": 86.328698
+      }
+    },
+    {
+      "id": 1778614075998,
+      "vehicleId": 1,
+      "voltage": 12.5,
+      "timestamp": "2026-05-12T19:27:55.195Z",
+      "location": {
+        "lat": 22.700514,
+        "lng": 86.156878
+      }
+    },
+    {
+      "id": 1778614073777,
+      "vehicleId": 5,
+      "voltage": 12.2,
+      "timestamp": "2026-05-12T19:27:53.182Z",
+      "location": {
+        "lat": 22.976317,
+        "lng": 86.267619
+      }
+    },
+    {
+      "id": 1778614073604,
+      "vehicleId": 4,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:27:53.182Z",
+      "location": {
+        "lat": 22.802822,
+        "lng": 86.251679
+      }
+    },
+    {
+      "id": 1778614073927,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:27:53.182Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614073676,
+      "vehicleId": 2,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:27:53.182Z",
+      "location": {
+        "lat": 23.108501,
+        "lng": 86.328698
+      }
+    },
+    {
+      "id": 1778614073282,
+      "vehicleId": 1,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:27:53.182Z",
+      "location": {
+        "lat": 22.700379,
+        "lng": 86.157212
+      }
+    },
+    {
+      "id": 1778614071230,
+      "vehicleId": 5,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:27:51.168Z",
+      "location": {
+        "lat": 22.976317,
+        "lng": 86.267619
+      }
+    },
+    {
+      "id": 1778614071504,
+      "vehicleId": 4,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:27:49.156Z",
+      "location": {
+        "lat": 22.803137,
+        "lng": 86.251854
+      }
+    },
+    {
+      "id": 1778614071740,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:27:51.168Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614071773,
+      "vehicleId": 2,
+      "voltage": 12.7,
+      "timestamp": "2026-05-12T19:27:51.168Z",
+      "location": {
+        "lat": 23.108501,
+        "lng": 86.328698
+      }
+    },
+    {
+      "id": 1778614071402,
+      "vehicleId": 1,
+      "voltage": 0,
+      "timestamp": "2026-05-12T19:27:49.156Z",
+      "location": {
+        "lat": 22.700379,
+        "lng": 86.157212
+      }
+    },
+    {
+      "id": 1778614069384,
+      "vehicleId": 5,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:27:49.156Z",
+      "location": {
+        "lat": 22.976317,
+        "lng": 86.267619
+      }
+    },
+    {
+      "id": 1778614069500,
+      "vehicleId": 4,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:27:49.156Z",
+      "location": {
+        "lat": 22.803137,
+        "lng": 86.251854
+      }
+    },
+    {
+      "id": 1778614069549,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:27:49.156Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614069902,
+      "vehicleId": 2,
+      "voltage": 12.6,
+      "timestamp": "2026-05-12T19:27:49.156Z",
+      "location": {
+        "lat": 23.108598,
+        "lng": 86.328672
+      }
+    },
+    {
+      "id": 1778614070033,
+      "vehicleId": 1,
+      "voltage": 11.3,
+      "timestamp": "2026-05-12T19:27:49.156Z",
+      "location": {
+        "lat": 22.700379,
+        "lng": 86.157212
+      }
+    },
+    {
+      "id": 1778614067423,
+      "vehicleId": 5,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:27:47.144Z",
+      "location": {
+        "lat": 22.976608,
+        "lng": 86.267407
+      }
+    },
+    {
+      "id": 1778614067279,
+      "vehicleId": 4,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:27:47.144Z",
+      "location": {
+        "lat": 22.803409,
+        "lng": 86.25209
+      }
+    },
+    {
+      "id": 1778614067947,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:27:47.144Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614067754,
+      "vehicleId": 2,
+      "voltage": 12.5,
+      "timestamp": "2026-05-12T19:27:47.144Z",
+      "location": {
+        "lat": 23.108924,
+        "lng": 86.32852
+      }
+    },
+    {
+      "id": 1778614067820,
+      "vehicleId": 1,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:27:47.144Z",
+      "location": {
+        "lat": 22.700379,
+        "lng": 86.157212
+      }
+    },
+    {
+      "id": 1778614065840,
+      "vehicleId": 5,
+      "voltage": 12.3,
+      "timestamp": "2026-05-12T19:27:45.129Z",
+      "location": {
+        "lat": 22.976934,
+        "lng": 86.267255
+      }
+    },
+    {
+      "id": 1778614065589,
+      "vehicleId": 4,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:27:45.129Z",
+      "location": {
+        "lat": 22.803409,
+        "lng": 86.25209
+      }
+    },
+    {
+      "id": 1778614065730,
+      "vehicleId": 3,
+      "voltage": 11.2,
+      "timestamp": "2026-05-12T19:27:45.129Z",
+      "location": {
+        "lat": 22.8275,
+        "lng": 86.2288
+      }
+    },
+    {
+      "id": 1778614065565,
+      "vehicleId": 2,
+      "voltage": 12.4,
+      "timestamp": "2026-05-12T19:27:45.129Z",
+      "location": {
+        "lat": 23.108943,
+        "lng": 86.328513
+      }
+    },
+    {
+      "id": 1778614065193,
+      "vehicleId": 1,
+      "voltage": 11.4,
+      "timestamp": "2026-05-12T19:27:45.128Z",
+      "location": {
+        "lat": 22.700341,
+        "lng": 86.15757
+      }
+    }
+  ],
+  "tripBillingRecords": [],
+  "inventoryInwardRecords": [
+    {
+      "id": 1,
+      "itemName": "LOAD CELL",
+      "serialNumber": "12345",
+      "recordedAt": "2026-05-12T19:09:00.000Z",
+      "vendor": "avery",
+      "brand": "avery",
+      "cost": 345677,
+      "quantity": 6
+    }
+  ],
+  "nextUserId": 3,
+  "nextVehicleId": 6,
+  "nextBreakdownReportId": 2,
+  "nextBatteryAlertId": 10,
+  "nextTyreInventoryId": 1,
+  "nextPunctureRequestId": 1,
+  "nextTripBillingId": 1,
+  "nextInventoryRecordId": 2,
+  "nextInventoryInwardId": 2
+}

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BDPH Reports</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <div id="topbarMount"></div>
+
+      <section class="page-hero compact-hero">
+        <div>
+          <span class="hero-kicker">Reports</span>
+          <h2>Operational reporting with a clear premium summary layout.</h2>
+          <p class="small">Review fleet movement, exceptions, and actionable notes in one place.</p>
+        </div>
+      </section>
+
+      <section class="section-grid two-col">
+        <article class="panel section-card">
+          <h3>Report Metrics</h3>
+          <div class="metric-stack" id="reportMetrics"></div>
+        </article>
+        <article class="panel section-card">
+          <h3>Dispatch Notes</h3>
+          <div class="list-stack" id="reportNotes"></div>
+        </article>
+      </section>
+
+      <section class="panel section-card">
+        <div class="section-head">
+          <div>
+            <h3>Breakdown Report</h3>
+            <p class="small">Live incident log with start time, fix time, reason, and duration.</p>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Vehicle</th>
+                <th>Status</th>
+                <th>Reason</th>
+                <th>Started</th>
+                <th>Fixed</th>
+                <th>Duration</th>
+              </tr>
+            </thead>
+            <tbody id="breakdownReportTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel section-card">
+        <div class="section-head">
+          <div>
+            <h3>Battery Alert Report</h3>
+            <p class="small">Track low voltage, disconnect, and offline incidents with location and driver context.</p>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Vehicle</th>
+                <th>Battery Serial</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Voltage</th>
+                <th>Location</th>
+                <th>Created</th>
+                <th>Driver</th>
+              </tr>
+            </thead>
+            <tbody id="batteryReportTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel section-card">
+        <div class="section-head">
+          <div>
+            <h3>Tyre Change Report</h3>
+            <p class="small">Track tyre install, removal, side, slot, theft risk, and vehicle details.</p>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Vehicle</th>
+                <th>Action</th>
+                <th>Axle</th>
+                <th>Side</th>
+                <th>Position</th>
+                <th>Tyre Serial</th>
+                <th>Tyre</th>
+                <th>Time</th>
+                <th>Risk</th>
+              </tr>
+            </thead>
+            <tbody id="tyreReportTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section-grid two-col">
+        <article class="panel section-card">
+          <div class="section-head">
+            <div>
+              <h3>Tyre Inventory Report</h3>
+              <p class="small">Review added spare stock, serial number trace, and storage location by vehicle.</p>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Vehicle</th>
+                  <th>Tyre Serial</th>
+                  <th>Tyre</th>
+                  <th>Qty</th>
+                  <th>Condition</th>
+                  <th>Location</th>
+                  <th>Updated</th>
+                </tr>
+              </thead>
+              <tbody id="inventoryReportTable"></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="panel section-card">
+          <div class="section-head">
+            <div>
+              <h3>Puncture Approval Report</h3>
+              <p class="small">Track driver-submitted puncture photos, tyre position, and approval outcome.</p>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Vehicle</th>
+                  <th>Axle</th>
+                  <th>Side</th>
+                  <th>Position</th>
+                  <th>Status</th>
+                  <th>Driver</th>
+                  <th>Requested</th>
+                  <th>Reviewed</th>
+                </tr>
+              </thead>
+              <tbody id="punctureReportTable"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </div>
+
+    <script src="/common.js"></script>
+    <script src="/reports.js"></script>
+  </body>
+</html>

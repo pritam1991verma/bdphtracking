@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BDPH Inventory</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <div id="topbarMount"></div>
+
+      <section class="page-hero compact-hero">
+        <div>
+          <span class="hero-kicker">Inventory Management</span>
+          <h2>Premium stock visibility for tyres, puncture approvals, and vehicle-linked inventory flow.</h2>
+          <p class="small">Review spare stock, puncture requests, and per-vehicle inventory movement from one clean control surface.</p>
+        </div>
+      </section>
+
+      <section class="premium-summary-grid">
+        <article class="premium-card accent-cyan">
+          <span class="label">Inventory Items</span>
+          <strong class="premium-value" id="inventoryItemCount">0</strong>
+          <p class="small">Total stock records currently registered.</p>
+        </article>
+        <article class="premium-card accent-green">
+          <span class="label">Available Quantity</span>
+          <strong class="premium-value" id="inventoryQtyCount">0</strong>
+          <p class="small">Total spare tyre quantity across all vehicles.</p>
+        </article>
+        <article class="premium-card accent-amber">
+          <span class="label">Pending Puncture</span>
+          <strong class="premium-value" id="pendingPunctureCount">0</strong>
+          <p class="small">Requests waiting for approval.</p>
+        </article>
+        <article class="premium-card accent-rose">
+          <span class="label">Rejected Requests</span>
+          <strong class="premium-value" id="rejectedPunctureCount">0</strong>
+          <p class="small">Puncture requests needing follow-up.</p>
+        </article>
+      </section>
+
+      <section class="section-grid two-col">
+        <article class="panel section-card">
+          <div class="section-head">
+            <div>
+              <h3>Inwards</h3>
+              <p class="small">Receive new stock with serial number, vendor, brand, cost, and entry time.</p>
+            </div>
+            <div class="toolbar compact-toolbar">
+              <label class="btn btn-muted upload-btn" for="inventoryInwardUploadFile">Upload Excel CSV</label>
+              <input id="inventoryInwardUploadFile" type="file" accept=".csv,text/csv" hidden />
+              <button class="btn btn-secondary" id="addInwardRowBtn" type="button">Add More</button>
+            </div>
+          </div>
+          <form id="inventoryInwardForm" class="form-stack">
+            <div class="list-stack" id="inventoryInwardRows"></div>
+            <div class="message" id="inventoryInwardMessage"></div>
+            <div class="toolbar">
+              <button class="btn btn-primary" type="submit">Save Inwards</button>
+            </div>
+          </form>
+        </article>
+
+        <article class="panel section-card">
+          <div class="section-head">
+            <div>
+              <h3>Inward Ledger</h3>
+              <p class="small">Track received items, serial traceability, vendors, brands, and cost.</p>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Serial</th>
+                  <th>Vendor</th>
+                  <th>Brand</th>
+                  <th>Qty</th>
+                  <th>Cost</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody id="inventoryInwardTable"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-grid two-col">
+        <article class="panel section-card">
+          <div class="section-head">
+            <div>
+              <h3>Outwards</h3>
+              <p class="small">Allocate stock to vehicle and person, track usage, balance, and download or upload the ledger.</p>
+            </div>
+            <div class="toolbar compact-toolbar">
+              <label class="btn btn-muted upload-btn" for="inventoryOutwardUploadFile">Upload Excel CSV</label>
+              <input id="inventoryOutwardUploadFile" type="file" accept=".csv,text/csv" hidden />
+              <button class="btn btn-secondary" id="downloadOutwardBtn" type="button">Download Outwards</button>
+            </div>
+          </div>
+          <form id="inventoryRecordForm" class="form-stack">
+            <div class="form-grid">
+              <input class="field" name="itemName" placeholder="Item name" required />
+              <input class="field" name="addStock" type="number" min="0" value="0" placeholder="Add stock" required />
+              <input class="field" name="usedStock" type="number" min="0" value="0" placeholder="Used stock" required />
+              <input class="field" name="allottedVehicleNo" placeholder="Allotted vehicle number" />
+              <input class="field" name="allottedPerson" placeholder="Allotted person" />
+              <input class="field" name="recordedAt" id="inventoryRecordedAt" type="datetime-local" required />
+            </div>
+            <div class="message" id="inventoryRecordMessage"></div>
+            <div class="toolbar">
+              <button class="btn btn-primary" type="submit">Save Outward Entry</button>
+            </div>
+          </form>
+        </article>
+
+        <article class="panel section-card">
+          <div class="section-head">
+            <div>
+              <h3>Outward Ledger</h3>
+              <p class="small">Track add stock, used stock, balance, allotted vehicle, allotted person, and vehicle health.</p>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Add</th>
+                  <th>Used</th>
+                  <th>Balance</th>
+                  <th>Vehicle</th>
+                  <th>Person</th>
+                  <th>Date</th>
+                  <th>Vehicle Health</th>
+                </tr>
+              </thead>
+              <tbody id="inventoryLedgerTable"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-grid two-col">
+        <article class="panel section-card">
+          <div class="section-head">
+            <div>
+              <h3>Vehicle Inventory Stock</h3>
+              <p class="small">Vehicle-wise spare tyre stock, serial traceability, and storage location.</p>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Vehicle</th>
+                  <th>Tyre Serial</th>
+                  <th>Tyre</th>
+                  <th>Qty</th>
+                  <th>Condition</th>
+                  <th>Location</th>
+                  <th>Updated</th>
+                </tr>
+              </thead>
+              <tbody id="inventoryTable"></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="panel section-card">
+          <div class="section-head">
+            <div>
+              <h3>Puncture Approval Queue</h3>
+              <p class="small">Driver-submitted puncture evidence with slot, axle, and approval status.</p>
+            </div>
+          </div>
+          <div class="list-stack" id="inventoryPunctureList"></div>
+        </article>
+      </section>
+    </div>
+
+    <script src="/common.js"></script>
+    <script src="/inventory.js"></script>
+  </body>
+</html>

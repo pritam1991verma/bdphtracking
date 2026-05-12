@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tyre Management</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <div id="topbarMount"></div>
+
+      <section class="page-hero compact-hero tyre-hero">
+        <div>
+          <span class="hero-kicker">Tyre Management</span>
+          <h2>Axle-aware tyre control with install history, theft watch, and slot-based installs.</h2>
+          <p class="small">Select a vehicle, configure its axle setup, click any tyre box, and save install or removal records with side and slot tracking.</p>
+        </div>
+      </section>
+
+      <section class="premium-summary-grid tyre-summary-grid">
+        <article class="premium-card accent-cyan">
+          <span class="label">Installed Tyres</span>
+          <strong class="premium-value" id="tyreInstalledCount">0</strong>
+          <p class="small">Current tyre positions filled on the selected vehicle.</p>
+        </article>
+        <article class="premium-card accent-green">
+          <span class="label">Healthy Slots</span>
+          <strong class="premium-value" id="tyreHealthyCount">0</strong>
+          <p class="small">Tyres with pressure and tread in safe operating range.</p>
+        </article>
+        <article class="premium-card accent-amber">
+          <span class="label">Maintenance Watch</span>
+          <strong class="premium-value" id="tyreMaintenanceCount">0</strong>
+          <p class="small">Tyres needing tread or pressure attention.</p>
+        </article>
+        <article class="premium-card accent-rose">
+          <span class="label">Theft Watch</span>
+          <strong class="premium-value" id="tyreTheftWatchCount">0</strong>
+          <p class="small">Open empty slots or recent removals needing verification.</p>
+        </article>
+      </section>
+
+      <section class="section-grid tyre-grid-advanced">
+        <article class="panel section-card">
+          <div class="section-head">
+            <div>
+              <h3>Axle Configuration</h3>
+              <p class="small" id="tyreVehicleMeta">Choose a vehicle to begin.</p>
+            </div>
+            <div class="tyre-config-toolbar">
+              <select id="tyreVehicleSelect" class="select tyre-vehicle-select">
+                <option value="">Select vehicle</option>
+              </select>
+              <select id="axlePresetSelect" class="select tyre-vehicle-select">
+                <option value="">Select axle setup</option>
+              </select>
+              <button class="btn btn-secondary" id="saveAxleConfigBtn" type="button">Save Axle Setup</button>
+            </div>
+          </div>
+          <div class="tyre-layout-shell">
+            <div class="tyre-layout-header">
+              <strong id="axleConfigLabel">6x4</strong>
+              <span class="small" id="axleConfigMeta">Ready for axle mapping.</span>
+            </div>
+            <div class="tyre-layout-box" id="tyreLayout"></div>
+          </div>
+        </article>
+
+        <article class="panel section-card">
+          <div class="section-head">
+            <div>
+              <h3>Install Tyre</h3>
+              <p class="small">Install a new or used tyre into a selected left or right vehicle-side slot.</p>
+            </div>
+          </div>
+          <form id="tyreInstallForm" class="form-stack">
+            <select class="select" name="tyreType" id="tyreTypeSelect" required>
+              <option value="">Select tyre type</option>
+            </select>
+            <div class="tyre-condition-toggle">
+              <label><input type="radio" name="tyreCondition" value="new" checked /> New Tyre</label>
+              <label><input type="radio" name="tyreCondition" value="used" /> Used Tyre</label>
+            </div>
+            <div class="form-grid">
+              <input class="field" name="tyreMeter" type="number" min="0" placeholder="Tyre meter / mileage" />
+              <input class="field" name="tyreSerialNumber" placeholder="Tyre serial number" />
+              <select class="select" name="axle" id="tyreAxleSelect" required>
+                <option value="">Select axle</option>
+              </select>
+              <select class="select" name="position" id="tyrePositionSelect" required>
+                <option value="">Select position</option>
+              </select>
+              <input class="field" name="treadDepth" type="number" min="1" placeholder="Tread depth" required />
+              <input class="field" name="pressure" type="number" min="1" placeholder="Pressure PSI" required />
+              <input class="field" name="installedAt" type="datetime-local" />
+            </div>
+            <input type="hidden" name="slot" id="tyreSlotInput" />
+            <div class="device-preview" id="tyreSelectedSlot">Select a tyre slot from the axle layout or dropdown.</div>
+            <div class="toolbar">
+              <button class="btn btn-primary" type="submit">Install Tyre</button>
+            </div>
+            <div class="message" id="tyreInstallMessage"></div>
+          </form>
+
+          <div class="tyre-side-card">
+            <strong>Selected Slot</strong>
+            <div id="tyreSelectedSlotCard" class="small">Click a tyre box like Left Front, Right Front, Left Rear, or Right Rear to target that slot.</div>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-grid two-col tyre-ops-grid">
+        <article class="panel section-card">
+          <div class="section-head">
+            <div>
+              <h3>Tyre Inventory</h3>
+              <p class="small">Track spare stock, serial numbers, and storage location for each vehicle.</p>
+            </div>
+          </div>
+          <form id="tyreInventoryForm" class="form-stack">
+            <div class="form-grid">
+              <select class="select" name="tyreType" id="inventoryTyreTypeSelect" required>
+                <option value="">Select tyre type</option>
+              </select>
+              <input class="field" name="tyreSerialNumber" placeholder="Inventory serial number" required />
+              <input class="field" name="quantity" type="number" min="1" value="1" required />
+              <select class="select" name="condition">
+                <option value="new">New</option>
+                <option value="used">Used</option>
+                <option value="retread">Retread</option>
+              </select>
+              <input class="field" name="location" placeholder="Storage location / rack" required />
+              <input class="field" name="note" placeholder="Inventory note" />
+            </div>
+            <div class="toolbar">
+              <button class="btn btn-secondary" type="submit">Add to Inventory</button>
+            </div>
+            <div class="message" id="tyreInventoryMessage"></div>
+          </form>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Serial</th>
+                  <th>Tyre</th>
+                  <th>Qty</th>
+                  <th>Condition</th>
+                  <th>Location</th>
+                  <th>Updated</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="tyreInventoryTable"></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="panel section-card">
+          <div class="section-head">
+            <div>
+              <h3>Puncture Approval</h3>
+              <p class="small">Driver-side puncture request with tyre photo, review status, and slot traceability.</p>
+            </div>
+          </div>
+          <form id="punctureApprovalForm" class="form-stack">
+            <div class="form-grid">
+              <input class="field" name="driverName" placeholder="Driver name" />
+              <input class="field" name="note" placeholder="Puncture note / reason" />
+              <input class="field" name="requestedAt" id="punctureRequestedAt" type="datetime-local" />
+              <input class="field" name="photoFile" id="puncturePhotoFile" type="file" accept="image/*" required />
+            </div>
+            <div class="device-preview" id="punctureSlotPreview">Select a tyre slot first, then upload the puncture photo.</div>
+            <div class="toolbar">
+              <button class="btn btn-primary" type="submit">Send for Approval</button>
+            </div>
+            <div class="message" id="punctureApprovalMessage"></div>
+          </form>
+          <div class="list-stack" id="punctureRequestList"></div>
+        </article>
+      </section>
+
+      <section class="section-grid two-col">
+        <article class="panel section-card">
+          <div class="section-head">
+            <div>
+              <h3>Installed Tyres</h3>
+              <p class="small">Current tyres installed on the selected vehicle.</p>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Axle</th>
+                  <th>Position</th>
+                  <th>Serial</th>
+                  <th>Tyre Type</th>
+                  <th>Condition</th>
+                  <th>Tread</th>
+                  <th>Pressure</th>
+                  <th>Installed</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="installedTyreTable"></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="panel section-card">
+          <div class="section-head">
+            <div>
+              <h3>Tyre Activity</h3>
+              <p class="small">Recent tyre install and removal activity.</p>
+            </div>
+          </div>
+          <div class="list-stack" id="tyreActivityList"></div>
+        </article>
+      </section>
+    </div>
+
+    <script src="/common.js"></script>
+    <script src="/tyres.js"></script>
+  </body>
+</html>

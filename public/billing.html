@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BDPH Billing</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <div id="topbarMount"></div>
+
+      <section class="page-hero compact-hero">
+        <div>
+          <span class="hero-kicker">Billing</span>
+          <h2>Subscription control, expiry tracking, and account access coverage in one page.</h2>
+          <p class="small">Track active and expired users, view access footprint, and renew service from a cleaner premium billing view.</p>
+        </div>
+      </section>
+
+      <section class="premium-summary-grid">
+        <article class="premium-card accent-cyan">
+          <span class="label">Total Accounts</span>
+          <strong class="premium-value" id="billingUserCount">0</strong>
+          <p class="small">User accounts under billing supervision.</p>
+        </article>
+        <article class="premium-card accent-green">
+          <span class="label">Active Accounts</span>
+          <strong class="premium-value" id="billingActiveCount">0</strong>
+          <p class="small">Accounts with valid subscription expiry.</p>
+        </article>
+        <article class="premium-card accent-amber">
+          <span class="label">Expiring Soon</span>
+          <strong class="premium-value" id="billingExpiringCount">0</strong>
+          <p class="small">Accounts needing proactive renewal attention.</p>
+        </article>
+        <article class="premium-card accent-rose">
+          <span class="label">Expired</span>
+          <strong class="premium-value" id="billingExpiredCount">0</strong>
+          <p class="small">Accounts already outside valid access coverage.</p>
+        </article>
+      </section>
+
+      <section class="section-grid two-col">
+        <article class="panel section-card">
+          <div class="section-head">
+            <div>
+              <h3>Trip Billing Entry</h3>
+              <p class="small">Capture trip-based driver payment details with duplicate challan protection.</p>
+            </div>
+            <div class="toolbar compact-toolbar">
+              <label class="btn btn-muted upload-btn" for="billingUploadFile">Upload Excel CSV</label>
+              <input id="billingUploadFile" type="file" accept=".csv,text/csv" hidden />
+              <button class="btn btn-secondary" id="downloadBillingBtn" type="button">Download Trip Sheet</button>
+            </div>
+          </div>
+          <form id="tripBillingForm" class="form-stack">
+            <div class="form-grid">
+              <input class="field" name="serialNo" placeholder="Serial no" required />
+              <input class="field" name="vehicleNo" placeholder="Vehicle no" required />
+              <input class="field" name="tripDate" id="tripBillingDate" type="datetime-local" required />
+              <input class="field" name="challanNo" id="challanNoInput" placeholder="Challan no" required />
+              <input class="field" name="tonnage" type="number" min="1" step="0.01" placeholder="Tonnage" required />
+              <input class="field" name="driver" placeholder="Driver name" required />
+              <input class="field" name="amount" type="number" min="1" step="0.01" placeholder="Amount" required />
+            </div>
+            <div class="message" id="tripBillingMessage"></div>
+            <div class="toolbar">
+              <button class="btn btn-primary" type="submit">Save Trip Billing</button>
+            </div>
+          </form>
+        </article>
+
+        <article class="panel section-card">
+          <div class="section-head">
+            <div>
+              <h3>Trip Payment Ledger</h3>
+              <p class="small">Maintain payable trip records for drivers on a trip basis.</p>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Serial</th>
+                  <th>Vehicle</th>
+                  <th>Date</th>
+                  <th>Challan</th>
+                  <th>Tonnage</th>
+                  <th>Driver</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody id="tripBillingTable"></tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+
+      <section class="section-grid two-col">
+        <article class="panel section-card">
+          <div class="section-head">
+            <div>
+              <h3>Billing Accounts</h3>
+              <p class="small">User-wise billing health, expiry state, and module access footprint.</p>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>User</th>
+                  <th>Status</th>
+                  <th>Expiry</th>
+                  <th>Access Count</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="billingTable"></tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="panel section-card">
+          <div class="section-head">
+            <div>
+              <h3>Billing Snapshot</h3>
+              <p class="small">Renew selected users and keep access active without opening another tool.</p>
+            </div>
+          </div>
+          <div class="metric-stack" id="billingSnapshot"></div>
+        </article>
+      </section>
+    </div>
+
+    <script src="/common.js"></script>
+    <script src="/billing.js"></script>
+  </body>
+</html>

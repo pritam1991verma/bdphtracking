@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BDPH Access Level</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <div id="topbarMount"></div>
+
+      <section class="page-hero compact-hero">
+        <div>
+          <span class="hero-kicker">Access Level</span>
+          <h2>Manage page access for each user.</h2>
+          <p class="small">Enable or disable access to dashboard, fuel, AdBlue, reports, live tracker, and admin pages.</p>
+        </div>
+      </section>
+
+      <section class="panel section-card">
+        <div class="section-head">
+          <div>
+            <h3>User Access Matrix</h3>
+            <p class="small">Choose a user, assign access, and save with a cleaner linked workflow.</p>
+          </div>
+          <div class="tyre-config-toolbar">
+            <select id="accessUserSelect" class="select tyre-vehicle-select">
+              <option value="">All users</option>
+            </select>
+          </div>
+        </div>
+        <div class="access-grid" id="accessGrid"></div>
+      </section>
+    </div>
+
+    <script src="/common.js"></script>
+    <script src="/access-level.js"></script>
+  </body>
+</html>

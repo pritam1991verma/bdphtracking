@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BDPH Live Tracker</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="shell shell-wide">
+      <div id="topbarMount"></div>
+
+      <section class="tracker-stage tracker-stage-premium panel">
+        <div class="tracker-commandbar">
+          <div class="tracker-brandbar">
+            <div class="tracker-title-block">
+              <span class="tracker-kicker">Live Command Center</span>
+              <h2 class="tracker-title">Smarter live monitoring with fixed-map awareness.</h2>
+              <p class="tracker-subtitle" id="monitoringSubtitle">
+                Watch the fleet without the camera shifting, surface priority vehicles instantly, and compare trip history on demand.
+              </p>
+            </div>
+            <div class="tracker-pulse-card">
+              <span class="tracker-pulse-dot"></span>
+              <div>
+                <strong>Live Pulse</strong>
+                <span>Static view, instant vehicle actions</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tracker-canvas tracker-canvas-premium" id="mapWrap">
+          <aside class="tracker-leftbar tracker-leftbar-premium">
+            <button class="tracker-count-card tracker-count-main tracker-count-hero tracker-fleet-hero-btn" id="showAllVehiclesBtn" type="button">
+              <span class="label">Fleet Visibility</span>
+              <strong id="totalVehicles">0</strong>
+              <p id="allVehiclesHint">Live vehicles ready for monitoring.</p>
+            </button>
+
+            <div class="tracker-count-grid tracker-count-grid-premium">
+              <button class="tracker-stat active" type="button" data-status="all">
+                <span>Visible</span>
+                <strong id="allVehiclesVisible">0</strong>
+              </button>
+              <button class="tracker-stat" type="button" data-status="moving">
+                <span>Moving</span>
+                <strong id="movingVehicles">0</strong>
+              </button>
+              <button class="tracker-stat" type="button" data-status="stopped">
+                <span>Halted</span>
+                <strong id="stoppedVehicles">0</strong>
+              </button>
+              <button class="tracker-stat" type="button" data-status="parked">
+                <span>Parked</span>
+                <strong id="parkedVehicles">0</strong>
+              </button>
+              <button class="tracker-stat" type="button" data-status="idle">
+                <span>Idle</span>
+                <strong id="idleVehicles">0</strong>
+              </button>
+              <button class="tracker-stat" type="button" data-status="offline">
+                <span>Offline</span>
+                <strong id="offlineVehicles">0</strong>
+              </button>
+              <button class="tracker-stat" type="button" data-status="breakdown">
+                <span>Breakdown</span>
+                <strong id="breakdownVehicles">0</strong>
+              </button>
+              <button class="tracker-stat" type="button" data-status="no-gps">
+                <span>No GPS</span>
+                <strong id="noGpsVehicles">0</strong>
+              </button>
+              <button class="tracker-stat" type="button" data-status="disconnected">
+                <span>Disconnected</span>
+                <strong id="disconnectedVehicles">0</strong>
+              </button>
+            </div>
+
+          </aside>
+
+          <div class="tracker-map-zone">
+            <div class="tracker-map-console">
+              <div class="tracker-map-console-row">
+                <div class="tracker-tabs tracker-tabs-floating">
+                  <button class="segment active tracker-view-btn" type="button" data-view="street">Map</button>
+                  <button class="segment tracker-view-btn" type="button" data-view="satellite">Satellite</button>
+                  <button class="segment tracker-view-btn" type="button" data-view="terrain">Terrain</button>
+                </div>
+                <button class="icon-btn tracker-console-btn" id="fullscreenBtn" type="button" title="Toggle fullscreen">[]</button>
+              </div>
+              <div class="tracker-filters tracker-filters-floating">
+                <input id="searchInput" class="search tracker-search" type="text" placeholder="Search vehicle, driver, or IMEI" />
+                <select id="vehicleSelect" class="select tracker-select">
+                  <option value="">Focus Vehicle</option>
+                </select>
+                <select id="statusSelect" class="select tracker-select">
+                  <option value="all">Status: All</option>
+                  <option value="moving">Moving</option>
+                  <option value="stopped">Halted</option>
+                  <option value="parked">Parked</option>
+                  <option value="idle">Idle</option>
+                  <option value="offline">Offline</option>
+                  <option value="breakdown">Breakdown</option>
+                  <option value="no-gps">No GPS</option>
+                  <option value="disconnected">Disconnected</option>
+                </select>
+              </div>
+            </div>
+            <div class="tracker-action-panel hidden" id="mapActionPanel">
+              <div class="tracker-action-panel-head">
+                <div>
+                  <strong id="actionPanelTitle">Vehicle Action</strong>
+                  <div class="small" id="actionPanelSubtitle">Select a map action.</div>
+                </div>
+                <button class="icon-btn" id="closeActionPanelBtn" type="button" title="Close">x</button>
+              </div>
+              <div class="tracker-action-panel-body" id="actionPanelBody"></div>
+            </div>
+            <div id="map"></div>
+          </div>
+
+          <aside class="tracker-rightbar tracker-rightbar-premium">
+            <div class="tracker-info-card tracker-selected-card tracker-selected-card-premium">
+              <div class="tracker-selected-top">
+                <div>
+                  <div class="small" id="vehicleType">No vehicle selected</div>
+                  <h3 id="vehicleName">Waiting for data</h3>
+                </div>
+                <div id="vehicleStatusBadge" class="badge stopped">Stopped</div>
+              </div>
+              <p class="small top-gap" id="vehicleDriver">Driver details will appear here.</p>
+              <div class="tracker-selected-actions">
+                <button class="btn btn-secondary" id="sideOpenMapBtn" type="button">Open on Map</button>
+                <button class="btn btn-muted" id="sideTripBtn" type="button">Trip History</button>
+              </div>
+              <div class="tracker-vehicle-command-grid" id="vehicleCommandGrid">
+                <button class="tracker-command-btn active" type="button" data-side-action="live">Live</button>
+                <button class="tracker-command-btn" type="button" data-side-action="trip-history">Trip History</button>
+                <button class="tracker-command-btn" type="button" data-side-action="geofence">Geofence</button>
+                <button class="tracker-command-btn" type="button" data-side-action="route">Route</button>
+                <button class="tracker-command-btn" type="button" data-side-action="nearby">Nearby</button>
+                <button class="tracker-command-btn danger" type="button" data-side-action="breakdown">Breakdown</button>
+              </div>
+            </div>
+
+            <div class="tracker-info-card tracker-mini-grid tracker-mini-grid-premium tracker-telemetry-card">
+              <div><span class="label">Speed</span><strong id="detailSpeed">0 km/h</strong></div>
+              <div><span class="label">Fuel</span><strong id="detailFuel">0%</strong></div>
+              <div><span class="label">AdBlue</span><strong id="detailAdblue">0%</strong></div>
+              <div><span class="label">Ignition</span><strong id="detailIgnition">Off</strong></div>
+              <div><span class="label">Heading</span><strong id="detailHeading">0 deg</strong></div>
+              <div><span class="label">Odometer</span><strong id="detailOdometer">0 km</strong></div>
+              <div><span class="label">GPS</span><strong id="detailGps">Unavailable</strong></div>
+              <div><span class="label">Coordinates</span><strong id="detailCoords">0, 0</strong></div>
+            </div>
+
+            <div class="tracker-info-card tracker-intelligence-card">
+              <div class="section-head">
+                <div>
+                  <h4>Intelligent Watchlist</h4>
+                  <div class="small">Auto-prioritized operational attention based on status and telemetry.</div>
+                </div>
+              </div>
+              <div class="list-stack" id="insightList"></div>
+            </div>
+
+            <div class="tracker-info-card">
+              <div class="section-head">
+                <div>
+                  <h4>Trip History</h4>
+                  <div class="small" id="routeMeta">Select multiple vehicles to draw history together.</div>
+                </div>
+                <button class="btn btn-muted" id="clearTripSelectionBtn" type="button">Clear</button>
+              </div>
+              <div class="trip-history-list" id="tripHistoryList"></div>
+            </div>
+
+            <div class="tracker-info-card tracker-nearby-card">
+              <div class="section-head">
+                <div>
+                  <h4>Nearby</h4>
+                  <div class="small" id="nearbyMeta">Select a vehicle to explore nearby services.</div>
+                </div>
+              </div>
+              <div class="tracker-nearby-toolbar">
+                <div class="tracker-nearby-categories" id="nearbyCategoryTabs">
+                  <button class="tracker-nearby-pill active" type="button" data-nearby="fuel">Fuel Pumps</button>
+                  <button class="tracker-nearby-pill" type="button" data-nearby="def">DEF / Urea</button>
+                  <button class="tracker-nearby-pill" type="button" data-nearby="atm">ATM</button>
+                  <button class="tracker-nearby-pill" type="button" data-nearby="workshop">Workshop</button>
+                </div>
+                <select id="nearbyRadiusSelect" class="select tracker-nearby-radius">
+                  <option value="5">5 km</option>
+                  <option value="10" selected>10 km</option>
+                  <option value="25">25 km</option>
+                  <option value="40">40 km</option>
+                </select>
+              </div>
+              <div class="tracker-nearby-list" id="nearbyList"></div>
+            </div>
+
+            <div class="tracker-info-card tracker-icon-lab">
+              <div class="section-head">
+                <div>
+                  <h4>Vehicle Icon Studio</h4>
+                  <div class="small">Upload or remove a premium icon for each vehicle type.</div>
+                </div>
+              </div>
+              <div class="form-stack">
+                <select id="vehicleIconTypeSelect" class="select">
+                  <option value="school bus">School Bus</option>
+                  <option value="mini bus">Mini Bus</option>
+                  <option value="staff bus">Staff Bus</option>
+                  <option value="bus">Bus</option>
+                  <option value="van">Van</option>
+                  <option value="car">Car</option>
+                </select>
+                <input id="vehicleIconFileInput" class="field" type="file" accept="image/*" />
+                <div class="tracker-icon-lab-actions">
+                  <button class="btn btn-secondary" id="uploadVehicleIconBtn" type="button">Upload Icon</button>
+                  <button class="btn btn-muted" id="deleteVehicleIconBtn" type="button">Delete Icon</button>
+                </div>
+                <div class="tracker-icon-preview" id="vehicleIconPreview">No custom icon selected.</div>
+              </div>
+            </div>
+
+            <div class="tracker-info-card tracker-footnote-card">
+              <strong id="billingStatus">Checking billing...</strong>
+              <div class="small" id="billingMeta">Loading expiry information.</div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="/common.js"></script>
+    <script src="/live-monitor.js"></script>
+  </body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BDPH Live Tracker</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <div id="topbarMount"></div>
+
+      <section class="summary-grid" id="statusSummaryGrid">
+        <button class="summary-card summary-card-static" type="button">
+          <div class="label">Total Vehicles</div>
+          <div class="value" id="totalVehicles">0</div>
+        </button>
+        <button class="summary-card status-card active" type="button" data-status="moving">
+          <div class="label">Moving</div>
+          <div class="value" id="movingVehicles">0</div>
+        </button>
+        <button class="summary-card status-card" type="button" data-status="idle">
+          <div class="label">Idle</div>
+          <div class="value" id="idleVehicles">0</div>
+        </button>
+        <button class="summary-card status-card" type="button" data-status="parked">
+          <div class="label">Parked</div>
+          <div class="value" id="parkedVehicles">0</div>
+        </button>
+        <button class="summary-card status-card" type="button" data-status="stopped">
+          <div class="label">Stopped</div>
+          <div class="value" id="stoppedVehicles">0</div>
+        </button>
+        <button class="summary-card status-card" type="button" data-status="breakdown">
+          <div class="label">Breakdown</div>
+          <div class="value" id="breakdownVehicles">0</div>
+        </button>
+        <button class="summary-card status-card" type="button" data-status="offline">
+          <div class="label">Offline</div>
+          <div class="value" id="offlineVehicles">0</div>
+        </button>
+        <button class="summary-card status-card" type="button" data-status="no-gps">
+          <div class="label">No GPS</div>
+          <div class="value" id="noGpsVehicles">0</div>
+        </button>
+        <button class="summary-card status-card" type="button" data-status="disconnected">
+          <div class="label">Disconnected</div>
+          <div class="value" id="disconnectedVehicles">0</div>
+        </button>
+        <button class="summary-card status-card" type="button" data-status="all">
+          <div class="label">All</div>
+          <div class="value" id="allVehiclesVisible">0</div>
+        </button>
+      </section>
+
+      <div class="filter-strip">
+        <div class="filter-header">
+          <div>
+            <h2 class="panel-title">Live Tracker</h2>
+            <div class="panel-subtitle" id="activeFilterLabel">Showing moving vehicles on the map and in the list.</div>
+          </div>
+        </div>
+      </div>
+
+      <section class="workspace">
+        <aside class="panel">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">Fleet</h2>
+              <div class="panel-subtitle" id="fleetCount">Loading vehicles...</div>
+            </div>
+            <input id="searchInput" class="search" type="text" placeholder="Search vehicles" />
+          </div>
+          <div class="fleet-list" id="fleetList"></div>
+        </aside>
+
+        <section class="panel">
+          <div class="map-wrap" id="mapWrap">
+            <div class="map-overlay">
+              <div class="map-overlay-top">
+                <div>
+                  <h3>Live Tracking Map</h3>
+                  <p>Switch between street, terrain, and satellite views, then expand the map in fullscreen when needed.</p>
+                </div>
+                <button class="icon-btn" id="fullscreenBtn" type="button" title="Toggle fullscreen">⛶</button>
+              </div>
+              <div class="map-controls">
+                <div class="segmented" id="mapViewTabs">
+                  <button class="segment active" type="button" data-view="street">Street</button>
+                  <button class="segment" type="button" data-view="terrain">Terrain</button>
+                  <button class="segment" type="button" data-view="satellite">Satellite</button>
+                </div>
+              </div>
+            </div>
+            <div id="map"></div>
+          </div>
+        </section>
+
+        <aside class="panel details-panel">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">Vehicle Details</h2>
+              <div class="panel-subtitle" id="detailSubtitle">Select a vehicle to inspect live telemetry</div>
+            </div>
+          </div>
+
+          <div class="details">
+            <div class="hero-card">
+              <div class="small" id="vehicleType">No vehicle selected</div>
+              <h3 id="vehicleName">Waiting for data</h3>
+              <div id="vehicleStatusBadge" class="badge stopped">Stopped</div>
+              <p class="small top-gap" id="vehicleDriver">Driver details will appear here.</p>
+            </div>
+
+            <div class="info-grid">
+              <div class="info-card"><div class="info-label">Speed</div><div class="info-value" id="detailSpeed">0 km/h</div></div>
+              <div class="info-card"><div class="info-label">Fuel Level</div><div class="info-value" id="detailFuel">0%</div></div>
+              <div class="info-card"><div class="info-label">AdBlue Level</div><div class="info-value" id="detailAdblue">0%</div></div>
+              <div class="info-card"><div class="info-label">Ignition</div><div class="info-value" id="detailIgnition">Off</div></div>
+              <div class="info-card"><div class="info-label">Heading</div><div class="info-value" id="detailHeading">0 deg</div></div>
+              <div class="info-card"><div class="info-label">Odometer</div><div class="info-value" id="detailOdometer">0 km</div></div>
+              <div class="info-card"><div class="info-label">GPS</div><div class="info-value" id="detailGps">Unavailable</div></div>
+              <div class="info-card"><div class="info-label">Coordinates</div><div class="info-value" id="detailCoords">0, 0</div></div>
+            </div>
+
+            <div class="info-card">
+              <h4>Account & Tracking Status</h4>
+              <div class="timeline">
+                <div class="timeline-item">
+                  <strong id="loginStatus">Logged in</strong>
+                  <div class="small" id="loginMeta"></div>
+                </div>
+                <div class="timeline-item">
+                  <strong id="billingStatus">Checking billing...</strong>
+                  <div class="small" id="billingMeta">Loading expiry information.</div>
+                </div>
+                <div class="timeline-item">
+                  <strong>Route Trail</strong>
+                  <div class="small" id="routeMeta">The selected vehicle trail will be drawn on the map.</div>
+                </div>
+                <div class="timeline-item">
+                  <button class="btn btn-secondary" id="renewBtn" type="button">Renew Billing</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="info-card">
+              <div class="section-head">
+                <div>
+                  <h4>Trip History</h4>
+                  <div class="small">Select multiple vehicles to view their trip history together.</div>
+                </div>
+                <button class="btn btn-muted" id="clearTripSelectionBtn" type="button">Clear</button>
+              </div>
+              <div class="trip-history-list" id="tripHistoryList"></div>
+            </div>
+          </div>
+        </aside>
+      </section>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="/common.js"></script>
+    <script src="/live-tracker.js"></script>
+  </body>
+</html>
