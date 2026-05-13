@@ -1,14 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>BDPH Premium Track History</title>
+<title>BDPH Premium Playback</title>
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
-<link rel="stylesheet" href="track-history.css">
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#08111f;
+overflow:hidden;
+color:white;
+}
+
+.header{
+height:80px;
+background:#0d1b2a;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 20px;
+border-bottom:1px solid #1d3557;
+}
+
+.header h1{
+margin:0;
+font-size:28px;
+}
+
+.controls{
+display:flex;
+gap:10px;
+align-items:center;
+}
+
+.controls select,
+.controls input,
+.controls button{
+padding:12px;
+border:none;
+border-radius:10px;
+font-size:14px;
+}
+
+.controls button{
+background:#00c853;
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+
+.main{
+display:flex;
+height:calc(100vh - 80px);
+}
+
+.sidebar{
+width:340px;
+background:#0d1725;
+overflow:auto;
+padding:15px;
+border-right:1px solid rgba(255,255,255,0.08);
+}
+
+.card{
+background:#10233b;
+border-radius:18px;
+padding:18px;
+margin-bottom:15px;
+box-shadow:0 0 20px rgba(0,0,0,0.3);
+}
+
+.card h2{
+margin-top:0;
+margin-bottom:20px;
+}
+
+.stat{
+display:flex;
+justify-content:space-between;
+padding:12px 0;
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.alert{
+padding:14px;
+border-radius:12px;
+margin-bottom:10px;
+font-weight:bold;
+}
+
+.red{
+background:#ff1744;
+}
+
+.orange{
+background:#ff9100;
+}
+
+.purple{
+background:#aa00ff;
+}
+
+.cyan{
+background:#00bcd4;
+}
+
+.scoreCircle{
+width:130px;
+height:130px;
+border-radius:50%;
+background:#00c853;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:42px;
+font-weight:bold;
+margin:auto;
+box-shadow:0 0 30px rgba(0,200,83,0.5);
+}
+
+.mapArea{
+flex:1;
+position:relative;
+}
+
+#map{
+height:100%;
+width:100%;
+}
+
+.playbackPanel{
+position:absolute;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+width:70%;
+background:rgba(13,27,42,0.95);
+padding:18px;
+border-radius:20px;
+backdrop-filter:blur(10px);
+z-index:9999;
+box-shadow:0 0 30px rgba(0,0,0,0.5);
+}
+
+.playControls{
+display:flex;
+gap:10px;
+align-items:center;
+margin-bottom:15px;
+}
+
+.playControls button{
+padding:12px 18px;
+border:none;
+border-radius:10px;
+background:#00c853;
+color:white;
+font-size:18px;
+cursor:pointer;
+}
+
+.playControls select{
+padding:10px;
+border-radius:10px;
+}
+
+#timeline{
+width:100%;
+}
+
+.timelineRow{
+display:flex;
+justify-content:space-between;
+margin-top:10px;
+font-size:14px;
+}
+
+.vehicleCard{
+position:absolute;
+top:20px;
+right:20px;
+z-index:9999;
+background:white;
+color:black;
+padding:20px;
+border-radius:18px;
+width:250px;
+box-shadow:0 0 30px rgba(0,0,0,0.4);
+}
+
+.vehicleCard h2{
+margin-top:0;
+}
+
+.vehicleStatus{
+color:#00c853;
+font-weight:bold;
+font-size:24px;
+}
+
+.speedText{
+font-size:34px;
+font-weight:bold;
+color:#1976d2;
+}
+
+.timelineColors{
+display:flex;
+height:12px;
+margin-top:15px;
+border-radius:20px;
+overflow:hidden;
+}
+
+.green{
+background:#00c853;
+flex:4;
+}
+
+.yellow{
+background:#ffea00;
+flex:2;
+}
+
+.redline{
+background:#ff1744;
+flex:3;
+}
+
+.black{
+background:#263238;
+flex:2;
+}
+
+</style>
 
 </head>
 
@@ -16,142 +249,317 @@
 
 <div class="header">
 
-    <div class="leftHeader">
-        <h1>Track History Playback</h1>
-    </div>
+<h1>Track History Playback</h1>
 
-    <div class="controls">
+<div class="controls">
 
-        <select id="vehicleSelect">
-            <option>JH05AB1234</option>
-            <option>JH04X0920</option>
-        </select>
+<select>
+<option>JH05AB1234</option>
+<option>JH05CD5678</option>
+<option>JH05EF9999</option>
+</select>
 
-        <input type="date">
-        <input type="time">
+<input type="date">
+<input type="time">
 
-        <input type="date">
-        <input type="time">
+<input type="date">
+<input type="time">
 
-        <button id="loadHistoryBtn">Load</button>
-
-    </div>
+<button>Load</button>
 
 </div>
 
-<div class="mainContainer">
+</div>
 
-    <!-- SIDEBAR -->
-    <div class="sidebar">
+<div class="main">
 
-        <div class="card">
+<div class="sidebar">
 
-            <h2>Trip Summary</h2>
+<div class="card">
 
-            <div class="statRow">
-                <span>Distance</span>
-                <b>377 km</b>
-            </div>
+<h2>Trip Summary</h2>
 
-            <div class="statRow">
-                <span>Running Time</span>
-                <b>9.5 h</b>
-            </div>
+<div class="stat">
+<span>Distance</span>
+<b>377 km</b>
+</div>
 
-            <div class="statRow">
-                <span>Idle Time</span>
-                <b>1.2 h</b>
-            </div>
+<div class="stat">
+<span>Running Time</span>
+<b>9.5 h</b>
+</div>
 
-            <div class="statRow">
-                <span>Max Speed</span>
-                <b>42 km/h</b>
-            </div>
+<div class="stat">
+<span>Idle Time</span>
+<b>1.2 h</b>
+</div>
 
-            <div class="statRow">
-                <span>Fuel</span>
-                <b>75 L</b>
-            </div>
+<div class="stat">
+<span>Top Speed</span>
+<b>85 km/h</b>
+</div>
 
-        </div>
+<div class="stat">
+<span>Average Speed</span>
+<b>42 km/h</b>
+</div>
 
-        <div class="card">
+<div class="stat">
+<span>Fuel Used</span>
+<b>75 L</b>
+</div>
 
-            <h2>Driver Behaviour</h2>
+</div>
 
-            <div class="alertItem red">
-                Overspeed Events : 4
-            </div>
+<div class="card">
 
-            <div class="alertItem orange">
-                Harsh Braking : 2
-            </div>
+<h2>Driver Behaviour</h2>
 
-            <div class="alertItem purple">
-                Idle Events : 3
-            </div>
+<div class="alert red">
+Overspeed Events : 4
+</div>
 
-            <div class="alertItem cyan">
-                Route Deviation : 1
-            </div>
+<div class="alert orange">
+Harsh Braking : 2
+</div>
 
-        </div>
+<div class="alert purple">
+Idle Events : 3
+</div>
 
-        <div class="card scoreCard">
+<div class="alert cyan">
+Route Deviation : 1
+</div>
 
-            <h2>Driver Score</h2>
+</div>
 
-            <div class="scoreCircle">
-                82
-            </div>
+<div class="card">
 
-        </div>
+<h2>Driver Score</h2>
 
-    </div>
+<div class="scoreCircle">
+82
+</div>
 
-    <!-- MAP AREA -->
-    <div class="mapContainer">
+</div>
 
-        <div id="map"></div>
+</div>
 
-        <!-- PLAYBACK PANEL -->
-        <div class="playbackPanel">
+<div class="mapArea">
 
-            <div class="playbackControls">
+<div id="map"></div>
 
-                <button id="rewindBtn">⏪</button>
-                <button id="playBtn">▶</button>
-                <button id="pauseBtn">⏸</button>
+<div class="vehicleCard">
 
-                <select id="speedSelect">
-                    <option value="1">1x</option>
-                    <option value="2">2x</option>
-                    <option value="5">5x</option>
-                    <option value="10">10x</option>
-                </select>
+<h2>JH05AB1234</h2>
 
-            </div>
+<div class="vehicleStatus">
+MOVING
+</div>
 
-            <input type="range" id="timelineSlider" min="0" max="100" value="0">
+<div class="speedText">
+43 km/h
+</div>
 
-            <div class="timelineInfo">
+<p>
+Dumka → Pakur Route
+</p>
 
-                <span id="currentTime">08:00:00</span>
+<p>
+Fuel : 72%
+</p>
 
-                <span id="playbackStatus">
-                    Playback Ready
-                </span>
+<p>
+Ignition : ON
+</p>
 
-            </div>
+<p>
+Time : 08:20 PM
+</p>
 
-        </div>
+</div>
 
-    </div>
+<div class="playbackPanel">
+
+<div class="playControls">
+
+<button id="rewindBtn">⏮</button>
+
+<button id="playBtn">▶</button>
+
+<button id="pauseBtn">⏸</button>
+
+<select id="speedSelect">
+
+<option value="1">1x</option>
+<option value="2">2x</option>
+<option value="5">5x</option>
+<option value="10">10x</option>
+
+</select>
+
+</div>
+
+<input type="range" id="timeline" min="0" max="100" value="0">
+
+<div class="timelineColors">
+
+<div class="green"></div>
+<div class="yellow"></div>
+<div class="redline"></div>
+<div class="black"></div>
+
+</div>
+
+<div class="timelineRow">
+
+<span id="timeText">
+08:00:00
+</span>
+
+<span>
+Playback Ready
+</span>
+
+</div>
+
+</div>
+
+</div>
 
 </div>
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script src="track-history.js"></script>
+
+<script>
+
+const map = L.map('map').setView([22.8046,86.2029],12);
+
+L.tileLayer(
+'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+{
+attribution:'&copy; OpenStreetMap'
+}
+).addTo(map);
+
+const route = [
+
+[22.8046,86.2029],
+[22.8060,86.2040],
+[22.8080,86.2060],
+[22.8100,86.2080],
+[22.8120,86.2100],
+[22.8140,86.2130],
+[22.8170,86.2200]
+
+];
+
+L.polyline(route,{
+color:'lime',
+weight:6
+}).addTo(map);
+
+const truckIcon = L.icon({
+iconUrl:'https://cdn-icons-png.flaticon.com/512/744/744465.png',
+iconSize:[45,45],
+iconAnchor:[22,22]
+});
+
+const stopIcon = L.icon({
+iconUrl:'https://cdn-icons-png.flaticon.com/512/1828/1828843.png',
+iconSize:[30,30]
+});
+
+const overspeedIcon = L.icon({
+iconUrl:'https://cdn-icons-png.flaticon.com/512/565/565340.png',
+iconSize:[30,30]
+});
+
+L.marker(route[4],{
+icon:overspeedIcon
+}).addTo(map)
+.bindPopup("Overspeed Detected");
+
+L.marker(route[5],{
+icon:stopIcon
+}).addTo(map)
+.bindPopup("Vehicle Halted : 15 Minutes");
+
+const truck = L.marker(route[0],{
+icon:truckIcon
+}).addTo(map);
+
+let current = 0;
+let interval;
+let running = false;
+let speed = 1000;
+
+function moveTruck(){
+
+if(current >= route.length){
+clearInterval(interval);
+running=false;
+return;
+}
+
+truck.setLatLng(route[current]);
+
+map.panTo(route[current]);
+
+document.getElementById("timeline").value =
+(current/(route.length-1))*100;
+
+document.getElementById("timeText").innerText =
+"08:" + (current*5).toString().padStart(2,'0') + ":00";
+
+current++;
+
+}
+
+document.getElementById("playBtn")
+.addEventListener("click",()=>{
+
+if(running) return;
+
+running=true;
+
+interval=setInterval(moveTruck,speed);
+
+});
+
+document.getElementById("pauseBtn")
+.addEventListener("click",()=>{
+
+clearInterval(interval);
+running=false;
+
+});
+
+document.getElementById("rewindBtn")
+.addEventListener("click",()=>{
+
+current=0;
+
+truck.setLatLng(route[0]);
+
+});
+
+document.getElementById("speedSelect")
+.addEventListener("change",(e)=>{
+
+speed = 1000 / Number(e.target.value);
+
+if(running){
+
+clearInterval(interval);
+
+interval=setInterval(moveTruck,speed);
+
+}
+
+});
+
+</script>
 
 </body>
 </html>
