@@ -1,1 +1,67 @@
+body{
+margin:0;
+background:#08111f;
+font-family:Arial;
+color:white;
+}
 
+.topbar{
+padding:20px;
+background:#0d1b2a;
+}
+
+.controls{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-top:15px;
+}
+
+button,select,input{
+padding:10px;
+border:none;
+border-radius:10px;
+}
+
+button{
+background:#00c853;
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+
+#map{
+height:70vh;
+width:100%;
+}
+
+.eventPanel{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
+padding:20px;
+}
+
+.eventCard{
+background:#10233b;
+padding:20px;
+border-radius:15px;
+font-size:20px;
+font-weight:bold;
+}
+
+.overspeed{
+border-left:5px solid red;
+}
+
+.halted{
+border-left:5px solid yellow;
+}
+
+.harsh{
+border-left:5px solid orange;
+}
+
+.deviation{
+border-left:5px solid cyan;
+}
