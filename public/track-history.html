@@ -7,7 +7,86 @@
 
   <link rel="stylesheet" href="/styles.css"/>
 
-  <style>
+  <style><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Track History</title>
+
+<link rel="stylesheet" href="/track-history.css">
+
+<link
+rel="stylesheet"
+href="https://unpkg.com/leaflet/dist/leaflet.css"
+/>
+
+</head>
+
+<body>
+
+<div class="topbar">
+
+<h1>Track History Playback</h1>
+
+<div class="controls">
+
+<select id="vehicleSelect">
+<option>JH05AB1234</option>
+</select>
+
+<input type="date" id="fromDate">
+<input type="date" id="toDate">
+
+<button id="loadBtn">Load</button>
+
+<button id="playBtn">▶ Play</button>
+<button id="pauseBtn">⏸ Pause</button>
+
+<select id="speedSelect">
+<option value="1">1x</option>
+<option value="2">2x</option>
+<option value="5">5x</option>
+<option value="10">10x</option>
+</select>
+
+</div>
+
+</div>
+
+<div id="map"></div>
+
+<div class="eventPanel">
+
+<div class="eventCard overspeed">
+Overspeed Events:
+<span id="overspeedCount">0</span>
+</div>
+
+<div class="eventCard halted">
+Halted:
+<span id="haltCount">0</span>
+</div>
+
+<div class="eventCard harsh">
+Harsh Brake:
+<span id="harshCount">0</span>
+</div>
+
+<div class="eventCard deviation">
+Deviation:
+<span id="deviationCount">0</span>
+</div>
+
+</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script src="/track-history.js"></script>
+
+</body>
+</html>
     body{
       background:#07111f;
       color:white;
