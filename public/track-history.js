@@ -61,6 +61,89 @@ const harshIcon = L.icon({
 iconUrl:"https://cdn-icons-png.flaticon.com/512/3524/3524659.png",
 iconSize:[30,30]
 });
-
 const marker = L.marker([
+document.getElementById("currentTime").innerText = point.time;
+
+document.getElementById("timelineSlider").value =
+(currentIndex / (gpsData.length - 1)) * 100;
+
+currentIndex++;
+
+}
+
+document.getElementById("playBtn")
+.addEventListener("click",()=>{
+
+if(playbackRunning) return;
+
+playbackRunning = true;
+
+playbackInterval = setInterval(
+moveVehicle,
+playbackSpeed
+);
+
+});
+
+document.getElementById("pauseBtn")
+.addEventListener("click",()=>{
+
+clearInterval(playbackInterval);
+playbackRunning = false;
+
+});
+
+document.getElementById("rewindBtn")
+.addEventListener("click",()=>{
+
+currentIndex = 0;
+
+marker.setLatLng([
+gpsData[0].lat,
+gpsData[0].lng
+]);
+
+});
+
+document.getElementById("speedSelect")
+.addEventListener("change",(e)=>{
+
+const speed = Number(e.target.value);
+
+playbackSpeed = 1000 / speed;
+
+if(playbackRunning){
+
+clearInterval(playbackInterval);
+
+playbackInterval = setInterval(
+moveVehicle,
+playbackSpeed
+);
+
+}
+
+});
+
+document.getElementById("timelineSlider")
+.addEventListener("input",(e)=>{
+
+const index = Math.floor(
+(e.target.value / 100) * (gpsData.length - 1)
+);
+
+currentIndex = index;
+
+const point = gpsData[index];
+
+marker.setLatLng([
+point.lat,
+point.lng
+]);
+
+map.panTo([
+point.lat,
+point.lng
+]);
+
 });
