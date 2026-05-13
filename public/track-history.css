@@ -1,4 +1,73 @@
 body{
+margin:0;
+font-family:Arial;
+background:#08111f;
+color:white;
+overflow:hidden;
+}
+
+.header{
+height:80px;
+background:#0d1b2a;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 20px;
+border-bottom:1px solid #1f3552;
+}
+
+.controls{
+display:flex;
+gap:10px;
+}
+
+button,
+select,
+input{
+padding:12px;
+border:none;
+border-radius:10px;
+font-size:14px;
+}
+
+button{
+background:#00c853;
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+
+.mainContainer{
+display:flex;
+height:calc(100vh - 80px);
+}
+
+.sidebar{
+width:340px;
+background:#0b1727;
+padding:15px;
+overflow:auto;
+}
+
+.card{
+background:#10233b;
+padding:18px;
+border-radius:18px;
+margin-bottom:15px;
+box-shadow:0 0 20px rgba(0,0,0,0.3);
+}
+
+.statRow{
+display:flex;
+justify-content:space-between;
+padding:10px 0;
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.alertItem{
+padding:12px;
+border-radius:10px;
+margin-top:10px;
 font-weight:bold;
 }
 
@@ -74,5 +143,7 @@ width:100%;
 display:flex;
 justify-content:space-between;
 margin-top:10px;
+font-size:14px;
+
 font-size:14px;
 }
