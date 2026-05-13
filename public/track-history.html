@@ -1,16 +1,7 @@
-<link rel="stylesheet" href="/track-history.css">
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Track History - BDPH</title>
 
-  <link rel="stylesheet" href="/styles.css"/>
-
-  <style><!DOCTYPE html>
-<html lang="en">
-<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -35,14 +26,19 @@ href="https://unpkg.com/leaflet/dist/leaflet.css"
 
 <select id="vehicleSelect">
 <option>JH05AB1234</option>
+<option>JH05CD5678</option>
 </select>
 
 <input type="date" id="fromDate">
 <input type="date" id="toDate">
 
+<input type="time" id="fromTime">
+<input type="time" id="toTime">
+
 <button id="loadBtn">Load</button>
 
 <button id="playBtn">▶ Play</button>
+
 <button id="pauseBtn">⏸ Pause</button>
 
 <select id="speedSelect">
@@ -61,147 +57,32 @@ href="https://unpkg.com/leaflet/dist/leaflet.css"
 <div class="eventPanel">
 
 <div class="eventCard overspeed">
-Overspeed Events:
-<span id="overspeedCount">0</span>
+Overspeed
+<h2 id="overspeedCount">0</h2>
 </div>
 
 <div class="eventCard halted">
-Halted:
-<span id="haltCount">0</span>
+Halted
+<h2 id="haltCount">0</h2>
 </div>
 
 <div class="eventCard harsh">
-Harsh Brake:
-<span id="harshCount">0</span>
+Harsh Brake
+<h2 id="harshCount">0</h2>
 </div>
 
 <div class="eventCard deviation">
-Deviation:
-<span id="deviationCount">0</span>
+Deviation
+<h2 id="deviationCount">0</h2>
 </div>
 
 </div>
 
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script
+src="https://unpkg.com/leaflet/dist/leaflet.js">
+</script>
 
 <script src="/track-history.js"></script>
 
-</body>
-</html>
-    body{
-      background:#07111f;
-      color:white;
-      font-family:Arial;
-      margin:0;
-      padding:20px;
-    }
-
-    .top{
-      display:flex;
-      gap:10px;
-      margin-bottom:20px;
-      flex-wrap:wrap;
-    }
-
-    select,input,button{
-      padding:12px;
-      border-radius:10px;
-      border:none;
-    }
-
-    button{
-      background:#00c853;
-      color:white;
-      cursor:pointer;
-      font-weight:bold;
-    }
-
-    #map{
-      height:600px;
-      width:100%;
-      border-radius:15px;
-      overflow:hidden;
-    }
-
-    .card{
-      background:#0d1b2a;
-      padding:15px;
-      border-radius:15px;
-      margin-bottom:20px;
-    }
-  </style>
-
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet/dist/leaflet.css"
-  />
-</head>
-
-<body>
-
-  <div class="card">
-    <h1>Track History</h1>
-
-    <div class="top">
-
-      <select id="vehicle">
-        <option>JH05AB1234</option>
-        <option>JH05CD5678</option>
-      </select>
-
-      <input type="date" id="fromDate"/>
-      <input type="date" id="toDate"/>
-
-      <input type="time" id="fromTime"/>
-      <input type="time" id="toTime"/>
-
-      <button onclick="loadHistory()">Load History</button>
-
-    </div>
-  </div>
-
-  <div id="map"></div>
-
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-  <script>
-
-    const map = L.map('map').setView([22.8046, 86.2029], 12);
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
-      attribution:'BDPH Tracking'
-    }).addTo(map);
-
-    let polyline;
-
-    function loadHistory(){
-
-      const points = [
-        [22.8046,86.2029],
-        [22.8146,86.2129],
-        [22.8246,86.2329],
-        [22.8446,86.2529]
-      ];
-
-      if(polyline){
-        map.removeLayer(polyline);
-      }
-
-      polyline = L.polyline(points,{
-        color:'lime',
-        weight:5
-      }).addTo(map);
-
-      map.fitBounds(polyline.getBounds());
-
-      points.forEach(p=>{
-        L.marker(p).addTo(map);
-      });
-
-      alert("Track history loaded");
-    }
-
-  </script>
-<script src="/track-history.js"></script>
 </body>
 </html>
