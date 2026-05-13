@@ -60,4 +60,83 @@
 
 <div class="statRow">
 <span>Max Speed</span>
+  
+<b>42 km/h</b>
+</div>
+
+<div class="statRow">
+<span>Fuel</span>
+<b>75 L</b>
+</div>
+
+</div>
+
+<div class="card">
+<h2>Driver Behaviour</h2>
+
+<div class="alertItem red">
+Overspeed Events : 4
+</div>
+
+<div class="alertItem orange">
+Harsh Braking : 2
+</div>
+
+<div class="alertItem purple">
+Idle Events : 3
+</div>
+
+<div class="alertItem cyan">
+Route Deviation : 1
+</div>
+
+</div>
+
+<div class="card scoreCard">
+<h2>Driver Score</h2>
+<div class="scoreCircle">
+82
+</div>
+</div>
+
+</div>
+
+<div class="mapContainer">
+<div id="historyMap"></div>
+
+<div class="playbackPanel">
+
+<div class="playbackControls">
+
+<button id="rewindBtn">⏪</button>
+<button id="playBtn">▶</button>
+<button id="pauseBtn">⏸</button>
+
+<select id="speedSelect">
+<option value="1">1x</option>
+<option value="2">2x</option>
+<option value="5">5x</option>
+<option value="10">10x</option>
+</select>
+
+</div>
+
+<input type="range" id="timelineSlider" min="0" max="100" value="0">
+
+<div class="timelineInfo">
+<span id="currentTime">08:00:00</span>
+<span id="playbackStatus">Playback Ready</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="/track-history.js"></script>
+
+</body>
+</html>
 </html>
