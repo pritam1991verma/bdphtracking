@@ -1,29 +1,54 @@
-const map = L.map("map").setView([22.8046, 86.2029], 13);
+console.log("Track History JS Loaded");
+
+const map = L.map("historyMap").setView([22.8046, 86.2029], 12);
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  attribution: "BDPH Tracking"
+  attribution: "© OpenStreetMap"
 }).addTo(map);
 
+/* =========================
+   VEHICLE ICON
+========================= */
+
 const vehicleIcon = L.icon({
-  iconUrl: "https://cdn-icons-png.flaticon.com/512/61/61231.png",
-  iconSize: [40,40],
-  iconAnchor: [20,20]
+  iconUrl: "https://cdn-icons-png.flaticon.com/512/744/744465.png",
+  iconSize: [45, 45],
+  iconAnchor: [22, 22]
 });
+
+/* =========================
+   STOP ICON
+========================= */
 
 const stopIcon = L.icon({
   iconUrl: "https://cdn-icons-png.flaticon.com/512/1828/1828843.png",
-  iconSize: [28,28]
+  iconSize: [30, 30],
+  iconAnchor: [15, 30]
 });
+
+/* =========================
+   OVERSPEED ICON
+========================= */
 
 const overspeedIcon = L.icon({
-  iconUrl: "https://cdn-icons-png.flaticon.com/512/564/564619.png",
-  iconSize: [28,28]
+  iconUrl: "https://cdn-icons-png.flaticon.com/512/565/565340.png",
+  iconSize: [30, 30],
+  iconAnchor: [15, 30]
 });
 
+/* =========================
+   HARSH BRAKE ICON
+========================= */
+
 const harshIcon = L.icon({
-  iconUrl: "https://cdn-icons-png.flaticon.com/512/463/463612.png",
-  iconSize: [28,28]
+  iconUrl: "https://cdn-icons-png.flaticon.com/512/3524/3524659.png",
+  iconSize: [30, 30],
+  iconAnchor: [15, 30]
 });
+
+/* =========================
+   DUMMY GPS DATA
+========================= */
 
 const gpsData = [
 
@@ -31,10 +56,8 @@ const gpsData = [
 vehicle:"JH05AB1234",
 lat:22.8046,
 lng:86.2029,
-speed:20,
-halt:false,
-overspeed:false,
-harsh:false
+speed:22,
+time:"2026-05-13 08:00:00"
 },
 
 {
@@ -42,29 +65,23 @@ vehicle:"JH05AB1234",
 lat:22.8060,
 lng:86.2040,
 speed:40,
-halt:false,
-overspeed:false,
-harsh:false
+time:"2026-05-13 08:05:00"
 },
 
 {
 vehicle:"JH05AB1234",
 lat:22.8080,
 lng:86.2060,
-speed:82,
-halt:false,
-overspeed:true,
-harsh:false
+speed:85,
+time:"2026-05-13 08:10:00"
 },
 
 {
 vehicle:"JH05AB1234",
 lat:22.8100,
 lng:86.2080,
-speed:78,
-halt:false,
-overspeed:true,
-harsh:false
+speed:82,
+time:"2026-05-13 08:12:00"
 },
 
 {
@@ -72,18 +89,23 @@ vehicle:"JH05AB1234",
 lat:22.8120,
 lng:86.2110,
 speed:0,
-halt:true,
-overspeed:false,
-harsh:false
+time:"2026-05-13 08:20:00"
+},
+
+{
+vehicle:"JH05AB1234",
+lat:22.8120,
+lng:86.2110,
+speed:0,
+time:"2026-05-13 08:45:00"
 },
 
 {
 vehicle:"JH05AB1234",
 lat:22.8140,
 lng:86.2140,
-speed:15,
-halt:false,
-overspeed:false,
+speed:18,
+time:"2026-05-13 08:47:00",
 harsh:true
 },
 
@@ -91,169 +113,221 @@ harsh:true
 vehicle:"JH05AB1234",
 lat:22.8170,
 lng:86.2200,
-speed:35,
-halt:false,
-overspeed:false,
-harsh:false
+speed:36,
+time:"2026-05-13 08:55:00"
 }
 
 ];
 
-const route = gpsData.map(p=>[p.lat,p.lng]);
+/* =========================
+   POLYLINE
+========================= */
 
-const polyline = L.polyline(route,{
-color:"lime",
-weight:5
+const routeCoords = gpsData.map(point => [point.lat, point.lng]);
+
+const routeLine = L.polyline(routeCoords, {
+  color: "lime",
+  weight: 5
 }).addTo(map);
 
-map.fitBounds(polyline.getBounds());
+map.fitBounds(routeLine.getBounds());
 
-const vehicleMarker = L.marker(route[0],{
-icon:vehicleIcon
+/* =========================
+   VEHICLE MARKER
+========================= */
+
+const vehicleMarker = L.marker(routeCoords[0], {
+  icon: vehicleIcon
 }).addTo(map);
+
+/* =========================
+   PLAYBACK VARIABLES
+========================= */
 
 let currentIndex = 0;
 let playbackInterval = null;
-let playbackRunning = false;
 let playbackSpeed = 1000;
+let playbackRunning = false;
 
-function updateCounts(){
+/* =========================
+   HALT DURATION
+========================= */
 
-const haltCount = gpsData.filter(p=>p.halt).length;
-const overspeedCount = gpsData.filter(p=>p.overspeed).length;
-const harshCount = gpsData.filter(p=>p.harsh).length;
+function getHaltDuration(start, end) {
 
-document.getElementById("haltCount").innerText = haltCount;
-document.getElementById("overspeedCount").innerText = overspeedCount;
-document.getElementById("harshCount").innerText = harshCount;
-document.getElementById("deviationCount").innerText = 1;
+  const diff =
+    (new Date(end) - new Date(start)) / 60000;
 
+  return `${diff} Minutes`;
 }
 
-updateCounts();
+/* =========================
+   EVENT MARKERS
+========================= */
 
-function createEventMarkers(){
+function createEventMarkers() {
 
-gpsData.forEach(point=>{
+  for (let i = 0; i < gpsData.length; i++) {
 
-if(point.halt){
+    const point = gpsData[i];
 
-L.marker([point.lat,point.lng],{
-icon:stopIcon
-})
-.addTo(map)
-.bindPopup(`
-🛑 Vehicle Halted<br>
-Vehicle: ${point.vehicle}
-`);
+    /* OVERSPEED */
 
-}
+    if (point.speed > 80) {
 
-if(point.overspeed){
+      L.marker([point.lat, point.lng], {
+        icon: overspeedIcon
+      })
+      .addTo(map)
+      .bindPopup(`
+        <b>Overspeed Alert</b><br>
+        Vehicle: ${point.vehicle}<br>
+        Speed: ${point.speed} km/h<br>
+        Time: ${point.time}
+      `);
+    }
 
-L.marker([point.lat,point.lng],{
-icon:overspeedIcon
-})
-.addTo(map)
-.bindPopup(`
-🚨 Overspeeding<br>
-Speed: ${point.speed} km/h
-`);
+    /* HARSH BRAKING */
 
-}
+    if (point.harsh) {
 
-if(point.harsh){
+      L.marker([point.lat, point.lng], {
+        icon: harshIcon
+      })
+      .addTo(map)
+      .bindPopup(`
+        <b>Harsh Braking</b><br>
+        Vehicle: ${point.vehicle}<br>
+        Time: ${point.time}
+      `);
+    }
 
-L.marker([point.lat,point.lng],{
-icon:harshIcon
-})
-.addTo(map)
-.bindPopup(`
-⚠ Harsh Driving Detected
-`);
+    /* HALT */
 
-}
+    if (
+      point.speed === 0 &&
+      gpsData[i + 1] &&
+      gpsData[i + 1].speed === 0
+    ) {
 
-});
+      const duration = getHaltDuration(
+        point.time,
+        gpsData[i + 1].time
+      );
 
+      L.marker([point.lat, point.lng], {
+        icon: stopIcon
+      })
+      .addTo(map)
+      .bindPopup(`
+        <b>Vehicle Halted</b><br>
+        Vehicle: ${point.vehicle}<br>
+        Duration: ${duration}<br>
+        Start: ${point.time}<br>
+        End: ${gpsData[i + 1].time}
+      `);
+    }
+  }
 }
 
 createEventMarkers();
 
-function moveVehicle(){
+/* =========================
+   MOVE VEHICLE
+========================= */
 
-if(currentIndex >= gpsData.length){
+function moveVehicle() {
 
-clearInterval(playbackInterval);
-playbackRunning = false;
-return;
+  if (currentIndex >= gpsData.length) {
 
+    clearInterval(playbackInterval);
+
+    playbackRunning = false;
+
+    return;
+  }
+
+  const point = gpsData[currentIndex];
+
+  vehicleMarker.setLatLng([
+    point.lat,
+    point.lng
+  ]);
+
+  vehicleMarker.bindPopup(`
+    <b>${point.vehicle}</b><br>
+    Speed: ${point.speed} km/h<br>
+    Time: ${point.time}
+  `);
+
+  vehicleMarker.openPopup();
+
+  map.panTo([
+    point.lat,
+    point.lng
+  ]);
+
+  currentIndex++;
 }
 
-const point = gpsData[currentIndex];
+/* =========================
+   PLAY BUTTON
+========================= */
 
-vehicleMarker.setLatLng([point.lat,point.lng]);
+document.getElementById("playBtn").addEventListener("click", () => {
 
-vehicleMarker.bindPopup(`
-Vehicle: ${point.vehicle}<br>
-Speed: ${point.speed} km/h
-`);
+  if (playbackRunning) return;
 
-map.panTo([point.lat,point.lng]);
+  playbackRunning = true;
 
-currentIndex++;
+  playbackInterval = setInterval(
+    moveVehicle,
+    playbackSpeed
+  );
+});
 
-}
+/* =========================
+   PAUSE BUTTON
+========================= */
 
-document.getElementById("loadBtn").onclick = ()=>{
+document.getElementById("pauseBtn").addEventListener("click", () => {
 
-currentIndex = 0;
+  clearInterval(playbackInterval);
 
-vehicleMarker.setLatLng(route[0]);
+  playbackRunning = false;
+});
 
-map.fitBounds(polyline.getBounds());
+/* =========================
+   SPEED CONTROL
+========================= */
 
-};
+document.getElementById("speedSelect").addEventListener("change", (e) => {
 
-document.getElementById("playBtn").onclick = ()=>{
+  const speed = Number(e.target.value);
 
-if(playbackRunning) return;
+  playbackSpeed = 1000 / speed;
 
-playbackRunning = true;
+  if (playbackRunning) {
 
-playbackInterval = setInterval(
-moveVehicle,
-playbackSpeed
-);
+    clearInterval(playbackInterval);
 
-};
+    playbackInterval = setInterval(
+      moveVehicle,
+      playbackSpeed
+    );
+  }
+});
 
-document.getElementById("pauseBtn").onclick = ()=>{
+/* =========================
+   LOAD BUTTON
+========================= */
 
-clearInterval(playbackInterval);
+document.getElementById("loadHistoryBtn").addEventListener("click", () => {
 
-playbackRunning = false;
+  currentIndex = 0;
 
-};
+  vehicleMarker.setLatLng(routeCoords[0]);
 
-document.getElementById("speedSelect").onchange = (e)=>{
+  map.fitBounds(routeLine.getBounds());
 
-const val = Number(e.target.value);
-
-if(val===1) playbackSpeed=1000;
-if(val===2) playbackSpeed=500;
-if(val===5) playbackSpeed=200;
-if(val===10) playbackSpeed=100;
-
-if(playbackRunning){
-
-clearInterval(playbackInterval);
-
-playbackInterval = setInterval(
-moveVehicle,
-playbackSpeed
-);
-
-}
-
-};
+});
