@@ -5,22 +5,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>BDPH Track History</title>
+<title>BDPH Premium Track History</title>
 
-<link rel="stylesheet" href="/track-history.css">
-
-<link
-rel="stylesheet"
-href="https://unpkg.com/leaflet/dist/leaflet.css"
-/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+<link rel="stylesheet" href="/track-history.css"/>
 
 </head>
-
 <body>
 
-<div class="topbar">
+<div class="header">
 
+<div class="leftHeader">
 <h1>Track History Playback</h1>
+</div>
 
 <div class="controls">
 
@@ -29,67 +26,12 @@ href="https://unpkg.com/leaflet/dist/leaflet.css"
 </select>
 
 <input type="date">
-
 <input type="time">
-
 <input type="date">
-
 <input type="time">
 
-<button id="loadHistoryBtn">
-Load
-</button>
-
-<button id="playBtn">
-▶ Play
-</button>
-
-<button id="pauseBtn">
-⏸ Pause
-</button>
-
-<select id="speedSelect">
-<option value="1">1x</option>
-<option value="2">2x</option>
-<option value="5">5x</option>
-<option value="10">10x</option>
-</select>
+<button id="loadHistoryBtn">Load</button>
 
 </div>
 
-</div>
-
-<div id="historyMap"></div>
-
-<div class="eventPanel">
-
-<div class="eventCard overspeed">
-<h3>Overspeed</h3>
-<p id="overspeedCount">0</p>
-</div>
-
-<div class="eventCard halted">
-<h3>Halts</h3>
-<p id="haltCount">0</p>
-</div>
-
-<div class="eventCard harsh">
-<h3>Harsh Driving</h3>
-<p id="harshCount">0</p>
-</div>
-
-<div class="eventCard deviation">
-<h3>Deviation</h3>
-<p id="deviationCount">0</p>
-</div>
-
-</div>
-
-<script
-src="https://unpkg.com/leaflet/dist/leaflet.js">
-</script>
-
-<script src="/track-history.js"></script>
-
-</body>
 </html>
