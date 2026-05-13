@@ -61,7 +61,79 @@ const harshIcon = L.icon({
 iconUrl:"https://cdn-icons-png.flaticon.com/512/3524/3524659.png",
 iconSize:[30,30]
 });
+
 const marker = L.marker([
+gpsData[0].lat,
+gpsData[0].lng
+],{
+icon:truckIcon
+}).addTo(map);
+
+marker.bindPopup(`
+<b>JH05AB1234</b><br>
+Driver : Ramesh<br>
+Speed : 20 km/h<br>
+Fuel : 72%<br>
+GSM : Strong
+`);
+
+L.marker([
+gpsData[4].lat,
+gpsData[4].lng
+],{
+icon:overspeedIcon
+}).addTo(map)
+.bindPopup("Overspeed Detected");
+
+L.marker([
+gpsData[5].lat,
+gpsData[5].lng
+],{
+icon:stopIcon
+}).addTo(map)
+.bindPopup("Vehicle Halted : 15 Minutes");
+
+L.marker([
+gpsData[6].lat,
+gpsData[6].lng
+],{
+icon:harshIcon
+}).addTo(map)
+.bindPopup("Harsh Braking Event");
+
+let currentIndex = 0;
+let playbackInterval;
+let playbackRunning = false;
+let playbackSpeed = 1000;
+
+function moveVehicle(){
+
+if(currentIndex >= gpsData.length){
+clearInterval(playbackInterval);
+playbackRunning = false;
+return;
+}
+
+const point = gpsData[currentIndex];
+
+marker.setLatLng([
+point.lat,
+point.lng
+]);
+
+marker.setPopupContent(`
+<b>JH05AB1234</b><br>
+Speed : ${point.speed} km/h<br>
+Time : ${point.time}<br>
+Fuel : 72%<br>
+Ignition : ON
+`);
+
+map.panTo([
+point.lat,
+point.lng
+]);
+
 document.getElementById("currentTime").innerText = point.time;
 
 document.getElementById("timelineSlider").value =
@@ -145,5 +217,3 @@ map.panTo([
 point.lat,
 point.lng
 ]);
-
-});
