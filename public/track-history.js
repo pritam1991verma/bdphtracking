@@ -1,7 +1,7 @@
-const map = L.map("historyMap").setView([22.8046, 86.2029], 11);
+const map = L.map('map').setView([22.8046, 86.2029], 12);
 
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
- attribution: "© OpenStreetMap"
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
 const gpsData = [
