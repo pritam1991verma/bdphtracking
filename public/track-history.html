@@ -1,204 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BDPH Premium Playback</title>
+
+<link rel="stylesheet"
+href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#08111f;
+color:white;
+overflow:hidden;
+}
+
+.header{
+height:80px;
+background:#0d1b2a;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 20px;
+border-bottom:1px solid #1d3557;
+}
+
+.controls{
+display:flex;
+gap:10px;
+}
+
+.controls select,
+.controls input,
+.controls button{
+padding:12px;
+border:none;
+border-radius:10px;
+}
+
+.controls button{
+background:#00c853;
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+
+.main{
+display:flex;
+height:calc(100vh - 80px);
+}
+
+.sidebar{
+width:320px;
+background:#0b1727;
+padding:15px;
+overflow:auto;
+}
+
+.card{
+background:#10233b;
+padding:18px;
+border-radius:18px;
+margin-bottom:15px;
+}
+
+.stat{
+display:flex;
+justify-content:space-between;
+padding:12px 0;
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.mapArea{
+flex:1;
+position:relative;
+}
+
+#map{
+height:100%;
+width:100%;
+}
+
+.playbackPanel{
+position:absolute;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+width:70%;
+background:rgba(13,27,42,0.95);
+padding:20px;
+border-radius:20px;
+z-index:9999;
+}
+
+.playControls{
+display:flex;
+gap:10px;
+margin-bottom:15px;
+}
+
+.playControls button{
+padding:12px 18px;
+background:#00c853;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+#timeline{
+width:100%;
+}
+
+.vehicleCard{
+position:absolute;
+top:20px;
+right:20px;
+background:white;
+color:black;
+padding:20px;
+border-radius:18px;
+width:240px;
+z-index:9999;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+<h1>Track History Playback</h1>
+
+<div class="controls">
+
+<select>
+<option>JH05AB1234</option>
+<option>JH05CD5678</option>
+</select>
+
+<input type="date">
+<input type="time">
+
+<input type="date">
+<input type="time">
+
+<button>Load</button>
+
+</div>
+
+</div>
+
+<div class="main">
+
+<div class="sidebar">
+
+<div class="card">
+
+<h2>Trip Summary</h2>
+
+<div class="stat">
+<span>Distance</span>
+<b>377 km</b>
+</div>
+
+<div class="stat">
+<span>Running Time</span>
+<b>9.5 h</b>
+</div>
+
+<div class="stat">
+<span>Idle Time</span>
+<b>1.2 h</b>
+</div>
+
+<div class="stat">
+<span>Top Speed</span>
+<b>85 km/h</b>
+</div>
+
+<div class="stat">
+<span>Fuel Used</span>
+<b>75 L</b>
+</div>
+
+</div>
+
+</div>
+
+<div class="mapArea">
+
+<div id="map"></div>
+
+<div class="vehicleCard">
+
+<h2>JH05AB1234</h2>
+
+<p>Moving</p>
+
+<p>43 km/h</p>
+
+<p>Fuel : 72%</p>
+
+</div>
+
+<div class="playbackPanel">
+
+<div class="playControls">
+
+<button id="rewindBtn">⏮</button>
+
+<button id="playBtn">▶</button>
+
+<button id="pauseBtn">⏸</button>
+
+<select id="speedSelect">
+
+<option value="1">1x</option>
+<option value="2">2x</option>
+<option value="5">5x</option>
+<option value="10">10x</option>
+
+</select>
+
+</div>
+
+<input type="range"
+id="timeline"
+min="0"
+max="100"
+value="0">
+
+</div>
+
+</div>
+
+</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
 <script>
 
 const map = L.map('map').setView([22.8046,86.2029],12);
 
-/* =========================
-   NORMAL MAP
-========================= */
+/* NORMAL */
 
 const normal = L.tileLayer(
 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 {
-maxZoom:19,
 attribution:'© OpenStreetMap'
 }
 ).addTo(map);
 
-/* =========================
-   SATELLITE VIEW
-========================= */
+/* SATELLITE */
 
 const satellite = L.tileLayer(
 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
 {
-maxZoom:19,
 attribution:'© Esri'
 }
 );
 
-/* =========================
-   TERRAIN VIEW
-========================= */
+/* TERRAIN */
 
 const terrain = L.tileLayer(
 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
 {
-maxZoom:17,
 attribution:'© OpenTopoMap'
 }
 );
 
-/* =========================
-   MAP SWITCHER
-========================= */
+/* LAYERS */
 
-const baseMaps = {
-"Normal": normal,
-"Satellite": satellite,
-"Terrain": terrain
-};
+L.control.layers({
+"Normal":normal,
+"Satellite":satellite,
+"Terrain":terrain
+}).addTo(map);
 
-L.control.layers(baseMaps).addTo(map);
+/* ROUTE */
 
-/* =========================
-   GPS DATA
-========================= */
+const route = [
 
-const gpsData = [
-
-{lat:22.8046,lng:86.2029,speed:20,time:"08:00:00"},
-{lat:22.8060,lng:86.2040,speed:35,time:"08:05:00"},
-{lat:22.8080,lng:86.2060,speed:48,time:"08:10:00"},
-{lat:22.8100,lng:86.2080,speed:62,time:"08:15:00"},
-{lat:22.8120,lng:86.2100,speed:85,time:"08:20:00"},
-{lat:22.8140,lng:86.2130,speed:0,time:"08:30:00"},
-{lat:22.8140,lng:86.2130,speed:0,time:"08:45:00"},
-{lat:22.8170,lng:86.2200,speed:38,time:"08:50:00"}
+[22.8046,86.2029],
+[22.8060,86.2040],
+[22.8080,86.2060],
+[22.8100,86.2080],
+[22.8120,86.2100],
+[22.8140,86.2130],
+[22.8170,86.2200]
 
 ];
 
-/* =========================
-   ROUTE COLOR
-========================= */
-
-function getColor(speed){
-
-if(speed <= 40) return "#00e676";
-if(speed <= 60) return "#ffee58";
-if(speed <= 80) return "#ff9100";
-
-return "#ff1744";
-
-}
-
-/* =========================
-   DRAW ROUTE
-========================= */
-
-for(let i=0;i<gpsData.length-1;i++){
-
-const current = gpsData[i];
-const next = gpsData[i+1];
-
-L.polyline([
-[current.lat,current.lng],
-[next.lat,next.lng]
-],{
-color:getColor(current.speed),
-weight:7,
-opacity:0.9
+L.polyline(route,{
+color:'lime',
+weight:6
 }).addTo(map);
 
-}
-
-/* =========================
-   ICONS
-========================= */
+/* ICON */
 
 const truckIcon = L.icon({
-iconUrl:'https://cdn-icons-png.flaticon.com/512/744/744465.png',
-iconSize:[55,55],
-iconAnchor:[27,27]
+
+iconUrl:
+'https://cdn-icons-png.flaticon.com/512/744/744465.png',
+
+iconSize:[50,50],
+
+iconAnchor:[25,25]
+
 });
 
-const stopIcon = L.icon({
-iconUrl:'https://cdn-icons-png.flaticon.com/512/1828/1828843.png',
-iconSize:[35,35]
-});
+/* TRUCK */
 
-const overspeedIcon = L.icon({
-iconUrl:'https://cdn-icons-png.flaticon.com/512/565/565340.png',
-iconSize:[35,35]
-});
-
-const harshIcon = L.icon({
-iconUrl:'https://cdn-icons-png.flaticon.com/512/3524/3524659.png',
-iconSize:[35,35]
-});
-
-/* =========================
-   EVENT MARKERS
-========================= */
-
-L.marker([
-gpsData[4].lat,
-gpsData[4].lng
-],{
-icon:overspeedIcon
-}).addTo(map)
-.bindPopup(`
-<b>Overspeed Event</b><br>
-Speed : 85 km/h<br>
-Time : 08:20:00
-`);
-
-L.marker([
-gpsData[5].lat,
-gpsData[5].lng
-],{
-icon:stopIcon
-}).addTo(map)
-.bindPopup(`
-<b>Vehicle Halted</b><br>
-Duration : 15 Minutes
-`);
-
-L.marker([
-gpsData[6].lat,
-gpsData[6].lng
-],{
-icon:harshIcon
-}).addTo(map)
-.bindPopup(`
-<b>Harsh Braking</b>
-`);
-
-/* =========================
-   VEHICLE
-========================= */
-
-const truck = L.marker([
-gpsData[0].lat,
-gpsData[0].lng
-],{
+const truck = L.marker(route[0],{
 icon:truckIcon
 }).addTo(map);
 
-truck.bindPopup(`
-<div style="font-family:Arial">
-
-<h3 style="margin:0">
-JH05AB1234
-</h3>
-
-<b style="color:green">
-MOVING
-</b>
-
-<br><br>
-
-Speed : 20 km/h<br>
-Fuel : 72%<br>
-Driver : Ramesh<br>
-Ignition : ON<br>
-GSM : Strong
-
-</div>
-`);
-
-/* =========================
-   PLAYBACK
-========================= */
+/* PLAYBACK */
 
 let current = 0;
 let interval;
@@ -207,113 +333,63 @@ let speed = 1000;
 
 function moveTruck(){
 
-if(current >= gpsData.length){
+if(current >= route.length){
 
 clearInterval(interval);
 
-running = false;
+running=false;
 
 return;
 
 }
 
-const point = gpsData[current];
+truck.setLatLng(route[current]);
 
-truck.setLatLng([
-point.lat,
-point.lng
-]);
-
-truck.setPopupContent(`
-
-<div style="font-family:Arial">
-
-<h3 style="margin:0">
-JH05AB1234
-</h3>
-
-<b style="color:${point.speed > 0 ? '#00c853' : '#ff1744'}">
-
-${point.speed > 0 ? 'MOVING' : 'STOPPED'}
-
-</b>
-
-<br><br>
-
-Speed : ${point.speed} km/h<br>
-Time : ${point.time}<br>
-Fuel : 72%<br>
-Ignition : ON
-
-</div>
-
-`);
-
-map.panTo([
-point.lat,
-point.lng
-]);
+map.panTo(route[current]);
 
 document.getElementById("timeline").value =
-(current/(gpsData.length-1))*100;
-
-document.getElementById("timeText").innerText =
-point.time;
+(current/(route.length-1))*100;
 
 current++;
 
 }
 
-/* =========================
-   PLAY
-========================= */
+/* PLAY */
 
 document.getElementById("playBtn")
 .addEventListener("click",()=>{
 
 if(running) return;
 
-running = true;
+running=true;
 
-interval = setInterval(
-moveTruck,
-speed
-);
+interval=setInterval(moveTruck,speed);
 
 });
 
-/* =========================
-   PAUSE
-========================= */
+/* PAUSE */
 
 document.getElementById("pauseBtn")
 .addEventListener("click",()=>{
 
 clearInterval(interval);
 
-running = false;
+running=false;
 
 });
 
-/* =========================
-   REWIND
-========================= */
+/* REWIND */
 
 document.getElementById("rewindBtn")
 .addEventListener("click",()=>{
 
-current = 0;
+current=0;
 
-truck.setLatLng([
-gpsData[0].lat,
-gpsData[0].lng
-]);
+truck.setLatLng(route[0]);
 
 });
 
-/* =========================
-   SPEED
-========================= */
+/* SPEED */
 
 document.getElementById("speedSelect")
 .addEventListener("change",(e)=>{
@@ -324,43 +400,13 @@ if(running){
 
 clearInterval(interval);
 
-interval = setInterval(
-moveTruck,
-speed
-);
+interval=setInterval(moveTruck,speed);
 
 }
 
 });
 
-/* =========================
-   TIMELINE SCRUB
-========================= */
-
-document.getElementById("timeline")
-.addEventListener("input",(e)=>{
-
-const index = Math.floor(
-(e.target.value/100)*(gpsData.length-1)
-);
-
-current = index;
-
-const point = gpsData[index];
-
-truck.setLatLng([
-point.lat,
-point.lng
-]);
-
-map.panTo([
-point.lat,
-point.lng
-]);
-
-document.getElementById("timeText").innerText =
-point.time;
-
-});
-
 </script>
+
+</body>
+</html>
