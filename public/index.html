@@ -1,147 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BDPH GPS Tracking</title>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-      crossorigin=""
-    />
-    <link rel="stylesheet" href="/styles.css" />
-  </head>
-  <body>
-    <div class="shell">
-      <section class="topbar">
-        <div class="title">
-          <h1>BDPH Tracking</h1>
-          <p>Live vehicle map, route trails, billing state, and current telemetry from your fleet.</p>
-        </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BDPH Tracking</title>
 
-        <div class="toolbar">
-          <input id="searchInput" class="search" type="text" placeholder="Search by vehicle number or driver" />
-          <button class="login-btn" id="loginBtn">Login</button>
-          <button class="renew-btn" id="renewBtn">Renew Billing</button>
-        </div>
-      </section>
+  <style>
 
-      <section class="summary-grid">
-        <div class="summary-card">
-          <div class="label">Total Vehicles</div>
-          <div class="value" id="totalVehicles">0</div>
-        </div>
-        <div class="summary-card">
-          <div class="label">Moving</div>
-          <div class="value" id="movingVehicles">0</div>
-        </div>
-        <div class="summary-card">
-          <div class="label">Idle</div>
-          <div class="value" id="idleVehicles">0</div>
-        </div>
-        <div class="summary-card">
-          <div class="label">Average Speed</div>
-          <div class="value" id="averageSpeed">0</div>
-        </div>
-        <div class="summary-card">
-          <div class="label">Last Update</div>
-          <div class="value compact" id="lastUpdate">Waiting...</div>
-        </div>
-      </section>
+    body{
+      margin:0;
+      font-family:Arial;
+      background:#061826;
+      color:white;
+    }
 
-      <section class="workspace">
-        <aside class="panel">
-          <div class="panel-header">
-            <div>
-              <h2 class="panel-title">Fleet</h2>
-              <div class="panel-subtitle" id="fleetCount">Loading vehicles...</div>
-            </div>
-          </div>
-          <div class="fleet-list" id="fleetList"></div>
-        </aside>
+    .hero{
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:20px;
+    }
 
-        <section class="panel">
-          <div class="map-wrap">
-            <div class="map-overlay">
-              <h3>Live Tracking Map</h3>
-              <p>Select a vehicle from the fleet list to follow it on the map and inspect route history.</p>
-            </div>
-            <div id="map"></div>
-          </div>
-        </section>
+    h1{
+      font-size:70px;
+      margin-bottom:20px;
+    }
 
-        <aside class="panel details-panel">
-          <div class="panel-header">
-            <div>
-              <h2 class="panel-title">Vehicle Details</h2>
-              <div class="panel-subtitle" id="detailSubtitle">Select a vehicle to inspect live telemetry</div>
-            </div>
-          </div>
+    p{
+      font-size:24px;
+      max-width:900px;
+      line-height:1.7;
+    }
 
-          <div class="details">
-            <div class="hero-card">
-              <div class="small" id="vehicleType">No vehicle selected</div>
-              <h3 id="vehicleName">Waiting for data</h3>
-              <div id="vehicleStatusBadge" class="badge stopped">Offline</div>
-              <p class="small top-gap" id="vehicleDriver">Driver details will appear here.</p>
-            </div>
+    .btn{
+      margin-top:40px;
+      padding:18px 50px;
+      background:#00c853;
+      color:white;
+      text-decoration:none;
+      border-radius:12px;
+      font-size:22px;
+      font-weight:bold;
+    }
 
-            <div class="info-grid">
-              <div class="info-card">
-                <div class="info-label">Speed</div>
-                <div class="info-value" id="detailSpeed">0 km/h</div>
-              </div>
-              <div class="info-card">
-                <div class="info-label">Fuel Level</div>
-                <div class="info-value" id="detailFuel">0%</div>
-              </div>
-              <div class="info-card">
-                <div class="info-label">Ignition</div>
-                <div class="info-value" id="detailIgnition">Off</div>
-              </div>
-              <div class="info-card">
-                <div class="info-label">Heading</div>
-                <div class="info-value" id="detailHeading">0°</div>
-              </div>
-              <div class="info-card">
-                <div class="info-label">Odometer</div>
-                <div class="info-value" id="detailOdometer">0 km</div>
-              </div>
-              <div class="info-card">
-                <div class="info-label">Coordinates</div>
-                <div class="info-value" id="detailCoords">0, 0</div>
-              </div>
-            </div>
+    .btn:hover{
+      background:#00a844;
+    }
 
-            <div class="info-card">
-              <h4>Account & Tracking Status</h4>
-              <div class="timeline">
-                <div class="timeline-item">
-                  <strong id="loginStatus">Not logged in</strong>
-                  <div class="small" id="loginMeta">Use the green Login button to authenticate as the demo admin user.</div>
-                </div>
-                <div class="timeline-item">
-                  <strong id="billingStatus">Checking billing...</strong>
-                  <div class="small" id="billingMeta">Loading expiry information.</div>
-                </div>
-                <div class="timeline-item">
-                  <strong>Route Trail</strong>
-                  <div class="small" id="routeMeta">The selected vehicle trail will be drawn on the map.</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </aside>
-      </section>
-    </div>
+  </style>
 
-    <script src="/socket.io/socket.io.js"></script>
-    <script
-      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-      crossorigin=""
-    ></script>
-    <script src="/app.js"></script>
-  </body>
+</head>
+
+<body>
+
+  <div class="hero">
+
+    <h1>BDPH Tracking</h1>
+
+    <p>
+      Smart GPS Tracking, Fuel Monitoring, Battery Management,
+      Tyre Tracking, Inventory & Fleet ERP Platform.
+    </p>
+
+    <a class="btn" href="/login.html">
+      Login
+    </a>
+
+  </div>
+
+</body>
 </html>
