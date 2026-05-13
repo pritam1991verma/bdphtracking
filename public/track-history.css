@@ -1,27 +1,33 @@
 body{
 margin:0;
-background:#08111f;
 font-family:Arial;
+background:#08111f;
 color:white;
+overflow:hidden;
 }
 
-.topbar{
+.header{
+height:80px;
 background:#0d1b2a;
-padding:20px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 20px;
+border-bottom:1px solid #1f3552;
 }
 
 .controls{
 display:flex;
 gap:10px;
-flex-wrap:wrap;
-margin-top:15px;
 }
 
-button,select,input{
+button,
+select,
+input{
 padding:12px;
 border:none;
 border-radius:10px;
-font-size:15px;
+font-size:14px;
 }
 
 button{
@@ -31,42 +37,34 @@ font-weight:bold;
 cursor:pointer;
 }
 
-#historyMap{
-height:70vh;
-width:100%;
+.mainContainer{
+display:flex;
+height:calc(100vh - 80px);
 }
 
-.eventPanel{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:15px;
-padding:20px;
+.sidebar{
+width:340px;
+background:#0b1727;
+padding:15px;
+overflow:auto;
 }
 
-.eventCard{
+.card{
 background:#10233b;
-padding:20px;
-border-radius:15px;
-text-align:center;
+padding:18px;
+border-radius:18px;
+margin-bottom:15px;
+box-shadow:0 0 20px rgba(0,0,0,0.3);
 }
 
-.eventCard p{
-font-size:28px;
-font-weight:bold;
+.statRow{
+display:flex;
+justify-content:space-between;
+padding:10px 0;
+border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
-.overspeed{
-border-left:5px solid red;
-}
-
-.halted{
-border-left:5px solid yellow;
-}
-
-.harsh{
-border-left:5px solid orange;
-}
-
-.deviation{
-border-left:5px solid cyan;
+.alertItem{
+padding:12px;
+border-radius:10px;
 }
