@@ -6,8 +6,8 @@ color:white;
 }
 
 .topbar{
-padding:20px;
 background:#0d1b2a;
+padding:20px;
 }
 
 .controls{
@@ -21,7 +21,7 @@ button,select,input{
 padding:12px;
 border:none;
 border-radius:10px;
-font-size:16px;
+font-size:15px;
 }
 
 button{
@@ -31,7 +31,7 @@ font-weight:bold;
 cursor:pointer;
 }
 
-#map{
+#historyMap{
 height:70vh;
 width:100%;
 }
@@ -48,6 +48,11 @@ background:#10233b;
 padding:20px;
 border-radius:15px;
 text-align:center;
+}
+
+.eventCard p{
+font-size:28px;
+font-weight:bold;
 }
 
 .overspeed{
