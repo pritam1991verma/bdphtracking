@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
+
 mongoose.connect("mongodb+srv://pritambgr22_db_user:qv94gW2uuZcfdLpo@bdphtracking.bjyckah.mongodb.net/bdphtracking?retryWrites=true&w=majority")
-.then(() => console.log("MongoDB Connected"))
-.catch(err => console.log(err));
+.then(() => console.log("✅ MongoDB Connected"))
+.catch(err => console.log("❌ MongoDB Error:", err));
 const express = require("express");
 const http = require("http");
 const fs = require("fs");
