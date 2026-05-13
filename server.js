@@ -1,9 +1,12 @@
+const mongoose = require("mongoose");
 const express = require("express");
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
 const { Server } = require("socket.io");
-
+mongoose.connect("mongodb+srv://pritambgr22_db_user:qv94gW2uuZcfdLpo@bdphtracking.bjyckah.mongodb.net/bdphtracking?retryWrites=true&w=majority")
+.then(() => console.log("MongoDB Connected"))
+.catch(err => console.log(err));
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
