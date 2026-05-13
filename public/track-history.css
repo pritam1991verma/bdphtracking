@@ -6,6 +6,10 @@ color:white;
 overflow:hidden;
 }
 
+/* =========================
+   HEADER
+========================= */
+
 .header{
 height:80px;
 background:#0d1b2a;
@@ -16,9 +20,19 @@ padding:0 20px;
 border-bottom:1px solid #1f3552;
 }
 
+.leftHeader h1{
+font-size:24px;
+margin:0;
+}
+
+/* =========================
+   TOP CONTROLS
+========================= */
+
 .controls{
 display:flex;
 gap:10px;
+align-items:center;
 }
 
 button,
@@ -28,6 +42,7 @@ padding:12px;
 border:none;
 border-radius:10px;
 font-size:14px;
+outline:none;
 }
 
 button{
@@ -35,18 +50,32 @@ background:#00c853;
 color:white;
 font-weight:bold;
 cursor:pointer;
+transition:0.3s;
 }
+
+button:hover{
+transform:scale(1.05);
+}
+
+/* =========================
+   MAIN LAYOUT
+========================= */
 
 .mainContainer{
 display:flex;
 height:calc(100vh - 80px);
 }
 
+/* =========================
+   SIDEBAR
+========================= */
+
 .sidebar{
 width:340px;
 background:#0b1727;
 padding:15px;
 overflow:auto;
+border-right:1px solid rgba(255,255,255,0.08);
 }
 
 .card{
@@ -57,18 +86,34 @@ margin-bottom:15px;
 box-shadow:0 0 20px rgba(0,0,0,0.3);
 }
 
+.card h2{
+margin-top:0;
+margin-bottom:15px;
+font-size:20px;
+}
+
+/* =========================
+   STATS
+========================= */
+
 .statRow{
 display:flex;
 justify-content:space-between;
-padding:10px 0;
+padding:12px 0;
 border-bottom:1px solid rgba(255,255,255,0.08);
+font-size:15px;
 }
+
+/* =========================
+   ALERTS
+========================= */
 
 .alertItem{
 padding:12px;
 border-radius:10px;
 margin-top:10px;
 font-weight:bold;
+font-size:14px;
 }
 
 .red{
@@ -87,6 +132,10 @@ background:#aa00ff;
 background:#00bcd4;
 }
 
+/* =========================
+   DRIVER SCORE
+========================= */
+
 .scoreCard{
 text-align:center;
 }
@@ -103,17 +152,28 @@ font-size:40px;
 font-weight:bold;
 margin:auto;
 margin-top:20px;
+box-shadow:0 0 30px rgba(0,200,83,0.4);
 }
+
+/* =========================
+   MAP AREA
+========================= */
 
 .mapContainer{
 flex:1;
 position:relative;
 }
 
-#historyMap{
+/* IMPORTANT */
+
+#map{
 height:100%;
 width:100%;
 }
+
+/* =========================
+   PLAYBACK PANEL
+========================= */
 
 .playbackPanel{
 position:absolute;
@@ -128,6 +188,10 @@ backdrop-filter:blur(10px);
 box-shadow:0 0 30px rgba(0,0,0,0.5);
 }
 
+/* =========================
+   PLAYBACK CONTROLS
+========================= */
+
 .playbackControls{
 display:flex;
 gap:10px;
@@ -135,8 +199,18 @@ align-items:center;
 margin-bottom:15px;
 }
 
+.playbackControls button{
+font-size:18px;
+padding:12px 18px;
+}
+
+/* =========================
+   TIMELINE
+========================= */
+
 #timelineSlider{
 width:100%;
+cursor:pointer;
 }
 
 .timelineInfo{
@@ -144,4 +218,18 @@ display:flex;
 justify-content:space-between;
 margin-top:10px;
 font-size:14px;
+opacity:0.8;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+background:#1f3552;
+border-radius:10px;
 }
