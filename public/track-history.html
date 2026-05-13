@@ -1,37 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<div class="card">
+<h2>Driver Behaviour</h2>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>BDPH Premium Track History</title>
-
-<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
-<link rel="stylesheet" href="/track-history.css"/>
-
-</head>
-<body>
-
-<div class="header">
-
-<div class="leftHeader">
-<h1>Track History Playback</h1>
+<div class="alertItem red">
+Overspeed Events : 4
 </div>
 
-<div class="controls">
+<div class="alertItem orange">
+Harsh Braking : 2
+</div>
 
-<select id="vehicleSelect">
-<option>JH05AB1234</option>
+<div class="alertItem purple">
+Idle Events : 3
+</div>
+
+<div class="alertItem cyan">
+Route Deviation : 1
+</div>
+
+</div>
+
+<div class="card scoreCard">
+<h2>Driver Score</h2>
+<div class="scoreCircle">
+82
+</div>
+</div>
+
+</div>
+
+<div class="mapContainer">
+<div id="historyMap"></div>
+
+<div class="playbackPanel">
+
+<div class="playbackControls">
+
+<button id="rewindBtn">⏪</button>
+<button id="playBtn">▶</button>
+<button id="pauseBtn">⏸</button>
+
+<select id="speedSelect">
+<option value="1">1x</option>
+<option value="2">2x</option>
+<option value="5">5x</option>
+<option value="10">10x</option>
 </select>
 
-<input type="date">
-<input type="time">
-<input type="date">
-<input type="time">
+</div>
 
-<button id="loadHistoryBtn">Load</button>
+<input type="range" id="timelineSlider" min="0" max="100" value="0">
+
+<div class="timelineInfo">
+<span id="currentTime">08:00:00</span>
+<span id="playbackStatus">Playback Ready</span>
+</div>
 
 </div>
 
+</div>
+
+</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="/track-history.js"></script>
+
+</body>
 </html>
