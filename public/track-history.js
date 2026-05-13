@@ -4,131 +4,256 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution: "BDPH Tracking"
 }).addTo(map);
 
+const vehicleIcon = L.icon({
+  iconUrl: "https://cdn-icons-png.flaticon.com/512/61/61231.png",
+  iconSize: [40,40],
+  iconAnchor: [20,20]
+});
+
+const stopIcon = L.icon({
+  iconUrl: "https://cdn-icons-png.flaticon.com/512/1828/1828843.png",
+  iconSize: [28,28]
+});
+
+const overspeedIcon = L.icon({
+  iconUrl: "https://cdn-icons-png.flaticon.com/512/564/564619.png",
+  iconSize: [28,28]
+});
+
+const harshIcon = L.icon({
+  iconUrl: "https://cdn-icons-png.flaticon.com/512/463/463612.png",
+  iconSize: [28,28]
+});
+
 const gpsData = [
-  { lat:22.8046, lng:86.2029, speed:20, halt:false },
-  { lat:22.8055, lng:86.2040, speed:28, halt:false },
-  { lat:22.8070, lng:86.2060, speed:35, halt:false },
-  { lat:22.8090, lng:86.2080, speed:72, halt:false },
-  { lat:22.8110, lng:86.2100, speed:80, halt:false },
-  { lat:22.8130, lng:86.2130, speed:0, halt:true },
-  { lat:22.8130, lng:86.2130, speed:0, halt:true },
-  { lat:22.8145, lng:86.2160, speed:18, halt:false },
-  { lat:22.8170, lng:86.2200, speed:60, halt:false },
-  { lat:22.8210, lng:86.2260, speed:15, halt:false },
-  { lat:22.8250, lng:86.2330, speed:8, halt:false }
+
+{
+vehicle:"JH05AB1234",
+lat:22.8046,
+lng:86.2029,
+speed:20,
+halt:false,
+overspeed:false,
+harsh:false
+},
+
+{
+vehicle:"JH05AB1234",
+lat:22.8060,
+lng:86.2040,
+speed:40,
+halt:false,
+overspeed:false,
+harsh:false
+},
+
+{
+vehicle:"JH05AB1234",
+lat:22.8080,
+lng:86.2060,
+speed:82,
+halt:false,
+overspeed:true,
+harsh:false
+},
+
+{
+vehicle:"JH05AB1234",
+lat:22.8100,
+lng:86.2080,
+speed:78,
+halt:false,
+overspeed:true,
+harsh:false
+},
+
+{
+vehicle:"JH05AB1234",
+lat:22.8120,
+lng:86.2110,
+speed:0,
+halt:true,
+overspeed:false,
+harsh:false
+},
+
+{
+vehicle:"JH05AB1234",
+lat:22.8140,
+lng:86.2140,
+speed:15,
+halt:false,
+overspeed:false,
+harsh:true
+},
+
+{
+vehicle:"JH05AB1234",
+lat:22.8170,
+lng:86.2200,
+speed:35,
+halt:false,
+overspeed:false,
+harsh:false
+}
+
 ];
 
-const route = gpsData.map(p => [p.lat, p.lng]);
+const route = gpsData.map(p=>[p.lat,p.lng]);
 
 const polyline = L.polyline(route,{
-  color:"lime",
-  weight:5
+color:"lime",
+weight:5
 }).addTo(map);
 
 map.fitBounds(polyline.getBounds());
 
-const marker = L.marker(route[0]).addTo(map);
+const vehicleMarker = L.marker(route[0],{
+icon:vehicleIcon
+}).addTo(map);
 
 let currentIndex = 0;
 let playbackInterval = null;
-let playbackMultiplier = 1;
+let playbackRunning = false;
+let playbackSpeed = 1000;
 
-let overspeed = 0;
-let halt = 0;
-let harshBrake = 0;
-let deviation = 1;
+function updateCounts(){
 
-for(let i=1;i<gpsData.length;i++){
+const haltCount = gpsData.filter(p=>p.halt).length;
+const overspeedCount = gpsData.filter(p=>p.overspeed).length;
+const harshCount = gpsData.filter(p=>p.harsh).length;
 
-  if(gpsData[i].speed > 70){
-    overspeed++;
-  }
+document.getElementById("haltCount").innerText = haltCount;
+document.getElementById("overspeedCount").innerText = overspeedCount;
+document.getElementById("harshCount").innerText = harshCount;
+document.getElementById("deviationCount").innerText = 1;
 
-  if(gpsData[i].halt){
-    halt++;
-  }
-
-  const diff = gpsData[i-1].speed - gpsData[i].speed;
-
-  if(diff > 40){
-    harshBrake++;
-  }
 }
 
-document.getElementById("overspeedCount").innerText = overspeed;
-document.getElementById("haltCount").innerText = halt;
-document.getElementById("harshCount").innerText = harshBrake;
-document.getElementById("deviationCount").innerText = deviation;
+updateCounts();
+
+function createEventMarkers(){
+
+gpsData.forEach(point=>{
+
+if(point.halt){
+
+L.marker([point.lat,point.lng],{
+icon:stopIcon
+})
+.addTo(map)
+.bindPopup(`
+🛑 Vehicle Halted<br>
+Vehicle: ${point.vehicle}
+`);
+
+}
+
+if(point.overspeed){
+
+L.marker([point.lat,point.lng],{
+icon:overspeedIcon
+})
+.addTo(map)
+.bindPopup(`
+🚨 Overspeeding<br>
+Speed: ${point.speed} km/h
+`);
+
+}
+
+if(point.harsh){
+
+L.marker([point.lat,point.lng],{
+icon:harshIcon
+})
+.addTo(map)
+.bindPopup(`
+⚠ Harsh Driving Detected
+`);
+
+}
+
+});
+
+}
+
+createEventMarkers();
 
 function moveVehicle(){
 
-  if(currentIndex >= gpsData.length){
-    clearInterval(playbackInterval);
-    return;
-  }
+if(currentIndex >= gpsData.length){
 
-  const point = gpsData[currentIndex];
+clearInterval(playbackInterval);
+playbackRunning = false;
+return;
 
-  marker.setLatLng([point.lat, point.lng]);
-
-  marker.bindPopup(`
-    Speed: ${point.speed} km/h <br>
-    ${point.halt ? "Vehicle Halted" : "Vehicle Moving"}
-  `);
-
-  if(point.speed > 70){
-
-    marker.bindPopup(`
-      🚨 Overspeeding <br>
-      Speed: ${point.speed} km/h
-    `).openPopup();
-  }
-
-  if(point.halt){
-
-    marker.bindPopup(`
-      🛑 Vehicle Halted
-    `).openPopup();
-  }
-
-  currentIndex++;
 }
+
+const point = gpsData[currentIndex];
+
+vehicleMarker.setLatLng([point.lat,point.lng]);
+
+vehicleMarker.bindPopup(`
+Vehicle: ${point.vehicle}<br>
+Speed: ${point.speed} km/h
+`);
+
+map.panTo([point.lat,point.lng]);
+
+currentIndex++;
+
+}
+
+document.getElementById("loadBtn").onclick = ()=>{
+
+currentIndex = 0;
+
+vehicleMarker.setLatLng(route[0]);
+
+map.fitBounds(polyline.getBounds());
+
+};
 
 document.getElementById("playBtn").onclick = ()=>{
 
-  clearInterval(playbackInterval);
+if(playbackRunning) return;
 
-  playbackInterval = setInterval(moveVehicle,1000/playbackMultiplier);
+playbackRunning = true;
+
+playbackInterval = setInterval(
+moveVehicle,
+playbackSpeed
+);
 
 };
 
 document.getElementById("pauseBtn").onclick = ()=>{
 
-  clearInterval(playbackInterval);
+clearInterval(playbackInterval);
+
+playbackRunning = false;
 
 };
 
 document.getElementById("speedSelect").onchange = (e)=>{
 
-  playbackMultiplier = Number(e.target.value);
+const val = Number(e.target.value);
 
-  if(playbackInterval){
+if(val===1) playbackSpeed=1000;
+if(val===2) playbackSpeed=500;
+if(val===5) playbackSpeed=200;
+if(val===10) playbackSpeed=100;
 
-    clearInterval(playbackInterval);
+if(playbackRunning){
 
-    playbackInterval = setInterval(
-      moveVehicle,
-      1000/playbackMultiplier
-    );
-  }
-};
+clearInterval(playbackInterval);
 
-document.getElementById("loadBtn").onclick = ()=>{
+playbackInterval = setInterval(
+moveVehicle,
+playbackSpeed
+);
 
-  currentIndex = 0;
-
-  marker.setLatLng(route[0]);
-
-  map.fitBounds(polyline.getBounds());
+}
 
 };
