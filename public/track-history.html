@@ -326,31 +326,88 @@ icon:truckIcon
 
 /* PLAYBACK */
 
-let current = 0;
-let interval;
+let currentSegment = 0;
+let animationProgress = 0;
+
 let running = false;
-let speed = 1000;
 
-function moveTruck(){
+let playbackSpeed = 1;
 
-if(current >= route.length){
+let animationFrame;
 
-clearInterval(interval);
+function interpolate(start, end, t){
 
-running=false;
+return [
+start[0] + (end[0]-start[0]) * t,
+start[1] + (end[1]-start[1]) * t
+];
+
+}
+
+function animateTruck(){
+
+if(!running) return;
+
+const start = route[currentSegment];
+const end = route[currentSegment + 1];
+
+if(!end){
+
+running = false;
+
+cancelAnimationFrame(animationFrame);
 
 return;
 
 }
 
-truck.setLatLng(route[current]);
+animationProgress += 0.003 * playbackSpeed;
 
-map.panTo(route[current]);
+if(animationProgress >= 1){
+
+animationProgress = 0;
+
+currentSegment++;
+
+}
+
+const pos = interpolate(
+start,
+end,
+animationProgress
+);
+
+truck.setLatLng(pos);
+
+/* MAP FOLLOW */
+
+map.panTo(pos,{
+animate:true,
+duration:0.5
+});
+
+/* TIMELINE */
+
+const timelinePercent =
+((currentSegment + animationProgress)
+/
+(route.length - 1)) * 100;
 
 document.getElementById("timeline").value =
-(current/(route.length-1))*100;
+timelinePercent;
 
-current++;
+/* RANDOM SPEED */
+
+const speedValue =
+Math.floor(30 + Math.random()*40);
+
+document.querySelector(
+".vehicleCard p:nth-child(3)"
+).innerHTML =
+speedValue + " km/h";
+
+animationFrame =
+requestAnimationFrame(animateTruck);
 
 }
 
@@ -361,9 +418,9 @@ document.getElementById("playBtn")
 
 if(running) return;
 
-running=true;
+running = true;
 
-interval=setInterval(moveTruck,speed);
+animateTruck();
 
 });
 
@@ -372,9 +429,9 @@ interval=setInterval(moveTruck,speed);
 document.getElementById("pauseBtn")
 .addEventListener("click",()=>{
 
-clearInterval(interval);
+running = false;
 
-running=false;
+cancelAnimationFrame(animationFrame);
 
 });
 
@@ -383,9 +440,17 @@ running=false;
 document.getElementById("rewindBtn")
 .addEventListener("click",()=>{
 
-current=0;
+running = false;
+
+cancelAnimationFrame(animationFrame);
+
+currentSegment = 0;
+
+animationProgress = 0;
 
 truck.setLatLng(route[0]);
+
+document.getElementById("timeline").value = 0;
 
 });
 
@@ -394,15 +459,7 @@ truck.setLatLng(route[0]);
 document.getElementById("speedSelect")
 .addEventListener("change",(e)=>{
 
-speed = 1000 / Number(e.target.value);
-
-if(running){
-
-clearInterval(interval);
-
-interval=setInterval(moveTruck,speed);
-
-}
+playbackSpeed = Number(e.target.value);
 
 });
 
