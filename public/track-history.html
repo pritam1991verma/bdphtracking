@@ -1,3 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BDPH Premium Playback</title>
+
+<link rel="stylesheet"
+href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial,sans-serif;
+background:#050b16;
+overflow:hidden;
+color:white;
+}
+
+/* MAP */
+
+#map{
+height:100vh;
+width:100%;
+filter:brightness(0.9) contrast(1.1);
+}
+
+/* TOP BAR */
+
+.topBar{
+position:absolute;
+top:15px;
+left:15px;
+right:15px;
+z-index:9999;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+background:rgba(10,20,35,0.92);
+padding:15px 24px;
+border-radius:20px;
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,0.08);
+box-shadow:0 0 30px rgba(0,255,100,0.08);
+font-size:24px;
+font-weight:bold;
+}
+
+/* SUMMARY */
+
+.summaryPanel{
+position:absolute;
+left:20px;
+top:95px;
+width:300px;
+z-index:9999;
+background:rgba(9,17,30,0.92);
+backdrop-filter:blur(16px);
+border-radius:24px;
+padding:22px;
+border:1px solid rgba(255,255,255,0.08);
+box-shadow:0 0 40px rgba(0,255,120,0.08);
+}
+
+.summaryPanel h2{
+margin-bottom:18px;
+font-size:22px;
+}
+
+.stat{
+display:flex;
+justify-content:space-between;
+padding:13px 0;
+border-bottom:1px solid rgba(255,255,255,0.08);
+font-size:15px;
+}
+
+/* VEHICLE CARD */
+
+.vehicleCard{
+position:absolute;
+right:20px;
+top:95px;
+width:240px;
+background:rgba(255,255,255,0.95);
+color:black;
+padding:20px;
+border-radius:24px;
+z-index:9999;
+backdrop-filter:blur(12px);
+box-shadow:0 0 30px rgba(0,0,0,0.4);
+animation:floatCard 3s ease-in-out infinite;
+}
+
+.vehicleCard h2{
+margin-bottom:10px;
+}
+
+.liveDot{
+height:12px;
+width:12px;
+border-radius:50%;
+background:#00ff66;
+display:inline-block;
+animation:pulse 1s infinite;
+margin-right:8px;
+}
+
+/* SPEEDOMETER */
+
+.speedometer{
+position:absolute;
+right:30px;
+bottom:170px;
+height:95px;
+width:95px;
+border-radius:50%;
+background:rgba(9,17,30,0.92);
+backdrop-filter:blur(15px);
+border:2px solid rgba(0,255,100,0.2);
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+font-weight:bold;
+z-index:9999;
+box-shadow:0 0 25px rgba(0,255,100,0.15);
+}
+
+.speedometer span:first-child{
+font-size:30px;
+}
+
+/* EVENTS */
+
+.eventPanel{
+position:absolute;
+left:20px;
+bottom:20px;
+width:300px;
+height:170px;
+overflow:auto;
+background:rgba(9,17,30,0.92);
+backdrop-filter:blur(16px);
+padding:18px;
+border-radius:22px;
+z-index:9999;
+box-shadow:0 0 35px rgba(0,255,100,0.08);
+}
+
+.event{
+padding:12px;
+margin-bottom:10px;
+background:rgba(255,255,255,0.05);
+border-radius:14px;
+font-size:14px;
+}
+
+/* PLAYBACK PANEL */
+
+.bottomPanel{
+position:absolute;
+bottom:18px;
+left:55%;
+transform:translateX(-50%);
+width:72%;
+height:130px;
+background:rgba(9,17,30,0.94);
+padding:18px;
+border-radius:24px;
+z-index:9999;
+backdrop-filter:blur(16px);
+border:1px solid rgba(255,255,255,0.08);
+box-shadow:0 0 40px rgba(0,255,100,0.08);
+}
+
+.controls{
+display:flex;
+gap:12px;
+margin-bottom:16px;
+align-items:center;
+}
+
+.controls button,
+.controls select{
+padding:12px 18px;
+border:none;
+border-radius:14px;
+background:#00c853;
+color:white;
+font-weight:bold;
+cursor:pointer;
+font-size:14px;
+}
+
+.controls button:hover{
+transform:scale(1.05);
+transition:0.3s;
+}
+
+#timeline{
+width:100%;
+height:8px;
+accent-color:#00ff88;
+cursor:pointer;
+}
+
+.timelineLabels{
+display:flex;
+justify-content:space-between;
+margin-top:10px;
+font-size:12px;
+color:#a5b4c7;
+}
+
+/* MAP CONTROLS */
+
 .leaflet-top.leaflet-right{
 top:90px;
 right:20px;
@@ -9,13 +238,7 @@ overflow:hidden;
 box-shadow:0 0 20px rgba(0,0,0,0.4);
 }
 
-.bottomPanel{
-padding-top:14px;
-}
-
-.controls{
-align-items:center;
-}
+/* SCROLLBAR */
 
 .eventPanel::-webkit-scrollbar{
 width:6px;
@@ -25,6 +248,28 @@ width:6px;
 background:#00ff88;
 border-radius:20px;
 }
+
+/* MARKER */
+
+.leaflet-marker-icon{
+filter:drop-shadow(0 0 12px #00ff88);
+}
+
+/* ANIMATION */
+
+@keyframes pulse{
+0%{opacity:0.4;}
+50%{opacity:1;}
+100%{opacity:0.4;}
+}
+
+@keyframes floatCard{
+0%{transform:translateY(0px);}
+50%{transform:translateY(-6px);}
+100%{transform:translateY(0px);}
+}
+
+/* RESPONSIVE */
 
 @media(max-width:1200px){
 
@@ -53,7 +298,7 @@ display:none;
 }
 
 .bottomPanel{
-width:90%;
+width:92%;
 left:50%;
 }
 
@@ -63,3 +308,432 @@ bottom:160px;
 }
 
 }
+
+</style>
+
+</head>
+
+<body>
+
+<div id="map"></div>
+
+<div class="topBar">
+<div class="logo">BDPH Track Playback</div>
+</div>
+
+<!-- SUMMARY -->
+
+<div class="summaryPanel">
+
+<h2>Trip Summary</h2>
+
+<div class="stat">
+<span>Total Distance</span>
+<b>377 KM</b>
+</div>
+
+<div class="stat">
+<span>Running Time</span>
+<b>9.5 H</b>
+</div>
+
+<div class="stat">
+<span>Idle Time</span>
+<b>1.2 H</b>
+</div>
+
+<div class="stat">
+<span>Average Speed</span>
+<b>48 KM/H</b>
+</div>
+
+<div class="stat">
+<span>Top Speed</span>
+<b>85 KM/H</b>
+</div>
+
+<div class="stat">
+<span>Fuel Used</span>
+<b>75 L</b>
+</div>
+
+</div>
+
+<!-- VEHICLE -->
+
+<div class="vehicleCard">
+
+<h2>JH05AB1234</h2>
+
+<p>
+<span class="liveDot"></span>
+Vehicle Moving
+</p>
+
+<br>
+
+<p id="speedText">42 KM/H</p>
+
+<br>
+
+<p>Fuel Level : 72%</p>
+<p>Driver : Active</p>
+
+</div>
+
+<!-- SPEED -->
+
+<div class="speedometer">
+<span id="speedMeter">42</span>
+<span>KM/H</span>
+</div>
+
+<!-- EVENTS -->
+
+<div class="eventPanel">
+
+<h3 style="margin-bottom:15px">
+Playback Events
+</h3>
+
+<div class="event">
+04:10 PM - Ignition ON
+</div>
+
+<div class="event">
+04:25 PM - Overspeed 81 KM/H
+</div>
+
+<div class="event">
+04:42 PM - Vehicle Idle
+</div>
+
+<div class="event">
+05:05 PM - Route Resumed
+</div>
+
+<div class="event">
+05:18 PM - Geofence Exit
+</div>
+
+</div>
+
+<!-- PLAYBACK -->
+
+<div class="bottomPanel">
+
+<div class="controls">
+
+<button id="rewindBtn">
+⏮ Rewind
+</button>
+
+<button id="playBtn">
+▶ Play
+</button>
+
+<button id="pauseBtn">
+⏸ Pause
+</button>
+
+<select id="speedSelect">
+
+<option value="1">1X</option>
+<option value="2">2X</option>
+<option value="5">5X</option>
+<option value="10">10X</option>
+
+</select>
+
+</div>
+
+<input type="range"
+id="timeline"
+min="0"
+max="100"
+value="0">
+
+<div class="timelineLabels">
+
+<span>Start Playback</span>
+
+<span>Current Position</span>
+
+<span>Trip End</span>
+
+</div>
+
+</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+
+/* MAP */
+
+const map = L.map('map',{
+zoomControl:false
+}).setView([22.8046,86.2029],13);
+
+/* DARK MAP */
+
+const darkMap = L.tileLayer(
+'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+{
+attribution:'© OpenStreetMap © CARTO'
+}
+).addTo(map);
+
+/* SATELLITE */
+
+const satellite = L.tileLayer(
+'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+{
+attribution:'© Esri'
+}
+);
+
+/* LAYERS */
+
+L.control.layers({
+"Dark":darkMap,
+"Satellite":satellite
+}).addTo(map);
+
+/* ROUTE */
+
+const route = [
+
+[22.8046,86.2029],
+[22.8056,86.2040],
+[22.8072,86.2058],
+[22.8090,86.2080],
+[22.8108,86.2100],
+[22.8125,86.2135],
+[22.8140,86.2170],
+[22.8170,86.2200]
+
+];
+
+/* GLOW */
+
+L.polyline(route,{
+color:'#00ff88',
+weight:16,
+opacity:0.15
+}).addTo(map);
+
+/* MAIN ROUTE */
+
+L.polyline(route,{
+color:'#00ff88',
+weight:6,
+opacity:1
+}).addTo(map);
+
+/* POINTS */
+
+route.forEach((point)=>{
+
+L.circleMarker(point,{
+radius:4,
+color:'#00ff88',
+fillColor:'#00ff88',
+fillOpacity:1
+}).addTo(map);
+
+});
+
+/* ICON */
+
+const truckIcon = L.icon({
+
+iconUrl:
+'https://cdn-icons-png.flaticon.com/512/744/744465.png',
+
+iconSize:[52,52],
+
+iconAnchor:[26,26]
+
+});
+
+/* TRUCK */
+
+const truck = L.marker(route[0],{
+icon:truckIcon
+}).addTo(map);
+
+/* PLAYBACK */
+
+let currentSegment = 0;
+
+let animationProgress = 0;
+
+let running = false;
+
+let playbackSpeed = 1;
+
+let animationFrame;
+
+/* INTERPOLATE */
+
+function interpolate(start,end,t){
+
+return [
+
+start[0] + (end[0]-start[0]) * t,
+
+start[1] + (end[1]-start[1]) * t
+
+];
+
+}
+
+/* ANIMATE */
+
+function animateTruck(){
+
+if(!running) return;
+
+const start = route[currentSegment];
+
+const end = route[currentSegment+1];
+
+if(!end){
+
+running = false;
+
+return;
+
+}
+
+animationProgress += 0.004 * playbackSpeed;
+
+if(animationProgress >= 1){
+
+animationProgress = 0;
+
+currentSegment++;
+
+}
+
+const pos = interpolate(
+start,
+end,
+animationProgress
+);
+
+/* MOVE */
+
+truck.setLatLng(pos);
+
+/* MAP FOLLOW */
+
+map.panTo(pos,{
+animate:true,
+duration:0.4
+});
+
+/* ROTATE */
+
+const icon = truck.getElement();
+
+if(icon){
+
+const angle = Math.atan2(
+end[1]-start[1],
+end[0]-start[0]
+) * 180 / Math.PI;
+
+icon.style.transform =
+`rotate(${angle}deg)`;
+
+}
+
+/* SPEED */
+
+const speed =
+Math.floor(35 + Math.random()*45);
+
+document.getElementById('speedText')
+.innerHTML =
+speed + ' KM/H';
+
+document.getElementById('speedMeter')
+.innerHTML =
+speed;
+
+/* TIMELINE */
+
+const timeline =
+((currentSegment + animationProgress)
+/(route.length-1))*100;
+
+document.getElementById('timeline')
+.value = timeline;
+
+/* NEXT FRAME */
+
+animationFrame =
+requestAnimationFrame(animateTruck);
+
+}
+
+/* PLAY */
+
+document.getElementById('playBtn')
+.addEventListener('click',()=>{
+
+if(running) return;
+
+running = true;
+
+animateTruck();
+
+});
+
+/* PAUSE */
+
+document.getElementById('pauseBtn')
+.addEventListener('click',()=>{
+
+running = false;
+
+cancelAnimationFrame(animationFrame);
+
+});
+
+/* REWIND */
+
+document.getElementById('rewindBtn')
+.addEventListener('click',()=>{
+
+running = false;
+
+cancelAnimationFrame(animationFrame);
+
+currentSegment = 0;
+
+animationProgress = 0;
+
+truck.setLatLng(route[0]);
+
+document.getElementById('timeline')
+.value = 0;
+
+});
+
+/* SPEED */
+
+document.getElementById('speedSelect')
+.addEventListener('change',(e)=>{
+
+playbackSpeed =
+Number(e.target.value);
+
+});
+
+</script>
+
+</body>
+</html>
