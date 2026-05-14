@@ -1,485 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Premium Track Playback</title>
-<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-font-family:Arial,sans-serif;
-background:#050b16;
-overflow:hidden;
-color:white;
-}
-
-#map{
-height:100vh;
-width:100%;
-filter:brightness(0.9) contrast(1.1);
-}
-
-.topBar{
-position:absolute;
-top:15px;
-left:15px;
-right:15px;
-z-index:9999;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.logo{
-background:rgba(10,20,35,0.9);
-padding:15px 22px;
-border-radius:18px;
-backdrop-filter:blur(15px);
-border:1px solid rgba(255,255,255,0.08);
-box-shadow:0 0 30px rgba(0,255,100,0.08);
-font-size:24px;
-font-weight:bold;
-}
-
-.summaryPanel{
-position:absolute;
-left:20px;
-top:100px;
-width:320px;
-z-index:9999;
-background:rgba(9,17,30,0.92);
-backdrop-filter:blur(16px);
-border-radius:24px;
-padding:22px;
-border:1px solid rgba(255,255,255,0.08);
-box-shadow:0 0 40px rgba(0,255,120,0.08);
-}
-
-.summaryPanel h2{
-margin-bottom:20px;
-font-size:22px;
-}
-
-.stat{
-display:flex;
-justify-content:space-between;
-padding:14px 0;
-border-bottom:1px solid rgba(255,255,255,0.08);
-font-size:15px;
-}
-
-.vehicleCard{
-position:absolute;
+.leaflet-top.leaflet-right{
+top:90px;
 right:20px;
-top:100px;
-width:260px;
-background:rgba(255,255,255,0.95);
-color:black;
-padding:22px;
-border-radius:24px;
-z-index:9999;
-backdrop-filter:blur(12px);
-box-shadow:0 0 30px rgba(0,0,0,0.4);
-animation:floatCard 3s ease-in-out infinite;
 }
 
-.vehicleCard h2{
-margin-bottom:10px;
-}
-
-.liveDot{
-height:12px;
-width:12px;
-border-radius:50%;
-background:#00ff66;
-display:inline-block;
-animation:pulse 1s infinite;
-margin-right:8px;
+.leaflet-control-layers{
+border-radius:16px !important;
+overflow:hidden;
+box-shadow:0 0 20px rgba(0,0,0,0.4);
 }
 
 .bottomPanel{
-position:absolute;
-bottom:20px;
-left:50%;
-transform:translateX(-50%);
-width:75%;
-background:rgba(9,17,30,0.94);
-padding:22px;
-border-radius:26px;
-z-index:9999;
-backdrop-filter:blur(16px);
-border:1px solid rgba(255,255,255,0.08);
-box-shadow:0 0 40px rgba(0,255,100,0.08);
+padding-top:14px;
 }
 
 .controls{
-display:flex;
-gap:12px;
-margin-bottom:16px;
-}
-
-.controls button,
-.controls select{
-padding:12px 18px;
-border:none;
-border-radius:14px;
-background:#00c853;
-color:white;
-font-weight:bold;
-cursor:pointer;
-font-size:14px;
-}
-
-.controls button:hover{
-transform:scale(1.05);
-transition:0.3s;
-}
-
-#timeline{
-width:100%;
-height:8px;
-accent-color:#00ff88;
-cursor:pointer;
-}
-
-.timelineLabels{
-display:flex;
-justify-content:space-between;
-margin-top:10px;
-font-size:12px;
-color:#a5b4c7;
-}
-
-.speedometer{
-position:absolute;
-right:30px;
-bottom:170px;
-height:120px;
-width:120px;
-border-radius:50%;
-background:rgba(9,17,30,0.92);
-backdrop-filter:blur(15px);
-border:2px solid rgba(0,255,100,0.2);
-display:flex;
 align-items:center;
-justify-content:center;
-flex-direction:column;
-font-weight:bold;
-z-index:9999;
-box-shadow:0 0 25px rgba(0,255,100,0.15);
 }
 
-.speedometer span:first-child{
-font-size:32px;
+.eventPanel::-webkit-scrollbar{
+width:6px;
+}
+
+.eventPanel::-webkit-scrollbar-thumb{
+background:#00ff88;
+border-radius:20px;
+}
+
+@media(max-width:1200px){
+
+.summaryPanel{
+width:260px;
+}
+
+.vehicleCard{
+width:220px;
+}
+
+.bottomPanel{
+width:68%;
+}
+
+}
+
+@media(max-width:900px){
+
+.summaryPanel{
+display:none;
 }
 
 .eventPanel{
-position:absolute;
-left:20px;
-bottom:20px;
-width:320px;
-max-height:240px;
-overflow:auto;
-background:rgba(9,17,30,0.92);
-backdrop-filter:blur(16px);
-padding:20px;
-border-radius:24px;
-z-index:9999;
-box-shadow:0 0 35px rgba(0,255,100,0.08);
+display:none;
 }
 
-.event{
-padding:12px;
-margin-bottom:10px;
-background:rgba(255,255,255,0.05);
-border-radius:14px;
-font-size:14px;
+.bottomPanel{
+width:90%;
+left:50%;
 }
 
-.leaflet-marker-icon{
-filter:drop-shadow(0 0 12px #00ff88);
+.speedometer{
+right:20px;
+bottom:160px;
 }
 
-@keyframes pulse{
-0%{opacity:0.4;}
-50%{opacity:1;}
-100%{opacity:0.4;}
 }
-
-@keyframes floatCard{
-0%{transform:translateY(0px);} 
-50%{transform:translateY(-6px);} 
-100%{transform:translateY(0px);} 
-}
-
-</style>
-</head>
-
-<body>
-
-<div id="map"></div>
-
-<div class="topBar">
-<div class="logo">BDPH Track Playback</div>
-</div>
-
-<div class="summaryPanel">
-<h2>Trip Summary</h2>
-
-<div class="stat">
-<span>Total Distance</span>
-<b>377 KM</b>
-</div>
-
-<div class="stat">
-<span>Running Time</span>
-<b>9.5 H</b>
-</div>
-
-<div class="stat">
-<span>Idle Time</span>
-<b>1.2 H</b>
-</div>
-
-<div class="stat">
-<span>Average Speed</span>
-<b>48 KM/H</b>
-</div>
-
-<div class="stat">
-<span>Top Speed</span>
-<b>85 KM/H</b>
-</div>
-
-<div class="stat">
-<span>Fuel Used</span>
-<b>75 L</b>
-</div>
-</div>
-
-<div class="vehicleCard">
-<h2>JH05AB1234</h2>
-<p><span class="liveDot"></span>Vehicle Moving</p>
-<br>
-<p id="speedText">42 KM/H</p>
-<br>
-<p>Fuel Level : 72%</p>
-<p>Driver : Active</p>
-</div>
-
-<div class="speedometer">
-<span id="speedMeter">42</span>
-<span>KM/H</span>
-</div>
-
-<div class="eventPanel">
-<h3 style="margin-bottom:15px">Playback Events</h3>
-
-<div class="event">04:10 PM - Ignition ON</div>
-<div class="event">04:25 PM - Overspeed 81 KM/H</div>
-<div class="event">04:42 PM - Vehicle Idle</div>
-<div class="event">05:05 PM - Route Resumed</div>
-<div class="event">05:18 PM - Geofence Exit</div>
-</div>
-
-<div class="bottomPanel">
-
-<div class="controls">
-<button id="rewindBtn">⏮ Rewind</button>
-<button id="playBtn">▶ Play</button>
-<button id="pauseBtn">⏸ Pause</button>
-
-<select id="speedSelect">
-<option value="1">1X</option>
-<option value="2">2X</option>
-<option value="5">5X</option>
-<option value="10">10X</option>
-</select>
-</div>
-
-<input type="range" id="timeline" min="0" max="100" value="0">
-
-<div class="timelineLabels">
-<span>Start Playback</span>
-<span>Current Position</span>
-<span>Trip End</span>
-</div>
-
-</div>
-
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-<script>
-
-const map = L.map('map',{
-zoomControl:false
-}).setView([22.8046,86.2029],13);
-
-const darkMap = L.tileLayer(
-'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-{
-attribution:'© OpenStreetMap © CARTO'
-}
-).addTo(map);
-
-const satellite = L.tileLayer(
-'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-{
-attribution:'© Esri'
-}
-);
-
-L.control.layers({
-"Dark":darkMap,
-"Satellite":satellite
-}).addTo(map);
-
-const route = [
-[22.8046,86.2029],
-[22.8056,86.2040],
-[22.8072,86.2058],
-[22.8090,86.2080],
-[22.8108,86.2100],
-[22.8125,86.2135],
-[22.8140,86.2170],
-[22.8170,86.2200]
-];
-
-L.polyline(route,{
-color:'#00ff88',
-weight:16,
-opacity:0.15
-}).addTo(map);
-
-L.polyline(route,{
-color:'#00ff88',
-weight:6,
-opacity:1
-}).addTo(map);
-
-route.forEach((point,index)=>{
-L.circleMarker(point,{
-radius:4,
-color:'#00ff88',
-fillColor:'#00ff88',
-fillOpacity:1
-}).addTo(map);
-});
-
-const truckIcon = L.icon({
-iconUrl:'https://cdn-icons-png.flaticon.com/512/744/744465.png',
-iconSize:[52,52],
-iconAnchor:[26,26]
-});
-
-const truck = L.marker(route[0],{
-icon:truckIcon
-}).addTo(map);
-
-let currentSegment = 0;
-let animationProgress = 0;
-let running = false;
-let playbackSpeed = 1;
-let animationFrame;
-
-function interpolate(start,end,t){
-return [
-start[0] + (end[0]-start[0]) * t,
-start[1] + (end[1]-start[1]) * t
-];
-}
-
-function animateTruck(){
-
-if(!running) return;
-
-const start = route[currentSegment];
-const end = route[currentSegment+1];
-
-if(!end){
-running = false;
-return;
-}
-
-animationProgress += 0.004 * playbackSpeed;
-
-if(animationProgress >= 1){
-animationProgress = 0;
-currentSegment++;
-}
-
-const pos = interpolate(start,end,animationProgress);
-
-truck.setLatLng(pos);
-
-map.panTo(pos,{animate:true,duration:0.4});
-
-const icon = truck.getElement();
-
-if(icon){
-const angle = Math.atan2(
-end[1]-start[1],
-end[0]-start[0]
-) * 180 / Math.PI;
-
-icon.style.transform = `rotate(${angle}deg)`;
-}
-
-const speed = Math.floor(35 + Math.random()*45);
-
-document.getElementById('speedText').innerHTML = speed + ' KM/H';
-document.getElementById('speedMeter').innerHTML = speed;
-
-const timeline = ((currentSegment + animationProgress)/(route.length-1))*100;
-
-document.getElementById('timeline').value = timeline;
-
-animationFrame = requestAnimationFrame(animateTruck);
-}
-
-/* PLAY */
-
-document.getElementById('playBtn')
-.addEventListener('click',()=>{
-if(running) return;
-running = true;
-animateTruck();
-});
-
-/* PAUSE */
-
-document.getElementById('pauseBtn')
-.addEventListener('click',()=>{
-running = false;
-cancelAnimationFrame(animationFrame);
-});
-
-/* REWIND */
-
-document.getElementById('rewindBtn')
-.addEventListener('click',()=>{
-running = false;
-cancelAnimationFrame(animationFrame);
-currentSegment = 0;
-animationProgress = 0;
-truck.setLatLng(route[0]);
-document.getElementById('timeline').value = 0;
-});
-
-/* SPEED */
-
-document.getElementById('speedSelect')
-.addEventListener('change',(e)=>{
-playbackSpeed = Number(e.target.value);
-});
-
-</script>
-</body>
-</html>
