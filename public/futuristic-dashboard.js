@@ -1,3 +1,5 @@
+// SAVE AS: futuristic-dashboard.js
+
 /* =========================================
 LIVE CLOCK
 ========================================= */
@@ -14,111 +16,70 @@ document.title =
 
 }
 
-setInterval(updateClock,1000);
+setInterval(
+updateClock,
+1000
+);
 
 /* =========================================
-LIVE MINI CARDS
+LIVE COUNTERS
 ========================================= */
 
-function animateStats(){
+function animateCounters(){
 
-const cards =
-document.querySelectorAll(".miniCard h3");
+const vehicleCount =
+document.getElementById(
+"vehicleCount"
+);
 
-cards.forEach((card,index)=>{
+const gpsCount =
+document.getElementById(
+"gpsCount"
+);
 
-let value =
-Number(card.innerHTML);
+const alertCount =
+document.getElementById(
+"alertCount"
+);
 
-const random =
-Math.floor(Math.random()*3);
+if(vehicleCount){
 
-if(index === 0){
-
-value =
-248 + random;
-
-}
-
-if(index === 1){
-
-value =
-241 + random;
+vehicleCount.innerHTML =
+248 + Math.floor(Math.random()*5);
 
 }
 
-if(index === 2){
+if(gpsCount){
 
-value =
-7 + Math.floor(Math.random()*2);
+gpsCount.innerHTML =
+241 + Math.floor(Math.random()*4);
 
 }
 
-card.innerHTML = value;
+if(alertCount){
 
-});
+alertCount.innerHTML =
+7 + Math.floor(Math.random()*3);
+
+}
 
 }
 
 setInterval(
-animateStats,
+animateCounters,
 3000
 );
 
 /* =========================================
-ALERT COUNTERS
-========================================= */
-
-function animateAlerts(){
-
-const alerts =
-document.querySelectorAll(
-".alertCard h1"
-);
-
-alerts.forEach((alert,index)=>{
-
-let base = 0;
-
-if(index === 0){
-
-base = 28;
-
-}
-
-if(index === 1){
-
-base = 13;
-
-}
-
-if(index === 2){
-
-base = 9;
-
-}
-
-alert.innerHTML =
-base +
-Math.floor(Math.random()*3);
-
-});
-
-}
-
-setInterval(
-animateAlerts,
-4000
-);
-
-/* =========================================
-BARS ANIMATION
+ANIMATE BARS
 ========================================= */
 
 function animateBars(){
 
 const bars =
-document.querySelectorAll(".bar");
+document.querySelectorAll(
+".bar"
+);
 
 bars.forEach((bar)=>{
 
@@ -140,37 +101,7 @@ animateBars,
 );
 
 /* =========================================
-PROGRESS BARS
-========================================= */
-
-function animateInventory(){
-
-const progressBars =
-document.querySelectorAll(
-".progress div"
-);
-
-progressBars.forEach((bar)=>{
-
-const random =
-Math.floor(
-40 + Math.random()*55
-);
-
-bar.style.width =
-random + "%";
-
-});
-
-}
-
-setInterval(
-animateInventory,
-3500
-);
-
-/* =========================================
-LIVE TYRE AI
+ANIMATE TYRES
 ========================================= */
 
 function animateTyres(){
@@ -196,7 +127,75 @@ random + "%";
 
 setInterval(
 animateTyres,
+3500
+);
+
+/* =========================================
+ANIMATE INVENTORY
+========================================= */
+
+function animateInventory(){
+
+const progressBars =
+document.querySelectorAll(
+".progress div"
+);
+
+progressBars.forEach((bar)=>{
+
+const random =
+Math.floor(
+40 + Math.random()*55
+);
+
+bar.style.width =
+random + "%";
+
+});
+
+}
+
+setInterval(
+animateInventory,
 3000
+);
+
+/* =========================================
+MOVE GPS DOTS
+========================================= */
+
+function moveDots(){
+
+const dots =
+document.querySelectorAll(
+".dot"
+);
+
+dots.forEach((dot)=>{
+
+const top =
+Math.floor(
+10 + Math.random()*75
+);
+
+const left =
+Math.floor(
+10 + Math.random()*75
+);
+
+dot.style.top =
+top + "%";
+
+dot.style.left =
+left + "%";
+
+});
+
+}
+
+setInterval(
+moveDots,
+4000
 );
 
 /* =========================================
@@ -205,21 +204,21 @@ AI ALERT ENGINE
 
 const aiMessages = [
 
-"AI detected abnormal fuel pattern",
+"AI detected abnormal fuel consumption",
 
-"GPS latency stabilized successfully",
+"Tyre wear prediction updated successfully",
 
-"Vehicle JH05AB1234 entered restricted zone",
+"GPS signal optimized for Vehicle JH05AB1234",
 
-"Harsh braking detected near highway corridor",
-
-"Tyre pressure optimized by AI engine",
-
-"Predictive maintenance scheduled automatically",
+"Harsh braking event detected near NH-33",
 
 "Fuel theft probability increased by 12%",
 
-"Route optimization saved 18% fuel"
+"Route optimization saved 18% fuel",
+
+"AdBlue efficiency dropped below threshold",
+
+"Inventory AI scheduled automatic reorder"
 
 ];
 
@@ -237,37 +236,62 @@ existing.remove();
 }
 
 const alert =
-document.createElement("div");
+document.createElement(
+"div"
+);
 
 alert.id = "aiAlert";
 
 alert.innerHTML =
 aiMessages[
 Math.floor(
-Math.random()*aiMessages.length
+Math.random() *
+aiMessages.length
 )
 ];
 
-alert.style.position = "fixed";
-alert.style.top = "110px";
-alert.style.right = "25px";
-alert.style.padding = "16px 22px";
+alert.style.position =
+"fixed";
+
+alert.style.top =
+"105px";
+
+alert.style.right =
+"25px";
+
+alert.style.padding =
+"18px 24px";
+
 alert.style.background =
 "rgba(0,255,255,0.12)";
-alert.style.color = "#00e5ff";
+
+alert.style.color =
+"#00e5ff";
+
 alert.style.border =
-"1px solid rgba(0,255,255,0.2)";
-alert.style.borderRadius = "18px";
-alert.style.zIndex = "999999";
+"1px solid rgba(0,255,255,0.18)";
+
+alert.style.borderRadius =
+"22px";
+
+alert.style.zIndex =
+"999999";
+
+alert.style.fontWeight =
+"bold";
+
 alert.style.backdropFilter =
-"blur(14px)";
+"blur(18px)";
+
 alert.style.boxShadow =
-"0 0 30px rgba(0,255,255,0.2)";
-alert.style.fontWeight = "bold";
+"0 0 35px rgba(0,255,255,0.18)";
+
 alert.style.animation =
 "fadeIn 0.5s";
 
-document.body.appendChild(alert);
+document.body.appendChild(
+alert
+);
 
 setTimeout(()=>{
 
@@ -283,46 +307,10 @@ showAIAlert,
 );
 
 /* =========================================
-DOT MOVEMENT
+PARTICLES
 ========================================= */
 
-function animateDots(){
-
-const dots =
-document.querySelectorAll(".dot");
-
-dots.forEach((dot)=>{
-
-const top =
-Math.floor(
-10 + Math.random()*80
-);
-
-const left =
-Math.floor(
-10 + Math.random()*80
-);
-
-dot.style.top =
-top + "%";
-
-dot.style.left =
-left + "%";
-
-});
-
-}
-
-setInterval(
-animateDots,
-4000
-);
-
-/* =========================================
-BACKGROUND PARTICLES
-========================================= */
-
-for(let i=0;i<35;i++){
+for(let i=0;i<45;i++){
 
 const particle =
 document.createElement("div");
@@ -340,7 +328,7 @@ particle.style.borderRadius =
 "50%";
 
 particle.style.background =
-"rgba(0,255,255,0.4)";
+"rgba(0,255,255,0.35)";
 
 particle.style.left =
 Math.random()*100 + "vw";
@@ -350,6 +338,9 @@ Math.random()*100 + "vh";
 
 particle.style.zIndex =
 "0";
+
+particle.style.pointerEvents =
+"none";
 
 particle.style.animation =
 `float ${
@@ -363,11 +354,13 @@ particle
 }
 
 /* =========================================
-FLOAT STYLE
+STYLE INJECTION
 ========================================= */
 
 const style =
-document.createElement("style");
+document.createElement(
+"style"
+);
 
 style.innerHTML = `
 
@@ -381,7 +374,7 @@ opacity:0.2;
 
 50%{
 transform:
-translateY(-25px);
+translateY(-30px);
 opacity:1;
 }
 
@@ -416,11 +409,80 @@ style
 );
 
 /* =========================================
-WELCOME ALERT
+WELCOME AI
 ========================================= */
 
-setTimeout(()=>{
+window.onload = function(){
 
 showAIAlert();
 
-},1500);
+};
+
+/* =========================================
+MENU HOVER EFFECT
+========================================= */
+
+const menuItems =
+document.querySelectorAll(
+".menuItem"
+);
+
+menuItems.forEach((item)=>{
+
+item.addEventListener(
+"mouseenter",
+function(){
+
+this.style.transform =
+"translateX(8px) scale(1.02)";
+
+}
+);
+
+item.addEventListener(
+"mouseleave",
+function(){
+
+this.style.transform =
+"translateX(0px) scale(1)";
+
+}
+);
+
+});
+
+/* =========================================
+LIVE CARD PULSE
+========================================= */
+
+function pulseCards(){
+
+const cards =
+document.querySelectorAll(
+".glassCard,.alertCard"
+);
+
+cards.forEach((card,index)=>{
+
+setTimeout(()=>{
+
+card.style.boxShadow =
+"0 0 45px rgba(0,255,255,0.12)";
+
+setTimeout(()=>{
+
+card.style.boxShadow =
+"0 0 40px rgba(0,0,0,0.3)";
+
+},1200);
+
+},index*300);
+
+});
+
+}
+
+setInterval(
+pulseCards,
+6000
+);
