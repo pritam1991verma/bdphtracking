@@ -60,18 +60,134 @@ const route = [
 
 /* ROUTE LINE */
 
+/* =========================================
+   MAIN ROUTE
+========================================= */
+
 L.polyline(route,{
 color:'#00ff88',
-weight:6
+weight:6,
+smoothFactor:1.5,
+lineCap:'round',
+lineJoin:'round'
 }).addTo(map);
 
-/* GLOW */
+/* =========================================
+   GLOW ROUTE
+========================================= */
 
 L.polyline(route,{
 color:'#00ff88',
 weight:16,
-opacity:0.15
+opacity:0.15,
+smoothFactor:1.5
 }).addTo(map);
+  /* =========================================
+   START ICON
+========================================= */
+
+L.marker(route[0],{
+
+icon:L.icon({
+
+iconUrl:
+'https://cdn-icons-png.flaticon.com/512/25/25694.png',
+
+iconSize:[32,32]
+
+})
+
+})
+.bindPopup(`
+<b>Trip Started</b>
+`)
+.addTo(map);
+
+/* =========================================
+   END ICON
+========================================= */
+
+L.marker(route[route.length-1],{
+
+icon:L.icon({
+
+iconUrl:
+'https://cdn-icons-png.flaticon.com/512/1828/1828665.png',
+
+iconSize:[32,32]
+
+})
+
+})
+.bindPopup(`
+<b>Trip Ended</b>
+`)
+.addTo(map);
+
+/* =========================================
+   OVERSPEED
+========================================= */
+
+L.marker(route[4],{
+
+icon:L.icon({
+
+iconUrl:
+'https://cdn-icons-png.flaticon.com/512/565/565340.png',
+
+iconSize:[36,36]
+
+})
+
+})
+.bindPopup(`
+<b>Overspeeding</b><br>
+85 KM/H
+`)
+.addTo(map);
+
+/* =========================================
+   HARSH BRAKE
+========================================= */
+
+L.marker(route[5],{
+
+icon:L.icon({
+
+iconUrl:
+'https://cdn-icons-png.flaticon.com/512/3524/3524659.png',
+
+iconSize:[36,36]
+
+})
+
+})
+.bindPopup(`
+<b>Harsh Braking</b>
+`)
+.addTo(map);
+
+/* =========================================
+   VEHICLE HALT
+========================================= */
+
+L.marker(route[6],{
+
+icon:L.icon({
+
+iconUrl:
+'https://cdn-icons-png.flaticon.com/512/1828/1828843.png',
+
+iconSize:[34,34]
+
+})
+
+})
+.bindPopup(`
+<b>Vehicle Halted</b><br>
+15 Minutes
+`)
+.addTo(map);
 
 /* ICON */
 
