@@ -1,35 +1,17 @@
-#map{
-height:calc(100vh - 80px);
-width:100%;
-}
-
-
-
-.controls select,
-.controls input{
-background:#10233b;
-color:white;
-border:1px solid rgba(255,255,255,0.08);
-min-width:120px;
-}
-
-.controls input::-webkit-calendar-picker-indicator{
-filter:invert(1);
-}
-
-#vehicleSelect{
-font-weight:bold;
-}
-html,
-body{
+*{
 margin:0;
 padding:0;
-height:100%;
+box-sizing:border-box;
+}
+
+html,
+body{
 width:100%;
+height:100%;
+overflow:hidden;
 font-family:Arial,sans-serif;
 background:#08111f;
 color:white;
-overflow:hidden;
 }
 
 /* =========================
@@ -38,25 +20,26 @@ overflow:hidden;
 
 .header{
 height:80px;
+width:100%;
 background:#0d1b2a;
 display:flex;
 align-items:center;
 justify-content:space-between;
 padding:0 20px;
 border-bottom:1px solid #1f3552;
-backdrop-filter:blur(12px);
-box-shadow:0 0 20px rgba(0,0,0,0.4);
-z-index:9999;
-position:relative;
+position:fixed;
+top:0;
+left:0;
+z-index:10000;
 }
 
 .leftHeader h1{
-font-size:24px;
-margin:0;
+font-size:30px;
+font-weight:bold;
 }
 
 /* =========================
-   TOP CONTROLS
+   CONTROLS
 ========================= */
 
 .controls{
@@ -65,38 +48,23 @@ gap:10px;
 align-items:center;
 flex-wrap:wrap;
 }
-button{
-display:flex;
-align-items:center;
-justify-content:center;
-min-width:55px;
-}
 
-.playbackControls{
-z-index:99999;
-position:relative;
-}
-button,
-select,
-input{
-padding:12px;
+.controls button,
+.controls select,
+.controls input{
+height:42px;
+padding:0 14px;
 border:none;
 border-radius:10px;
+background:#10233b;
+color:white;
 font-size:14px;
-outline:none;
 }
 
-button{
+.controls button{
 background:#00c853;
-color:white;
 font-weight:bold;
 cursor:pointer;
-transition:0.3s;
-}
-
-button:hover{
-transform:scale(1.05);
-box-shadow:0 0 15px rgba(0,200,83,0.5);
 }
 
 /* =========================
@@ -104,8 +72,13 @@ box-shadow:0 0 15px rgba(0,200,83,0.5);
 ========================= */
 
 .mainContainer{
-display:flex;
+position:absolute;
+top:80px;
+left:0;
+width:100%;
 height:calc(100vh - 80px);
+display:flex;
+overflow:hidden;
 }
 
 /* =========================
@@ -113,12 +86,35 @@ height:calc(100vh - 80px);
 ========================= */
 
 .sidebar{
-width:340px;
+width:320px;
+height:100%;
 background:#0b1727;
 padding:15px;
-overflow:auto;
+overflow-y:auto;
 border-right:1px solid rgba(255,255,255,0.08);
-backdrop-filter:blur(10px);
+flex-shrink:0;
+}
+
+/* =========================
+   MAP AREA
+========================= */
+
+.mapContainer{
+flex:1;
+height:100%;
+position:relative;
+overflow:hidden;
+}
+
+/* =========================
+   MAP
+========================= */
+
+#map{
+width:100%;
+height:100%;
+background:#111;
+z-index:1;
 }
 
 /* =========================
@@ -131,11 +127,9 @@ padding:18px;
 border-radius:18px;
 margin-bottom:15px;
 box-shadow:0 0 20px rgba(0,0,0,0.3);
-border:1px solid rgba(255,255,255,0.05);
 }
 
 .card h2{
-margin-top:0;
 margin-bottom:15px;
 font-size:20px;
 }
@@ -149,7 +143,6 @@ display:flex;
 justify-content:space-between;
 padding:12px 0;
 border-bottom:1px solid rgba(255,255,255,0.08);
-font-size:15px;
 }
 
 /* =========================
@@ -161,8 +154,6 @@ padding:12px;
 border-radius:10px;
 margin-top:10px;
 font-weight:bold;
-font-size:14px;
-box-shadow:0 0 15px rgba(0,0,0,0.3);
 }
 
 .red{
@@ -171,10 +162,6 @@ background:#ff1744;
 
 .orange{
 background:#ff9100;
-}
-
-.purple{
-background:#aa00ff;
 }
 
 .cyan{
@@ -197,31 +184,10 @@ background:#00c853;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:40px;
+font-size:42px;
 font-weight:bold;
 margin:auto;
 margin-top:20px;
-box-shadow:0 0 30px rgba(0,200,83,0.4);
-}
-
-/* =========================
-   MAP AREA
-========================= */
-
-.mapContainer{
-flex:1;
-position:relative;
-}
-
-/* =========================
-   MAP
-========================= */
-
-#map{
-height:100%;
-width:100%;
-background:black;
-filter:contrast(1.05) brightness(0.95);
 }
 
 /* =========================
@@ -230,25 +196,24 @@ filter:contrast(1.05) brightness(0.95);
 
 .speedometer{
 position:absolute;
-right:20px;
-bottom:170px;
-height:100px;
-width:100px;
+right:25px;
+bottom:180px;
+width:110px;
+height:110px;
 border-radius:50%;
-background:rgba(9,17,30,0.92);
+background:rgba(10,20,35,0.95);
 display:flex;
 align-items:center;
 justify-content:center;
 flex-direction:column;
-font-weight:bold;
 z-index:9999;
-backdrop-filter:blur(15px);
-border:2px solid rgba(0,255,100,0.2);
+border:2px solid rgba(0,255,100,0.3);
 box-shadow:0 0 25px rgba(0,255,100,0.15);
 }
 
 .speedometer span:first-child{
-font-size:30px;
+font-size:36px;
+font-weight:bold;
 }
 
 /* =========================
@@ -257,21 +222,15 @@ font-size:30px;
 
 .playbackPanel{
 position:absolute;
-bottom:20px;
 left:50%;
+bottom:20px;
 transform:translateX(-50%);
-width:65%;
-min-height:120px;
-background:rgba(13,27,42,0.95);
+width:75%;
+background:rgba(10,20,35,0.96);
 padding:20px;
-border-radius:20px;
-backdrop-filter:blur(10px);
-box-shadow:0 0 30px rgba(0,0,0,0.5);
+border-radius:22px;
 z-index:9999;
-display:flex;
-flex-direction:column;
-gap:12px;
-border:1px solid rgba(255,255,255,0.08);
+box-shadow:0 0 35px rgba(0,0,0,0.45);
 }
 
 /* =========================
@@ -280,64 +239,8 @@ border:1px solid rgba(255,255,255,0.08);
 
 #timelineSlider{
 width:100%;
-cursor:pointer;
+margin-top:12px;
 accent-color:#00ff88;
-}
-
-/* =========================
-   EVENT GRAPH
-========================= */
-
-#eventGraph{
-position:relative;
-width:100%;
-height:45px;
-margin-top:10px;
-margin-bottom:10px;
-}
-
-.graphLine{
-position:absolute;
-top:22px;
-left:0;
-width:100%;
-height:3px;
-background:#4b5563;
-border-radius:20px;
-}
-
-.eventSpike{
-position:absolute;
-bottom:20px;
-width:8px;
-border-radius:20px;
-animation:pulseSpike 1.5s infinite;
-}
-
-.eventSpike.red{
-height:35px;
-background:red;
-}
-
-.eventSpike.orange{
-height:28px;
-background:orange;
-}
-
-.eventSpike.yellow{
-height:22px;
-background:yellow;
-}
-
-#playhead{
-position:absolute;
-top:5px;
-left:0%;
-width:3px;
-height:38px;
-background:#00ff88;
-box-shadow:0 0 10px #00ff88;
-transition:0.1s linear;
 }
 
 /* =========================
@@ -349,26 +252,60 @@ display:flex;
 justify-content:space-between;
 margin-top:10px;
 font-size:14px;
-opacity:0.8;
+opacity:0.85;
 }
 
 /* =========================
-   POPUP
+   GRAPH
 ========================= */
 
-.premiumPopup .leaflet-popup-content-wrapper{
-background:white;
-border-radius:18px;
-padding:10px;
+#eventGraph{
+position:relative;
+width:100%;
+height:40px;
+margin-top:12px;
 }
 
-.premiumPopup .leaflet-popup-tip{
-background:white;
+.graphLine{
+position:absolute;
+top:18px;
+left:0;
+width:100%;
+height:3px;
+background:#555;
+border-radius:20px;
 }
 
-.premiumPopup .leaflet-popup-content{
-margin:10px;
-color:black;
+.eventSpike{
+position:absolute;
+bottom:18px;
+width:8px;
+border-radius:20px;
+}
+
+.eventSpike.red{
+height:30px;
+background:red;
+}
+
+.eventSpike.orange{
+height:25px;
+background:orange;
+}
+
+.eventSpike.yellow{
+height:20px;
+background:yellow;
+}
+
+#playhead{
+position:absolute;
+top:0;
+left:0;
+width:3px;
+height:40px;
+background:#00ff88;
+box-shadow:0 0 10px #00ff88;
 }
 
 /* =========================
@@ -380,68 +317,17 @@ top:100px;
 right:20px;
 }
 
-.leaflet-control-layers{
-border-radius:16px !important;
-overflow:hidden;
-box-shadow:0 0 20px rgba(0,0,0,0.4);
+/* =========================
+   POPUP
+========================= */
+
+.premiumPopup .leaflet-popup-content-wrapper{
+border-radius:16px;
 }
 
 /* =========================
-   MARKER GLOW
+   MOBILE
 ========================= */
-
-.leaflet-marker-icon{
-filter:drop-shadow(0 0 12px #00ff88);
-}
-
-/* =========================
-   SCROLLBAR
-========================= */
-
-::-webkit-scrollbar{
-width:8px;
-}
-
-::-webkit-scrollbar-thumb{
-background:#1f3552;
-border-radius:10px;
-}
-
-/* =========================
-   ANIMATION
-========================= */
-
-@keyframes pulseSpike{
-
-0%{
-opacity:0.5;
-}
-
-50%{
-opacity:1;
-}
-
-100%{
-opacity:0.5;
-}
-
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media(max-width:1200px){
-
-.sidebar{
-width:280px;
-}
-
-.playbackPanel{
-width:75%;
-}
-
-}
 
 @media(max-width:900px){
 
@@ -451,18 +337,10 @@ display:none;
 
 .playbackPanel{
 width:92%;
-left:50%;
-}
-
-.header{
-flex-direction:column;
-height:auto;
-padding:15px;
-gap:10px;
 }
 
 .speedometer{
-right:20px;
+right:15px;
 bottom:160px;
 }
 
