@@ -22,4 +22,78 @@ document.getElementById("loginForm").addEventListener("submit", async (event) =>
   } catch (error) {
     showMessage("loginMessage", error.message, "error");
   }
+  const changePasswordBtn =
+document.getElementById("changePasswordBtn");
+
+const passwordModal =
+document.getElementById("passwordModal");
+
+const closePasswordBtn =
+document.getElementById("closePasswordBtn");
+
+const savePasswordBtn =
+document.getElementById("savePasswordBtn");
+
+/* OPEN */
+
+if(changePasswordBtn){
+
+changePasswordBtn.onclick = function(){
+
+passwordModal.style.display = "flex";
+
+};
+
+}
+
+/* CLOSE */
+
+if(closePasswordBtn){
+
+closePasswordBtn.onclick = function(){
+
+passwordModal.style.display = "none";
+
+};
+
+}
+
+/* SAVE */
+
+if(savePasswordBtn){
+
+savePasswordBtn.onclick = function(){
+
+const oldPass =
+document.getElementById("oldPassword").value;
+
+const newPass =
+document.getElementById("newPassword").value;
+
+const confirmPass =
+document.getElementById("confirmPassword").value;
+
+if(!oldPass || !newPass || !confirmPass){
+
+alert("Fill all fields");
+
+return;
+
+}
+
+if(newPass !== confirmPass){
+
+alert("Password not matched");
+
+return;
+
+}
+
+alert("Password changed successfully");
+
+passwordModal.style.display = "none";
+
+};
+
+}
 });
