@@ -1,46 +1,94 @@
-if (getCurrentUser()) {
-  window.location.href = getFirstAllowedPage(getCurrentUser());
+/* =========================================
+   LOGIN FORM
+========================================= */
+
+const loginForm =
+document.getElementById("loginForm");
+
+if(loginForm){
+
+loginForm.addEventListener(
+"submit",
+function(e){
+
+e.preventDefault();
+
+const username =
+document.getElementById("username").value;
+
+const password =
+document.getElementById("password").value;
+
+const loginMessage =
+document.getElementById("loginMessage");
+
+if(
+username === "admin" &&
+password === "admin123"
+){
+
+loginMessage.innerHTML =
+"Login Successful";
+
+loginMessage.style.color =
+"#00ff88";
+
+setTimeout(()=>{
+
+window.location.href =
+"/track-history.html";
+
+},1000);
+
+}
+else{
+
+loginMessage.innerHTML =
+"Invalid Username or Password";
+
+loginMessage.style.color =
+"#ff1744";
+
 }
 
-document.getElementById("loginForm").addEventListener("submit", async (event) => {
-  event.preventDefault();
-  showMessage("loginMessage", "Signing in...", "");
+}
+);
 
-  try {
-    const data = await fetchJson("/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        username: document.getElementById("username").value,
-        password: document.getElementById("password").value,
-      }),
-    });
+}
 
-    setCurrentUser(data.user);
-    showMessage("loginMessage", "Login successful. Redirecting...", "success");
-    window.location.href = getFirstAllowedPage(data.user);
-  } catch (error) {
-    showMessage("loginMessage", error.message, "error");
-  }
-  const changePasswordBtn =
-document.getElementById("changePasswordBtn");
+/* =========================================
+   CHANGE PASSWORD MODAL
+========================================= */
+
+const changePasswordBtn =
+document.getElementById(
+"changePasswordBtn"
+);
 
 const passwordModal =
-document.getElementById("passwordModal");
+document.getElementById(
+"passwordModal"
+);
 
 const closePasswordBtn =
-document.getElementById("closePasswordBtn");
+document.getElementById(
+"closePasswordBtn"
+);
 
 const savePasswordBtn =
-document.getElementById("savePasswordBtn");
+document.getElementById(
+"savePasswordBtn"
+);
 
 /* OPEN */
 
 if(changePasswordBtn){
 
-changePasswordBtn.onclick = function(){
+changePasswordBtn.onclick =
+function(){
 
-passwordModal.style.display = "flex";
+passwordModal.style.display =
+"flex";
 
 };
 
@@ -50,9 +98,11 @@ passwordModal.style.display = "flex";
 
 if(closePasswordBtn){
 
-closePasswordBtn.onclick = function(){
+closePasswordBtn.onclick =
+function(){
 
-passwordModal.style.display = "none";
+passwordModal.style.display =
+"none";
 
 };
 
@@ -62,18 +112,31 @@ passwordModal.style.display = "none";
 
 if(savePasswordBtn){
 
-savePasswordBtn.onclick = function(){
+savePasswordBtn.onclick =
+function(){
 
 const oldPass =
-document.getElementById("oldPassword").value;
+document.getElementById(
+"oldPassword"
+).value;
 
 const newPass =
-document.getElementById("newPassword").value;
+document.getElementById(
+"newPassword"
+).value;
 
 const confirmPass =
-document.getElementById("confirmPassword").value;
+document.getElementById(
+"confirmPassword"
+).value;
 
-if(!oldPass || !newPass || !confirmPass){
+/* VALIDATION */
+
+if(
+!oldPass ||
+!newPass ||
+!confirmPass
+){
 
 alert("Fill all fields");
 
@@ -89,11 +152,29 @@ return;
 
 }
 
-alert("Password changed successfully");
+/* SUCCESS */
 
-passwordModal.style.display = "none";
+alert(
+"Password changed successfully"
+);
+
+passwordModal.style.display =
+"none";
+
+/* CLEAR */
+
+document.getElementById(
+"oldPassword"
+).value = "";
+
+document.getElementById(
+"newPassword"
+).value = "";
+
+document.getElementById(
+"confirmPassword"
+).value = "";
 
 };
 
 }
-});
