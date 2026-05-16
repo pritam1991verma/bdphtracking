@@ -50,7 +50,7 @@ BDPH Track Playback
 
 <div class="controls">
 
-<!-- VEHICLE SELECT -->
+<!-- VEHICLE -->
 
 <select id="vehicleSelect">
 
@@ -68,16 +68,61 @@ JH05EF9012
 
 </select>
 
-<!-- DATE -->
+<!-- START DATE -->
 
-<input type="date">
+<input type="date" id="startDate">
 
-<input type="time">
+<input type="time" id="startTime">
 
-<input type="date">
+<!-- END DATE -->
 
-<input type="time">
+<input type="date" id="endDate">
 
+<input type="time" id="endTime">
+
+<!-- LOAD BUTTON -->
+
+<button id="loadTripBtn">
+LOAD
+</button>
+
+<!-- PLAYBACK -->
+
+<button id="rewindBtn">
+⏮
+</button>
+
+<button id="playBtn">
+▶
+</button>
+
+<button id="pauseBtn">
+⏸
+</button>
+
+<!-- SPEED -->
+
+<select id="speedSelect">
+
+<option value="1">
+1X
+</option>
+
+<option value="2">
+2X
+</option>
+
+<option value="5">
+5X
+</option>
+
+<option value="10">
+10X
+</option>
+
+</select>
+
+</div>
 <!-- CONTROLS -->
 
 <button id="rewindBtn">
@@ -166,19 +211,35 @@ Trip Summary
 <div class="card">
 
 <h2>
-Playback Events
+Incident Summary
 </h2>
 
-<div class="alertItem red">
-Overspeed Detected
+<div class="statRow">
+<span>Overspeeding</span>
+<b id="overspeedCount">
+3
+</b>
 </div>
 
-<div class="alertItem orange">
-Harsh Braking
+<div class="statRow">
+<span>Harsh Braking</span>
+<b id="harshCount">
+2
+</b>
 </div>
 
-<div class="alertItem cyan">
-Vehicle Halt
+<div class="statRow">
+<span>Vehicle Halt</span>
+<b id="haltCount">
+4
+</b>
+</div>
+
+<div class="statRow">
+<span>Trip Distance</span>
+<b>
+377 KM
+</b>
 </div>
 
 </div>
