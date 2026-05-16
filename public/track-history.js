@@ -1,4 +1,11 @@
-javascript
+/* =========================================
+   SAFE ELEMENT GETTER
+========================================= */
+
+function getEl(id){
+return document.getElementById(id);
+}
+
 /* =========================================
    MAP INITIALIZATION
 ========================================= */
@@ -11,16 +18,12 @@ zoomControl:false
    MAP MODES
 ========================================= */
 
-/* NORMAL */
-
 const normal = L.tileLayer(
 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 {
 attribution:'© OpenStreetMap'
 }
 ).addTo(map);
-
-/* TERRAIN */
 
 const terrain = L.tileLayer(
 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
@@ -29,8 +32,6 @@ attribution:'© OpenTopoMap'
 }
 );
 
-/* SATELLITE */
-
 const satellite = L.tileLayer(
 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
 {
@@ -38,16 +39,12 @@ attribution:'© Esri'
 }
 );
 
-/* DARK */
-
 const dark = L.tileLayer(
-'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{y}{x}{r}.png',
 {
 attribution:'© CARTO'
 }
 );
-
-/* LAYER CONTROL */
 
 L.control.layers({
 "Normal":normal,
@@ -57,7 +54,7 @@ L.control.layers({
 }).addTo(map);
 
 /* =========================================
-   GPS DUMMY DATA
+   GPS DATA
 ========================================= */
 
 const gpsData = [
@@ -74,7 +71,7 @@ const gpsData = [
 ];
 
 /* =========================================
-   ROUTE COLOR LOGIC
+   ROUTE COLOR
 ========================================= */
 
 function getRouteColor(speed){
@@ -103,13 +100,12 @@ opacity:0.15
 ).addTo(map);
 
 /* =========================================
-   ROUTE DRAWING
+   MAIN ROUTE
 ========================================= */
 
 for(let i=0;i<gpsData.length-1;i++){
 
 const current = gpsData[i];
-
 const next = gpsData[i+1];
 
 L.polyline([
@@ -132,35 +128,7 @@ iconUrl:
 "https://cdn-icons-png.flaticon.com/512/744/744465.png",
 
 iconSize:[50,50],
-
 iconAnchor:[25,25]
-
-});
-
-const stopIcon = L.icon({
-
-iconUrl:
-"https://cdn-icons-png.flaticon.com/512/1828/1828843.png",
-
-iconSize:[30,30]
-
-});
-
-const overspeedIcon = L.icon({
-
-iconUrl:
-"https://cdn-icons-png.flaticon.com/512/565/565340.png",
-
-iconSize:[30,30]
-
-});
-
-const harshIcon = L.icon({
-
-iconUrl:
-"https://cdn-icons-png.flaticon.com/512/3524/3524659.png",
-
-iconSize:[30,30]
 
 });
 
@@ -190,94 +158,19 @@ gpsData[0].lat,
 gpsData[0].lng
 ])
 .setContent(`
-<div style="
-min-width:180px;
-font-family:Arial;
-">
-
-<h3 style="margin:0">
-JH05AB1234
-</h3>
-
-<p style="
-color:green;
-font-weight:bold;
-margin:8px 0;
-">
-● Moving
-</p>
-
-<p id="popupSpeed">
-20 km/h
-</p>
-
-<p>
+<b>JH05AB1234</b><br>
+Speed : 20 km/h<br>
 Fuel : 72%
-</p>
-
-<p>
-Driver : Ramesh
-</p>
-
-</div>
 `)
 .openOn(map);
-
-/* =========================================
-   EVENT MARKERS
-========================================= */
-
-/* OVERSPEED */
-
-L.marker([
-gpsData[4].lat,
-gpsData[4].lng
-],{
-icon:overspeedIcon
-})
-.addTo(map)
-.bindPopup(`
-<b>Overspeed Detected</b><br>
-Speed : 85 km/h
-`);
-
-/* STOP */
-
-L.marker([
-gpsData[5].lat,
-gpsData[5].lng
-],{
-icon:stopIcon
-})
-.addTo(map)
-.bindPopup(`
-<b>Vehicle Halted</b><br>
-Duration : 15 Minutes
-`);
-
-/* HARSH BRAKING */
-
-L.marker([
-gpsData[6].lat,
-gpsData[6].lng
-],{
-icon:harshIcon
-})
-.addTo(map)
-.bindPopup(`
-<b>Harsh Braking Event</b>
-`);
 
 /* =========================================
    PLAYBACK VARIABLES
 ========================================= */
 
 let currentIndex = 0;
-
 let playbackInterval;
-
 let playbackRunning = false;
-
 let playbackSpeed = 1000;
 
 /* =========================================
@@ -298,60 +191,28 @@ return;
 
 const point = gpsData[currentIndex];
 
-/* MOVE MARKER */
+/* MOVE */
 
 marker.setLatLng([
 point.lat,
 point.lng
 ]);
 
-/* MOVE POPUP */
-
 vehiclePopup.setLatLng([
 point.lat,
 point.lng
 ]);
 
-/* UPDATE POPUP */
+/* POPUP */
 
 vehiclePopup.setContent(`
-<div style="
-min-width:180px;
-font-family:Arial;
-">
-
-<h3 style="margin:0">
-JH05AB1234
-</h3>
-
-<p style="
-color:green;
-font-weight:bold;
-margin:8px 0;
-">
-● Moving
-</p>
-
-<p id="popupSpeed">
-${point.speed} km/h
-</p>
-
-<p>
-Time : ${point.time}
-</p>
-
-<p>
+<b>JH05AB1234</b><br>
+Speed : ${point.speed} km/h<br>
+Time : ${point.time}<br>
 Fuel : 72%
-</p>
-
-<p>
-Ignition : ON
-</p>
-
-</div>
 `);
 
-/* MAP FOLLOW */
+/* FOLLOW */
 
 map.panTo([
 point.lat,
@@ -361,15 +222,14 @@ animate:true,
 duration:0.4
 });
 
-/* ROTATION FIX */
+/* ROTATION */
 
 const nextPoint =
 gpsData[currentIndex + 1];
 
 if(nextPoint){
 
-const icon =
-marker.getElement();
+const icon = marker.getElement();
 
 if(icon){
 
@@ -381,45 +241,61 @@ nextPoint.lat - point.lat
 icon.style.transformOrigin =
 "center center";
 
-icon.style.transition =
-"transform 0.2s linear";
-
 const existingTransform =
 icon.style.transform.replace(
-/rotate\\([^)]*\\)/g,
+/rotate\([^)]*\)/g,
 ''
 );
 
 icon.style.transform =
-`${existingTransform}
-rotate(${angle}deg)`;
+`${existingTransform} rotate(${angle}deg)`;
 
 }
 
 }
 
-/* UPDATE TIMER */
+/* SPEED TEXT */
 
-document.getElementById("currentTime")
-.innerText =
+if(getEl("speedText")){
+
+getEl("speedText").innerHTML =
+point.speed + ' KM/H';
+
+}
+
+if(getEl("speedMeter")){
+
+getEl("speedMeter").innerHTML =
+point.speed;
+
+}
+
+/* TIMER */
+
+if(getEl("currentTime")){
+
+getEl("currentTime").innerText =
 point.time;
 
-/* UPDATE SLIDER */
+}
+
+/* SLIDER */
 
 const progress =
 (currentIndex / (gpsData.length - 1)) * 100;
 
-document.getElementById("timelineSlider")
-.value = progress;
+if(getEl("timelineSlider")){
 
-/* GRAPH PLAYHEAD */
+getEl("timelineSlider").value =
+progress;
 
-const playhead =
-document.getElementById("playhead");
+}
 
-if(playhead){
+/* PLAYHEAD */
 
-playhead.style.left =
+if(getEl("playhead")){
+
+getEl("playhead").style.left =
 progress + "%";
 
 }
@@ -429,10 +305,12 @@ currentIndex++;
 }
 
 /* =========================================
-   PLAY BUTTON
+   PLAY
 ========================================= */
 
-document.getElementById("playBtn")
+if(getEl("playBtn")){
+
+getEl("playBtn")
 .addEventListener("click",()=>{
 
 if(playbackRunning) return;
@@ -446,11 +324,15 @@ playbackSpeed
 
 });
 
+}
+
 /* =========================================
-   PAUSE BUTTON
+   PAUSE
 ========================================= */
 
-document.getElementById("pauseBtn")
+if(getEl("pauseBtn")){
+
+getEl("pauseBtn")
 .addEventListener("click",()=>{
 
 clearInterval(playbackInterval);
@@ -459,11 +341,15 @@ playbackRunning = false;
 
 });
 
+}
+
 /* =========================================
-   REWIND BUTTON
+   REWIND
 ========================================= */
 
-document.getElementById("rewindBtn")
+if(getEl("rewindBtn")){
+
+getEl("rewindBtn")
 .addEventListener("click",()=>{
 
 currentIndex = 0;
@@ -485,11 +371,15 @@ gpsData[0].lng
 
 });
 
+}
+
 /* =========================================
    SPEED CONTROL
 ========================================= */
 
-document.getElementById("speedSelect")
+if(getEl("speedSelect")){
+
+getEl("speedSelect")
 .addEventListener("change",(e)=>{
 
 const speed =
@@ -510,11 +400,15 @@ playbackSpeed
 
 });
 
+}
+
 /* =========================================
-   TIMELINE SLIDER
+   TIMELINE
 ========================================= */
 
-document.getElementById("timelineSlider")
+if(getEl("timelineSlider")){
+
+getEl("timelineSlider")
 .addEventListener("input",(e)=>{
 
 const index = Math.floor(
@@ -541,14 +435,12 @@ point.lat,
 point.lng
 ]);
 
-document.getElementById("currentTime")
-.innerText =
-point.time;
-
 });
 
+}
+
 /* =========================================
-   AUTO FIT BOUNDS
+   FIT BOUNDS
 ========================================= */
 
 const bounds = L.latLngBounds(
@@ -558,4 +450,3 @@ gpsData.map(p=>[p.lat,p.lng])
 map.fitBounds(bounds,{
 padding:[50,50]
 });
-
