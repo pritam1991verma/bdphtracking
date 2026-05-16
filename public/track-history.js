@@ -1,452 +1,347 @@
-/* =========================================
-   SAFE ELEMENT GETTER
-========================================= */
-
-function getEl(id){
-return document.getElementById('timelineSlider');
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-/* =========================================
-   MAP INITIALIZATION
-========================================= */
-
-const map = L.map('map',{
-zoomControl:false
-}).setView([22.8046, 86.2029], 12);
-
-/* =========================================
-   MAP MODES
-========================================= */
-
-const normal = L.tileLayer(
-'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-{
-attribution:'© OpenStreetMap'
-}
-).addTo(map);
-
-const terrain = L.tileLayer(
-'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
-{
-attribution:'© OpenTopoMap'
-}
-);
-
-const satellite = L.tileLayer(
-'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-{
-attribution:'© Esri'
-}
-);
-
-const dark = L.tileLayer(
-'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{y}{x}{r}.png',
-{
-attribution:'© CARTO'
-}
-);
-
-L.control.layers({
-"Normal":normal,
-"Terrain":terrain,
-"Satellite":satellite,
-"Dark":dark
-}).addTo(map);
-
-/* =========================================
-   GPS DATA
-========================================= */
-
-const gpsData = [
-
-{lat:22.8046,lng:86.2029,speed:20,time:"08:00:00"},
-{lat:22.8060,lng:86.2040,speed:35,time:"08:05:00"},
-{lat:22.8080,lng:86.2060,speed:48,time:"08:10:00"},
-{lat:22.8100,lng:86.2080,speed:62,time:"08:15:00"},
-{lat:22.8120,lng:86.2100,speed:85,time:"08:20:00"},
-{lat:22.8140,lng:86.2130,speed:0,time:"08:30:00"},
-{lat:22.8140,lng:86.2130,speed:0,time:"08:45:00"},
-{lat:22.8170,lng:86.2200,speed:38,time:"08:50:00"}
-
-];
-
-/* =========================================
-   ROUTE COLOR
-========================================= */
-
-function getRouteColor(speed){
-
-if(speed <= 40) return "lime";
-
-if(speed <= 60) return "yellow";
-
-if(speed <= 80) return "orange";
-
-return "red";
-
+html,
+body{
+width:100%;
+height:100%;
+overflow:hidden;
+font-family:Arial,sans-serif;
+background:#08111f;
+color:white;
 }
 
-/* =========================================
-   GLOW ROUTE
-========================================= */
+/* =========================
+   HEADER
+========================= */
 
-L.polyline(
-gpsData.map(p=>[p.lat,p.lng]),
-{
-color:'#00ff88',
-weight:16,
-opacity:0.15
-}
-).addTo(map);
-
-/* =========================================
-   MAIN ROUTE
-========================================= */
-
-for(let i=0;i<gpsData.length-1;i++){
-
-const current = gpsData[i];
-const next = gpsData[i+1];
-
-L.polyline([
-[current.lat,current.lng],
-[next.lat,next.lng]
-],{
-color:getRouteColor(current.speed),
-weight:6
-}).addTo(map);
-
+.header{
+height:80px;
+width:100%;
+background:#0d1b2a;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 20px;
+border-bottom:1px solid #1f3552;
+position:fixed;
+top:0;
+left:0;
+z-index:10000;
 }
 
-/* =========================================
-   ICONS
-========================================= */
-
-const truckIcon = L.icon({
-
-iconUrl:
-"https://cdn-icons-png.flaticon.com/512/744/744465.png",
-
-iconSize:[50,50],
-iconAnchor:[25,25]
-
-});
-
-/* =========================================
-   VEHICLE MARKER
-========================================= */
-
-const marker = L.marker([
-gpsData[0].lat,
-gpsData[0].lng
-],{
-icon:truckIcon
-}).addTo(map);
-
-/* =========================================
-   MOVING POPUP
-========================================= */
-
-const vehiclePopup = L.popup({
-closeButton:false,
-autoClose:false,
-closeOnClick:false,
-className:'premiumPopup'
-})
-.setLatLng([
-gpsData[0].lat,
-gpsData[0].lng
-])
-.setContent(`
-<b>JH05AB1234</b><br>
-Speed : 20 km/h<br>
-Fuel : 72%
-`)
-.openOn(map);
-
-/* =========================================
-   PLAYBACK VARIABLES
-========================================= */
-
-let currentIndex = 0;
-let playbackInterval;
-let playbackRunning = false;
-let playbackSpeed = 1000;
-
-/* =========================================
-   MOVE VEHICLE
-========================================= */
-
-function moveVehicle(){
-
-if(currentIndex >= gpsData.length){
-
-clearInterval(playbackInterval);
-
-playbackRunning = false;
-
-return;
-
+.leftHeader h1{
+font-size:30px;
+font-weight:bold;
 }
 
-const point = gpsData[currentIndex];
+/* =========================
+   CONTROLS
+========================= */
 
-/* MOVE */
-
-marker.setLatLng([
-point.lat,
-point.lng
-]);
-
-vehiclePopup.setLatLng([
-point.lat,
-point.lng
-]);
-
-/* POPUP */
-
-vehiclePopup.setContent(`
-<b>JH05AB1234</b><br>
-Speed : ${point.speed} km/h<br>
-Time : ${point.time}<br>
-Fuel : 72%
-`);
-
-/* FOLLOW */
-
-map.panTo([
-point.lat,
-point.lng
-],{
-animate:true,
-duration:0.4
-});
-
-/* ROTATION */
-
-const nextPoint =
-gpsData[currentIndex + 1];
-
-if(nextPoint){
-
-const icon = marker.getElement();
-
-if(icon){
-
-const angle = Math.atan2(
-nextPoint.lng - point.lng,
-nextPoint.lat - point.lat
-) * 180 / Math.PI;
-
-icon.style.transformOrigin =
-"center center";
-
-const existingTransform =
-icon.style.transform.replace(
-/rotate\([^)]*\)/g,
-''
-);
-
-icon.style.transform =
-`${existingTransform} rotate(${angle}deg)`;
-
+.controls{
+display:flex;
+gap:10px;
+align-items:center;
+flex-wrap:wrap;
 }
 
+.controls button,
+.controls select,
+.controls input{
+height:42px;
+padding:0 14px;
+border:none;
+border-radius:10px;
+background:#10233b;
+color:white;
+font-size:14px;
 }
 
-/* SPEED TEXT */
-
-if(getEl("speedText")){
-
-getEl("speedText").innerHTML =
-point.speed + ' KM/H';
-
+.controls button{
+background:#00c853;
+font-weight:bold;
+cursor:pointer;
 }
 
-if(getEl("speedMeter")){
+/* =========================
+   MAIN LAYOUT
+========================= */
 
-getEl("speedMeter").innerHTML =
-point.speed;
-
+.mainContainer{
+position:absolute;
+top:80px;
+left:0;
+width:100%;
+height:calc(100vh - 80px);
+display:flex;
+overflow:hidden;
 }
 
-/* TIMER */
+/* =========================
+   SIDEBAR
+========================= */
 
-if(getEl("currentTime")){
-
-getEl("currentTime").innerText =
-point.time;
-
+.sidebar{
+width:320px;
+height:100%;
+background:#0b1727;
+padding:15px;
+overflow-y:auto;
+border-right:1px solid rgba(255,255,255,0.08);
+flex-shrink:0;
 }
 
-/* SLIDER */
+/* =========================
+   MAP AREA
+========================= */
 
-const progress =
-(currentIndex / (gpsData.length - 1)) * 100;
-
-if(getEl("timelineSlider")){
-
-getEl("timelineSlider").value =
-progress;
-
+.mapContainer{
+flex:1;
+height:100%;
+position:relative;
+overflow:hidden;
 }
 
-/* PLAYHEAD */
+/* =========================
+   MAP
+========================= */
 
-if(getEl("playhead")){
-
-getEl("playhead").style.left =
-progress + "%";
-
+#map{
+width:100%;
+height:100%;
+background:#111;
+z-index:1;
 }
 
-currentIndex++;
+/* =========================
+   CARD
+========================= */
 
+.card{
+background:#10233b;
+padding:18px;
+border-radius:18px;
+margin-bottom:15px;
+box-shadow:0 0 20px rgba(0,0,0,0.3);
 }
 
-/* =========================================
-   PLAY
-========================================= */
-
-if(getEl("playBtn")){
-
-getEl("playBtn")
-.addEventListener("click",()=>{
-
-if(playbackRunning) return;
-
-playbackRunning = true;
-
-playbackInterval = setInterval(
-moveVehicle,
-playbackSpeed
-);
-
-});
-
+.card h2{
+margin-bottom:15px;
+font-size:20px;
 }
 
-/* =========================================
-   PAUSE
-========================================= */
+/* =========================
+   STATS
+========================= */
 
-if(getEl("pauseBtn")){
-
-getEl("pauseBtn")
-.addEventListener("click",()=>{
-
-clearInterval(playbackInterval);
-
-playbackRunning = false;
-
-});
-
+.statRow{
+display:flex;
+justify-content:space-between;
+padding:12px 0;
+border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
-/* =========================================
-   REWIND
-========================================= */
+/* =========================
+   ALERTS
+========================= */
 
-if(getEl("rewindBtn")){
-
-getEl("rewindBtn")
-.addEventListener("click",()=>{
-
-currentIndex = 0;
-
-marker.setLatLng([
-gpsData[0].lat,
-gpsData[0].lng
-]);
-
-vehiclePopup.setLatLng([
-gpsData[0].lat,
-gpsData[0].lng
-]);
-
-map.panTo([
-gpsData[0].lat,
-gpsData[0].lng
-]);
-
-});
-
+.alertItem{
+padding:12px;
+border-radius:10px;
+margin-top:10px;
+font-weight:bold;
 }
 
-/* =========================================
-   SPEED CONTROL
-========================================= */
-
-if(getEl("speedSelect")){
-
-getEl("speedSelect")
-.addEventListener("change",(e)=>{
-
-const speed =
-Number(e.target.value);
-
-playbackSpeed = 1000 / speed;
-
-if(playbackRunning){
-
-clearInterval(playbackInterval);
-
-playbackInterval = setInterval(
-moveVehicle,
-playbackSpeed
-);
-
+.red{
+background:#ff1744;
 }
 
-});
-
+.orange{
+background:#ff9100;
 }
 
-/* =========================================
+.cyan{
+background:#00bcd4;
+}
+
+/* =========================
+   DRIVER SCORE
+========================= */
+
+.scoreCard{
+text-align:center;
+}
+
+.scoreCircle{
+width:120px;
+height:120px;
+border-radius:50%;
+background:#00c853;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:42px;
+font-weight:bold;
+margin:auto;
+margin-top:20px;
+}
+
+/* =========================
+   SPEEDOMETER
+========================= */
+
+.speedometer{
+position:absolute;
+right:25px;
+bottom:180px;
+width:110px;
+height:110px;
+border-radius:50%;
+background:rgba(10,20,35,0.95);
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+z-index:9999;
+border:2px solid rgba(0,255,100,0.3);
+box-shadow:0 0 25px rgba(0,255,100,0.15);
+}
+
+.speedometer span:first-child{
+font-size:36px;
+font-weight:bold;
+}
+
+/* =========================
+   PLAYBACK PANEL
+========================= */
+
+.playbackPanel{
+position:absolute;
+left:50%;
+bottom:20px;
+transform:translateX(-50%);
+width:75%;
+background:rgba(10,20,35,0.96);
+padding:20px;
+border-radius:22px;
+z-index:9999;
+box-shadow:0 0 35px rgba(0,0,0,0.45);
+}
+
+/* =========================
    TIMELINE
-========================================= */
+========================= */
 
-if(getEl("timelineSlider")){
-
-getEl("timelineSlider")
-.addEventListener("input",(e)=>{
-
-const index = Math.floor(
-(e.target.value / 100) *
-(gpsData.length - 1)
-);
-
-currentIndex = index;
-
-const point = gpsData[index];
-
-marker.setLatLng([
-point.lat,
-point.lng
-]);
-
-vehiclePopup.setLatLng([
-point.lat,
-point.lng
-]);
-
-map.panTo([
-point.lat,
-point.lng
-]);
-
-});
-
+#timelineSlider{
+width:100%;
+margin-top:12px;
+accent-color:#00ff88;
 }
 
-/* =========================================
-   FIT BOUNDS
-========================================= */
+/* =========================
+   TIMELINE INFO
+========================= */
 
-const bounds = L.latLngBounds(
-gpsData.map(p=>[p.lat,p.lng])
-);
+.timelineInfo{
+display:flex;
+justify-content:space-between;
+margin-top:10px;
+font-size:14px;
+opacity:0.85;
+}
 
-map.fitBounds(bounds,{
-padding:[50,50]
-});
+/* =========================
+   GRAPH
+========================= */
+
+#eventGraph{
+position:relative;
+width:100%;
+height:40px;
+margin-top:12px;
+}
+
+.graphLine{
+position:absolute;
+top:18px;
+left:0;
+width:100%;
+height:3px;
+background:#555;
+border-radius:20px;
+}
+
+.eventSpike{
+position:absolute;
+bottom:18px;
+width:8px;
+border-radius:20px;
+}
+
+.eventSpike.red{
+height:30px;
+background:red;
+}
+
+.eventSpike.orange{
+height:25px;
+background:orange;
+}
+
+.eventSpike.yellow{
+height:20px;
+background:yellow;
+}
+
+#playhead{
+position:absolute;
+top:0;
+left:0;
+width:3px;
+height:40px;
+background:#00ff88;
+box-shadow:0 0 10px #00ff88;
+}
+
+/* =========================
+   MAP CONTROLS
+========================= */
+
+.leaflet-top.leaflet-right{
+top:100px;
+right:20px;
+}
+
+/* =========================
+   POPUP
+========================= */
+
+.premiumPopup .leaflet-popup-content-wrapper{
+border-radius:16px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+.sidebar{
+display:none;
+}
+
+.playbackPanel{
+width:92%;
+}
+
+.speedometer{
+right:15px;
+bottom:160px;
+}
+
+}
