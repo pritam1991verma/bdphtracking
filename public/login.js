@@ -57,11 +57,25 @@ username === savedUser &&
 password === savedPass
 ){
 
+localStorage.setItem(
+"isLoggedIn",
+"true"
+);
+
 loginMessage.innerHTML =
 "Login Successful";
 
 loginMessage.style.color =
 "#00ff88";
+
+setTimeout(()=>{
+
+window.location.href =
+"./dashboard.html";
+
+},1000);
+
+}
 
 /* REDIRECT */
 
