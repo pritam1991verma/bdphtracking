@@ -1,5 +1,27 @@
 /* =========================================
-   LOGIN FORM
+   DEFAULT LOGIN
+========================================= */
+
+if(!localStorage.getItem("bdphUser")){
+
+localStorage.setItem(
+"bdphUser",
+"admin"
+);
+
+}
+
+if(!localStorage.getItem("bdphPass")){
+
+localStorage.setItem(
+"bdphPass",
+"admin123"
+);
+
+}
+
+/* =========================================
+   LOGIN
 ========================================= */
 
 const loginForm =
@@ -22,9 +44,17 @@ document.getElementById("password").value;
 const loginMessage =
 document.getElementById("loginMessage");
 
+const savedUser =
+localStorage.getItem("bdphUser");
+
+const savedPass =
+localStorage.getItem("bdphPass");
+
+/* CHECK */
+
 if(
-username === "admin" &&
-password === "admin123"
+username === savedUser &&
+password === savedPass
 ){
 
 loginMessage.innerHTML =
@@ -32,6 +62,8 @@ loginMessage.innerHTML =
 
 loginMessage.style.color =
 "#00ff88";
+
+/* REDIRECT */
 
 setTimeout(()=>{
 
@@ -57,7 +89,7 @@ loginMessage.style.color =
 }
 
 /* =========================================
-   CHANGE PASSWORD MODAL
+   PASSWORD MODAL
 ========================================= */
 
 const changePasswordBtn =
@@ -108,7 +140,7 @@ passwordModal.style.display =
 
 }
 
-/* SAVE */
+/* SAVE PASSWORD */
 
 if(savePasswordBtn){
 
@@ -130,7 +162,12 @@ document.getElementById(
 "confirmPassword"
 ).value;
 
-/* VALIDATION */
+const currentPass =
+localStorage.getItem(
+"bdphPass"
+);
+
+/* EMPTY */
 
 if(
 !oldPass ||
@@ -144,18 +181,35 @@ return;
 
 }
 
-if(newPass !== confirmPass){
+/* OLD PASSWORD */
 
-alert("Password not matched");
+if(oldPass !== currentPass){
+
+alert("Current Password Wrong");
 
 return;
 
 }
 
-/* SUCCESS */
+/* MATCH */
+
+if(newPass !== confirmPass){
+
+alert("Password Not Matched");
+
+return;
+
+}
+
+/* SAVE */
+
+localStorage.setItem(
+"bdphPass",
+newPass
+);
 
 alert(
-"Password changed successfully"
+"Password Changed Successfully"
 );
 
 passwordModal.style.display =
@@ -174,6 +228,34 @@ document.getElementById(
 document.getElementById(
 "confirmPassword"
 ).value = "";
+
+};
+
+}
+
+/* =========================================
+   FORGOT PASSWORD
+========================================= */
+
+const forgotBtn =
+document.querySelector(
+".loginLinks a"
+);
+
+if(forgotBtn){
+
+forgotBtn.onclick =
+function(){
+
+const currentPass =
+localStorage.getItem(
+"bdphPass"
+);
+
+alert(
+"Current Password : " +
+currentPass
+);
 
 };
 
