@@ -2,13 +2,15 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AI Fuel Management</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Fuel Management</title>
 
   <link rel="stylesheet" href="fuel-management.css">
+
 </head>
 
 <body>
@@ -23,51 +25,54 @@
 
     <div class="menu">
 
-  <a
-    href="fuel-management.html"
-    class="menu-item active"
-  >
-    Dashboard
-  </a>
+      <a href="fuel-management.html" class="menu-item active">
+        Dashboard
+      </a>
 
-  <a
-    href="fuel-entry.html"
-    class="menu-item"
-  >
-    Fuel Entry
-  </a>
+      <a href="fuel-entry.html" class="menu-item">
+        Fuel Entry
+      </a>
 
-  <a href="#" class="menu-item">
-    Vehicles
-  </a>
+      <a href="#" class="menu-item">
+        Vehicles
+      </a>
 
-  <a href="#" class="menu-item">
-    Drivers
-  </a>
+      <a href="#" class="menu-item">
+        Drivers
+      </a>
 
-  <a href="#" class="menu-item">
-    AI Alerts
-  </a>
+      <a href="#" class="menu-item">
+        AI Alerts
+      </a>
 
-  <a href="#" class="menu-item">
-    Analytics
-  </a>
+      <a href="#" class="menu-item">
+        Analytics
+      </a>
 
-  <a href="#" class="menu-item">
-    Reports
-  </a>
+      <a href="#" class="menu-item">
+        Reports
+      </a>
 
-</div>
+    </div>
+
+  </div>
 
   <!-- CONTENT -->
 
   <div class="content">
 
+    <!-- TOPBAR -->
+
     <div class="topbar">
 
       <div>
+
         <h2>AI Fuel Command Center</h2>
-        <p>Smart Manual Fuel Intelligence Platform</p>
+
+        <p>
+          Smart Manual Fuel Intelligence Platform
+        </p>
+
       </div>
 
       <div class="health-box">
@@ -81,43 +86,61 @@
     <div class="cards">
 
       <div class="card">
+
         <h3>Fuel Issued Today</h3>
+
         <h1>12,580 L</h1>
+
       </div>
 
       <div class="card">
+
         <h3>Vehicles Active</h3>
+
         <h1>84</h1>
+
       </div>
 
       <div class="card">
+
         <h3>AI Risk Alerts</h3>
+
         <h1>07</h1>
+
       </div>
 
       <div class="card">
+
         <h3>Diesel Stock</h3>
+
         <h1>48,200 L</h1>
+
       </div>
 
     </div>
 
-    <!-- AI ALERTS -->
+    <!-- ALERTS -->
 
     <div class="alerts">
 
       <h2>AI Suspicious Fuel Activity</h2>
 
       <div class="alert red">
+
         Vehicle BR01AB1234 consumed 48% more fuel than expected.
+
       </div>
 
       <div class="alert yellow">
+
         Duplicate fuel pattern detected for Vehicle JH09XX9912.
+
       </div>
 
       <div class="alert blue">
+
         AI predicts diesel refill required within 2 days.
+
       </div>
 
     </div>
@@ -131,13 +154,17 @@
       <table>
 
         <thead>
+
           <tr>
+
             <th>Vehicle</th>
             <th>Driver</th>
             <th>Fuel</th>
             <th>Mileage</th>
             <th>Risk</th>
+
           </tr>
+
         </thead>
 
         <tbody id="vehicleTable">
@@ -155,4 +182,5 @@
 <script src="fuel-management.js"></script>
 
 </body>
+
 </html>
