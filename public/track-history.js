@@ -1,13 +1,17 @@
 window.onload = function(){
 
-/* MAP */
+/* =========================================
+   MAP
+========================================= */
 
 const map = L.map('map').setView(
 [22.8046,86.2029],
 13
 );
 
-/* NORMAL */
+/* =========================================
+   MAP MODES
+========================================= */
 
 const normal = L.tileLayer(
 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -16,25 +20,21 @@ attribution:'© OpenStreetMap'
 }
 ).addTo(map);
 
-/* TERRAIN */
-
 const terrain = L.tileLayer(
 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
 );
-
-/* SATELLITE */
 
 const satellite = L.tileLayer(
 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
 );
 
-/* DARK */
-
 const dark = L.tileLayer(
 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
 );
 
-/* LAYERS */
+/* =========================================
+   LAYERS
+========================================= */
 
 L.control.layers({
 "Normal":normal,
@@ -43,7 +43,9 @@ L.control.layers({
 "Dark":dark
 }).addTo(map);
 
-/* ROUTE */
+/* =========================================
+   ROUTE
+========================================= */
 
 const route = [
 
@@ -57,8 +59,6 @@ const route = [
 [22.8170,86.2200]
 
 ];
-
-/* ROUTE LINE */
 
 /* =========================================
    MAIN ROUTE
@@ -82,7 +82,8 @@ weight:16,
 opacity:0.15,
 smoothFactor:1.5
 }).addTo(map);
-  /* =========================================
+
+/* =========================================
    START ICON
 ========================================= */
 
@@ -189,7 +190,9 @@ iconSize:[34,34]
 `)
 .addTo(map);
 
-/* ICON */
+/* =========================================
+   VEHICLE ICON
+========================================= */
 
 const truckIcon = L.icon({
 
@@ -202,17 +205,25 @@ iconAnchor:[25,25]
 
 });
 
-/* MARKER */
+/* =========================================
+   VEHICLE MARKER
+========================================= */
 
 const truck = L.marker(route[0],{
 icon:truckIcon
 }).addTo(map);
 
-/* PLAYBACK */
+/* =========================================
+   PLAYBACK VARIABLES
+========================================= */
 
 let current = 0;
 
 let interval;
+
+/* =========================================
+   MOVE VEHICLE
+========================================= */
 
 function moveTruck(){
 
@@ -224,12 +235,53 @@ return;
 
 }
 
+/* MOVE */
+
 truck.setLatLng(route[current]);
+
+/* FOLLOW */
 
 map.panTo(route[current]);
 
+/* ROTATION */
+
+const icon =
+truck.getElement();
+
+if(icon && current < route.length-1){
+
+const start =
+route[current];
+
+const end =
+route[current+1];
+
+const angle = Math.atan2(
+end[1]-start[1],
+end[0]-start[0]
+) * 180 / Math.PI;
+
+icon.style.transformOrigin =
+"center center";
+
+const existingTransform =
+icon.style.transform.replace(
+/rotate\([^)]*\)/g,
+''
+);
+
+icon.style.transform =
+`${existingTransform}
+rotate(${angle}deg)`;
+
+}
+
+/* SPEED */
+
 const speed =
 Math.floor(35 + Math.random()*50);
+
+/* UPDATE SPEED TEXT */
 
 const speedText =
 document.getElementById('speedText');
@@ -241,6 +293,8 @@ speed + ' KM/H';
 
 }
 
+/* UPDATE SPEEDOMETER */
+
 const speedMeter =
 document.getElementById('speedMeter');
 
@@ -250,6 +304,8 @@ speedMeter.innerHTML =
 speed;
 
 }
+
+/* UPDATE TIMELINE */
 
 const timeline =
 document.getElementById('timelineSlider');
@@ -261,11 +317,45 @@ timeline.value =
 
 }
 
+/* PLAYHEAD */
+
+const playhead =
+document.getElementById("playhead");
+
+if(playhead){
+
+playhead.style.left =
+(current/(route.length-1))*100 + "%";
+
+}
+
+/* CURRENT TIME */
+
+const currentTime =
+document.getElementById("currentTime");
+
+if(currentTime){
+
+const hrs =
+8 + Math.floor(current / 2);
+
+const mins =
+(current % 2) * 30;
+
+currentTime.innerHTML =
+`${hrs}:${
+mins === 0 ? "00" : mins
+}:00`;
+
+}
+
 current++;
 
 }
 
-/* PLAY */
+/* =========================================
+   PLAY BUTTON
+========================================= */
 
 const playBtn =
 document.getElementById('playBtn');
@@ -283,7 +373,9 @@ setInterval(moveTruck,1000);
 
 }
 
-/* PAUSE */
+/* =========================================
+   PAUSE BUTTON
+========================================= */
 
 const pauseBtn =
 document.getElementById('pauseBtn');
@@ -298,7 +390,9 @@ clearInterval(interval);
 
 }
 
-/* REWIND */
+/* =========================================
+   REWIND BUTTON
+========================================= */
 
 const rewindBtn =
 document.getElementById('rewindBtn');
@@ -307,15 +401,149 @@ if(rewindBtn){
 
 rewindBtn.onclick = function(){
 
+clearInterval(interval);
+
 current = 0;
 
 truck.setLatLng(route[0]);
+
+map.panTo(route[0]);
+
+const timeline =
+document.getElementById('timelineSlider');
+
+if(timeline){
+
+timeline.value = 0;
+
+}
 
 };
 
 }
 
-/* FIT */
+/* =========================================
+   SPEED CONTROL
+========================================= */
+
+const speedSelect =
+document.getElementById("speedSelect");
+
+if(speedSelect){
+
+speedSelect.addEventListener(
+"change",
+function(e){
+
+const speed =
+Number(e.target.value);
+
+clearInterval(interval);
+
+interval =
+setInterval(
+moveTruck,
+1000 / speed
+);
+
+}
+);
+
+}
+
+/* =========================================
+   TIMELINE SLIDER
+========================================= */
+
+const timelineSlider =
+document.getElementById("timelineSlider");
+
+if(timelineSlider){
+
+timelineSlider.addEventListener(
+"input",
+function(e){
+
+clearInterval(interval);
+
+const index = Math.floor(
+(e.target.value / 100) *
+(route.length - 1)
+);
+
+current = index;
+
+/* MOVE */
+
+truck.setLatLng(route[index]);
+
+/* FOLLOW */
+
+map.panTo(route[index]);
+
+/* SPEED */
+
+const speed =
+Math.floor(35 + Math.random()*50);
+
+const speedText =
+document.getElementById("speedText");
+
+if(speedText){
+
+speedText.innerHTML =
+speed + " KM/H";
+
+}
+
+const speedMeter =
+document.getElementById("speedMeter");
+
+if(speedMeter){
+
+speedMeter.innerHTML =
+speed;
+
+}
+
+/* PLAYHEAD */
+
+const playhead =
+document.getElementById("playhead");
+
+if(playhead){
+
+playhead.style.left =
+e.target.value + "%";
+
+}
+
+/* TIME */
+
+const currentTime =
+document.getElementById("currentTime");
+
+if(currentTime){
+
+const hrs =
+8 + Math.floor(index / 2);
+
+const mins =
+(index % 2) * 30;
+
+currentTime.innerHTML =
+`${hrs}:${
+mins === 0 ? "00" : mins
+}:00`;
+
+}
+
+});
+}
+
+/* =========================================
+   FIT BOUNDS
+========================================= */
 
 map.fitBounds(route);
 
