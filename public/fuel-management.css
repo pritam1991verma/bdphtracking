@@ -1,4 +1,8 @@
-
+a{
+  text-decoration:none;
+  color:white;
+  display:block;
+}
 body{
   margin:0;
   font-family:Arial;
