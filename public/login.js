@@ -68,7 +68,7 @@ loginMessage.style.color =
 setTimeout(()=>{
 
 window.location.href =
-"/track-history.html";
+"./dashboard.html";
 
 },1000);
 
