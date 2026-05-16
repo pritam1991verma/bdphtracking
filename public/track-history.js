@@ -1,4 +1,4 @@
-```javascript
+javascript
 /* =========================================
    MAP INITIALIZATION
 ========================================= */
@@ -558,4 +558,4 @@ gpsData.map(p=>[p.lat,p.lng])
 map.fitBounds(bounds,{
 padding:[50,50]
 });
-```
+
