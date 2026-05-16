@@ -370,7 +370,16 @@ pointer-events:none;
 
 /* SHOW */
 
-#actionMessage.show{
-opacity:1;
-transform:translateY(0px);
+#actionMessage{
+position:absolute;
+top:95px;
+right:20px;
+background:#00c853;
+color:white;
+padding:12px 20px;
+border-radius:12px;
+font-weight:bold;
+z-index:99999;
+display:none;
+box-shadow:0 0 20px rgba(0,0,0,0.4);
 }
