@@ -1,3 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
 
-vehicle-master.js
-vehicle-master.css
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Vehicle Master</title>
+
+  <link rel="stylesheet"
+        href="vehicle-master.css">
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+  <!-- SIDEBAR -->
+
+  <div class="sidebar">
+
+    <h1 class="logo">FuelAI</h1>
+
+    <div class="menu">
+
+      <a href="fuel-management.html" class="menu-item">
+        Dashboard
+      </a>
+
+      <a href="fuel-entry.html" class="menu-item">
+        Fuel Entry
+      </a>
+
+      <a href="vehicle-master.html"
+         class="menu-item active">
+        Vehicles
+      </a>
+
+      <a href="#" class="menu-item">
+        Drivers
+      </a>
+
+      <a href="#" class="menu-item">
+        AI Alerts
+      </a>
+
+      <a href="#" class="menu-item">
+        Analytics
+      </a>
+
+      <a href="#" class="menu-item">
+        Reports
+      </a>
+
+    </div>
+
+  </div>
+
+  <!-- CONTENT -->
+
+  <div class="content">
+
+    <div class="topbar">
+
+      <div>
+
+        <h2>Vehicle Master</h2>
+
+        <p>
+          Fleet Vehicle Intelligence System
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- FORM -->
+
+    <div class="form-container">
+
+      <h3>Add Vehicle</h3>
+
+      <div class="form-grid">
+
+        <input id="vehicleNumber"
+               placeholder="Vehicle Number">
+
+        <input id="driverName"
+               placeholder="Driver Name">
+
+        <input id="capacity"
+               placeholder="Tank Capacity">
+
+        <input id="mileage"
+               placeholder="Expected Mileage">
+
+      </div>
+
+      <button onclick="saveVehicle()">
+        Save Vehicle
+      </button>
+
+    </div>
+
+    <!-- TABLE -->
+
+    <div class="table-container">
+
+      <h3>Registered Vehicles</h3>
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>Vehicle</th>
+            <th>Driver</th>
+            <th>Tank Capacity</th>
+            <th>Mileage</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody id="vehicleData">
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script src="vehicle-master.js"></script>
+
+</body>
+
+</html>
