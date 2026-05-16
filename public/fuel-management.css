@@ -12,7 +12,9 @@ body{
 
 .main-container{
   display:flex;
+  width:100%;
   min-height:100vh;
+
 }
 
 .sidebar{
@@ -52,7 +54,10 @@ body{
 
 .content{
   flex:1;
+  width:calc(100% - 260px);
   padding:30px;
+  overflow-x:hidden;
+
 }
 
 .topbar{
@@ -152,4 +157,19 @@ th,td{
 
 .risk-low{
   color:#00FF95;
+  table{
+  width:100%;
+}
+
+.cards{
+  width:100%;
+}
+
+.alerts{
+  width:100%;
+}
+
+.table-container{
+  width:100%;
+}
 }
