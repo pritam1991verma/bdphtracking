@@ -1,22 +1,13 @@
-/* =========================================
-   SAFE ELEMENT GETTER
-========================================= */
+window.onload = function(){
 
-function getEl(id){
-return document.getElementById('timelineSlider');
-}
+/* MAP */
 
-/* =========================================
-   MAP INITIALIZATION
-========================================= */
+const map = L.map('map').setView(
+[22.8046,86.2029],
+13
+);
 
-const map = L.map('map',{
-zoomControl:false
-}).setView([22.8046, 86.2029], 12);
-
-/* =========================================
-   MAP MODES
-========================================= */
+/* NORMAL */
 
 const normal = L.tileLayer(
 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -25,26 +16,25 @@ attribution:'© OpenStreetMap'
 }
 ).addTo(map);
 
+/* TERRAIN */
+
 const terrain = L.tileLayer(
-'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
-{
-attribution:'© OpenTopoMap'
-}
+'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'
 );
+
+/* SATELLITE */
 
 const satellite = L.tileLayer(
-'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-{
-attribution:'© Esri'
-}
+'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
 );
 
+/* DARK */
+
 const dark = L.tileLayer(
-'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{y}{x}{r}.png',
-{
-attribution:'© CARTO'
-}
+'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
 );
+
+/* LAYERS */
 
 L.control.layers({
 "Normal":normal,
@@ -53,400 +43,164 @@ L.control.layers({
 "Dark":dark
 }).addTo(map);
 
-/* =========================================
-   GPS DATA
-========================================= */
+/* ROUTE */
 
-const gpsData = [
+const route = [
 
-{lat:22.8046,lng:86.2029,speed:20,time:"08:00:00"},
-{lat:22.8060,lng:86.2040,speed:35,time:"08:05:00"},
-{lat:22.8080,lng:86.2060,speed:48,time:"08:10:00"},
-{lat:22.8100,lng:86.2080,speed:62,time:"08:15:00"},
-{lat:22.8120,lng:86.2100,speed:85,time:"08:20:00"},
-{lat:22.8140,lng:86.2130,speed:0,time:"08:30:00"},
-{lat:22.8140,lng:86.2130,speed:0,time:"08:45:00"},
-{lat:22.8170,lng:86.2200,speed:38,time:"08:50:00"}
+[22.8046,86.2029],
+[22.8056,86.2040],
+[22.8072,86.2058],
+[22.8090,86.2080],
+[22.8108,86.2100],
+[22.8125,86.2135],
+[22.8140,86.2170],
+[22.8170,86.2200]
 
 ];
 
-/* =========================================
-   ROUTE COLOR
-========================================= */
+/* ROUTE LINE */
 
-function getRouteColor(speed){
-
-if(speed <= 40) return "lime";
-
-if(speed <= 60) return "yellow";
-
-if(speed <= 80) return "orange";
-
-return "red";
-
-}
-
-/* =========================================
-   GLOW ROUTE
-========================================= */
-
-L.polyline(
-gpsData.map(p=>[p.lat,p.lng]),
-{
+L.polyline(route,{
 color:'#00ff88',
-weight:16,
-opacity:0.15
-}
-).addTo(map);
-
-/* =========================================
-   MAIN ROUTE
-========================================= */
-
-for(let i=0;i<gpsData.length-1;i++){
-
-const current = gpsData[i];
-const next = gpsData[i+1];
-
-L.polyline([
-[current.lat,current.lng],
-[next.lat,next.lng]
-],{
-color:getRouteColor(current.speed),
 weight:6
 }).addTo(map);
 
-}
+/* GLOW */
 
-/* =========================================
-   ICONS
-========================================= */
+L.polyline(route,{
+color:'#00ff88',
+weight:16,
+opacity:0.15
+}).addTo(map);
+
+/* ICON */
 
 const truckIcon = L.icon({
 
 iconUrl:
-"https://cdn-icons-png.flaticon.com/512/744/744465.png",
+'https://cdn-icons-png.flaticon.com/512/744/744465.png',
 
 iconSize:[50,50],
+
 iconAnchor:[25,25]
 
 });
 
-/* =========================================
-   VEHICLE MARKER
-========================================= */
+/* MARKER */
 
-const marker = L.marker([
-gpsData[0].lat,
-gpsData[0].lng
-],{
+const truck = L.marker(route[0],{
 icon:truckIcon
 }).addTo(map);
 
-/* =========================================
-   MOVING POPUP
-========================================= */
+/* PLAYBACK */
 
-const vehiclePopup = L.popup({
-closeButton:false,
-autoClose:false,
-closeOnClick:false,
-className:'premiumPopup'
-})
-.setLatLng([
-gpsData[0].lat,
-gpsData[0].lng
-])
-.setContent(`
-<b>JH05AB1234</b><br>
-Speed : 20 km/h<br>
-Fuel : 72%
-`)
-.openOn(map);
+let current = 0;
 
-/* =========================================
-   PLAYBACK VARIABLES
-========================================= */
+let interval;
 
-let currentIndex = 0;
-let playbackInterval;
-let playbackRunning = false;
-let playbackSpeed = 1000;
+function moveTruck(){
 
-/* =========================================
-   MOVE VEHICLE
-========================================= */
+if(current >= route.length){
 
-function moveVehicle(){
-
-if(currentIndex >= gpsData.length){
-
-clearInterval(playbackInterval);
-
-playbackRunning = false;
+clearInterval(interval);
 
 return;
 
 }
 
-const point = gpsData[currentIndex];
+truck.setLatLng(route[current]);
 
-/* MOVE */
-
-marker.setLatLng([
-point.lat,
-point.lng
-]);
-
-vehiclePopup.setLatLng([
-point.lat,
-point.lng
-]);
-
-/* POPUP */
-
-vehiclePopup.setContent(`
-<b>JH05AB1234</b><br>
-Speed : ${point.speed} km/h<br>
-Time : ${point.time}<br>
-Fuel : 72%
-`);
-
-/* FOLLOW */
-
-map.panTo([
-point.lat,
-point.lng
-],{
-animate:true,
-duration:0.4
-});
-
-/* ROTATION */
-
-const nextPoint =
-gpsData[currentIndex + 1];
-
-if(nextPoint){
-
-const icon = marker.getElement();
-
-if(icon){
-
-const angle = Math.atan2(
-nextPoint.lng - point.lng,
-nextPoint.lat - point.lat
-) * 180 / Math.PI;
-
-icon.style.transformOrigin =
-"center center";
-
-const existingTransform =
-icon.style.transform.replace(
-/rotate\([^)]*\)/g,
-''
-);
-
-icon.style.transform =
-`${existingTransform} rotate(${angle}deg)`;
-
-}
-
-}
-
-/* SPEED TEXT */
-
-if(getEl("speedText")){
-
-getEl("speedText").innerHTML =
-point.speed + ' KM/H';
-
-}
-
-if(getEl("speedMeter")){
-
-getEl("speedMeter").innerHTML =
-point.speed;
-
-}
-
-/* TIMER */
-
-if(getEl("currentTime")){
-
-getEl("currentTime").innerText =
-point.time;
-
-}
-
-/* SLIDER */
-
-const progress =
-(currentIndex / (gpsData.length - 1)) * 100;
-
-if(getEl("timelineSlider")){
-
-getEl("timelineSlider").value =
-progress;
-
-}
-
-/* PLAYHEAD */
-
-if(getEl("playhead")){
-
-getEl("playhead").style.left =
-progress + "%";
-
-}
-
-currentIndex++;
-
-}
-
-/* =========================================
-   PLAY
-========================================= */
-
-if(getEl("playBtn")){
-
-getEl("playBtn")
-.addEventListener("click",()=>{
-
-if(playbackRunning) return;
-
-playbackRunning = true;
-
-playbackInterval = setInterval(
-moveVehicle,
-playbackSpeed
-);
-
-});
-
-}
-
-/* =========================================
-   PAUSE
-========================================= */
-
-if(getEl("pauseBtn")){
-
-getEl("pauseBtn")
-.addEventListener("click",()=>{
-
-clearInterval(playbackInterval);
-
-playbackRunning = false;
-
-});
-
-}
-
-/* =========================================
-   REWIND
-========================================= */
-
-if(getEl("rewindBtn")){
-
-getEl("rewindBtn")
-.addEventListener("click",()=>{
-
-currentIndex = 0;
-
-marker.setLatLng([
-gpsData[0].lat,
-gpsData[0].lng
-]);
-
-vehiclePopup.setLatLng([
-gpsData[0].lat,
-gpsData[0].lng
-]);
-
-map.panTo([
-gpsData[0].lat,
-gpsData[0].lng
-]);
-
-});
-
-}
-
-/* =========================================
-   SPEED CONTROL
-========================================= */
-
-if(getEl("speedSelect")){
-
-getEl("speedSelect")
-.addEventListener("change",(e)=>{
+map.panTo(route[current]);
 
 const speed =
-Number(e.target.value);
+Math.floor(35 + Math.random()*50);
 
-playbackSpeed = 1000 / speed;
+const speedText =
+document.getElementById('speedText');
 
-if(playbackRunning){
+if(speedText){
 
-clearInterval(playbackInterval);
-
-playbackInterval = setInterval(
-moveVehicle,
-playbackSpeed
-);
+speedText.innerHTML =
+speed + ' KM/H';
 
 }
 
-});
+const speedMeter =
+document.getElementById('speedMeter');
+
+if(speedMeter){
+
+speedMeter.innerHTML =
+speed;
 
 }
 
-/* =========================================
-   TIMELINE
-========================================= */
+const timeline =
+document.getElementById('timelineSlider');
 
-if(getEl("timelineSlider")){
+if(timeline){
 
-getEl("timelineSlider")
-.addEventListener("input",(e)=>{
-
-const index = Math.floor(
-(e.target.value / 100) *
-(gpsData.length - 1)
-);
-
-currentIndex = index;
-
-const point = gpsData[index];
-
-marker.setLatLng([
-point.lat,
-point.lng
-]);
-
-vehiclePopup.setLatLng([
-point.lat,
-point.lng
-]);
-
-map.panTo([
-point.lat,
-point.lng
-]);
-
-});
+timeline.value =
+(current/(route.length-1))*100;
 
 }
 
-/* =========================================
-   FIT BOUNDS
-========================================= */
+current++;
 
-const bounds = L.latLngBounds(
-gpsData.map(p=>[p.lat,p.lng])
-);
+}
 
-map.fitBounds(bounds,{
-padding:[50,50]
-});
+/* PLAY */
+
+const playBtn =
+document.getElementById('playBtn');
+
+if(playBtn){
+
+playBtn.onclick = function(){
+
+clearInterval(interval);
+
+interval =
+setInterval(moveTruck,1000);
+
+};
+
+}
+
+/* PAUSE */
+
+const pauseBtn =
+document.getElementById('pauseBtn');
+
+if(pauseBtn){
+
+pauseBtn.onclick = function(){
+
+clearInterval(interval);
+
+};
+
+}
+
+/* REWIND */
+
+const rewindBtn =
+document.getElementById('rewindBtn');
+
+if(rewindBtn){
+
+rewindBtn.onclick = function(){
+
+current = 0;
+
+truck.setLatLng(route[0]);
+
+};
+
+}
+
+/* FIT */
+
+map.fitBounds(route);
+
+};
