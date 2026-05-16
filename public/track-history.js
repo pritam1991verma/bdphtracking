@@ -220,7 +220,8 @@ icon:truckIcon
 let current = 0;
 
 let interval;
-   /* =========================================
+
+/* =========================================
    ACTION MESSAGE
 ========================================= */
 
@@ -265,7 +266,7 @@ truck.setLatLng(route[current]);
 
 map.panTo(route[current]);
 
-/* ROTATION */
+/* ROTATE */
 
 const icon =
 truck.getElement();
@@ -303,7 +304,7 @@ rotate(${angle}deg)`;
 const speed =
 Math.floor(35 + Math.random()*50);
 
-/* UPDATE SPEED TEXT */
+/* SPEED TEXT */
 
 const speedText =
 document.getElementById('speedText');
@@ -315,7 +316,7 @@ speed + ' KM/H';
 
 }
 
-/* UPDATE SPEEDOMETER */
+/* SPEEDOMETER */
 
 const speedMeter =
 document.getElementById('speedMeter');
@@ -327,7 +328,7 @@ speed;
 
 }
 
-/* UPDATE TIMELINE */
+/* TIMELINE */
 
 const timeline =
 document.getElementById('timelineSlider');
@@ -414,8 +415,6 @@ clearInterval(interval);
 
 };
 
-};
-
 }
 
 /* =========================================
@@ -432,6 +431,7 @@ rewindBtn.onclick = function(){
 showMessage("PLAYBACK REWIND");
 
 clearInterval(interval);
+
 current = 0;
 
 truck.setLatLng(route[0]);
@@ -466,7 +466,8 @@ function(e){
 
 const speed =
 Number(e.target.value);
-   showMessage(speed + "X FAST FORWARD");
+
+showMessage(speed + "X FAST FORWARD");
 
 clearInterval(interval);
 
@@ -482,6 +483,25 @@ moveTruck,
 }
 
 /* =========================================
+   LOAD BUTTON
+========================================= */
+
+const loadTripBtn =
+document.getElementById("loadTripBtn");
+
+if(loadTripBtn){
+
+loadTripBtn.onclick = function(){
+
+showMessage("TRIP LOADED");
+
+map.fitBounds(route);
+
+};
+
+}
+
+/* =========================================
    TIMELINE SLIDER
 ========================================= */
 
@@ -493,7 +513,8 @@ if(timelineSlider){
 timelineSlider.addEventListener(
 "input",
 function(e){
-   showMessage("PLAYBACK POSITION CHANGED");
+
+showMessage("PLAYBACK POSITION CHANGED");
 
 clearInterval(interval);
 
@@ -517,6 +538,8 @@ map.panTo(route[index]);
 const speed =
 Math.floor(35 + Math.random()*50);
 
+/* SPEED TEXT */
+
 const speedText =
 document.getElementById("speedText");
 
@@ -527,6 +550,8 @@ speed + " KM/H";
 
 }
 
+/* SPEEDOMETER */
+
 const speedMeter =
 document.getElementById("speedMeter");
 
@@ -534,24 +559,6 @@ if(speedMeter){
 
 speedMeter.innerHTML =
 speed;
-
-}
-   /* =========================================
-   LOAD BUTTON
-========================================= */
-
-const loadTripBtn =
-document.getElementById("loadTripBtn");
-
-if(loadTripBtn){
-
-loadTripBtn.onclick = function(){
-
-showMessage("TRIP LOADED");
-
-map.fitBounds(route);
-
-};
 
 }
 
@@ -567,7 +574,7 @@ e.target.value + "%";
 
 }
 
-/* TIME */
+/* CURRENT TIME */
 
 const currentTime =
 document.getElementById("currentTime");
