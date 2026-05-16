@@ -345,3 +345,32 @@ bottom:160px;
 }
 
 }
+/* =========================================
+   ACTION MESSAGE
+========================================= */
+
+#actionMessage{
+position:absolute;
+top:95px;
+right:25px;
+background:rgba(10,20,35,0.96);
+color:#00ff88;
+padding:14px 22px;
+border-radius:14px;
+font-weight:bold;
+font-size:14px;
+z-index:99999;
+box-shadow:0 0 20px rgba(0,255,120,0.25);
+border:1px solid rgba(0,255,120,0.2);
+opacity:0;
+transform:translateY(-10px);
+transition:0.35s;
+pointer-events:none;
+}
+
+/* SHOW */
+
+#actionMessage.show{
+opacity:1;
+transform:translateY(0px);
+}
