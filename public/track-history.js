@@ -220,6 +220,28 @@ icon:truckIcon
 let current = 0;
 
 let interval;
+   /* =========================================
+   ACTION MESSAGE
+========================================= */
+
+function showMessage(text){
+
+const msg =
+document.getElementById("actionMessage");
+
+if(!msg) return;
+
+msg.innerHTML = text;
+
+msg.classList.add("show");
+
+setTimeout(()=>{
+
+msg.classList.remove("show");
+
+},1500);
+
+}
 
 /* =========================================
    MOVE VEHICLE
