@@ -386,6 +386,8 @@ if(playBtn){
 
 playBtn.onclick = function(){
 
+showMessage("PLAYBACK STARTED");
+
 clearInterval(interval);
 
 interval =
@@ -406,7 +408,11 @@ if(pauseBtn){
 
 pauseBtn.onclick = function(){
 
+showMessage("PLAYBACK PAUSED");
+
 clearInterval(interval);
+
+};
 
 };
 
@@ -423,8 +429,9 @@ if(rewindBtn){
 
 rewindBtn.onclick = function(){
 
-clearInterval(interval);
+showMessage("PLAYBACK REWIND");
 
+clearInterval(interval);
 current = 0;
 
 truck.setLatLng(route[0]);
@@ -459,6 +466,7 @@ function(e){
 
 const speed =
 Number(e.target.value);
+   showMessage(speed + "X FAST FORWARD");
 
 clearInterval(interval);
 
@@ -485,6 +493,7 @@ if(timelineSlider){
 timelineSlider.addEventListener(
 "input",
 function(e){
+   showMessage("PLAYBACK POSITION CHANGED");
 
 clearInterval(interval);
 
@@ -525,6 +534,24 @@ if(speedMeter){
 
 speedMeter.innerHTML =
 speed;
+
+}
+   /* =========================================
+   LOAD BUTTON
+========================================= */
+
+const loadTripBtn =
+document.getElementById("loadTripBtn");
+
+if(loadTripBtn){
+
+loadTripBtn.onclick = function(){
+
+showMessage("TRIP LOADED");
+
+map.fitBounds(route);
+
+};
 
 }
 
