@@ -1,3 +1,5 @@
+/* SAVE AS: futuristic-dashboard.css */
+
 *{
 margin:0;
 padding:0;
@@ -21,13 +23,16 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:0 30px;
-background:rgba(10,20,35,0.92);
-backdrop-filter:blur(12px);
+background:rgba(10,20,35,0.94);
+backdrop-filter:blur(18px);
 border-bottom:1px solid rgba(255,255,255,0.08);
 box-shadow:0 0 40px rgba(0,255,255,0.05);
+position:sticky;
+top:0;
+z-index:99999;
 }
 
-.topbar h1{
+.brandSection h1{
 font-size:34px;
 font-weight:900;
 background:linear-gradient(
@@ -39,25 +44,25 @@ background:linear-gradient(
 -webkit-text-fill-color:transparent;
 }
 
-.topbar p{
+.brandSection p{
+margin-top:4px;
 font-size:13px;
 color:#9fb3c8;
-margin-top:4px;
 }
 
 /* =========================================
-TOP STATS
+TOP MINI CARDS
 ========================================= */
 
-.topStats{
+.topRight{
 display:flex;
-gap:16px;
+gap:15px;
 }
 
-.miniCard{
+.topMiniCard{
 width:130px;
-height:70px;
-border-radius:18px;
+height:72px;
+border-radius:20px;
 display:flex;
 flex-direction:column;
 justify-content:center;
@@ -67,11 +72,12 @@ border:1px solid rgba(255,255,255,0.08);
 box-shadow:0 0 30px rgba(0,0,0,0.3);
 }
 
-.miniCard h3{
+.topMiniCard h3{
 font-size:28px;
+font-weight:bold;
 }
 
-.miniCard span{
+.topMiniCard span{
 font-size:12px;
 opacity:0.8;
 }
@@ -89,24 +95,221 @@ background:rgba(255,23,68,0.1);
 }
 
 /* =========================================
-GRID
+LAYOUT
 ========================================= */
 
-.dashboardGrid{
-display:grid;
-grid-template-columns:22% 56% 22%;
-gap:20px;
-padding:20px;
+.mainLayout{
+display:flex;
 height:calc(100vh - 90px);
 }
 
 /* =========================================
-PANELS
+SIDEBAR
 ========================================= */
 
-.panel{
+.sidebar{
+width:340px;
+background:rgba(10,20,35,0.95);
+backdrop-filter:blur(18px);
+border-right:1px solid rgba(255,255,255,0.06);
+padding:25px;
+overflow-y:auto;
+position:relative;
+}
+
+.sidebarLogo{
+position:relative;
+padding:20px;
+border-radius:28px;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.06);
+margin-bottom:25px;
+overflow:hidden;
+}
+
+.logoGlow{
+position:absolute;
+width:180px;
+height:180px;
+background:#00e5ff;
+filter:blur(90px);
+opacity:0.18;
+top:-50px;
+right:-50px;
+}
+
+.sidebarLogo h2{
+font-size:34px;
+font-weight:900;
+position:relative;
+z-index:2;
+background:linear-gradient(
+90deg,
+#00e5ff,
+#00ff88
+);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.sidebarLogo p{
+position:relative;
+z-index:2;
+color:#9fb3c8;
+margin-top:6px;
+}
+
+/* =========================================
+MENU
+========================================= */
+
+.menu{
 display:flex;
 flex-direction:column;
+gap:14px;
+}
+
+.menuItem{
+display:flex;
+align-items:flex-start;
+gap:15px;
+padding:18px;
+border-radius:24px;
+text-decoration:none;
+color:white;
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.04);
+transition:0.4s;
+position:relative;
+overflow:hidden;
+}
+
+.menuItem::before{
+content:'';
+position:absolute;
+inset:0;
+background:linear-gradient(
+90deg,
+rgba(0,229,255,0),
+rgba(0,255,136,0)
+);
+transition:0.4s;
+}
+
+.menuItem:hover::before{
+background:linear-gradient(
+90deg,
+rgba(0,229,255,0.08),
+rgba(0,255,136,0.08)
+);
+}
+
+.menuItem:hover{
+transform:translateX(6px);
+border-color:rgba(0,255,255,0.2);
+box-shadow:0 0 25px rgba(0,255,255,0.08);
+}
+
+.menuItem.active{
+background:linear-gradient(
+90deg,
+rgba(0,229,255,0.1),
+rgba(0,255,136,0.08)
+);
+border-color:rgba(0,255,255,0.18);
+}
+
+.menuIcon{
+width:56px;
+height:56px;
+border-radius:18px;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:26px;
+background:rgba(255,255,255,0.05);
+box-shadow:inset 0 0 15px rgba(255,255,255,0.03);
+}
+
+.menuItem h3{
+font-size:17px;
+margin-bottom:5px;
+}
+
+.menuItem p{
+font-size:12px;
+color:#9fb3c8;
+line-height:1.4;
+}
+
+/* =========================================
+HEALTH CARD
+========================================= */
+
+.healthCard{
+margin-top:28px;
+padding:24px;
+border-radius:28px;
+background:linear-gradient(
+180deg,
+rgba(0,229,255,0.08),
+rgba(0,255,136,0.04)
+);
+border:1px solid rgba(0,255,255,0.12);
+box-shadow:0 0 30px rgba(0,255,255,0.08);
+}
+
+.healthTop{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:18px;
+}
+
+.liveDot{
+width:12px;
+height:12px;
+border-radius:50%;
+background:#00ff88;
+box-shadow:0 0 20px #00ff88;
+animation:blink 1.5s infinite;
+}
+
+.healthRow{
+display:flex;
+justify-content:space-between;
+margin-top:12px;
+font-size:14px;
+}
+
+/* =========================================
+CONTENT AREA
+========================================= */
+
+.contentArea{
+flex:1;
+padding:25px;
+overflow-y:auto;
+}
+
+/* =========================================
+TOP GRID
+========================================= */
+
+.topGrid{
+display:grid;
+grid-template-columns:28% 44% 28%;
+gap:20px;
+margin-bottom:20px;
+}
+
+/* =========================================
+BOTTOM GRID
+========================================= */
+
+.bottomGrid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
 gap:20px;
 }
 
@@ -124,7 +327,7 @@ box-shadow:0 0 40px rgba(0,0,0,0.3);
 }
 
 .glassCard h2{
-margin-bottom:20px;
+margin-bottom:22px;
 font-size:22px;
 }
 
@@ -133,7 +336,7 @@ BAR GRAPH
 ========================================= */
 
 .barGraph{
-height:260px;
+height:320px;
 display:flex;
 align-items:flex-end;
 gap:12px;
@@ -141,64 +344,14 @@ gap:12px;
 
 .bar{
 flex:1;
-border-radius:20px 20px 0 0;
+border-radius:24px 24px 0 0;
 background:linear-gradient(
 180deg,
 #00e5ff,
 #00ff88
 );
 animation:pulseBars 2s infinite;
-box-shadow:0 0 20px rgba(0,255,255,0.3);
-}
-
-/* =========================================
-CIRCLE
-========================================= */
-
-.circleBox{
-display:flex;
-justify-content:center;
-align-items:center;
-padding:20px;
-}
-
-.circle{
-width:220px;
-height:220px;
-border-radius:50%;
-border:18px solid rgba(0,229,255,0.15);
-position:relative;
-display:flex;
-justify-content:center;
-align-items:center;
-box-shadow:0 0 40px rgba(0,255,255,0.12);
-}
-
-.circle::before{
-content:'';
-position:absolute;
-width:100%;
-height:100%;
-border-radius:50%;
-border:18px solid #00e5ff;
-border-top-color:transparent;
-animation:spin 5s linear infinite;
-}
-
-.circleInner{
-font-size:48px;
-font-weight:bold;
-color:#00e5ff;
-}
-
-/* =========================================
-CENTER
-========================================= */
-
-.centerPanel{
-display:flex;
-flex-direction:column;
-gap:20px;
+box-shadow:0 0 25px rgba(0,255,255,0.25);
 }
 
 /* =========================================
@@ -207,9 +360,9 @@ MAP CARD
 
 .mapCard{
 position:relative;
-flex:1;
-border-radius:30px;
+height:420px;
 overflow:hidden;
+border-radius:30px;
 background:rgba(255,255,255,0.05);
 border:1px solid rgba(255,255,255,0.08);
 backdrop-filter:blur(16px);
@@ -231,7 +384,7 @@ rgba(255,255,255,0.04) 1px,
 transparent 1px
 );
 background-size:40px 40px;
-opacity:0.4;
+opacity:0.35;
 }
 
 .mapCard h2{
@@ -244,7 +397,7 @@ font-size:28px;
 position:relative;
 z-index:2;
 color:#9fb3c8;
-margin-top:5px;
+margin-top:6px;
 }
 
 /* =========================================
@@ -284,12 +437,11 @@ animation:pulseRing 4s infinite;
 }
 
 .centerPulse{
-width:120px;
-height:120px;
+width:130px;
+height:130px;
 border-radius:50%;
 background:rgba(0,255,255,0.15);
-backdrop-filter:blur(20px);
-box-shadow:0 0 60px rgba(0,255,255,0.25);
+box-shadow:0 0 80px rgba(0,255,255,0.3);
 animation:pulseCenter 2s infinite;
 }
 
@@ -308,45 +460,6 @@ animation:blink 1.5s infinite;
 .dot3{top:65%;left:50%;}
 .dot4{top:25%;left:60%;}
 .dot5{top:75%;left:30%;}
-
-/* =========================================
-ALERT GRID
-========================================= */
-
-.alertGrid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
-}
-
-.alertCard{
-height:160px;
-border-radius:28px;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-backdrop-filter:blur(16px);
-border:1px solid rgba(255,255,255,0.08);
-box-shadow:0 0 40px rgba(0,0,0,0.25);
-}
-
-.alertCard h1{
-font-size:60px;
-margin-top:10px;
-}
-
-.redGlow{
-background:rgba(255,23,68,0.08);
-}
-
-.yellowGlow{
-background:rgba(255,193,7,0.08);
-}
-
-.purpleGlow{
-background:rgba(170,0,255,0.08);
-}
 
 /* =========================================
 TYRES
@@ -383,8 +496,45 @@ animation:spin 3s linear infinite;
 }
 
 /* =========================================
+ALERTS
+========================================= */
+
+.alertCard{
+height:220px;
+border-radius:30px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+backdrop-filter:blur(16px);
+border:1px solid rgba(255,255,255,0.08);
+box-shadow:0 0 40px rgba(0,0,0,0.25);
+}
+
+.alertCard h1{
+font-size:72px;
+margin-top:12px;
+}
+
+.redGlow{
+background:rgba(255,23,68,0.08);
+}
+
+.yellowGlow{
+background:rgba(255,193,7,0.08);
+}
+
+.purpleGlow{
+background:rgba(170,0,255,0.08);
+}
+
+/* =========================================
 INVENTORY
 ========================================= */
+
+.inventoryCard{
+grid-column:span 1;
+}
 
 .inventoryItem{
 margin-bottom:18px;
@@ -396,7 +546,7 @@ margin-bottom:8px;
 }
 
 .progress{
-height:12px;
+height:14px;
 border-radius:20px;
 overflow:hidden;
 background:rgba(255,255,255,0.06);
@@ -414,7 +564,7 @@ animation:pulseBars 2s infinite;
 }
 
 /* =========================================
-ANIMATIONS
+ANIMATION
 ========================================= */
 
 @keyframes spin{
@@ -428,7 +578,7 @@ transform:rotate(360deg);
 @keyframes pulseBars{
 
 0%{
-opacity:0.7;
+opacity:0.6;
 }
 
 50%{
@@ -436,7 +586,7 @@ opacity:1;
 }
 
 100%{
-opacity:0.7;
+opacity:0.6;
 }
 
 }
@@ -496,15 +646,40 @@ opacity:0.3;
 RESPONSIVE
 ========================================= */
 
-@media(max-width:1200px){
+@media(max-width:1400px){
 
-.dashboardGrid{
+.topGrid{
 grid-template-columns:1fr;
-overflow:auto;
+}
+
+.bottomGrid{
+grid-template-columns:1fr 1fr;
+}
+
+.mainLayout{
+flex-direction:column;
+height:auto;
+}
+
+.sidebar{
+width:100%;
+height:auto;
 }
 
 body{
 overflow:auto;
+}
+
+}
+
+@media(max-width:900px){
+
+.bottomGrid{
+grid-template-columns:1fr;
+}
+
+.topRight{
+display:none;
 }
 
 }
