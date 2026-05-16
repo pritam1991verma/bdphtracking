@@ -1,3 +1,5 @@
+<!-- SAVE AS: futuristic-dashboard.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,45 +15,66 @@ BDPH AI Command Center
 </title>
 
 <link rel="stylesheet"
-href="futuristic-dashboard.css">
+href="./futuristic-dashboard.css">
 
 </head>
 
 <body>
 
 <!-- =========================================
-HEADER
+TOPBAR
 ========================================= -->
 
 <header class="topbar">
 
-<div>
+<div class="brandSection">
 
 <h1>
 BDPH AI COMMAND CENTER
 </h1>
 
 <p>
-Live Fleet Intelligence System
+Next Generation Fleet Intelligence System
 </p>
 
 </div>
 
-<div class="topStats">
+<div class="topRight">
 
-<div class="miniCard cyan">
-<h3>248</h3>
-<span>Vehicles</span>
+<div class="topMiniCard cyan">
+
+<h3 id="vehicleCount">
+248
+</h3>
+
+<span>
+Vehicles
+</span>
+
 </div>
 
-<div class="miniCard green">
-<h3>241</h3>
-<span>GPS Online</span>
+<div class="topMiniCard green">
+
+<h3 id="gpsCount">
+241
+</h3>
+
+<span>
+GPS Online
+</span>
+
 </div>
 
-<div class="miniCard red">
-<h3>07</h3>
-<span>Critical Alerts</span>
+<div class="topMiniCard red">
+
+<h3 id="alertCount">
+07
+</h3>
+
+<span>
+Critical Alerts
+</span>
+
 </div>
 
 </div>
@@ -59,16 +82,314 @@ Live Fleet Intelligence System
 </header>
 
 <!-- =========================================
-MAIN GRID
+MAIN LAYOUT
 ========================================= -->
 
-<div class="dashboardGrid">
+<div class="mainLayout">
 
 <!-- =========================================
-LEFT PANEL
+AI SIDEBAR
 ========================================= -->
 
-<div class="panel">
+<aside class="sidebar">
+
+<div class="sidebarLogo">
+
+<div class="logoGlow"></div>
+
+<h2>
+BDPH OS
+</h2>
+
+<p>
+Fleet Intelligence Core
+</p>
+
+</div>
+
+<!-- MENU -->
+
+<div class="menu">
+
+<a href="./dashboard.html"
+class="menuItem active">
+
+<div class="menuIcon">
+📊
+</div>
+
+<div>
+
+<h3>
+Dashboard
+</h3>
+
+<p>
+AI Command Overview
+</p>
+
+</div>
+
+</a>
+
+<a href="./live-tracker.html"
+class="menuItem">
+
+<div class="menuIcon">
+🛰️
+</div>
+
+<div>
+
+<h3>
+Live Tracker
+</h3>
+
+<p>
+Real-Time GPS Monitoring
+</p>
+
+</div>
+
+</a>
+
+<a href="./track-history.html"
+class="menuItem">
+
+<div class="menuIcon">
+🛣️
+</div>
+
+<div>
+
+<h3>
+Track History
+</h3>
+
+<p>
+Playback & Route Analytics
+</p>
+
+</div>
+
+</a>
+
+<a href="#"
+class="menuItem">
+
+<div class="menuIcon">
+⛽
+</div>
+
+<div>
+
+<h3>
+Fuel AI
+</h3>
+
+<p>
+Fuel Analytics & Theft Detection
+</p>
+
+</div>
+
+</a>
+
+<a href="#"
+class="menuItem">
+
+<div class="menuIcon">
+💧
+</div>
+
+<div>
+
+<h3>
+AdBlue
+</h3>
+
+<p>
+Emission Intelligence System
+</p>
+
+</div>
+
+</a>
+
+<a href="#"
+class="menuItem">
+
+<div class="menuIcon">
+🛞
+</div>
+
+<div>
+
+<h3>
+Tyre IQ
+</h3>
+
+<p>
+Pressure & Wear Monitoring
+</p>
+
+</div>
+
+</a>
+
+<a href="#"
+class="menuItem">
+
+<div class="menuIcon">
+📦
+</div>
+
+<div>
+
+<h3>
+Inventory
+</h3>
+
+<p>
+Smart Warehouse Control
+</p>
+
+</div>
+
+</a>
+
+<a href="#"
+class="menuItem">
+
+<div class="menuIcon">
+📑
+</div>
+
+<div>
+
+<h3>
+Reports
+</h3>
+
+<p>
+Automated AI Reports
+</p>
+
+</div>
+
+</a>
+
+<a href="#"
+class="menuItem">
+
+<div class="menuIcon">
+🚨
+</div>
+
+<div>
+
+<h3>
+Alerts
+</h3>
+
+<p>
+Critical Event Center
+</p>
+
+</div>
+
+</a>
+
+<a href="#"
+class="menuItem">
+
+<div class="menuIcon">
+👥
+</div>
+
+<div>
+
+<h3>
+Users
+</h3>
+
+<p>
+Access & Permissions
+</p>
+
+</div>
+
+</a>
+
+</div>
+
+<!-- AI HEALTH -->
+
+<div class="healthCard">
+
+<div class="healthTop">
+
+<h3>
+AI System Health
+</h3>
+
+<div class="liveDot"></div>
+
+</div>
+
+<div class="healthRow">
+
+<span>
+Telemetry
+</span>
+
+<b>
+98%
+</b>
+
+</div>
+
+<div class="healthRow">
+
+<span>
+Prediction Engine
+</span>
+
+<b>
+ACTIVE
+</b>
+
+</div>
+
+<div class="healthRow">
+
+<span>
+AI Learning
+</span>
+
+<b>
+ONLINE
+</b>
+
+</div>
+
+</div>
+
+</aside>
+
+<!-- =========================================
+CONTENT
+========================================= -->
+
+<main class="contentArea">
+
+<!-- =========================================
+TOP GRID
+========================================= -->
+
+<div class="topGrid">
+
+<!-- FUEL -->
 
 <div class="glassCard">
 
@@ -90,35 +411,7 @@ Fuel Analytics
 
 </div>
 
-<div class="glassCard">
-
-<h2>
-AdBlue Efficiency
-</h2>
-
-<div class="circleBox">
-
-<div class="circle">
-
-<div class="circleInner">
-
-78%
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- =========================================
-CENTER PANEL
-========================================= -->
-
-<div class="centerPanel">
+<!-- GPS -->
 
 <div class="mapCard">
 
@@ -129,7 +422,7 @@ Global GPS Monitoring
 </h2>
 
 <p>
-Real-Time AI Vehicle Tracking
+AI Real-Time Tracking Grid
 </p>
 
 <div class="radar">
@@ -150,7 +443,45 @@ Real-Time AI Vehicle Tracking
 
 </div>
 
-<div class="alertGrid">
+<!-- TYRES -->
+
+<div class="glassCard">
+
+<h2>
+Tyre Intelligence
+</h2>
+
+<div class="tyreGrid">
+
+<div class="tyre">
+92%
+</div>
+
+<div class="tyre">
+88%
+</div>
+
+<div class="tyre">
+81%
+</div>
+
+<div class="tyre">
+76%
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =========================================
+BOTTOM GRID
+========================================= -->
+
+<div class="bottomGrid">
+
+<!-- ALERTS -->
 
 <div class="alertCard redGlow">
 
@@ -188,45 +519,9 @@ Geo Fence
 
 </div>
 
-</div>
+<!-- INVENTORY -->
 
-</div>
-
-<!-- =========================================
-RIGHT PANEL
-========================================= -->
-
-<div class="panel">
-
-<div class="glassCard">
-
-<h2>
-Tyre Intelligence
-</h2>
-
-<div class="tyreGrid">
-
-<div class="tyre">
-92%
-</div>
-
-<div class="tyre">
-88%
-</div>
-
-<div class="tyre">
-81%
-</div>
-
-<div class="tyre">
-76%
-</div>
-
-</div>
-
-</div>
-
-<div class="glassCard">
+<div class="glassCard inventoryCard">
 
 <h2>
 Inventory AI
@@ -292,9 +587,12 @@ Tyres
 
 </div>
 
+</main>
+
 </div>
 
-<script src="futuristic-dashboard.js"></script>
+<script src="./futuristic-dashboard.js"></script>
 
 </body>
+
 </html>
