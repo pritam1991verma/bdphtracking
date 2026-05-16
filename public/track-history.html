@@ -24,19 +24,9 @@ href="track-history.css">
 
 <body>
 
-<!-- HEADER -->
-
-<div class="header">
-
-<div class="leftHeader">
-
-<h1>
-BDPH Track Playback
-</h1>
-
-</div>
-
-<div class="controls">
+<!-- =====================================
+HEADER
+===================================== -->
 
 <div class="header">
 
@@ -80,7 +70,7 @@ JH05EF9012
 
 <input type="time" id="endTime">
 
-<!-- LOAD BUTTON -->
+<!-- LOAD -->
 
 <button id="loadTripBtn">
 LOAD
@@ -126,11 +116,15 @@ LOAD
 
 </div>
 
-<!-- MAIN -->
+<!-- =====================================
+MAIN LAYOUT
+===================================== -->
 
 <div class="mainContainer">
 
-<!-- SIDEBAR -->
+<!-- =====================================
+SIDEBAR
+===================================== -->
 
 <div class="sidebar">
 
@@ -166,12 +160,14 @@ Trip Summary
 
 <div class="statRow">
 <span>Top Speed</span>
-<b>85 KM/H</b>
+<b>
+85 KM/H
+</b>
 </div>
 
 </div>
 
-<!-- EVENTS -->
+<!-- INCIDENTS -->
 
 <div class="card">
 
@@ -225,7 +221,9 @@ Driver Score
 
 </div>
 
-<!-- MAP AREA -->
+<!-- =====================================
+MAP AREA
+===================================== -->
 
 <div class="mapContainer">
 
@@ -247,9 +245,13 @@ KM/H
 
 </div>
 
-<!-- PLAYBACK PANEL -->
+<!-- =====================================
+PLAYBACK PANEL
+===================================== -->
 
 <div class="playbackPanel">
+
+<!-- TIMELINE -->
 
 <input type="range"
 id="timelineSlider"
@@ -257,29 +259,37 @@ min="0"
 max="100"
 value="0">
 
-<!-- EVENT GRAPH -->
+<!-- GRAPH -->
 
 <div id="eventGraph">
 
 <div class="graphLine"></div>
 
+<!-- OVERSPEED -->
+
 <div class="eventSpike red"
 style="left:55%">
 </div>
+
+<!-- HARSH BRAKE -->
 
 <div class="eventSpike orange"
 style="left:72%">
 </div>
 
+<!-- HALT -->
+
 <div class="eventSpike yellow"
 style="left:88%">
 </div>
+
+<!-- PLAYHEAD -->
 
 <div id="playhead"></div>
 
 </div>
 
-<!-- TIMELINE -->
+<!-- TIMELINE INFO -->
 
 <div class="timelineInfo">
 
@@ -303,7 +313,9 @@ Trip End
 
 </div>
 
-<!-- LEAFLET JS -->
+<!-- =====================================
+LEAFLET JS
+===================================== -->
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
