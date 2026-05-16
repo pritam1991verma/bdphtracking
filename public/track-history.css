@@ -1,3 +1,10 @@
+#map{
+height:calc(100vh - 80px);
+width:100%;
+}
+
+
+
 .controls select,
 .controls input{
 background:#10233b;
@@ -58,7 +65,17 @@ gap:10px;
 align-items:center;
 flex-wrap:wrap;
 }
+button{
+display:flex;
+align-items:center;
+justify-content:center;
+min-width:55px;
+}
 
+.playbackControls{
+z-index:99999;
+position:relative;
+}
 button,
 select,
 input{
@@ -243,7 +260,8 @@ position:absolute;
 bottom:20px;
 left:50%;
 transform:translateX(-50%);
-width:70%;
+width:65%;
+min-height:120px;
 background:rgba(13,27,42,0.95);
 padding:20px;
 border-radius:20px;
