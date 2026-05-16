@@ -1,3 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
 
-fuel-management.js
-fuel-management.css
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Fuel Management</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet" href="fuel-management.css">
+</head>
+
+<body>
+
+<div class="main-container">
+
+  <!-- SIDEBAR -->
+
+  <div class="sidebar">
+
+    <h1 class="logo">FuelAI</h1>
+
+    <div class="menu">
+
+      <div class="menu-item active">Dashboard</div>
+      <div class="menu-item">Fuel Entry</div>
+      <div class="menu-item">Vehicles</div>
+      <div class="menu-item">Drivers</div>
+      <div class="menu-item">AI Alerts</div>
+      <div class="menu-item">Analytics</div>
+      <div class="menu-item">Reports</div>
+
+    </div>
+
+  </div>
+
+  <!-- CONTENT -->
+
+  <div class="content">
+
+    <div class="topbar">
+
+      <div>
+        <h2>AI Fuel Command Center</h2>
+        <p>Smart Manual Fuel Intelligence Platform</p>
+      </div>
+
+      <div class="health-box">
+        Fleet Health : 92%
+      </div>
+
+    </div>
+
+    <!-- CARDS -->
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>Fuel Issued Today</h3>
+        <h1>12,580 L</h1>
+      </div>
+
+      <div class="card">
+        <h3>Vehicles Active</h3>
+        <h1>84</h1>
+      </div>
+
+      <div class="card">
+        <h3>AI Risk Alerts</h3>
+        <h1>07</h1>
+      </div>
+
+      <div class="card">
+        <h3>Diesel Stock</h3>
+        <h1>48,200 L</h1>
+      </div>
+
+    </div>
+
+    <!-- AI ALERTS -->
+
+    <div class="alerts">
+
+      <h2>AI Suspicious Fuel Activity</h2>
+
+      <div class="alert red">
+        Vehicle BR01AB1234 consumed 48% more fuel than expected.
+      </div>
+
+      <div class="alert yellow">
+        Duplicate fuel pattern detected for Vehicle JH09XX9912.
+      </div>
+
+      <div class="alert blue">
+        AI predicts diesel refill required within 2 days.
+      </div>
+
+    </div>
+
+    <!-- TABLE -->
+
+    <div class="table-container">
+
+      <h2>Vehicle Fuel Monitoring</h2>
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Vehicle</th>
+            <th>Driver</th>
+            <th>Fuel</th>
+            <th>Mileage</th>
+            <th>Risk</th>
+          </tr>
+        </thead>
+
+        <tbody id="vehicleTable">
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script src="fuel-management.js"></script>
+
+</body>
+</html>
