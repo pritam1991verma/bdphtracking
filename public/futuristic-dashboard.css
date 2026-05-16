@@ -1,1 +1,512 @@
+/* SAVE AS: futuristic-dashboard.css */
 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial,sans-serif;
+background:#040816;
+color:white;
+overflow:hidden;
+}
+
+/* =========================================
+TOPBAR
+========================================= */
+
+.topbar{
+height:90px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0 30px;
+background:rgba(10,20,35,0.92);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,0.08);
+box-shadow:0 0 40px rgba(0,255,255,0.05);
+}
+
+.topbar h1{
+font-size:34px;
+font-weight:900;
+background:linear-gradient(
+90deg,
+#00e5ff,
+#00ff88
+);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.topbar p{
+font-size:13px;
+color:#9fb3c8;
+margin-top:4px;
+}
+
+/* =========================================
+TOP STATS
+========================================= */
+
+.topStats{
+display:flex;
+gap:16px;
+}
+
+.miniCard{
+width:130px;
+height:70px;
+border-radius:18px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+backdrop-filter:blur(14px);
+border:1px solid rgba(255,255,255,0.08);
+box-shadow:0 0 30px rgba(0,0,0,0.3);
+}
+
+.miniCard h3{
+font-size:28px;
+}
+
+.miniCard span{
+font-size:12px;
+opacity:0.8;
+}
+
+.cyan{
+background:rgba(0,229,255,0.1);
+}
+
+.green{
+background:rgba(0,255,136,0.1);
+}
+
+.red{
+background:rgba(255,23,68,0.1);
+}
+
+/* =========================================
+GRID
+========================================= */
+
+.dashboardGrid{
+display:grid;
+grid-template-columns:22% 56% 22%;
+gap:20px;
+padding:20px;
+height:calc(100vh - 90px);
+}
+
+/* =========================================
+PANELS
+========================================= */
+
+.panel{
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+/* =========================================
+GLASS CARD
+========================================= */
+
+.glassCard{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+backdrop-filter:blur(16px);
+border-radius:30px;
+padding:24px;
+box-shadow:0 0 40px rgba(0,0,0,0.3);
+}
+
+.glassCard h2{
+margin-bottom:20px;
+font-size:22px;
+}
+
+/* =========================================
+BAR GRAPH
+========================================= */
+
+.barGraph{
+height:260px;
+display:flex;
+align-items:flex-end;
+gap:12px;
+}
+
+.bar{
+flex:1;
+border-radius:20px 20px 0 0;
+background:linear-gradient(
+180deg,
+#00e5ff,
+#00ff88
+);
+animation:pulseBars 2s infinite;
+box-shadow:0 0 20px rgba(0,255,255,0.3);
+}
+
+/* =========================================
+CIRCLE
+========================================= */
+
+.circleBox{
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.circle{
+width:220px;
+height:220px;
+border-radius:50%;
+border:18px solid rgba(0,229,255,0.15);
+position:relative;
+display:flex;
+justify-content:center;
+align-items:center;
+box-shadow:0 0 40px rgba(0,255,255,0.12);
+}
+
+.circle::before{
+content:'';
+position:absolute;
+width:100%;
+height:100%;
+border-radius:50%;
+border:18px solid #00e5ff;
+border-top-color:transparent;
+animation:spin 5s linear infinite;
+}
+
+.circleInner{
+font-size:48px;
+font-weight:bold;
+color:#00e5ff;
+}
+
+/* =========================================
+CENTER
+========================================= */
+
+.centerPanel{
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+/* =========================================
+MAP CARD
+========================================= */
+
+.mapCard{
+position:relative;
+flex:1;
+border-radius:30px;
+overflow:hidden;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+backdrop-filter:blur(16px);
+padding:24px;
+box-shadow:0 0 40px rgba(0,0,0,0.35);
+}
+
+.mapOverlay{
+position:absolute;
+inset:0;
+background:
+linear-gradient(
+rgba(255,255,255,0.04) 1px,
+transparent 1px
+),
+linear-gradient(
+90deg,
+rgba(255,255,255,0.04) 1px,
+transparent 1px
+);
+background-size:40px 40px;
+opacity:0.4;
+}
+
+.mapCard h2{
+position:relative;
+z-index:2;
+font-size:28px;
+}
+
+.mapCard p{
+position:relative;
+z-index:2;
+color:#9fb3c8;
+margin-top:5px;
+}
+
+/* =========================================
+RADAR
+========================================= */
+
+.radar{
+position:absolute;
+inset:0;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.radarRing{
+position:absolute;
+border-radius:50%;
+border:1px solid rgba(0,255,255,0.2);
+}
+
+.ring1{
+width:220px;
+height:220px;
+animation:pulseRing 2s infinite;
+}
+
+.ring2{
+width:360px;
+height:360px;
+animation:pulseRing 3s infinite;
+}
+
+.ring3{
+width:500px;
+height:500px;
+animation:pulseRing 4s infinite;
+}
+
+.centerPulse{
+width:120px;
+height:120px;
+border-radius:50%;
+background:rgba(0,255,255,0.15);
+backdrop-filter:blur(20px);
+box-shadow:0 0 60px rgba(0,255,255,0.25);
+animation:pulseCenter 2s infinite;
+}
+
+.dot{
+position:absolute;
+width:14px;
+height:14px;
+border-radius:50%;
+background:#00ff88;
+box-shadow:0 0 20px #00ff88;
+animation:blink 1.5s infinite;
+}
+
+.dot1{top:20%;left:35%;}
+.dot2{top:40%;left:70%;}
+.dot3{top:65%;left:50%;}
+.dot4{top:25%;left:60%;}
+.dot5{top:75%;left:30%;}
+
+/* =========================================
+ALERT GRID
+========================================= */
+
+.alertGrid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.alertCard{
+height:160px;
+border-radius:28px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+backdrop-filter:blur(16px);
+border:1px solid rgba(255,255,255,0.08);
+box-shadow:0 0 40px rgba(0,0,0,0.25);
+}
+
+.alertCard h1{
+font-size:60px;
+margin-top:10px;
+}
+
+.redGlow{
+background:rgba(255,23,68,0.08);
+}
+
+.yellowGlow{
+background:rgba(255,193,7,0.08);
+}
+
+.purpleGlow{
+background:rgba(170,0,255,0.08);
+}
+
+/* =========================================
+TYRES
+========================================= */
+
+.tyreGrid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+}
+
+.tyre{
+aspect-ratio:1;
+border-radius:50%;
+border:12px solid rgba(0,255,136,0.2);
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:34px;
+font-weight:bold;
+background:rgba(255,255,255,0.03);
+position:relative;
+overflow:hidden;
+}
+
+.tyre::before{
+content:'';
+position:absolute;
+inset:0;
+border-radius:50%;
+border:10px solid transparent;
+border-top-color:#00ff88;
+animation:spin 3s linear infinite;
+}
+
+/* =========================================
+INVENTORY
+========================================= */
+
+.inventoryItem{
+margin-bottom:18px;
+}
+
+.inventoryItem span{
+display:block;
+margin-bottom:8px;
+}
+
+.progress{
+height:12px;
+border-radius:20px;
+overflow:hidden;
+background:rgba(255,255,255,0.06);
+}
+
+.progress div{
+height:100%;
+border-radius:20px;
+background:linear-gradient(
+90deg,
+#00e5ff,
+#00ff88
+);
+animation:pulseBars 2s infinite;
+}
+
+/* =========================================
+ANIMATIONS
+========================================= */
+
+@keyframes spin{
+
+100%{
+transform:rotate(360deg);
+}
+
+}
+
+@keyframes pulseBars{
+
+0%{
+opacity:0.7;
+}
+
+50%{
+opacity:1;
+}
+
+100%{
+opacity:0.7;
+}
+
+}
+
+@keyframes pulseRing{
+
+0%{
+transform:scale(0.95);
+opacity:0.3;
+}
+
+50%{
+transform:scale(1);
+opacity:1;
+}
+
+100%{
+transform:scale(0.95);
+opacity:0.3;
+}
+
+}
+
+@keyframes pulseCenter{
+
+0%{
+transform:scale(0.95);
+}
+
+50%{
+transform:scale(1.05);
+}
+
+100%{
+transform:scale(0.95);
+}
+
+}
+
+@keyframes blink{
+
+0%{
+opacity:0.3;
+}
+
+50%{
+opacity:1;
+}
+
+100%{
+opacity:0.3;
+}
+
+}
+
+/* =========================================
+RESPONSIVE
+========================================= */
+
+@media(max-width:1200px){
+
+.dashboardGrid{
+grid-template-columns:1fr;
+overflow:auto;
+}
+
+body{
+overflow:auto;
+}
+
+}
