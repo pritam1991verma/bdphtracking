@@ -2,520 +2,246 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
-<script>
 
-/* =========================================
-   MAP INITIALIZATION
-========================================= */
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-const map = L.map('map',{
-zoomControl:false
-}).setView([22.8046,86.2029],13);
+<title>BDPH Premium Playback</title>
 
-/* =========================================
-   MAP MODES
-========================================= */
+<!-- LEAFLET CSS -->
 
-/* NORMAL */
+<link rel="stylesheet"
+href="https://unpkg.com/leaflet/dist/leaflet.css"/>
 
-const normal = L.tileLayer(
-'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-{
-attribution:'© OpenStreetMap'
-}
-).addTo(map);
+<!-- YOUR CSS -->
 
-/* TERRAIN */
+<link rel="stylesheet"
+href="track-history.css">
 
-const terrain = L.tileLayer(
-'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
-{
-attribution:'© OpenTopoMap'
-}
-);
+</head>
 
-/* SATELLITE */
+<body>
 
-const satellite = L.tileLayer(
-'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-{
-attribution:'© Esri'
-}
-);
+<!-- HEADER -->
 
-/* DARK */
+<div class="header">
 
-const dark = L.tileLayer(
-'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-{
-attribution:'© CARTO'
-}
-);
+<div class="leftHeader">
 
-/* LAYER CONTROL */
-
-L.control.layers({
-"Normal":normal,
-"Terrain":terrain,
-"Satellite":satellite,
-"Dark":dark
-}).addTo(map);
-
-/* =========================================
-   ROUTE DATA
-========================================= */
-
-const route = [
-
-{
-latlng:[22.8046,86.2029],
-speed:20,
-time:"08:00"
-},
-
-{
-latlng:[22.8056,86.2040],
-speed:35,
-time:"08:05"
-},
-
-{
-latlng:[22.8072,86.2058],
-speed:48,
-time:"08:10"
-},
-
-{
-latlng:[22.8090,86.2080],
-speed:62,
-time:"08:15"
-},
-
-{
-latlng:[22.8108,86.2100],
-speed:85,
-time:"08:20",
-event:"Overspeed"
-},
-
-{
-latlng:[22.8125,86.2135],
-speed:0,
-time:"08:30",
-event:"Vehicle Stop"
-},
-
-{
-latlng:[22.8140,86.2170],
-speed:20,
-time:"08:40",
-event:"Harsh Brake"
-},
-
-{
-latlng:[22.8170,86.2200],
-speed:38,
-time:"08:50"
-}
-
-];
-
-/* =========================================
-   ROUTE COLOR LOGIC
-========================================= */
-
-function getRouteColor(speed){
-
-if(speed <= 40) return "lime";
-
-if(speed <= 60) return "yellow";
-
-if(speed <= 80) return "orange";
-
-return "red";
-
-}
-
-/* =========================================
-   GLOW ROUTE
-========================================= */
-
-L.polyline(
-route.map(p=>p.latlng),
-{
-color:'#00ff88',
-weight:16,
-opacity:0.15
-}
-).addTo(map);
-
-/* =========================================
-   ROUTE DRAWING
-========================================= */
-
-for(let i=0;i<route.length-1;i++){
-
-L.polyline([
-route[i].latlng,
-route[i+1].latlng
-],{
-color:getRouteColor(route[i].speed),
-weight:6
-}).addTo(map);
-
-}
-
-/* =========================================
-   ROUTE POINTS
-========================================= */
-
-route.forEach((point)=>{
-
-L.circleMarker(point.latlng,{
-radius:4,
-color:'#00ff88',
-fillColor:'#00ff88',
-fillOpacity:1
-}).addTo(map);
-
-});
-
-/* =========================================
-   EVENT MARKERS
-========================================= */
-
-route.forEach((point)=>{
-
-if(point.event){
-
-let color = "yellow";
-
-if(point.event === "Overspeed"){
-color = "red";
-}
-
-if(point.event === "Harsh Brake"){
-color = "orange";
-}
-
-L.circleMarker(point.latlng,{
-radius:10,
-color:color,
-fillColor:color,
-fillOpacity:1
-})
-.bindPopup(`
-<b>${point.event}</b><br>
-Time : ${point.time}
-`)
-.addTo(map);
-
-}
-
-});
-
-/* =========================================
-   VEHICLE ICON
-========================================= */
-
-const truckIcon = L.icon({
-
-iconUrl:
-'https://cdn-icons-png.flaticon.com/512/744/744465.png',
-
-iconSize:[52,52],
-
-iconAnchor:[26,26]
-
-});
-
-/* =========================================
-   TRUCK MARKER
-========================================= */
-
-const truck = L.marker(route[0].latlng,{
-icon:truckIcon
-}).addTo(map);
-
-/* =========================================
-   MOVING POPUP
-========================================= */
-
-const vehiclePopup = L.popup({
-closeButton:false,
-autoClose:false,
-closeOnClick:false,
-className:'premiumPopup'
-})
-.setLatLng(route[0].latlng)
-.setContent(`
-<div style="
-min-width:180px;
-font-family:Arial;
-">
-
-<h3 style="
-margin:0;
-font-size:18px;
-">
-JH05AB1234
-</h3>
-
-<p style="
-margin:8px 0;
-color:green;
-font-weight:bold;
-">
-● Moving
-</p>
-
-<p id="popupSpeed">
-20 KM/H
-</p>
-
-<p>
-Fuel : 72%
-</p>
-
-<p>
-Driver : Active
-</p>
+<h1>
+BDPH Track Playback
+</h1>
 
 </div>
-`)
-.openOn(map);
 
-/* =========================================
-   PLAYBACK VARIABLES
-========================================= */
+<div class="controls">
 
-let currentSegment = 0;
+<button id="rewindBtn">
+⏮ Rewind
+</button>
 
-let animationProgress = 0;
+<button id="playBtn">
+▶ Play
+</button>
 
-let running = false;
+<button id="pauseBtn">
+⏸ Pause
+</button>
 
-let playbackSpeed = 1;
+<select id="speedSelect">
 
-let animationFrame;
+<option value="1">
+1X
+</option>
 
-/* =========================================
-   INTERPOLATION
-========================================= */
+<option value="2">
+2X
+</option>
 
-function interpolate(start,end,t){
+<option value="5">
+5X
+</option>
 
-return [
+<option value="10">
+10X
+</option>
 
-start[0] + (end[0]-start[0]) * t,
+</select>
 
-start[1] + (end[1]-start[1]) * t
+</div>
 
-];
+</div>
 
-}
+<!-- MAIN -->
 
-/* =========================================
-   PLAYBACK ENGINE
-========================================= */
+<div class="mainContainer">
 
-function animateTruck(){
+<!-- SIDEBAR -->
 
-if(!running) return;
+<div class="sidebar">
 
-const start = route[currentSegment];
+<!-- TRIP SUMMARY -->
 
-const end = route[currentSegment+1];
+<div class="card">
 
-if(!end){
+<h2>
+Trip Summary
+</h2>
 
-running = false;
+<div class="statRow">
+<span>Total Distance</span>
+<b>377 KM</b>
+</div>
 
-return;
+<div class="statRow">
+<span>Running Time</span>
+<b>9.5 H</b>
+</div>
 
-}
+<div class="statRow">
+<span>Idle Time</span>
+<b>1.2 H</b>
+</div>
 
-/* SPEED */
+<div class="statRow">
+<span>Average Speed</span>
+<b id="speedText">
+42 KM/H
+</b>
+</div>
 
-animationProgress += 0.004 * playbackSpeed;
+<div class="statRow">
+<span>Top Speed</span>
+<b>85 KM/H</b>
+</div>
 
-if(animationProgress >= 1){
+</div>
 
-animationProgress = 0;
+<!-- EVENTS -->
 
-currentSegment++;
+<div class="card">
 
-}
+<h2>
+Playback Events
+</h2>
 
-/* POSITION */
+<div class="alertItem red">
+Overspeed Detected
+</div>
 
-const pos = interpolate(
-start.latlng,
-end.latlng,
-animationProgress
-);
+<div class="alertItem orange">
+Harsh Braking
+</div>
 
-/* MOVE VEHICLE */
+<div class="alertItem cyan">
+Vehicle Halt
+</div>
 
-truck.setLatLng(pos);
+</div>
 
-/* MOVE POPUP */
+<!-- DRIVER SCORE -->
 
-vehiclePopup.setLatLng(pos);
+<div class="card scoreCard">
 
-/* FOLLOW VEHICLE */
+<h2>
+Driver Score
+</h2>
 
-map.panTo(pos,{
-animate:true,
-duration:0.4
-});
+<div class="scoreCircle">
+92
+</div>
 
-/* ROTATION FIX */
+</div>
 
-const icon = truck.getElement();
+</div>
 
-if(icon){
+<!-- MAP AREA -->
 
-const angle = Math.atan2(
-end.latlng[1]-start.latlng[1],
-end.latlng[0]-start.latlng[0]
-) * 180 / Math.PI;
+<div class="mapContainer">
 
-icon.style.transformOrigin =
-"center center";
+<!-- MAP -->
 
-icon.style.transition =
-"transform 0.2s linear";
+<div id="map"></div>
 
-const existingTransform =
-icon.style.transform.replace(
-/rotate\\([^)]*\\)/g,
-''
-);
+<!-- SPEEDOMETER -->
 
-icon.style.transform =
-`${existingTransform}
-rotate(${angle}deg)`;
+<div class="speedometer">
 
-}
+<span id="speedMeter">
+42
+</span>
 
-/* UPDATE SPEED */
+<span>
+KM/H
+</span>
 
-const speed = end.speed;
+</div>
 
-document.getElementById('speedText')
-.innerHTML =
-speed + ' KM/H';
+<!-- PLAYBACK PANEL -->
 
-document.getElementById('speedMeter')
-.innerHTML =
-speed;
+<div class="playbackPanel">
 
-/* UPDATE POPUP SPEED */
+<input type="range"
+id="timelineSlider"
+min="0"
+max="100"
+value="0">
 
-const popupSpeed =
-document.getElementById('popupSpeed');
+<!-- EVENT GRAPH -->
 
-if(popupSpeed){
+<div id="eventGraph">
 
-popupSpeed.innerHTML =
-speed + ' KM/H';
+<div class="graphLine"></div>
 
-}
+<div class="eventSpike red"
+style="left:55%">
+</div>
 
-/* TIMELINE */
+<div class="eventSpike orange"
+style="left:72%">
+</div>
 
-const timeline =
-((currentSegment + animationProgress)
-/(route.length-1))*100;
+<div class="eventSpike yellow"
+style="left:88%">
+</div>
 
-document.getElementById('timeline')
-.value = timeline;
+<div id="playhead"></div>
 
-/* NEXT FRAME */
+</div>
 
-animationFrame =
-requestAnimationFrame(animateTruck);
+<!-- TIMELINE -->
 
-}
+<div class="timelineInfo">
 
-/* =========================================
-   PLAY BUTTON
-========================================= */
+<span>
+Trip Start
+</span>
 
-document.getElementById('playBtn')
-.addEventListener('click',()=>{
+<span id="currentTime">
+08:00:00
+</span>
 
-if(running) return;
+<span>
+Trip End
+</span>
 
-running = true;
+</div>
 
-animateTruck();
+</div>
 
-});
+</div>
 
-/* =========================================
-   PAUSE BUTTON
-========================================= */
+</div>
 
-document.getElementById('pauseBtn')
-.addEventListener('click',()=>{
+<!-- LEAFLET JS -->
 
-running = false;
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
-cancelAnimationFrame(animationFrame);
+<!-- YOUR JS -->
 
-});
+<script src="track-history.js"></script>
 
-/* =========================================
-   REWIND BUTTON
-========================================= */
-
-document.getElementById('rewindBtn')
-.addEventListener('click',()=>{
-
-running = false;
-
-cancelAnimationFrame(animationFrame);
-
-currentSegment = 0;
-
-animationProgress = 0;
-
-truck.setLatLng(route[0].latlng);
-
-vehiclePopup.setLatLng(route[0].latlng);
-
-document.getElementById('timeline')
-.value = 0;
-
-});
-
-/* =========================================
-   SPEED CONTROL
-========================================= */
-
-document.getElementById('speedSelect')
-.addEventListener('change',(e)=>{
-
-playbackSpeed =
-Number(e.target.value);
-
-});
-
-/* =========================================
-   AUTO FIT ROUTE
-========================================= */
-
-map.fitBounds(
-L.latLngBounds(
-route.map(p=>p.latlng)
-),
-{
-padding:[50,50]
-}
-);
-
-</script>
-
+</body>
+</html>
