@@ -233,11 +233,11 @@ if(!msg) return;
 
 msg.innerHTML = text;
 
-msg.classList.add("show");
+msg.style.display = "block";
 
 setTimeout(()=>{
 
-msg.classList.remove("show");
+msg.style.display = "none";
 
 },1500);
 
