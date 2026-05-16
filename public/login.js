@@ -57,25 +57,45 @@ username === savedUser &&
 password === savedPass
 ){
 
+/* USER SESSION */
+
+const user = {
+
+username: username,
+
+role: "Admin",
+
+access: [
+"dashboard",
+"live-tracker",
+"reports",
+"fuel",
+"adblue",
+"battery",
+"tyres",
+"inventory",
+"billing",
+"vehicles",
+"users",
+"access-level"
+]
+
+};
+
+/* SAVE USER */
+
 localStorage.setItem(
-"isLoggedIn",
-"true"
+"bdph-current-user",
+JSON.stringify(user)
 );
+
+/* SUCCESS */
 
 loginMessage.innerHTML =
 "Login Successful";
 
 loginMessage.style.color =
 "#00ff88";
-
-setTimeout(()=>{
-
-window.location.href =
-"./dashboard.html";
-
-},1000);
-
-}
 
 /* REDIRECT */
 
@@ -259,7 +279,9 @@ document.querySelector(
 if(forgotBtn){
 
 forgotBtn.onclick =
-function(){
+function(e){
+
+e.preventDefault();
 
 const currentPass =
 localStorage.getItem(
