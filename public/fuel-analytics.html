@@ -1,1 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Fuel Analytics</title>
+
+  <link rel="stylesheet"
+        href="fuel-analytics.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+  <!-- SIDEBAR -->
+
+  <div class="sidebar">
+
+    <h1 class="logo">FuelAI</h1>
+
+    <div class="menu">
+
+      <a href="fuel-management.html"
+         class="menu-item">
+        Dashboard
+      </a>
+
+      <a href="fuel-entry.html"
+         class="menu-item">
+        Fuel Entry
+      </a>
+
+      <a href="vehicle-master.html"
+         class="menu-item">
+        Vehicles
+      </a>
+
+      <a href="driver-master.html"
+         class="menu-item">
+        Drivers
+      </a>
+
+      <a href="fuel-vendor.html"
+         class="menu-item">
+        Fuel Vendors
+      </a>
+
+      <a href="ai-alerts.html"
+         class="menu-item">
+        AI Alerts
+      </a>
+
+      <a href="fuel-analytics.html"
+         class="menu-item active">
+        Analytics
+      </a>
+
+      <a href="#"
+         class="menu-item">
+        Reports
+      </a>
+
+    </div>
+
+  </div>
+
+  <!-- CONTENT -->
+
+  <div class="content">
+
+    <div class="topbar">
+
+      <div>
+
+        <h2>Fuel Analytics</h2>
+
+        <p>
+          AI Fuel Trend Intelligence
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- CARDS -->
+
+    <div class="cards">
+
+      <div class="card">
+
+        <h3>Total Fuel Entries</h3>
+
+        <h1 id="totalEntries">
+          0
+        </h1>
+
+      </div>
+
+      <div class="card">
+
+        <h3>Total Fuel Used</h3>
+
+        <h1 id="totalFuel">
+          0 L
+        </h1>
+
+      </div>
+
+      <div class="card">
+
+        <h3>Average Fuel</h3>
+
+        <h1 id="averageFuel">
+          0 L
+        </h1>
+
+      </div>
+
+    </div>
+
+    <!-- CHART -->
+
+    <div class="chart-container">
+
+      <h3>Fuel Usage Trend</h3>
+
+      <canvas id="fuelChart"></canvas>
+
+    </div>
+
+    <!-- AI INSIGHT -->
+
+    <div class="insight-box"
+         id="aiInsight">
+
+    </div>
+
+  </div>
+
+</div>
+
+<script src="fuel-analytics.js"></script>
+
+</body>
+
+</html>
