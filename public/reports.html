@@ -159,7 +159,61 @@
         </article>
       </section>
     </div>
+<section class="panel section-card">
 
+  <div class="section-head">
+
+    <div>
+
+      <h3>
+        AI Fuel Intelligence Report
+      </h3>
+
+      <p class="small">
+        Monitor fuel usage, mileage prediction,
+        suspicious fueling, and AI operational risks.
+      </p>
+
+    </div>
+
+    <button
+      class="btn btn-primary"
+      onclick="downloadFuelAiReport()">
+
+      Download Fuel Report
+
+    </button>
+
+  </div>
+
+  <div class="table-wrap">
+
+    <table>
+
+      <thead>
+
+        <tr>
+
+          <th>Vehicle</th>
+          <th>Driver</th>
+          <th>Fuel</th>
+          <th>Mileage</th>
+          <th>Risk</th>
+          <th>AI Status</th>
+
+        </tr>
+
+      </thead>
+
+      <tbody id="fuelAiReportTable">
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</section>
     <script src="/common.js"></script>
     <script src="/reports.js"></script>
   </body>
