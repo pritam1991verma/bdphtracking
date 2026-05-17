@@ -1,12 +1,7 @@
-const trackingMap =
-document.getElementById(
-"trackingMap"
-);
+/* =========================================
+   FETCH DATA
+========================================= */
 
-const vehicleStatus =
-document.getElementById(
-"vehicleStatus"
-);
 const fuelEntries =
 JSON.parse(
 localStorage.getItem(
@@ -14,113 +9,126 @@ localStorage.getItem(
 )
 ) || [];
 
-const vehicles = [];
-
-fuelEntries.forEach((entry,index)=>{
-
-const x =
-Math.random() * 85;
-
-const y =
-Math.random() * 80;
-
-const highRisk =
-entry.fuel > 120;
-
-vehicles.push({
-
-vehicle:
-entry.vehicle,
-
-driver:
-entry.driver,
-
-fuel:
-entry.fuel,
-
-x,
-y,
-
-highRisk
-
-});
-
-});
-
 /* =========================================
-   CREATE VEHICLES
+   ELEMENTS
 ========================================= */
 
-vehicles.forEach(vehicle=>{
+const vehicleStatus =
+document.getElementById(
+"vehicleStatus"
+);
 
-const dot =
-document.createElement("div");
+const liveCount =
+document.getElementById(
+"liveCount"
+);
 
-dot.className =
-vehicle.highRisk
-? "vehicle-dot high-risk-dot"
-: "vehicle-dot";
+const movingCount =
+document.getElementById(
+"movingCount"
+);
 
-dot.style.left =
-vehicle.x + "%";
+const riskCount =
+document.getElementById(
+"riskCount"
+);
 
-dot.style.top =
-vehicle.y + "%";
+/* =========================================
+   METRICS
+========================================= */
 
-const label =
-document.createElement("div");
+liveCount.innerText =
+fuelEntries.length || 0;
 
-label.className =
-"vehicle-label";
+movingCount.innerText =
+Math.max(
+1,
+Math.floor(
+fuelEntries.length * 0.7
+)
+);
 
-label.style.left =
-(vehicle.x + 2) + "%";
+let highRisk = 0;
 
-label.style.top =
-(vehicle.y + 2) + "%";
+/* =========================================
+   VEHICLE CARDS
+========================================= */
 
-label.innerHTML = `
+fuelEntries.forEach(entry=>{
 
-<strong>
-${vehicle.vehicle}
-</strong>
+let status =
+"Stable";
 
-<br>
+let riskClass =
+"#00ff88";
 
-Driver :
-${vehicle.driver}
+let aiMessage =
+"AI tracking normal.";
 
-`;
+if(entry.fuel > 120){
 
-trackingMap.appendChild(dot);
+status =
+"High Risk";
 
-trackingMap.appendChild(label);
+riskClass =
+"#ff1744";
 
-/* STATUS */
+aiMessage =
+"Possible fuel theft detected.";
+
+highRisk++;
+
+}
+
+else if(entry.fuel > 80){
+
+status =
+"Medium Risk";
+
+riskClass =
+"#ff9800";
+
+aiMessage =
+"Fuel above expected usage.";
+
+}
+
+/* CARD */
 
 vehicleStatus.innerHTML += `
 
-<div class="list-item">
+<div class="vehicle-card">
 
 <strong>
-${vehicle.vehicle}
+${entry.vehicle}
 </strong>
 
 <p>
-Driver :
-${vehicle.driver}
+👨 Driver :
+${entry.driver}
 </p>
 
 <p>
-Fuel :
-${vehicle.fuel} L
+⛽ Fuel :
+${entry.fuel} L
 </p>
 
 <p>
-Status :
-${vehicle.highRisk
-? "⚠ High Risk"
-: "✅ Stable"}
+📈 Mileage :
+${entry.efficiency} km/L
+</p>
+
+<p style="
+color:${riskClass};
+font-weight:700;
+">
+
+⚡ ${status}
+
+</p>
+
+<p>
+🤖 ${aiMessage}
 </p>
 
 </div>
@@ -130,24 +138,121 @@ ${vehicle.highRisk
 });
 
 /* =========================================
-   MOVEMENT
+   RISK COUNT
 ========================================= */
 
-setInterval(()=>{
+riskCount.innerText =
+highRisk;
+
+/* =========================================
+   LIVE DOT MOVEMENT
+========================================= */
 
 const dots =
 document.querySelectorAll(
 ".vehicle-dot"
 );
 
+setInterval(()=>{
+
 dots.forEach(dot=>{
 
+const x =
+Math.random() * 80;
+
+const y =
+Math.random() * 80;
+
 dot.style.left =
-(Math.random() * 85) + "%";
+x + "%";
 
 dot.style.top =
-(Math.random() * 80) + "%";
+y + "%";
 
 });
 
 },4000);
+
+/* =========================================
+   AI ALERT ROTATION
+========================================= */
+
+const aiAlerts =
+document.getElementById(
+"aiAlerts"
+);
+
+const dynamicAlerts = [
+
+"🚨 AI predicts abnormal fuel trend in 3 vehicles",
+
+"⚡ Possible nighttime fuel extraction detected",
+
+"📡 Vehicle stopped outside route corridor",
+
+"🛰 AI detected inconsistent mileage pattern",
+
+"⛽ Fuel refill frequency increased by 12%",
+
+"🤖 Predictive AI suggests engine inspection"
+
+];
+
+let alertIndex = 0;
+
+setInterval(()=>{
+
+const newAlert =
+document.createElement("div");
+
+newAlert.className =
+"alert info";
+
+newAlert.innerText =
+dynamicAlerts[alertIndex];
+
+aiAlerts.prepend(
+newAlert
+);
+
+if(aiAlerts.children.length > 6){
+
+aiAlerts.removeChild(
+aiAlerts.lastChild
+);
+
+}
+
+alertIndex++;
+
+if(alertIndex >= dynamicAlerts.length){
+
+alertIndex = 0;
+
+}
+
+},6000);
+
+/* =========================================
+   LIVE CLOCK
+========================================= */
+
+const heroLive =
+document.querySelector(
+".hero-live"
+);
+
+setInterval(()=>{
+
+const time =
+new Date().toLocaleTimeString();
+
+heroLive.innerHTML = `
+
+<div class="pulse"></div>
+
+LIVE ACTIVE • ${time}
+
+`;
+
+},1000);
