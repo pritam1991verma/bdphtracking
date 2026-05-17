@@ -1,1 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<script src="/auth.js"></script>
+
+<title>
+BDPH AI Command Center
+</title>
+
+<link rel="stylesheet"
+href="/styles.css">
+
+</head>
+
+<body>
+
+<div class="shell">
+
+<div id="topbarMount"></div>
+
+<!-- HERO -->
+
+<section class="page-hero">
+
+<div>
+
+<span class="hero-kicker">
+AI COMMAND CENTER
+</span>
+
+<h1>
+BDPH Fleet Intelligence
+</h1>
+
+<p>
+Real-time AI operational monitoring
+for fleet, fuel, drivers, and risks.
+</p>
+
+</div>
+
+</section>
+
+<!-- METRICS -->
+
+<section class="stats-grid"
+id="commandMetrics">
+
+</section>
+
+<!-- AI ALERTS -->
+
+<section class="panel section-card">
+
+<div class="section-head">
+
+<div>
+
+<h3>
+Critical AI Alerts
+</h3>
+
+<p class="small">
+High priority operational risks.
+</p>
+
+</div>
+
+</div>
+
+<div class="list-stack"
+id="criticalAlerts">
+
+</div>
+
+</section>
+
+<!-- DRIVER PERFORMANCE -->
+
+<section class="panel section-card">
+
+<div class="section-head">
+
+<div>
+
+<h3>
+Top Driver Intelligence
+</h3>
+
+<p class="small">
+AI ranking based on efficiency.
+</p>
+
+</div>
+
+</div>
+
+<div class="list-stack"
+id="topDrivers">
+
+</div>
+
+</section>
+
+<!-- SUSPICIOUS ACTIVITY -->
+
+<section class="panel section-card">
+
+<div class="section-head">
+
+<div>
+
+<h3>
+Suspicious Fuel Activity
+</h3>
+
+<p class="small">
+AI theft and abnormal fueling detection.
+</p>
+
+</div>
+
+</div>
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Vehicle</th>
+<th>Driver</th>
+<th>Fuel</th>
+<th>Risk</th>
+
+</tr>
+
+</thead>
+
+<tbody id="suspiciousTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+</div>
+
+<script src="/common.js"></script>
+
+<script src="/command-center.js"></script>
+
+</body>
+
+</html>
