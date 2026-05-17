@@ -1,1 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>AI Intelligence</title>
+
+  <link rel="stylesheet"
+        href="ai-intelligence.css">
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+  <!-- SIDEBAR -->
+
+  <div class="sidebar">
+
+    <h1 class="logo">FuelAI</h1>
+
+    <div class="menu">
+
+      <a href="fuel-management.html"
+         class="menu-item">
+        Dashboard
+      </a>
+
+      <a href="fuel-entry.html"
+         class="menu-item">
+        Fuel Entry
+      </a>
+
+      <a href="vehicle-master.html"
+         class="menu-item">
+        Vehicles
+      </a>
+
+      <a href="driver-master.html"
+         class="menu-item">
+        Drivers
+      </a>
+
+      <a href="fuel-vendor.html"
+         class="menu-item">
+        Fuel Vendors
+      </a>
+
+      <a href="ai-alerts.html"
+         class="menu-item">
+        AI Alerts
+      </a>
+
+      <a href="fuel-analytics.html"
+         class="menu-item">
+        Analytics
+      </a>
+
+      <a href="ai-intelligence.html"
+         class="menu-item active">
+        AI Intelligence
+      </a>
+
+    </div>
+
+  </div>
+
+  <!-- CONTENT -->
+
+  <div class="content">
+
+    <div class="topbar">
+
+      <div>
+
+        <h2>AI Intelligence Center</h2>
+
+        <p>
+          Mileage Prediction & Theft Detection
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- SUMMARY -->
+
+    <div class="cards">
+
+      <div class="card">
+
+        <h3>Average Mileage</h3>
+
+        <h1 id="avgMileage">
+          0
+        </h1>
+
+      </div>
+
+      <div class="card">
+
+        <h3>High Risk Vehicles</h3>
+
+        <h1 id="highRisk">
+          0
+        </h1>
+
+      </div>
+
+      <div class="card">
+
+        <h3>Predicted Efficiency</h3>
+
+        <h1 id="prediction">
+          0
+        </h1>
+
+      </div>
+
+    </div>
+
+    <!-- AI RESULTS -->
+
+    <div id="aiResults"
+         class="results-container">
+
+    </div>
+
+  </div>
+
+</div>
+
+<script src="ai-intelligence.js"></script>
+
+</body>
+
+</html>
