@@ -1,142 +1,122 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-<meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<script src="/auth.js"></script>
-
-<title>
-AI Live Tracking
-</title>
-
-<link rel="stylesheet"
-href="/styles.css">
-
-</head>
-
 <body>
 
-<div class="ai-background"></div>
+<div class="tracking-page">
 
-<div class="shell">
+<header class="tracking-hero">
 
-<div id="topbarMount"></div>
+<div>
 
-<!-- HERO -->
-
-<section class="ai-hero">
-
-<div class="hero-left">
-
-<div class="live-badge">
-
-<span class="pulse"></span>
-
+<span class="hero-tag">
 LIVE GPS AI
-
-</div>
+</span>
 
 <h1>
 AI Fleet Tracking
 </h1>
 
 <p>
-Real-time AI operational movement
-simulation with smart risk tracking.
+Real-time AI operational movement simulation with smart risk tracking.
 </p>
 
 </div>
 
-<div class="hero-right">
+<div class="hero-live">
 
-<div class="ai-orb">
+<div class="pulse"></div>
 
-<div class="inner-orb"></div>
+LIVE ACTIVE
 
 </div>
 
+</header>
+
+<!-- TOP STATS -->
+
+<section class="tracking-stats">
+
+<div class="track-card blue">
+<h3>Vehicles Live</h3>
+<strong id="liveCount">12</strong>
+</div>
+
+<div class="track-card cyan">
+<h3>Moving</h3>
+<strong id="movingCount">08</strong>
+</div>
+
+<div class="track-card red">
+<h3>AI Alerts</h3>
+<strong id="riskCount">03</strong>
+</div>
+
+<div class="track-card green">
+<h3>Fleet Health</h3>
+<strong>92%</strong>
 </div>
 
 </section>
+
+<!-- MAP + SIDE -->
+
+<section class="tracking-grid">
 
 <!-- MAP -->
 
-<section class="glass-panel">
+<div class="map-panel">
 
-<div class="panel-head">
+<div class="panel-title">
+AI Smart Radar
+</div>
 
-<h3>
-Live Vehicle Grid
-</h3>
+<div id="trackingMap">
 
-<span>
-TRACKING
-</span>
+<div class="radar"></div>
+
+<div class="vehicle-dot v1"></div>
+<div class="vehicle-dot v2"></div>
+<div class="vehicle-dot v3"></div>
+<div class="vehicle-dot v4"></div>
 
 </div>
 
-<div class="tracking-map"
-id="trackingMap">
+</div>
 
-<!-- VEHICLES -->
+<!-- LIVE VEHICLES -->
+
+<div class="vehicle-panel">
+
+<div class="panel-title">
+Live Vehicles
+</div>
+
+<div id="vehicleStatus">
+
+</div>
 
 </div>
 
 </section>
 
-<!-- LIVE STATUS -->
+<!-- AI ALERTS -->
 
-<section class="dual-grid">
+<section class="ai-alert-section">
 
-<div class="glass-panel">
-
-<div class="panel-head">
-
-<h3>
-Vehicle Status
-</h3>
-
-<span>
-LIVE
-</span>
-
+<div class="panel-title">
+AI Suspicious Activities
 </div>
 
-<div id="vehicleStatus"
-class="alert-stack">
+<div id="aiAlerts">
 
+<div class="alert danger">
+⚠ Excess fuel usage detected in JH16G1234
 </div>
 
+<div class="alert warning">
+⚡ Vehicle stopped unusually for 48 mins
 </div>
 
-<div class="glass-panel">
-
-<div class="panel-head">
-
-<h3>
-AI Radar
-</h3>
-
-<span>
-ACTIVE
-</span>
-
-</div>
-
-<div class="radar-box">
-
-<div class="radar-circle"></div>
-
-<div class="radar-circle delay1"></div>
-
-<div class="radar-circle delay2"></div>
-
-<div class="radar-dot"></div>
-
+<div class="alert info">
+📡 GPS signal weak in 2 vehicles
 </div>
 
 </div>
@@ -145,12 +125,6 @@ ACTIVE
 
 </div>
 
-<script src="/common.js"></script>
-
-<script src="/live-tracking.js"></script>
-
-<script src="/ai-assistant.js"></script>
+<script src="live-tracking.js"></script>
 
 </body>
-
-</html>
