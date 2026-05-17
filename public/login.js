@@ -66,6 +66,7 @@ username: username,
 role: "Admin",
 
 access: [
+
 "dashboard",
 "live-tracker",
 "reports",
@@ -77,7 +78,20 @@ access: [
 "billing",
 "vehicles",
 "users",
-"access-level"
+"access-level",
+
+/* FUEL AI MODULES */
+
+"fuel-management",
+"fuel-entry",
+"vehicle-master",
+"driver-master",
+"fuel-vendor",
+"ai-alerts",
+"fuel-analytics",
+"ai-intelligence",
+"driver-ai"
+
 ]
 
 };
