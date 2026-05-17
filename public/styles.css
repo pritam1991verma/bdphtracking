@@ -3422,3 +3422,170 @@ linear-gradient(
 font-weight:700;
 cursor:pointer;
 }
+  /* =========================================
+   LIVE TRACKING
+========================================= */
+
+.tracking-map{
+height:520px;
+border-radius:28px;
+background:
+linear-gradient(
+135deg,
+#07111f,
+#081b2e
+);
+
+position:relative;
+overflow:hidden;
+margin-top:20px;
+border:
+1px solid rgba(255,255,255,0.06);
+}
+
+/* GRID */
+
+.tracking-map::before{
+
+content:"";
+
+position:absolute;
+inset:0;
+
+background-image:
+linear-gradient(
+rgba(255,255,255,0.03) 1px,
+transparent 1px
+),
+
+linear-gradient(
+90deg,
+rgba(255,255,255,0.03) 1px,
+transparent 1px
+);
+
+background-size:40px 40px;
+
+}
+
+/* VEHICLE */
+
+.vehicle-dot{
+
+position:absolute;
+
+width:22px;
+height:22px;
+
+border-radius:50%;
+
+background:#00ff88;
+
+box-shadow:
+0 0 20px rgba(0,255,136,0.8);
+
+animation:pulse 2s infinite;
+
+transition:1s linear;
+
+}
+
+.vehicle-label{
+
+position:absolute;
+
+padding:10px 14px;
+
+border-radius:14px;
+
+background:
+rgba(0,0,0,0.6);
+
+font-size:12px;
+
+white-space:nowrap;
+
+backdrop-filter:blur(10px);
+
+border:
+1px solid rgba(255,255,255,0.08);
+
+}
+
+/* HIGH RISK */
+
+.high-risk-dot{
+
+background:#ff1744;
+
+box-shadow:
+0 0 20px rgba(255,23,68,0.9);
+
+}
+
+/* RADAR */
+
+.radar-box{
+
+height:300px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+position:relative;
+
+}
+
+.radar-circle{
+
+position:absolute;
+
+width:120px;
+height:120px;
+
+border-radius:50%;
+
+border:
+2px solid rgba(0,212,255,0.4);
+
+animation:radarPulse 3s infinite;
+
+}
+
+.delay1{
+animation-delay:1s;
+}
+
+.delay2{
+animation-delay:2s;
+}
+
+.radar-dot{
+
+width:22px;
+height:22px;
+
+border-radius:50%;
+
+background:#00ff88;
+
+box-shadow:
+0 0 25px rgba(0,255,136,0.9);
+
+z-index:2;
+
+}
+
+@keyframes radarPulse{
+
+0%{
+transform:scale(0.4);
+opacity:1;
+}
+
+100%{
+transform:scale(2.2);
+opacity:0;
+}
+
