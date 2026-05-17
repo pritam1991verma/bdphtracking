@@ -1,1 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Fuel Vendor</title>
+
+  <link rel="stylesheet"
+        href="fuel-vendor.css">
+
+</head>
+
+<body>
+
+<div class="main-container">
+
+  <!-- SIDEBAR -->
+
+  <div class="sidebar">
+
+    <h1 class="logo">FuelAI</h1>
+
+    <div class="menu">
+
+      <a href="fuel-management.html"
+         class="menu-item">
+        Dashboard
+      </a>
+
+      <a href="fuel-entry.html"
+         class="menu-item">
+        Fuel Entry
+      </a>
+
+      <a href="vehicle-master.html"
+         class="menu-item">
+        Vehicles
+      </a>
+
+      <a href="driver-master.html"
+         class="menu-item">
+        Drivers
+      </a>
+
+      <a href="fuel-vendor.html"
+         class="menu-item active">
+        Fuel Vendors
+      </a>
+
+      <a href="#"
+         class="menu-item">
+        AI Alerts
+      </a>
+
+      <a href="#"
+         class="menu-item">
+        Analytics
+      </a>
+
+      <a href="#"
+         class="menu-item">
+        Reports
+      </a>
+
+    </div>
+
+  </div>
+
+  <!-- CONTENT -->
+
+  <div class="content">
+
+    <div class="topbar">
+
+      <div>
+
+        <h2>Fuel Vendor Management</h2>
+
+        <p>
+          Pump & Fuel Vendor Intelligence
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- FORM -->
+
+    <div class="form-container">
+
+      <h3>Add Fuel Vendor</h3>
+
+      <div class="form-grid">
+
+        <input id="vendorName"
+               placeholder="Vendor Name">
+
+        <input id="location"
+               placeholder="Location">
+
+        <input id="fuelRate"
+               placeholder="Fuel Rate">
+
+        <input id="contact"
+               placeholder="Contact Number">
+
+      </div>
+
+      <button onclick="saveVendor()">
+        Save Vendor
+      </button>
+
+    </div>
+
+    <!-- TABLE -->
+
+    <div class="table-container">
+
+      <h3>Fuel Vendor List</h3>
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>Vendor</th>
+            <th>Location</th>
+            <th>Fuel Rate</th>
+            <th>Contact</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody id="vendorTable">
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script src="fuel-vendor.js"></script>
+
+</body>
+
+</html>
