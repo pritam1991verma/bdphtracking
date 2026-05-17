@@ -4866,3 +4866,11 @@ opacity:0;
 }
 
 }
+  .leaflet-container{
+
+filter:
+brightness(0.45)
+contrast(1.2)
+saturate(0.7);
+
+}
