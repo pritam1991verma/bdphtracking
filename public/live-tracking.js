@@ -7,7 +7,6 @@ const vehicleStatus =
 document.getElementById(
 "vehicleStatus"
 );
-
 const fuelEntries =
 JSON.parse(
 localStorage.getItem(
