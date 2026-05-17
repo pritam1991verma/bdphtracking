@@ -4113,5 +4113,122 @@ gap:30px;
 .tracking-hero h1{
 font-size:48px;
 }
+/* =========================================
+   TRACKING FIX
+========================================= */
 
+.tracking-grid{
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:30px;
+margin-top:30px;
+align-items:start;
+}
+
+.map-panel,
+.vehicle-panel,
+.ai-alert-section{
+background:
+rgba(255,255,255,0.05);
+
+border:
+1px solid rgba(255,255,255,0.08);
+
+border-radius:28px;
+
+padding:24px;
+
+backdrop-filter:blur(16px);
+}
+
+/* MAP */
+
+#trackingMap{
+height:600px;
+width:100%;
+border-radius:24px;
+overflow:hidden;
+position:relative;
+margin-top:20px;
+}
+
+/* REAL MAP */
+
+#fleetMap{
+height:100%;
+width:100%;
+border-radius:24px;
+z-index:1;
+}
+
+/* VEHICLE CARDS */
+
+#vehicleStatus{
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+
+.vehicle-card{
+padding:20px;
+border-radius:22px;
+
+background:
+rgba(255,255,255,0.05);
+
+border:
+1px solid rgba(255,255,255,0.05);
+
+transition:0.3s;
+}
+
+.vehicle-card:hover{
+transform:translateX(8px);
+background:
+rgba(255,255,255,0.08);
+}
+
+/* ALERTS */
+
+#aiAlerts{
+display:flex;
+flex-direction:column;
+gap:16px;
+margin-top:20px;
+}
+
+.alert{
+padding:18px;
+border-radius:18px;
+font-weight:600;
+}
+
+.danger{
+background:
+rgba(255,23,68,0.14);
+border-left:
+5px solid #ff1744;
+}
+
+.warning{
+background:
+rgba(255,152,0,0.14);
+border-left:
+5px solid #ff9800;
+}
+
+.info{
+background:
+rgba(0,212,255,0.14);
+border-left:
+5px solid #00d4ff;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+
+.tracking-grid{
+grid-template-columns:1fr;
+}
 
