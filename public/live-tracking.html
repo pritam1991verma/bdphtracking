@@ -1,3 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+AI Fleet Tracking
+</title>
+
+<link
+rel="stylesheet"
+href="https://unpkg.com/leaflet/dist/leaflet.css"
+/>
+
+<script
+src="https://unpkg.com/leaflet/dist/leaflet.js">
+</script>
+
+<link
+rel="stylesheet"
+href="./styles.css">
+
+</head>
+
 <body>
 
 <div class="tracking-page">
@@ -35,28 +64,56 @@ LIVE ACTIVE
 <section class="tracking-stats">
 
 <div class="track-card blue">
-<h3>Vehicles Live</h3>
-<strong id="liveCount">12</strong>
+
+<h3>
+Vehicles Live
+</h3>
+
+<strong id="liveCount">
+12
+</strong>
+
 </div>
 
 <div class="track-card cyan">
-<h3>Moving</h3>
-<strong id="movingCount">08</strong>
+
+<h3>
+Moving
+</h3>
+
+<strong id="movingCount">
+08
+</strong>
+
 </div>
 
 <div class="track-card red">
-<h3>AI Alerts</h3>
-<strong id="riskCount">03</strong>
+
+<h3>
+AI Alerts
+</h3>
+
+<strong id="riskCount">
+03
+</strong>
+
 </div>
 
 <div class="track-card green">
-<h3>Fleet Health</h3>
-<strong>92%</strong>
+
+<h3>
+Fleet Health
+</h3>
+
+<strong>
+92%
+</strong>
+
 </div>
 
 </section>
 
-<!-- MAP + SIDE -->
+<!-- GRID -->
 
 <section class="tracking-grid">
 
@@ -70,12 +127,7 @@ AI Smart Radar
 
 <div id="trackingMap">
 
-<div class="radar"></div>
-
-<div class="vehicle-dot v1"></div>
-<div class="vehicle-dot v2"></div>
-<div class="vehicle-dot v3"></div>
-<div class="vehicle-dot v4"></div>
+<div id="fleetMap"></div>
 
 </div>
 
@@ -97,7 +149,7 @@ Live Vehicles
 
 </section>
 
-<!-- AI ALERTS -->
+<!-- ALERTS -->
 
 <section class="ai-alert-section">
 
@@ -125,6 +177,10 @@ AI Suspicious Activities
 
 </div>
 
-<script src="live-tracking.js"></script>
+<script src="./live-tracking.js"></script>
+
+<script src="./ai-assistant.js"></script>
 
 </body>
+
+</html>
