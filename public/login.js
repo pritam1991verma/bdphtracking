@@ -102,7 +102,10 @@ localStorage.setItem(
 "bdph-current-user",
 JSON.stringify(user)
 );
-
+localStorage.setItem(
+"fuelAiLoggedIn",
+"true"
+);
 /* SUCCESS */
 
 loginMessage.innerHTML =
