@@ -749,7 +749,7 @@ function getInventoryLedgerReports() {
         vehicle_no: vehicle.vehicle_no,
         label: vehicle.label,
         type: vehicle.type,
-        vehicleHealth: formatStatus(vehicle.status),
+        vehicleHealth: String(vehicle.status || "").toUpperCase(),
         ...item,
       })),
     )
