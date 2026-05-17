@@ -61,16 +61,20 @@ const map = L.map('map').setView(
 
 <script>
 
+<script>
+
 const map = L.map('map').setView(
 [23.8103,86.4126],
 6
 );
 
+/* NORMAL MAP */
+
 L.tileLayer(
 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
 {
-attribution:'BDPH AI',
-maxZoom:19
+maxZoom:19,
+attribution:'BDPH'
 }
 ).addTo(map);
 
@@ -101,49 +105,28 @@ risk:false
 
 ];
 
+/* MARKERS */
+
 vehicles.forEach(vehicle=>{
+
 const markerHtml = `
 
 <div style="
 position:relative;
-width:22px;
-height:22px;
+width:20px;
+height:20px;
 ">
 
 <div style="
 position:absolute;
 inset:0;
-
 border-radius:50%;
-
 background:
-${vehicle.risk
-? '#ff1744'
-: '#00ff88'};
+${vehicle.risk ? '#ff1744' : '#00ff88'};
 
 box-shadow:
-0 0 20px
-${vehicle.risk
-? '#ff1744'
-: '#00ff88'};
-
-animation:pulse 1.5s infinite;
-"></div>
-
-<div style="
-position:absolute;
-inset:-10px;
-
-border-radius:50%;
-
-border:2px solid
-${vehicle.risk
-? '#ff1744'
-: '#00ff88'};
-
-opacity:0.4;
-
-animation:ring 2s infinite;
+0 0 18px
+${vehicle.risk ? '#ff1744' : '#00ff88'};
 "></div>
 
 </div>
@@ -156,10 +139,7 @@ html: markerHtml,
 
 className:"",
 
-iconSize:[22,22]
-
-});
-
+iconSize:[20,20]
 
 });
 
