@@ -4154,9 +4154,6 @@ margin-top:20px;
 
 /* REAL MAP */
 
-#fleetMap{
-height:100%;
-width:100%;
 border-radius:24px;
 z-index:1;
 }
