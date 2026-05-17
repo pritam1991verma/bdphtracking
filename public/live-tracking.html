@@ -63,12 +63,12 @@ const map = L.map('map').setView(
 
 <script>
 
+<script>
+
 const map = L.map('map').setView(
 [23.8103,86.4126],
 6
 );
-
-/* NORMAL MAP */
 
 L.tileLayer(
 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -78,84 +78,36 @@ attribution:'BDPH'
 }
 ).addTo(map);
 
-/* VEHICLES */
-
 const vehicles = [
 
 {
 name:"JH16G1234",
 lat:23.8,
-lng:86.4,
-risk:true
+lng:86.4
 },
 
 {
 name:"BR01AB1234",
 lat:24.2,
-lng:85.9,
-risk:false
-},
-
-{
-name:"WB22XZ8899",
-lat:22.9,
-lng:87.1,
-risk:false
+lng:85.9
 }
 
 ];
 
-/* MARKERS */
-
 vehicles.forEach(vehicle=>{
 
-const markerHtml = `
-
-<div style="
-position:relative;
-width:20px;
-height:20px;
-">
-
-<div style="
-position:absolute;
-inset:0;
-border-radius:50%;
-background:
-${vehicle.risk ? '#ff1744' : '#00ff88'};
-
-box-shadow:
-0 0 18px
-${vehicle.risk ? '#ff1744' : '#00ff88'};
-"></div>
-
-</div>
-
-`;
-
-const icon = L.divIcon({
-
-html: markerHtml,
-
-className:"",
-
-iconSize:[20,20]
-
-});
-
-L.marker(
-[
+L.marker([
 vehicle.lat,
 vehicle.lng
-],
-{
-icon
-}
-)
+])
 
 .addTo(map)
 
-.bindPopup(`
+.bindPopup(vehicle.name);
+
+});
+
+</script>
 
 <h3>
 ${vehicle.name}
