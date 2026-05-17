@@ -1,193 +1,154 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
+
+<title>
+Live Tracking
+</title>
 
 <meta charset="UTF-8">
 
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>
-AI Fleet Tracking
-</title>
-
 <link
 rel="stylesheet"
 href="https://unpkg.com/leaflet/dist/leaflet.css"
 />
 
-<script
-src="https://unpkg.com/leaflet/dist/leaflet.js">
-</script>
+<style>
 
-<link
-rel="stylesheet"
-href="./styles.css">
+body{
+margin:0;
+background:#07111f;
+font-family:Arial;
+color:white;
+}
+
+header{
+padding:25px;
+font-size:34px;
+font-weight:bold;
+background:#081b2d;
+}
+
+#map{
+height:100vh;
+width:100%;
+}
+
+</style>
 
 </head>
 
 <body>
 
-<div class="tracking-page">
-
-<header class="tracking-hero">
-
-<div>
-
-<span class="hero-tag">
-LIVE GPS AI
-</span>
-
-<h1>
-AI Fleet Tracking
-</h1>
-
-<p>
-Real-time AI operational movement simulation with smart risk tracking.
-</p>
-
-</div>
-
-<div class="hero-live">
-
-<div class="pulse"></div>
-
-LIVE ACTIVE
-
-</div>
-
+<header>
+🚛 BDPH AI LIVE TRACKING
 </header>
 
-<!-- TOP STATS -->
+<div id="map"></div>
 
-<section class="tracking-stats">
+<script
+src="https://unpkg.com/leaflet/dist/leaflet.js">
+</script>
 
-<div class="track-card blue">
+<script>
+
+const map = L.map('map').setView(
+[23.8103,86.4126],
+6
+);
+
+L.tileLayer(
+'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+{
+attribution:'BDPH'
+}
+).addTo(map);
+
+/* VEHICLES */
+
+const vehicles = [
+
+{
+name:"JH16G1234",
+lat:23.8,
+lng:86.4,
+risk:true
+},
+
+{
+name:"BR01AB1234",
+lat:24.2,
+lng:85.9,
+risk:false
+},
+
+{
+name:"WB22XZ8899",
+lat:22.9,
+lng:87.1,
+risk:false
+}
+
+];
+
+vehicles.forEach(vehicle=>{
+
+const color =
+vehicle.risk
+? "red"
+: "lime";
+
+const icon = L.divIcon({
+
+html:`
+
+<div style="
+width:18px;
+height:18px;
+background:${color};
+border-radius:50%;
+border:3px solid white;
+box-shadow:0 0 20px ${color};
+"></div>
+
+`,
+
+className:"",
+iconSize:[20,20]
+
+});
+
+L.marker(
+[
+vehicle.lat,
+vehicle.lng
+],
+{
+icon
+}
+)
+
+.addTo(map)
+
+.bindPopup(`
 
 <h3>
-Vehicles Live
+${vehicle.name}
 </h3>
 
-<strong id="liveCount">
-12
-</strong>
+<p>
+AI Tracking Active
+</p>
 
-</div>
+`);
 
-<div class="track-card cyan">
+});
 
-<h3>
-Moving
-</h3>
-
-<strong id="movingCount">
-08
-</strong>
-
-</div>
-
-<div class="track-card red">
-
-<h3>
-AI Alerts
-</h3>
-
-<strong id="riskCount">
-03
-</strong>
-
-</div>
-
-<div class="track-card green">
-
-<h3>
-Fleet Health
-</h3>
-
-<strong>
-92%
-</strong>
-
-</div>
-
-</section>
-
-<!-- GRID -->
-
-<section class="tracking-grid">
-
-<!-- MAP -->
-
-<div class="map-panel">
-
-<div class="panel-title">
-AI Smart Radar
-</div>
-
-<div id="trackingMap">
-
-<div
-id="fleetMap"
-style="
-height:600px;
-width:100%;
-border-radius:24px;
-overflow:hidden;
-">
-</div>
-
-</div>
-
-</div>
-
-<!-- LIVE VEHICLES -->
-
-<div class="vehicle-panel">
-
-<div class="panel-title">
-Live Vehicles
-</div>
-
-<div id="vehicleStatus">
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ALERTS -->
-
-<section class="ai-alert-section">
-
-<div class="panel-title">
-AI Suspicious Activities
-</div>
-
-<div id="aiAlerts">
-
-<div class="alert danger">
-⚠ Excess fuel usage detected in JH16G1234
-</div>
-
-<div class="alert warning">
-⚡ Vehicle stopped unusually for 48 mins
-</div>
-
-<div class="alert info">
-📡 GPS signal weak in 2 vehicles
-</div>
-
-</div>
-
-</section>
-
-</div>
-
-<script src="./live-tracking.js"></script>
-
-<script src="./ai-assistant.js"></script>
+</script>
 
 </body>
 
