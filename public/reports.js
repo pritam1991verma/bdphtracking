@@ -151,3 +151,146 @@ async function loadReports() {
 }
 
 loadReports();
+/* =========================================
+   FUEL AI REPORT
+========================================= */
+
+const fuelAiTable =
+document.getElementById(
+"fuelAiReportTable"
+);
+
+if(fuelAiTable){
+
+const fuelEntries =
+JSON.parse(
+localStorage.getItem(
+"fuelEntries"
+)
+) || [];
+
+fuelEntries.forEach(entry=>{
+
+let risk = "LOW";
+let status =
+"Fuel Stable";
+
+if(entry.fuel > 120){
+
+risk = "HIGH";
+
+status =
+"Possible Fuel Theft";
+}
+
+else if(entry.fuel > 80){
+
+risk = "MEDIUM";
+
+status =
+"Fuel Above Expected";
+}
+
+fuelAiTable.innerHTML += `
+
+<tr>
+
+<td>
+${entry.vehicle}
+</td>
+
+<td>
+${entry.driver}
+</td>
+
+<td>
+${entry.fuel} L
+</td>
+
+<td>
+${entry.efficiency} km/L
+</td>
+
+<td>
+${risk}
+</td>
+
+<td>
+${status}
+</td>
+
+</tr>
+
+`;
+
+});
+
+}
+
+/* =========================================
+   DOWNLOAD PDF
+========================================= */
+
+function downloadFuelAiReport(){
+
+const fuelEntries =
+JSON.parse(
+localStorage.getItem(
+"fuelEntries"
+)
+) || [];
+
+let reportText =
+"AI Fuel Intelligence Report\n\n";
+
+fuelEntries.forEach((entry,index)=>{
+
+let risk = "LOW";
+
+if(entry.fuel > 120){
+risk = "HIGH";
+}
+
+else if(entry.fuel > 80){
+risk = "MEDIUM";
+}
+
+reportText += `
+
+${index+1}
+
+Vehicle : ${entry.vehicle}
+
+Driver : ${entry.driver}
+
+Fuel : ${entry.fuel} L
+
+Mileage : ${entry.efficiency} km/L
+
+Risk : ${risk}
+
+-------------------------
+
+`;
+
+});
+
+const blob = new Blob(
+[reportText],
+{
+type:"text/plain"
+}
+);
+
+const link =
+document.createElement("a");
+
+link.href =
+URL.createObjectURL(blob);
+
+link.download =
+"fuel-ai-report.txt";
+
+link.click();
+
+}
